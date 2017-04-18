@@ -1,6 +1,6 @@
 /*!\file stream_redirect.c
 ** \author SMFSW
-** \version v0.1
+** \version v0.2
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection
@@ -41,7 +41,6 @@ __STATIC_INLINE void __attribute__((always_inline)) uart_prt(char* ptr, int len)
 
 int uart_printf(char *string, ...)
 {
-#if defined(IS_DEBUG)
 	va_list args;
 
 	va_start(args, string);
@@ -51,23 +50,16 @@ int uart_printf(char *string, ...)
 	buf_stream[0] = '\0';	// Erase string
 
 	return 0;
-#else
-	return -1;
-#endif
 }
 
 
 int uart_vprintf(char *string, va_list args)
 {
-#if defined(IS_DEBUG)
 	vsprintf(buf_stream, string, args);
 	uart_prt(buf_stream, strlen(buf_stream));
 	buf_stream[0] = '\0';	// Erase string
 
 	return 0;
-#else
-	return -1;
-#endif
 }
 
 
