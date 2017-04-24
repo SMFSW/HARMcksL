@@ -1,6 +1,6 @@
 /*!\file stream_redirect.h
 ** \author SMFSW
-** \version v0.1
+** \version v0.3
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection header
@@ -18,17 +18,22 @@
 #include CMSIS_CFG
 
 
-#if defined(HAL_UART_MODULE_ENABLED)
-#include "usart.h"
-
-#define	printf		uart_printf		// Shadowing printf use
-#define	vprintf		uart_vprintf	// Shadowing vprintf use
+#define ITM_ENABLED					// Enable ITM send if defined
 
 
-int	uart_printf(char *string, ...);
-int	uart_vprintf(char *string, va_list args);
+#define	printf		printf_rdir		// Shadowing printf use
+#define	vprintf		vprintf_rdir	// Shadowing vprintf use
 
-#endif
+
+void print_itm_port(int port, const char * msg, int len);
+
+// printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
+int printf_ITM(char * string, ...);
+int vprintf_ITM(char * string, va_list args);
+
+// General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
+int	printf_rdir(char * string, ...);
+int	vprintf_rdir(char * string, va_list args);
 
 
 /****************************************************************/

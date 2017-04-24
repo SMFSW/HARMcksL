@@ -22,11 +22,11 @@ HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t Freq)
 	if (Freq > coreCLK / 100)	{ return HAL_ERROR; }
 
 	// TODO: find prescaler & period with i++ instead of shifts
-	for (i = 1 ; i < (uint16_t) -1 ; i<<=1)
+	for (i = 1 ; i < (uint16_t) -1 ; i <<= 1)
 	{
 		per = (coreCLK / (Freq * (i + 1))) - 1;
 		if (per <= (uint16_t) -1)	{ break; }				// If in 16b range
-		if (i == 1<<15)				{ return HAL_ERROR; }	// If nothing has been found (last iteration)
+		if (i == 1 << 15)			{ return HAL_ERROR; }	// If nothing has been found (last iteration)
 	}
 
 	pTim->Init.Period = per;
