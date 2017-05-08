@@ -1,10 +1,12 @@
 /*!\file exceptions.c
 ** \author SMFSW
-** \version v0.3
+** \version v0.5
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Debug tool helpers functions
 **/
+/****************************************************************/
+/****************************************************************/
 
 #include <string.h>
 
@@ -68,7 +70,7 @@ void HardFault_Handler_callback(uint32_t stack[])
 void Error_Handler_callback(uint32_t stack[])
 {
 	// TODO: maybe pass by another asm code to retrieve HAL error code if not in stack
-	printf("Error handler\t");
+	printf("Error handler\n");
 	stackDump(stack);
 
 //	__BKPT(01);

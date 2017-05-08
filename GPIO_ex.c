@@ -1,10 +1,13 @@
 /*!\file GPIO_ex.c
 ** \author SMFSW
-** \version v0.3
+** \version v0.5
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Simple extension for GPIOs
 **/
+/****************************************************************/
+/****************************************************************/
+
 #include <string.h>
 #include <assert.h>
 
@@ -13,13 +16,45 @@
 #define MAX_PINS_PORT	16
 
 
-int str_GPIO_name(char * name, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+void GPIO_in_init(GPIO_in * in, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint16_t filter)
+{
+	/* Check the parameters */
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
+
+	in->cfg.GPIOx = GPIOx;
+	in->cfg.GPIO_Pin = GPIO_Pin;
+	in->cfg.filt = filter;
+}
+
+
+void GPIO_in_handler(GPIO_in * in)
+{
+	if (in->in == in->mem)		{ in->edge = NoEdge; }
+	else if (in->in > in->mem)	{ in->edge = Rising; }
+	else						{ in->edge = Falling; }
+
+	in->mem = in->in;
+	if (!HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin))
+	{
+		if (TPSSUP_MS(in->hIn, in->cfg.filt))
+		{
+			if (!in->done)	{ in->done = in->in = true; }
+		}
+	}
+	else
+	{
+		in->done = in->in = false;
+		in->hIn = HAL_GetTick();
+	}
+}
+
+
+FctERR str_GPIO_name(char * name, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 {
 	const char *port, prt[][7] = { "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIO?" };
 
 	/* Check the parameters */
 	assert_param(name);
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
 
 	if (!name)	{ return -1; }	// pointer for storage is not defined
 
@@ -54,9 +89,9 @@ int str_GPIO_name(char * name, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 		if (1U << pin == GPIO_Pin)
 		{
 			sprintf(name, "%s%i", port, pin);
-			return 0;	// Match, return 0
+			return ERR_OK;	// Match
 		}
 	}
 	sprintf(name, "%s%s", port, "xx");
-	return -1;			// No match, return -1
+	return ERR_VALUE;		// No match
 }

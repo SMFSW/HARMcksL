@@ -1,10 +1,12 @@
-/*!\file stream_redirect.c
+/*!\file stdream_rdir.c
 ** \author SMFSW
-** \version v0.3
+** \version v0.5
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection
 */
+/****************************************************************/
+/****************************************************************/
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -25,7 +27,7 @@ static char buf_stream[128] = "";
 #warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
 #endif
 
-__STATIC_INLINE void __attribute__((always_inline)) print_uart(char* ptr, int len)
+__STATIC_INLINE void INLINE__ print_uart(char* ptr, int len)
 {
 	HAL_UART_Transmit(DBG_SERIAL, (uint8_t *) ptr, len, 30);
 }

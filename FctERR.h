@@ -1,6 +1,6 @@
 /*!\file FctERR.h
 ** \author SMFSW
-** \version v0.4
+** \version v0.5
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief errors to SMFSW FctERR declarations
@@ -14,15 +14,18 @@
 /****************************************************************/
 
 
+// *****************************************************************************
+// Section: Types
+// *****************************************************************************
 /*!\enum EnumFctERR
 ** \brief Enum of high level functions return state
 **/
-typedef enum __attribute__((__packed__)) EnumFctERR{
+typedef enum PACK__ EnumFctERR{
 	ERR_OK			= 0U,	//!< OK
 	ERR_SPEED		= 1U,	//!< This device does not work in the active speed mode.
 	ERR_RANGE		= 2U,	//!< Parameter out of range.
 	ERR_VALUE		= 3U,	//!< Parameter of incorrect value.
-	ERR_OVERFLOW	= 4U,	//!< Timer overflow.
+	ERR_OVERFLOW	= 4U,	//!< Overflow.
 	ERR_MATH		= 5U,	//!< Overflow during evaluation.
 	ERR_ENABLED		= 6U,	//!< Device is enabled.
 	ERR_DISABLED	= 7U,	//!< Device is disabled.
@@ -52,10 +55,17 @@ typedef enum __attribute__((__packed__)) EnumFctERR{
 	ERR_NOTIMPLEM	= 31U,	//!< Function not implemented error
 	ERR_MEMORY		= 32U,	//!< Memory error
 	ERR_INSTANCE	= 33U	//!< Instance error
-}FctERR;
+} FctERR;
 
 
-FctERR HALERRtoFCTERR(HAL_StatusTypeDef Status);
+// *****************************************************************************
+// Section: Interface Routines
+// *****************************************************************************
+/*!\brief Convert HAL_StatusTypeDef to FctERR
+** \param[in] st - HAL_StatusTypeDef status
+** \return FctERR status
+**/
+FctERR HALERRtoFCTERR(HAL_StatusTypeDef st);
 
 
 /****************************************************************/

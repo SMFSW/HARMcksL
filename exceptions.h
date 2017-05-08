@@ -1,6 +1,6 @@
 /*!\file exceptions.h
 ** \author SMFSW
-** \version v0.3
+** \version v0.5
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Debug tool and helpers declaration
@@ -8,13 +8,16 @@
 /****************************************************************/
 #ifndef __EXCEPTIONS_H
 	#define __EXCEPTIONS_H
-/****************************************************************/
 
 #include "sarmfsw.h"
 #include CMSIS_INC
 #include CMSIS_CFG
+/****************************************************************/
 
 
+// *****************************************************************************
+// Section: Interface Routines
+// *****************************************************************************
 #define exception_Handler(e)					\
 	__asm(	"tst lr, #4 \n"						\
 			"ite EQ \n"							\
