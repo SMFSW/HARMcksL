@@ -1,6 +1,6 @@
 /*!\file GPIO_ex.h
 ** \author SMFSW
-** \version v0.5
+** \version v0.6
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Simple extension for GPIOs
@@ -110,7 +110,7 @@ __INLINE void INLINE__ write_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, eActOu
 		#if defined(VERBOSE)
 			char port[10] = "";
 			str_GPIO_name(port, GPIOx, GPIO_Pin);
-			printf("Written %s to %u (%lums)\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HAL_GetTick());
+			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HAL_GetTick());
 		#endif
 	}
 }
@@ -129,7 +129,7 @@ __INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin
 		GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
 		char port[10] = "";
 		str_GPIO_name(port, GPIOx, GPIO_Pin);
-		printf("Read %s is %u (%lums)\n", port, pin, HAL_GetTick());
+		printf("Read %s is %u (%lums)\r\n", port, pin, HAL_GetTick());
 		return pin;
 	#else
 		return HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);

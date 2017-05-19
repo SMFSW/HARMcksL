@@ -1,6 +1,6 @@
 /*!\file stdream_rdir.c
 ** \author SMFSW
-** \version v0.5
+** \version v0.6
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection
@@ -27,9 +27,11 @@ static char buf_stream[128] = "";
 #warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
 #endif
 
-__STATIC_INLINE void INLINE__ print_uart(char* ptr, int len)
+__STATIC_INLINE HAL_StatusTypeDef INLINE__ print_uart(char* ptr, int len)
 {
-	HAL_UART_Transmit(DBG_SERIAL, (uint8_t *) ptr, len, 30);
+	// TODO: find a way to determine if UART interrupts are enabled or not
+	return HAL_UART_Transmit(DBG_SERIAL, (uint8_t *) ptr, len, 30);
+	//return HAL_UART_Transmit_IT(DBG_SERIAL, (uint8_t *) ptr, len);
 }
 
 #endif

@@ -17,5 +17,5 @@ Doxygen generated documentation can be found in "HARMcksL_vXXX.pdf"
 ## Release Notes
 Detailed changes will come after v1.0 release
 
-- v0.5: current
+- v0.6: current
   - Still in beta for some time

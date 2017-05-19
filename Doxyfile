@@ -38,7 +38,7 @@ PROJECT_NAME           = "HARMcksL: ARM HAL toolbox (yet STM32 oriented)"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = 0.5
+PROJECT_NUMBER         = 0.6
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -2047,15 +2047,15 @@ PREDEFINED             = DOXY=1 \
                          PACK__ \
                          WEAK__ \
                          INLINE__ \
-                         __INLINE \
-                         __STATIC_INLINE \
+                         __INLINE=inline \
+                         "__STATIC_INLINE=static inline" \
                          __WEAK \
-                         __IO \
-                         __O \
-                         __I \
-                         __IOM \
-                         __OM \
-                         __IM \
+                         __IO=volatile \
+                         __O=volatile \
+                         "__I=volatile const" \
+                         __IOM=volatile \
+                         __OM=volatile \
+                         "__IM=volatile const"
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

@@ -1,6 +1,6 @@
 /*!\file stdream_rdir.h
 ** \author SMFSW
-** \version v0.5
+** \version v0.6
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection header
