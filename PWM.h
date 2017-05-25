@@ -1,9 +1,9 @@
 /*!\file PWM.h
 ** \author SMFSW
-** \version v0.6
+** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
-** \brief Simple PWM handling
+** \brief Straightforward PWM handling
 **/
 /****************************************************************/
 #ifndef __PWM_H
@@ -27,6 +27,7 @@
 **/
 HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 
+
 /*!\brief Set TIM module PWM duty cycle (scaled)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -35,6 +36,7 @@ HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 ** \return HAL Status
 **/
 HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty, uint16_t scale);
+
 
 /*!\brief Set TIM module PWM duty cycle (percents)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
@@ -45,6 +47,7 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, 100); }
 
+
 /*!\brief Set TIM module PWM duty cycle (u16-bit value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -53,6 +56,7 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(TIM_HandleTypeDef * pTim, 
 **/
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint16_t) -1); }
+
 
 /*!\brief Set TIM module PWM duty cycle (u8-bit value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation

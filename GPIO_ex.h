@@ -1,6 +1,6 @@
 /*!\file GPIO_ex.h
 ** \author SMFSW
-** \version v0.6
+** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Simple extension for GPIOs
@@ -61,11 +61,13 @@ typedef struct GPIO_in {
 **/
 void GPIO_in_init(GPIO_in * in, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint16_t filter);
 
+
 /*!\brief Handles GPIO_in read and treatment
 ** \param[in,out] in - input instance to handle
 ** \return Nothing
 **/
 void GPIO_in_handler(GPIO_in * in);
+
 
 /*!\brief Get GPIO_in input value
 ** \param[in] in - input instance
@@ -73,12 +75,12 @@ void GPIO_in_handler(GPIO_in * in);
 **/
 __INLINE bool INLINE__ get_GPIO_in(GPIO_in * in) { return in->in; }
 
+
 /*!\brief Get GPIO_in input edge
 ** \param[in] in - input instance
 ** \return Input edge
 **/
 __INLINE bool INLINE__ get_GPIO_in_edge(GPIO_in * in) { return in->edge; }
-
 
 
 /*!\brief Get name from Port, Pin
@@ -115,6 +117,7 @@ __INLINE void INLINE__ write_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, eActOu
 	}
 }
 
+
 /*!\brief Read GPIO
 ** \param[in] GPIOx - port to read from
 ** \param[in] GPIO_Pin - pin to read from
@@ -135,6 +138,7 @@ __INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin
 		return HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
 	#endif
 }
+
 
 /****************************************************************/
 #endif /* __GPIO_EX_H */

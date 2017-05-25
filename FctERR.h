@@ -1,6 +1,6 @@
 /*!\file FctERR.h
 ** \author SMFSW
-** \version v0.6
+** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief errors to SMFSW FctERR declarations
@@ -17,10 +17,10 @@
 // *****************************************************************************
 // Section: Types
 // *****************************************************************************
-/*!\enum EnumFctERR
-** \brief Enum of high level functions return state
+/*!\enum FctERR
+** \brief Enum of low/mid level functions return state
 **/
-typedef enum PACK__ EnumFctERR{
+typedef enum PACK__ FctERR{
 	ERR_OK			= 0U,	//!< OK
 	ERR_SPEED		= 1U,	//!< This device does not work in the active speed mode.
 	ERR_RANGE		= 2U,	//!< Parameter out of range.
@@ -62,10 +62,10 @@ typedef enum PACK__ EnumFctERR{
 // Section: Interface Routines
 // *****************************************************************************
 /*!\brief Convert HAL_StatusTypeDef to FctERR
-** \param[in] st - HAL_StatusTypeDef status
+** \param[in] status - HAL_StatusTypeDef status
 ** \return FctERR status
 **/
-FctERR HALERRtoFCTERR(HAL_StatusTypeDef st);
+FctERR HALERRtoFCTERR(HAL_StatusTypeDef status);
 
 
 /****************************************************************/

@@ -1,16 +1,15 @@
 /*!\file PWM.c
 ** \author SMFSW
-** \version v0.6
+** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
-** \brief Simple PWM handling
+** \brief Straightforward PWM handling
 **/
 /****************************************************************/
-/****************************************************************/
-
 #include "PWM.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
+/****************************************************************/
 
 
 HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
@@ -23,7 +22,7 @@ HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 
 	if (freq > coreCLK / 100)	{ return HAL_ERROR; }
 
-	// TODO: find prescaler & period with i++ instead of shifts
+	// TODO: find prescaler & period with i++ instead of shifts for more accuracy (despite of time passed)
 	for (i = 1 ; i < (uint16_t) -1 ; i <<= 1)
 	{
 		per = (coreCLK / (freq * (i + 1))) - 1;
@@ -41,7 +40,10 @@ HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 	return HAL_TIM_Base_Init(pTim);
 }
 
+
+/*******************/
 /*** PWM DRIVING ***/
+/*******************/
 /*!\brief Low level TIM module PWM duty cycle write
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -64,6 +66,7 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(TIM_HandleTypeDef * pTim, u
 	return HAL_OK;
 }
 
+
 HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty, uint16_t scale)
 {
 	float tmp = ((float) min(scale, duty) / (float) scale) * pTim->Instance->ARR;
@@ -71,4 +74,6 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 }
 
 
+/****************************************************************/
 #endif
+/****************************************************************/
