@@ -1,6 +1,5 @@
 /*!\file GPIO_ex.h
 ** \author SMFSW
-** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Simple extension for GPIOs

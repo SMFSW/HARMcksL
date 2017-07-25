@@ -1,6 +1,5 @@
 /*!\file PWM.h
 ** \author SMFSW
-** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Straightforward PWM handling
@@ -21,12 +20,29 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
-/*!\brief Set TIM module PWM frequency for channel
+/*!\brief Init TIM PWM module channel with frequency and starts the channel
+** \param[in,out] pTim - pointer to TIM instance for PWM generation
+** \param[in] chan - Channel to write
+** \param[in] freq - Desired PWM frequency
+**/
+HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq);
+
+
+/*!\brief Set TIM module frequency
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] freq - Desired PWM frequency
 **/
-HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 
+
+/*!\brief Set PWM channel output on/off
+** \param[in,out] pTim - pointer to TIM instance for PWM generation
+** \param[in] chan - Channel to write
+** \param[in] on - Channel Output state 0: off, 1: on
+** \return HAL Status
+**/
+__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, uint32_t chan, bool on) {
+	return on ? HAL_TIM_PWM_Start(pTim, chan) : HAL_TIM_PWM_Stop(pTim, chan); }
 
 /*!\brief Set TIM module PWM duty cycle (scaled)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation

@@ -1,6 +1,5 @@
 /*!\file PWM.c
 ** \author SMFSW
-** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Straightforward PWM handling
@@ -12,7 +11,36 @@
 /****************************************************************/
 
 
-HAL_StatusTypeDef set_PWM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
+HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq)
+{
+	HAL_StatusTypeDef	err;
+
+	/* Check the parameters */
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
+	assert_param(IS_TIM_CHANNELS(chan));
+
+	err = set_TIM_Freq(pTim, freq);
+	if (err)	{ return err; }
+
+	if (chan == TIM_CHANNEL_ALL)
+	{
+		#if defined(TIM_CHANNEL_6)
+			uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
+		#else
+			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
+		#endif
+
+		for (int i = 0 ; i < sizeof(chans) / sizeof(uint32_t); i++)
+		{
+			err = set_PWM_Output(pTim, i, true);
+			if (err)	{ break; }
+		}
+		return err;
+	}
+	else return set_PWM_Output(pTim, chan, true);
+}
+
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 {
 	const uint32_t	coreCLK = HAL_RCC_GetHCLKFreq();
 	uint32_t		per, i;
@@ -58,11 +86,14 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(TIM_HandleTypeDef * pTim, u
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
 
-	if (chan <= TIM_CHANNEL_4)		{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
-	else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
-	else 							{ return HAL_ERROR; }
+	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
+	#if defined(STM32F3)
+		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
+	#endif
+	else 								{ return HAL_ERROR; }
 
 	*pCCR = CCR_val;
+
 	return HAL_OK;
 }
 

@@ -1,6 +1,5 @@
 /*!\file FctERR.h
 ** \author SMFSW
-** \version v0.7
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief errors to SMFSW FctERR declarations
@@ -19,42 +18,47 @@
 // *****************************************************************************
 /*!\enum FctERR
 ** \brief Enum of low/mid level functions return state
+** \note TODO: Fix !defined lines when __mx_lwip_H set (should not cause any harm, but ugly and set to cause issues sometime, somehow)
 **/
-typedef enum PACK__ FctERR{
-	ERR_OK			= 0U,	//!< OK
-	ERR_SPEED		= 1U,	//!< This device does not work in the active speed mode.
-	ERR_RANGE		= 2U,	//!< Parameter out of range.
-	ERR_VALUE		= 3U,	//!< Parameter of incorrect value.
-	ERR_OVERFLOW	= 4U,	//!< Overflow.
-	ERR_MATH		= 5U,	//!< Overflow during evaluation.
-	ERR_ENABLED		= 6U,	//!< Device is enabled.
-	ERR_DISABLED	= 7U,	//!< Device is disabled.
-	ERR_BUSY		= 8U,	//!< Device is busy.
-	ERR_NOTAVAIL	= 9U,	//!< Requested value or method not available.
-	ERR_RXEMPTY		= 10U,	//!< No data in receiver.
-	ERR_TXFULL		= 11U,	//!< Transmitter is full.
-	ERR_BUSOFF		= 12U,	//!< Bus not available.
-	ERR_OVERRUN		= 13U,	//!< Overrun error is detected.
-	ERR_FRAMING		= 14U,	//!< Framing error is detected.
-	ERR_PARITY		= 15U,	//!< Parity error is detected.
-	ERR_NOISE		= 16U,	//!< Noise error is detected.
-	ERR_IDLE		= 17U,	//!< Idle error is detected.
-	ERR_FAULT		= 18U,	//!< Fault error is detected.
-	ERR_BREAK		= 19U,	//!< Break char is received during communication.
-	ERR_CRC			= 20U,	//!< CRC error is detected.
-	ERR_ARBITR		= 21U,	//!< A node lost arbitration. This error occurs if two nodes start transmission at the same time.
-	ERR_PROTECT		= 22U,	//!< Protection error is detected.
-	ERR_UNDERFLOW	= 23U,	//!< Underflow error is detected.
-	ERR_UNDERRUN	= 24U,	//!< Underrun error is detected.
-	ERR_COMMON		= 25U,	//!< Common error of a device.
-	ERR_LINSYNC		= 26U,	//!< LIN synchronization error is detected.
-	ERR_FAILED		= 27U,	//!< Requested functionality or process failed.
-	ERR_QFULL		= 28U,	//!< Queue is full.
-	ERR_CMD			= 29U,	//!< Command error is detected
-	ERR_TIMEOUT		= 30U,	//!< Abort on timeout error
-	ERR_NOTIMPLEM	= 31U,	//!< Function not implemented error
-	ERR_MEMORY		= 32U,	//!< Memory error
-	ERR_INSTANCE	= 33U	//!< Instance error
+typedef enum FctERR{
+#if !defined(__mx_lwip_H)	// TODO: find a fix to remove this pre-processor ugliness
+	ERR_OK			= 0,	//!< OK
+#endif
+	ERR_SPEED		= -1,	//!< This device does not work in the active speed mode.
+	ERR_RANGE		= -2,	//!< Parameter out of range.
+#if !defined(__mx_lwip_H)	// TODO: find a fix to remove this pre-processor ugliness
+	ERR_TIMEOUT		= -3,	//!< Abort on timeout error
+#endif
+	ERR_VALUE		= -4,	//!< Parameter of incorrect value.
+	ERR_OVERFLOW	= -5,	//!< Overflow.
+	ERR_MATH		= -6,	//!< Overflow during evaluation.
+	ERR_ENABLED		= -7,	//!< Device is enabled.
+	ERR_DISABLED	= -8,	//!< Device is disabled.
+	ERR_BUSY		= -9,	//!< Device is busy.
+	ERR_NOTAVAIL	= -10,	//!< Requested value or method not available.
+	ERR_RXEMPTY		= -11,	//!< No data in receiver.
+	ERR_TXFULL		= -12,	//!< Transmitter is full.
+	ERR_BUSOFF		= -13,	//!< Bus not available.
+	ERR_OVERRUN		= -14,	//!< Overrun error is detected.
+	ERR_FRAMING		= -15,	//!< Framing error is detected.
+	ERR_PARITY		= -16,	//!< Parity error is detected.
+	ERR_NOISE		= -17,	//!< Noise error is detected.
+	ERR_IDLE		= -18,	//!< Idle error is detected.
+	ERR_FAULT		= -19,	//!< Fault error is detected.
+	ERR_BREAK		= -20,	//!< Break char is received during communication.
+	ERR_CRC			= -21,	//!< CRC error is detected.
+	ERR_ARBITR		= -22,	//!< A node lost arbitration. This error occurs if two nodes start transmission at the same time.
+	ERR_PROTECT		= -23,	//!< Protection error is detected.
+	ERR_UNDERFLOW	= -24,	//!< Underflow error is detected.
+	ERR_UNDERRUN	= -25,	//!< Underrun error is detected.
+	ERR_COMMON		= -26,	//!< Common error of a device.
+	ERR_LINSYNC		= -27,	//!< LIN synchronization error is detected.
+	ERR_FAILED		= -28,	//!< Requested functionality or process failed.
+	ERR_QFULL		= -29,	//!< Queue is full.
+	ERR_CMD			= -30,	//!< Command error is detected
+	ERR_NOTIMPLEM	= -31,	//!< Function not implemented error
+	ERR_MEMORY		= -32,	//!< Memory error
+	ERR_INSTANCE	= -33	//!< Instance error
 } FctERR;
 
 

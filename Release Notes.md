@@ -1,25 +1,4 @@
-# HARMcksL
-ARM HAL toolbox (yet STM32 oriented)
-
-## Requires
-
-The toolbox uses sarmfsw headers library
-
-- sarmfsw
-  - https://github.com/SMFSW/sarmfsw
-
-  
-## Documentation
-
-Doxygen generated documentation can be found in "HARMcksL_vXXX.pdf"
-
-
-## Release Notes
-
-See [release notes](https://github.com/SMFSW/HARMcksL/ReleaseNotes.md)
-
-
-## License
+# HARMcksL (release notes)
 
 The MIT License (MIT)
 
@@ -40,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+## v1.0
+
+* PWM: Added function init_PWM_Chan (calls setFreq & starts PWM channel output)
+* PWM: Added inline to Start/Stop PWM channel output
+* PWM: added precomp define (from sarmfsw) to define channel 5 & 6 only for F3 (may be needed on some other families)
+* FctERR: enum is now signed and precomp defined(lwip) in enum discards duplicates with lwip (while keeping common values)
+
+## v0.7 and below
+
+* initial commit and beta versions
