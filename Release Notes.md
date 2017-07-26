@@ -21,6 +21,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## v1.1
+
+* PWM: Fixed start/stop PWM channels all at once
+* PWM: Added APB clock automatic scaling for TIM used (clock fed for frequency calculation) 
+
 ## v1.0
 
 * PWM: Added function init_PWM_Chan (calls setFreq & starts PWM channel output)

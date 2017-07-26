@@ -13,14 +13,14 @@
 
 HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq)
 {
-	HAL_StatusTypeDef	err;
+	HAL_StatusTypeDef	st;
 
 	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CHANNELS(chan));
 
-	err = set_TIM_Freq(pTim, freq);
-	if (err)	{ return err; }
+	st = set_TIM_Freq(pTim, freq);
+	if (st)	{ return st; }
 
 	if (chan == TIM_CHANNEL_ALL)
 	{
@@ -30,25 +30,50 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_
 			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
 		#endif
 
-		for (int i = 0 ; i < sizeof(chans) / sizeof(uint32_t); i++)
+		for (int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
 		{
-			err = set_PWM_Output(pTim, i, true);
-			if (err)	{ break; }
+			st = set_PWM_Output(pTim, chans[i], true);
+			if (st)	{ break; }
 		}
-		return err;
+		return st;
 	}
 	else return set_PWM_Output(pTim, chan, true);
 }
 
+
 HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 {
-	const uint32_t	coreCLK = HAL_RCC_GetHCLKFreq();
-	uint32_t		per, i;
+	uint32_t	coreCLK, per, i;
 
 	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
-	if (freq > coreCLK / 100)	{ return HAL_ERROR; }
+	if (	((TIM_TypeDef *) pTim == TIM1)
+#if defined(TIM8)
+		||	((TIM_TypeDef *) pTim == TIM8)
+#endif
+#if defined(TIM9)
+		||	((TIM_TypeDef *) pTim == TIM9)
+#endif
+#if defined(TIM10)
+		||	((TIM_TypeDef *) pTim == TIM10)
+#endif
+#if defined(TIM11)
+		||	((TIM_TypeDef *) pTim == TIM11)
+#endif
+#if defined(TIM15)
+		||	((TIM_TypeDef *) pTim == TIM15)
+#endif
+#if defined(TIM16)
+		||	((TIM_TypeDef *) pTim == TIM16)
+#endif
+#if defined(TIM17)
+		||	((TIM_TypeDef *) pTim == TIM17)
+#endif
+	)		{ coreCLK = HAL_RCC_GetPCLK1Freq(); }	// Get APB2 (PCLK1) frequency
+	else	{ coreCLK = HAL_RCC_GetPCLK2Freq();	}	// Get APB1 (PCLK2) frequency
+
+	if (freq > coreCLK / 3)		{ return HAL_ERROR; }
 
 	// TODO: find prescaler & period with i++ instead of shifts for more accuracy (despite of time passed)
 	for (i = 1 ; i < (uint16_t) -1 ; i <<= 1)
