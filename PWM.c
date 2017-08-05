@@ -43,52 +43,72 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_
 
 HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 {
-	uint32_t	coreCLK, per, i;
+	uint32_t	refCLK, per, i;
 
 	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
-	if (	((TIM_TypeDef *) pTim == TIM1)
-#if defined(TIM8)
-		||	((TIM_TypeDef *) pTim == TIM8)
+#if defined(STM32F0)
+	refCLK = HAL_RCC_GetPCLK1Freq();
+#else
+	if (	(pTim->Instance == TIM1)
+	#if defined(TIM8)
+		||	(pTim->Instance == TIM8)
+	#endif
+	#if defined(TIM9)
+		||	(pTim->Instance == TIM9)
+	#endif
+	#if defined(TIM10)
+		||	(pTim->Instance == TIM10)
+	#endif
+	#if defined(TIM11)
+		||	(pTim->Instance == TIM11)
+	#endif
+	#if defined(TIM15)
+		||	(pTim->Instance == TIM15)
+	#endif
+	#if defined(TIM16)
+		||	(pTim->Instance == TIM16)
+	#endif
+	#if defined(TIM17)
+		||	(pTim->Instance == TIM17)
+	#endif
+	)
+	{
+		#if defined (STM32F3)
+		if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PCLK2))
+			||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PCLK2))
+			||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PCLK2))
+			||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PCLK2)))
+		{	// Get SYCLK (HCLK) frequency
+			refCLK = HAL_RCC_GetHCLKFreq();
+		}
+		else
+		#endif
+		{	// Get APB2 (PCLK2) frequency
+			refCLK = HAL_RCC_GetPCLK2Freq();
+			if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)	{ refCLK *= 2; }
+		}
+	}
+	else
+	{	// Get APB1 (PCLK1) frequency
+		refCLK = HAL_RCC_GetPCLK1Freq();
+		if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)	{ refCLK *= 2; }
+	}
 #endif
-#if defined(TIM9)
-		||	((TIM_TypeDef *) pTim == TIM9)
-#endif
-#if defined(TIM10)
-		||	((TIM_TypeDef *) pTim == TIM10)
-#endif
-#if defined(TIM11)
-		||	((TIM_TypeDef *) pTim == TIM11)
-#endif
-#if defined(TIM15)
-		||	((TIM_TypeDef *) pTim == TIM15)
-#endif
-#if defined(TIM16)
-		||	((TIM_TypeDef *) pTim == TIM16)
-#endif
-#if defined(TIM17)
-		||	((TIM_TypeDef *) pTim == TIM17)
-#endif
-	)		{ coreCLK = HAL_RCC_GetPCLK1Freq(); }	// Get APB2 (PCLK1) frequency
-	else	{ coreCLK = HAL_RCC_GetPCLK2Freq();	}	// Get APB1 (PCLK2) frequency
 
-	if (freq > coreCLK / 3)		{ return HAL_ERROR; }
+	if (freq > refCLK / 100)		{ return HAL_ERROR; }
 
 	// TODO: find prescaler & period with i++ instead of shifts for more accuracy (despite of time passed)
 	for (i = 1 ; i < (uint16_t) -1 ; i <<= 1)
 	{
-		per = (coreCLK / (freq * (i + 1))) - 1;
+		per = (refCLK / (freq * (i + 1))) - 1;
 		if (per <= (uint16_t) -1)	{ break; }				// If in 16b range
 		if (i == 1 << 15)			{ return HAL_ERROR; }	// If nothing has been found (last iteration)
 	}
 
 	pTim->Init.Period = per;
 	pTim->Init.Prescaler = i;
-
-	//timCLK = 1000000;
-	//pTim->Init.Prescaler = (coreCLK / timCLK) - 1;
-	//pTim->Init.Period = (timCLK / Freq) - 1;
 
 	return HAL_TIM_Base_Init(pTim);
 }

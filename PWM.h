@@ -3,6 +3,7 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Straightforward PWM handling
+** \warning Shall work for all STM32 F families, L families not totally covered
 **/
 /****************************************************************/
 #ifndef __PWM_H

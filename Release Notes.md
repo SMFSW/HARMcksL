@@ -24,7 +24,8 @@ SOFTWARE.
 ## v1.1
 
 * PWM: Fixed start/stop PWM channels all at once
-* PWM: Added APB clock automatic scaling for TIM used (clock fed for frequency calculation) 
+* PWM: check for clock path following STM family used
+* PWM: Added APB clock automatic scaling for TIM used (clock fed for frequency calculation)
 
 ## v1.0
 
