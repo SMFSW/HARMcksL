@@ -73,17 +73,24 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 	#if defined(TIM17)
 		||	(pTim->Instance == TIM17)
 	#endif
-	)
+		)
 	{
 		#if defined (STM32F3)
-		if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PCLK2))
-			||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PCLK2))
-			||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PCLK2))
-			||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PCLK2)))
-		{	// Get SYCLK (HCLK) frequency
-			refCLK = HAL_RCC_GetHCLKFreq();
-		}
-		else
+			if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PCLK2))
+			#if defined(RCC_CFGR3_TIM15SW_PCLK2)
+				||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PCLK2))
+			#endif
+			#if defined(RCC_CFGR3_TIM16SW_PCLK2)
+				||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PCLK2))
+			#endif
+			#if defined(RCC_CFGR3_TIM17SW_PCLK2)
+				||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PCLK2))
+			#endif
+				)
+			{	// Get SYCLK (HCLK) frequency
+				refCLK = HAL_RCC_GetHCLKFreq();
+			}
+			else
 		#endif
 		{	// Get APB2 (PCLK2) frequency
 			refCLK = HAL_RCC_GetPCLK2Freq();
