@@ -123,6 +123,10 @@ int printf_rdir(char * str, ...)
 	print_uart(buf_stream, len);
 #endif
 
+#if (!defined(ITM_ENABLED) && !defined(DBG_SERIAL))
+	UNUSED(len);
+#endif
+
 	str_clr(buf_stream);	// Empty string
 	return 0;
 }
@@ -141,6 +145,10 @@ int vprintf_rdir(char * str, va_list args)
 
 #if defined(DBG_SERIAL)
 	print_uart(buf_stream, len);
+#endif
+
+#if (!defined(ITM_ENABLED) && !defined(DBG_SERIAL))
+	UNUSED(len);
 #endif
 
 	str_clr(buf_stream);	// Empty string

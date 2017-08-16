@@ -11,33 +11,15 @@
 /****************************************************************/
 
 
-HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq)
+HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq)
 {
-	HAL_StatusTypeDef	st;
+	HAL_StatusTypeDef err;
 
-	/* Check the parameters */
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	assert_param(IS_TIM_CHANNELS(chan));
+	err = set_TIM_Interrupts(pTim, Off);	// Stop interrupts if they were already started
+	err = set_TIM_Freq(pTim, freq);			// Configure TIM frequency
+	if (err)	{ return err; }
+	return set_TIM_Interrupts(pTim, On);	// Start interrupts
 
-	st = set_TIM_Freq(pTim, freq);
-	if (st)	{ return st; }
-
-	if (chan == TIM_CHANNEL_ALL)
-	{
-		#if defined(TIM_CHANNEL_6)
-			uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
-		#else
-			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
-		#endif
-
-		for (int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
-		{
-			st = set_PWM_Output(pTim, chans[i], true);
-			if (st)	{ break; }
-		}
-		return st;
-	}
-	else return set_PWM_Output(pTim, chan, true);
 }
 
 
@@ -118,6 +100,36 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 	pTim->Init.Prescaler = i;
 
 	return HAL_TIM_Base_Init(pTim);
+}
+
+
+HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq)
+{
+	HAL_StatusTypeDef	st;
+
+	/* Check the parameters */
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
+	assert_param(IS_TIM_CHANNELS(chan));
+
+	st = set_TIM_Freq(pTim, freq);
+	if (st)	{ return st; }
+
+	if (chan == TIM_CHANNEL_ALL)
+	{
+		#if defined(TIM_CHANNEL_6)
+			uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
+		#else
+			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
+		#endif
+
+		for (int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
+		{
+			st = set_PWM_Output(pTim, chans[i], true);
+			if (st)	{ break; }
+		}
+		return st;
+	}
+	else return set_PWM_Output(pTim, chan, true);
 }
 
 

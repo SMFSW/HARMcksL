@@ -21,19 +21,36 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*** TIM Base ***/
+/*!\brief Init TIM module and start interruptions
+** \param[in,out] pTim - pointer to TIM instance
+** \param[in] freq - Desired TIM frequency
+**/
+HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq);
+
+
+/*!\brief Set TIM module frequency
+** \param[in,out] pTim - pointer to TIM instance for Frequency computation
+** \param[in] freq - Desired TIM frequency
+**/
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
+
+
+/*!\brief Start TIM module interrupts
+** \param[in,out] pTim - pointer to TIM instance
+** \param[in] on - Time Interrupts 0: off, 1: on
+**/
+__INLINE HAL_StatusTypeDef INLINE__ set_TIM_Interrupts(TIM_HandleTypeDef * pTim, bool on) {
+	return on ? HAL_TIM_Base_Start_IT(pTim) : HAL_TIM_Base_Stop_IT(pTim); }
+
+
+/*** PWM ***/
 /*!\brief Init TIM PWM module channel with frequency and starts the channel
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
 ** \param[in] freq - Desired PWM frequency
 **/
 HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq);
-
-
-/*!\brief Set TIM module frequency
-** \param[in,out] pTim - pointer to TIM instance for PWM generation
-** \param[in] freq - Desired PWM frequency
-**/
-HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 
 
 /*!\brief Set PWM channel output on/off

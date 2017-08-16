@@ -26,6 +26,9 @@ SOFTWARE.
 * PWM: Fixed start/stop PWM channels all at once
 * PWM: check for clock path following STM family used
 * PWM: Added APB clock automatic scaling for TIM used (clock fed for frequency calculation)
+* PWM: Added function to initialize TIM base and start its period elapsed interruptions
+* PWM: Added inline to start/stop TIM module period elapsed interruptions
+* stddream_rdir: added UNUSED macro when needed to avoid variable unused compilation warnings
 
 ## v1.0
 
