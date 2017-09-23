@@ -29,6 +29,7 @@ SOFTWARE.
 * PWM: Added function to initialize TIM base and start its period elapsed interruptions
 * PWM: Added inline to start/stop TIM module period elapsed interruptions
 * stddream_rdir: added UNUSED macro when needed to avoid variable unused compilation warnings
+* Removed CMSIS & HAL includes from files (already included by sarmfsw library)
 
 ## v1.0
 

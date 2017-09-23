@@ -13,8 +13,6 @@
 #include <stdarg.h>
 
 #include "sarmfsw.h"
-#include CMSIS_INC
-#include CMSIS_CFG
 /****************************************************************/
 // TODO: add puts redirect ??
 

@@ -10,8 +10,6 @@
 	#define __PWM_H
 
 #include "sarmfsw.h"
-#include CMSIS_INC
-#include CMSIS_CFG
 
 #if defined(HAL_TIM_MODULE_ENABLED)
 #include "tim.h"

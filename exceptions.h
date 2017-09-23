@@ -9,8 +9,6 @@
 	#define __EXCEPTIONS_H
 
 #include "sarmfsw.h"
-#include CMSIS_INC
-#include CMSIS_CFG
 /****************************************************************/
 
 

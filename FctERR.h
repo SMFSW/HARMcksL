@@ -9,7 +9,6 @@
 	#define __FCTERR_H
 
 #include "sarmfsw.h"
-#include CMSIS_INC
 /****************************************************************/
 
 
