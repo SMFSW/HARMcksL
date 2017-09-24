@@ -21,6 +21,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## v1.2
+
+* removed peripheral includes (already done by sarmfsw library)
+
 ## v1.1
 
 * PWM: Fixed start/stop PWM channels all at once

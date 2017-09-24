@@ -12,7 +12,6 @@
 #include "sarmfsw.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
-#include "tim.h"
 /****************************************************************/
 
 
