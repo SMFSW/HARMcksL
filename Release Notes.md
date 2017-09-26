@@ -24,6 +24,7 @@ SOFTWARE.
 ## v1.2
 
 * removed peripheral includes (already done by sarmfsw library)
+* PWM.c: fixed possible warning in for loop
 
 ## v1.1
 
