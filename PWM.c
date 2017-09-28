@@ -122,7 +122,7 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_
 			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
 		#endif
 
-		for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
+		for (int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
 		{
 			st = set_PWM_Output(pTim, chans[i], true);
 			if (st)	{ break; }
