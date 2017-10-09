@@ -24,7 +24,8 @@ SOFTWARE.
 ## v1.2
 
 * removed peripheral includes (already done by sarmfsw library)
-* PWM.c: fixed possible warning in for loop
+* PWM: fixed possible warning in for loop
+* PWM: added emulated PWM functionality on (for low frequency PWM generation on GPIO)
 
 ## v1.1
 

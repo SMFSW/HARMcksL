@@ -10,9 +10,26 @@
 	#define __PWM_H
 
 #include "sarmfsw.h"
+#include "FctERR.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
 /****************************************************************/
+
+
+/*!\struct logicPWM
+** \brief Software PWM on GPIO struct
+**/
+typedef __IO struct logicPWM {
+	TIM_HandleTypeDef *	pTim;		//!< Timer instance (for reference)
+	GPIO_TypeDef *		GPIOx;		//!< Port of emulated PWM pin
+	uint16_t			GPIO_Pin;	//!< Pin mask on port
+	uint16_t			new_duty;	//!< Duty Cycle (effective when new period starts)
+	uint16_t			cntr;		//!< Counter
+	uint16_t			duty;		//!< Current Duty cycle
+	uint16_t			per;		//!< Overflow threshold (emulated PWM period)
+	uint16_t			tim_freq;	//!< Timer frequency (for reference)
+	bool				polarity;	//!< Output polarity
+} logicPWM;
 
 
 // *****************************************************************************
@@ -97,6 +114,33 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(TIM_HandleTypeDef * pTim, 
 **/
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Byte(TIM_HandleTypeDef * pTim, uint32_t chan, uint8_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint8_t) -1); }
+
+
+/*** Emulated PWM ***/
+/*!\brief Set channel frequency for emulated PWM channel
+** \param[in,out] pPWM - pointer to emulated PWM channel
+** \param[in,out] pTim - pointer to TIM instance for Frequency computation
+** \param[in] freq - PWM frequency to apply
+** \param[in] granularity - PWM duty cycle granularity
+**/
+FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity);
+
+/*!\brief Set channel polarity for emulated PWM channel
+** \param[in,out] pPWM - pointer to emulated PWM channel
+** \param[in] pol - 0: low polarity, 1: high polarity
+**/
+FctERR logPWM_setPolarity(logicPWM * pPWM, bool pol);
+
+/*!\brief Set new duty cycle for emulated PWM channel
+** \param[in,out] pPWM - pointer to emulated PWM channel
+**/
+FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val);
+
+/*!\brief Handler for an emulated PWM channel
+** \warning Shall be called directly from timer interrupt (HAL_TIM_PeriodElapsedCallback)
+** \param[in,out] pPWM - pointer to emulated PWM channel
+**/
+void logPWM_handler(logicPWM * pPWM);
 
 
 /****************************************************************/

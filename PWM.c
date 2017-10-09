@@ -5,6 +5,8 @@
 ** \brief Straightforward PWM handling
 **/
 /****************************************************************/
+#include "sarmfsw.h"
+#include "FctERR.h"
 #include "PWM.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
@@ -166,6 +168,78 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 {
 	float tmp = ((float) min(scale, duty) / (float) scale) * pTim->Instance->ARR;
 	return write_CCR(pTim, chan, (uint16_t) tmp);
+}
+
+
+/****************************************************************/
+
+
+FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity)
+{
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
+
+	if (!pPWM)	{ return ERR_INSTANCE; }
+
+	granularity = max(1, granularity);
+
+	// TODO: set timer frequency & period according to desired frequency
+
+	pPWM->tim_freq = freq;
+
+	return ERR_OK;
+}
+
+
+FctERR logPWM_setPolarity(logicPWM * pPWM, bool pol)
+{
+	if (!pPWM)	{ return ERR_INSTANCE; }
+	pPWM->polarity = pol;
+	return ERR_OK;
+}
+
+
+FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
+{
+	uint16_t duty;
+
+	if (!pPWM)	{ return ERR_INSTANCE; }
+
+	if (val == 65535)	{ duty = pPWM->per; }
+	else if (val == 0)	{ duty = 0; }
+	else				{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->per)) / 65536) - 1)); }
+
+	diInterrupts();
+	pPWM->new_duty = duty;
+	enInterrupts();
+
+	return ERR_OK;
+}
+
+
+void logPWM_handler(logicPWM * pPWM)
+{
+	assert_param(IS_GPIO_PIN(pPWM->GPIO_Pin));
+	if (!pPWM)	{ return; }
+
+	if (pPWM->GPIOx)
+	{
+		if (!pPWM->cntr)					// period over
+		{
+			pPWM->cntr = pPWM->per;			// Reload new period information
+			pPWM->duty = pPWM->new_duty;	// Load new duty cycle
+
+			// if duty has been reached (real 0-100% duty cycles)
+			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			else							HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);	// switch channel off
+		}
+		else
+		{
+			// if duty has been reached (duty cycle)
+			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+		}
+
+		pPWM->cntr--;	// decrease channel counter
+	}
 }
 
 

@@ -56,7 +56,7 @@ typedef struct GPIO_in {
 ** \param[in] filter - input filtering time
 ** \return Nothing
 **/
-void GPIO_in_init(GPIO_in * in, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint16_t filter);
+void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, uint16_t filter);
 
 
 /*!\brief Handles GPIO_in read and treatment
@@ -86,7 +86,7 @@ __INLINE bool INLINE__ get_GPIO_in_edge(GPIO_in * in) { return in->edge; }
 ** \param[in] GPIO_Pin - pin to write to
 ** \return Error code
 **/
-FctERR str_GPIO_name(char * name, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
+FctERR str_GPIO_name(char * name, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin);
 
 
 /*!\brief Write GPIO
@@ -95,7 +95,7 @@ FctERR str_GPIO_name(char * name, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 ** \param[in] Act - type of write
 ** \return Nothing
 **/
-__INLINE void INLINE__ write_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, eActOut Act)
+__INLINE void INLINE__ write_GPIO(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, eActOut Act)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -120,7 +120,7 @@ __INLINE void INLINE__ write_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, eActOu
 ** \param[in] GPIO_Pin - pin to read from
 ** \return Pin state
 **/
-__INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+__INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));

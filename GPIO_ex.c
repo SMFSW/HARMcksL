@@ -15,7 +15,7 @@
 #define MAX_PINS_PORT	16
 
 
-void GPIO_in_init(GPIO_in * in, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint16_t filter)
+void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, uint16_t filter)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
