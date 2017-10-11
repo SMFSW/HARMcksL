@@ -36,26 +36,30 @@ typedef __IO struct logicPWM {
 // Section: Interface Routines
 // *****************************************************************************
 /*** TIM Base ***/
-/*!\brief Init TIM module and start interruptions
-** \param[in,out] pTim - pointer to TIM instance
-** \param[in] freq - Desired TIM frequency
-**/
-HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq);
-
-
-/*!\brief Set TIM module frequency
-** \param[in,out] pTim - pointer to TIM instance for Frequency computation
-** \param[in] freq - Desired TIM frequency
-**/
-HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
-
-
 /*!\brief Start TIM module interrupts
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] on - Time Interrupts 0: off, 1: on
 **/
 __INLINE HAL_StatusTypeDef INLINE__ set_TIM_Interrupts(TIM_HandleTypeDef * pTim, bool on) {
 	return on ? HAL_TIM_Base_Start_IT(pTim) : HAL_TIM_Base_Stop_IT(pTim); }
+
+/*!\brief De-Init TIM module and start interruptions
+** \param[in,out] pTim - pointer to TIM instance
+**/
+__INLINE HAL_StatusTypeDef INLINE__ deinit_TIM_Base(TIM_HandleTypeDef * pTim) {
+	return set_TIM_Interrupts(pTim, Off); }	// Stop interrupts
+
+/*!\brief Init TIM module and start interruptions
+** \param[in,out] pTim - pointer to TIM instance
+** \param[in] freq - Desired TIM frequency
+**/
+HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq);
+
+/*!\brief Set TIM module frequency
+** \param[in,out] pTim - pointer to TIM instance for Frequency computation
+** \param[in] freq - Desired TIM frequency
+**/
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 
 
 /*** PWM ***/
@@ -117,24 +121,46 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Byte(TIM_HandleTypeDef * pTim, 
 
 
 /*** Emulated PWM ***/
+/*!\brief Set channel pin & polarity for emulated PWM channel
+** \param[in] GPIOx - port for emulated PWM
+** \param[in] GPIO_Pin - pin for emulated PWM
+** \param[in,out] pPWM - pointer to emulated PWM channel
+** \param[in] polarity - 0: low polarity, 1: high polarity
+** \return Error code
+**/
+FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity);
+
 /*!\brief Set channel frequency for emulated PWM channel
+** \warning For multiple PWMs on same timer with different frequencies,
+** 			take care of init order (first configured channel will get TIM parameters precedence)
 ** \param[in,out] pPWM - pointer to emulated PWM channel
 ** \param[in,out] pTim - pointer to TIM instance for Frequency computation
 ** \param[in] freq - PWM frequency to apply
 ** \param[in] granularity - PWM duty cycle granularity
+** \return Error code
 **/
 FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity);
 
-/*!\brief Set channel polarity for emulated PWM channel
-** \param[in,out] pPWM - pointer to emulated PWM channel
-** \param[in] pol - 0: low polarity, 1: high polarity
-**/
-FctERR logPWM_setPolarity(logicPWM * pPWM, bool pol);
-
 /*!\brief Set new duty cycle for emulated PWM channel
 ** \param[in,out] pPWM - pointer to emulated PWM channel
+** \param[in] freq - Duty cycle to apply
+** \return Error code
 **/
 FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val);
+
+/*!\brief Get channel frequency for emulated PWM channel
+** \param[in,out] freq - pointer to frequency result
+** \param[in,out] pPWM - pointer to emulated PWM channel
+** \return Error code
+**/
+FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM);
+
+/*!\brief Get channel Duty Cycle for emulated PWM channel
+** \param[in,out] duty - pointer to duty cycle result
+** \param[in,out] pPWM - pointer to emulated PWM channel
+** \return Error code
+**/
+FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM);
 
 /*!\brief Handler for an emulated PWM channel
 ** \warning Shall be called directly from timer interrupt (HAL_TIM_PeriodElapsedCallback)

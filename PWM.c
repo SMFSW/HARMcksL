@@ -13,6 +13,78 @@
 /****************************************************************/
 
 
+/*!\brief Get TIM module clock
+** \warning Shall work for all STM32 F families, L families not totally covered
+** \param[in,out] pTim - pointer to TIM instance
+** \return TIM Clock frequency
+**/
+static uint32_t get_TIM_clock(TIM_HandleTypeDef * pTim)
+{
+	uint32_t	refCLK;
+
+	#if defined(STM32F0)
+		refCLK = HAL_RCC_GetPCLK1Freq();
+	#else
+		if (	(pTim->Instance == TIM1)
+		#if defined(TIM8)
+			||	(pTim->Instance == TIM8)
+		#endif
+		#if defined(TIM9)
+			||	(pTim->Instance == TIM9)
+		#endif
+		#if defined(TIM10)
+			||	(pTim->Instance == TIM10)
+		#endif
+		#if defined(TIM11)
+			||	(pTim->Instance == TIM11)
+		#endif
+		#if defined(TIM15)
+			||	(pTim->Instance == TIM15)
+		#endif
+		#if defined(TIM16)
+			||	(pTim->Instance == TIM16)
+		#endif
+		#if defined(TIM17)
+			||	(pTim->Instance == TIM17)
+		#endif
+			)
+		{
+			#if defined (STM32F3)
+				if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PLL))
+				#if defined(RCC_CFGR3_TIM15SW_PLL)
+					||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PLL))
+				#endif
+				#if defined(RCC_CFGR3_TIM16SW_PLL)
+					||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PLL))
+				#endif
+				#if defined(RCC_CFGR3_TIM17SW_PLL)
+					||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PLL))
+				#endif
+					)
+				{	// Get SYCLK (HCLK) frequency
+					refCLK = HAL_RCC_GetHCLKFreq() * 2;
+				}
+				else
+			#endif
+			{	// Get APB2 (PCLK2) frequency
+				refCLK = HAL_RCC_GetPCLK2Freq();
+				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)	{ refCLK *= 2; }
+			}
+		}
+		else
+		{	// Get APB1 (PCLK1) frequency
+			refCLK = HAL_RCC_GetPCLK1Freq();
+			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)	{ refCLK *= 2; }
+		}
+	#endif
+
+	return refCLK;
+}
+
+
+/*******************/
+/*** TIM RELATED ***/
+/*******************/
 HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq)
 {
 	HAL_StatusTypeDef err;
@@ -32,62 +104,7 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
-#if defined(STM32F0)
-	refCLK = HAL_RCC_GetPCLK1Freq();
-#else
-	if (	(pTim->Instance == TIM1)
-	#if defined(TIM8)
-		||	(pTim->Instance == TIM8)
-	#endif
-	#if defined(TIM9)
-		||	(pTim->Instance == TIM9)
-	#endif
-	#if defined(TIM10)
-		||	(pTim->Instance == TIM10)
-	#endif
-	#if defined(TIM11)
-		||	(pTim->Instance == TIM11)
-	#endif
-	#if defined(TIM15)
-		||	(pTim->Instance == TIM15)
-	#endif
-	#if defined(TIM16)
-		||	(pTim->Instance == TIM16)
-	#endif
-	#if defined(TIM17)
-		||	(pTim->Instance == TIM17)
-	#endif
-		)
-	{
-		#if defined (STM32F3)
-			if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PCLK2))
-			#if defined(RCC_CFGR3_TIM15SW_PCLK2)
-				||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PCLK2))
-			#endif
-			#if defined(RCC_CFGR3_TIM16SW_PCLK2)
-				||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PCLK2))
-			#endif
-			#if defined(RCC_CFGR3_TIM17SW_PCLK2)
-				||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PCLK2))
-			#endif
-				)
-			{	// Get SYCLK (HCLK) frequency
-				refCLK = HAL_RCC_GetHCLKFreq();
-			}
-			else
-		#endif
-		{	// Get APB2 (PCLK2) frequency
-			refCLK = HAL_RCC_GetPCLK2Freq();
-			if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)	{ refCLK *= 2; }
-		}
-	}
-	else
-	{	// Get APB1 (PCLK1) frequency
-		refCLK = HAL_RCC_GetPCLK1Freq();
-		if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)	{ refCLK *= 2; }
-	}
-#endif
-
+	refCLK = get_TIM_clock(pTim);
 	if (freq > refCLK / 100)		{ return HAL_ERROR; }
 
 	// TODO: find prescaler & period with i++ instead of shifts for more accuracy (despite of time passed)
@@ -173,27 +190,52 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 
 /****************************************************************/
 
-
-FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity)
+FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity)
 {
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
 	if (!pPWM)	{ return ERR_INSTANCE; }
 
-	granularity = max(1, granularity);
-
-	// TODO: set timer frequency & period according to desired frequency
-
-	pPWM->tim_freq = freq;
-
+	diInterrupts();
+	pPWM->GPIOx = GPIOx;
+	pPWM->GPIO_Pin = GPIO_Pin;
+	pPWM->polarity = polarity;
+	enInterrupts();
 	return ERR_OK;
 }
 
 
-FctERR logPWM_setPolarity(logicPWM * pPWM, bool pol)
+FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity)
 {
+	uint16_t	tim_freq;
+	FctERR		err = ERR_OK;
+
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	if (!pPWM)	{ return ERR_INSTANCE; }
-	pPWM->polarity = pol;
+
+	granularity = max(10, granularity);
+
+	// TODO: set some limits for frequency (regarding granularity?)
+
+	if (	(pTim->Instance->DIER & TIM_IT_UPDATE)
+		&&	(pTim->Instance->CR1 & TIM_CR1_CEN))
+	{	// Timer already started (try to set period according to already configured timer module)
+		tim_freq = get_TIM_clock(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
+		if ((tim_freq / granularity) < freq)	{ return ERR_VALUE; }
+		granularity = tim_freq / freq;
+	}
+	else
+	{
+		tim_freq = freq * granularity;
+		err = init_TIM_Base(pTim, tim_freq);
+		if (err)	{ return err; }
+	}
+
+	diInterrupts();
+	pPWM->tim_freq = tim_freq;
+	pPWM->per = granularity;
+	pPWM->pTim = pTim;
+	enInterrupts();
+
 	return ERR_OK;
 }
 
@@ -212,6 +254,22 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 	pPWM->new_duty = duty;
 	enInterrupts();
 
+	return ERR_OK;
+}
+
+
+FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM)
+{
+	if (!pPWM)	{ return ERR_INSTANCE; }
+	*freq = pPWM->tim_freq / pPWM->per;
+	return ERR_OK;
+}
+
+
+FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM)
+{
+	if (!pPWM)	{ return ERR_INSTANCE; }
+	*duty = ((float) pPWM->duty * 100) / (float) pPWM->per;
 	return ERR_OK;
 }
 
