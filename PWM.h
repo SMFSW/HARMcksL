@@ -143,7 +143,7 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, 
 
 /*!\brief Set new duty cycle for emulated PWM channel
 ** \param[in,out] pPWM - pointer to emulated PWM channel
-** \param[in] freq - Duty cycle to apply
+** \param[in] val - Duty cycle to apply
 ** \return Error code
 **/
 FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val);
