@@ -190,15 +190,18 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 
 /****************************************************************/
 
+/*****************/
+/*** LOGIC PWM ***/
+/*****************/
 FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity)
 {
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
 	if (!pPWM)	{ return ERR_INSTANCE; }
 
 	diInterrupts();
-	pPWM->GPIOx = GPIOx;
-	pPWM->GPIO_Pin = GPIO_Pin;
-	pPWM->polarity = polarity;
+	pPWM->cfg.GPIOx = GPIOx;
+	pPWM->cfg.GPIO_Pin = GPIO_Pin;
+	pPWM->cfg.polarity = polarity;
 	enInterrupts();
 	return ERR_OK;
 }
@@ -231,9 +234,9 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, 
 	}
 
 	diInterrupts();
-	pPWM->tim_freq = tim_freq;
-	pPWM->per = granularity;
-	pPWM->pTim = pTim;
+	pPWM->cfg.tim_freq = tim_freq;
+	pPWM->cfg.per = granularity;
+	pPWM->cfg.pTim = pTim;
 	enInterrupts();
 
 	return ERR_OK;
@@ -246,12 +249,12 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 
 	if (!pPWM)	{ return ERR_INSTANCE; }
 
-	if (val == 65535)	{ duty = pPWM->per; }
+	if (val == 65535)	{ duty = pPWM->cfg.per; }
 	else if (val == 0)	{ duty = 0; }
-	else				{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->per)) / 65536) - 1)); }
+	else				{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->cfg.per)) / 65536) - 1)); }
 
 	diInterrupts();
-	pPWM->new_duty = duty;
+	pPWM->cfg.duty = duty;
 	enInterrupts();
 
 	return ERR_OK;
@@ -261,39 +264,39 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM)
 {
 	if (!pPWM)	{ return ERR_INSTANCE; }
-	*freq = pPWM->tim_freq / pPWM->per;
+	*freq = pPWM->cfg.tim_freq / pPWM->cfg.per;
 	return ERR_OK;
 }
 
 
 FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM)
 {
-	if (!pPWM)	{ return ERR_INSTANCE; }
-	*duty = ((float) pPWM->duty * 100) / (float) pPWM->per;
+	if ((!pPWM) || (!duty))	{ return ERR_INSTANCE; }
+	*duty = ((float) pPWM->cfg.duty * 100) / (float) pPWM->cfg.per;
 	return ERR_OK;
 }
 
 
 void logPWM_handler(logicPWM * pPWM)
 {
-	assert_param(IS_GPIO_PIN(pPWM->GPIO_Pin));
+	assert_param(IS_GPIO_PIN(pPWM->cfg.GPIO_Pin));
 	if (!pPWM)	{ return; }
 
-	if (pPWM->GPIOx)
+	if (pPWM->cfg.GPIOx)
 	{
 		if (!pPWM->cntr)					// period over
 		{
-			pPWM->cntr = pPWM->per;			// Reload new period information
-			pPWM->duty = pPWM->new_duty;	// Load new duty cycle
+			pPWM->cntr = pPWM->cfg.per;		// Reload new period information
+			pPWM->duty = pPWM->cfg.duty;	// Load new duty cycle
 
 			// if duty has been reached (real 0-100% duty cycles)
-			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
-			else							HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);	// switch channel off
+			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			else							HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);	// switch channel off
 		}
 		else
 		{
 			// if duty has been reached (duty cycle)
-			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->GPIOx, pPWM->GPIO_Pin, pPWM->polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
 		}
 
 		pPWM->cntr--;	// decrease channel counter

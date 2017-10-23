@@ -20,15 +20,17 @@
 ** \brief Software PWM on GPIO struct
 **/
 typedef __IO struct logicPWM {
-	TIM_HandleTypeDef *	pTim;		//!< Timer instance (for reference)
-	GPIO_TypeDef *		GPIOx;		//!< Port of emulated PWM pin
-	uint16_t			GPIO_Pin;	//!< Pin mask on port
-	uint16_t			new_duty;	//!< Duty Cycle (effective when new period starts)
-	uint16_t			cntr;		//!< Counter
-	uint16_t			duty;		//!< Current Duty cycle
-	uint16_t			per;		//!< Overflow threshold (emulated PWM period)
-	uint16_t			tim_freq;	//!< Timer frequency (for reference)
-	bool				polarity;	//!< Output polarity
+	uint16_t				cntr;		//!< Counter
+	uint16_t				duty;		//!< Current Duty cycle
+	struct {
+		TIM_HandleTypeDef *	pTim;		//!< Timer instance (for reference)
+		GPIO_TypeDef *		GPIOx;		//!< Port of emulated PWM pin
+		uint16_t			GPIO_Pin;	//!< Pin mask on port
+		uint16_t			tim_freq;	//!< Timer frequency (for reference)
+		uint16_t			duty;		//!< Duty Cycle (effective when new period starts)
+		uint16_t			per;		//!< Overflow threshold (emulated PWM period)
+		bool				polarity;	//!< Output polarity
+	} cfg;
 } logicPWM;
 
 
