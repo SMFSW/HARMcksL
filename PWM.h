@@ -10,7 +10,6 @@
 	#define __PWM_H
 
 #include "sarmfsw.h"
-#include "FctERR.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
 /****************************************************************/

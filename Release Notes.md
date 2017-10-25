@@ -24,6 +24,7 @@ SOFTWARE.
 ## v1.2
 
 * removed peripheral includes (already done by sarmfsw library)
+* removed FctERR module (and calls to header) which is now part of sarmfsw
 * PWM: fixed possible warning in for loop
 * PWM: fixed frequency calculation when PLL clock source used (STM32F3)
 * PWM: added emulated PWM functionality & added config sub-struct (for low frequency PWM generation on GPIO)

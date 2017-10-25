@@ -11,7 +11,6 @@
 #include <string.h>
 
 #include "sarmfsw.h"
-#include "FctERR.h"
 /****************************************************************/
 
 

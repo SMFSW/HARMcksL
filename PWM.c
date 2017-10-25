@@ -6,7 +6,6 @@
 **/
 /****************************************************************/
 #include "sarmfsw.h"
-#include "FctERR.h"
 #include "PWM.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
