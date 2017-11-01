@@ -9,43 +9,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "sarmfsw.h"
+
+#include "UART_term.h"
 #include "stdream_rdir.h"
-
-#include "arm_stdclib.h"
-/****************************************************************/
-
-
-//! \warning Buffer for stdream is limited to \b 128B
-static char buf_stream[128] = "";	//!< stdream buffer for output
-
-
-/****************************************************************/
-#if defined(HAL_UART_MODULE_ENABLED)
-#include "usart.h"
-
-#if !defined(DBG_SERIAL)
-#warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
-#endif
-
-//#define STDREAM__UART_IT		//!< To be defined to send to uart using interrupts
-
-/*!\brief Sends string to UART
-** \note define STDREAM__UART_IT in compiler defines to send strings using interruptions
-** \param[in] str - pointer to string to send
-** \param[in] len - length of string
-** \return HAL Status
-**/
-__STATIC_INLINE HAL_StatusTypeDef INLINE__ print_uart(char * str, int len)
-{
-	// TODO: find a way to determine if UART interrupts are enabled or not
-	#if defined(STDREAM__UART_IT)
-		return HAL_UART_Transmit_IT(DBG_SERIAL, (uint8_t *) str, len);
-	#else
-		return HAL_UART_Transmit(DBG_SERIAL, (uint8_t *) str, len, 30);
-	#endif
-}
-
-#endif
 /****************************************************************/
 
 
@@ -54,11 +21,13 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ print_uart(char * str, int len)
 ** \param[in] len - length of string
 ** \return Nothing
 **/
-static void print_itm(const char * str, int len)
+static void ITM_send(const char * str, int len)
 {
 	//while (*str != '\0')
 	for (int i = 0 ; i < len ; i++)
+	{
 		ITM_SendChar(*str++);
+	}
 }
 
 
@@ -68,7 +37,7 @@ static void print_itm(const char * str, int len)
 ** \param[in] len - length of string
 ** \return Nothing
 **/
-void print_itm_port(int port, const char * str, int len)
+void ITM_port_send(int port, const char * str, int len)
 {
 	for (int i = 0 ; i < len ; i++)
 	{
@@ -88,18 +57,20 @@ int printf_ITM(char * str, ...)
 	va_list args;
 
 	va_start(args, str);
-	vsprintf(buf_stream, str, args);
+	vsprintf(dbg_msg_out, str, args);
 	va_end(args);
-	print_itm(buf_stream, strlen(buf_stream));
-	str_clr(buf_stream);	// Empty string
+	ITM_send(dbg_msg_out, strlen(dbg_msg_out));
+	str_clr(dbg_msg_out);	// Empty string
+
 	return 0;
 }
 
 int vprintf_ITM(char * str, va_list args)
 {
-	vsprintf(buf_stream, str, args);
-	print_itm(buf_stream, strlen(buf_stream));
-	str_clr(buf_stream);	// Empty string
+	vsprintf(dbg_msg_out, str, args);
+	ITM_send(dbg_msg_out, strlen(dbg_msg_out));
+	str_clr(dbg_msg_out);	// Empty string
+
 	return 0;
 }
 
@@ -107,61 +78,60 @@ int vprintf_ITM(char * str, va_list args)
 /*** GENERAL REDIRECTION ***/
 int printf_rdir(char * str, ...)
 {
-	uint16_t len;
-	va_list args;
+	#if (defined(ITM_ENABLED) || defined(DBG_SERIAL))
+	uint16_t	len;
+	#endif
+	va_list		args;
+
+	#if defined(DBG_SERIAL)
+	SERIAL_DBG_Wait_Ready(dbg_uart);
+	#endif
 
 	va_start(args, str);
-	vsprintf(buf_stream, str, args);
+	vsprintf(dbg_msg_out, str, args);
 	va_end(args);
-	len = strlen(buf_stream);
+	len = strlen(dbg_msg_out);
 
-#if defined(ITM_ENABLED)
-	print_itm(buf_stream, len);
-#endif
+	#if defined(ITM_ENABLED)
+	ITM_send(dbg_msg_out, len);
+	#endif
 
-#if defined(DBG_SERIAL)
-	print_uart(buf_stream, len);
-#endif
+	#if defined(DBG_SERIAL)
+	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
+	#endif
 
-#if (!defined(ITM_ENABLED) && !defined(DBG_SERIAL))
-	UNUSED(len);
-#endif
+	#if !defined(STDREAM__UART_TX_IT)
+	str_clr(dbg_msg_out);	// Empty string
+	#endif
 
-	str_clr(buf_stream);	// Empty string
 	return 0;
 }
 
 
 int vprintf_rdir(char * str, va_list args)
 {
+	#if (defined(ITM_ENABLED) || defined(DBG_SERIAL))
 	uint16_t len;
+	#endif
 
-	vsprintf(buf_stream, str, args);
-	len = strlen(buf_stream);
+	#if defined(DBG_SERIAL)
+	SERIAL_DBG_Wait_Ready(dbg_uart);
+	#endif
 
-#if defined(ITM_ENABLED)
-	print_itm(buf_stream, len);
-#endif
+	vsprintf(dbg_msg_out, str, args);
+	len = strlen(dbg_msg_out);
 
-#if defined(DBG_SERIAL)
-	print_uart(buf_stream, len);
-#endif
+	#if defined(ITM_ENABLED)
+	ITM_send(dbg_msg_out, len);
+	#endif
 
-#if (!defined(ITM_ENABLED) && !defined(DBG_SERIAL))
-	UNUSED(len);
-#endif
+	#if defined(DBG_SERIAL)
+	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
+	#endif
 
-	str_clr(buf_stream);	// Empty string
+	#if !defined(STDREAM__UART_TX_IT)
+	str_clr(dbg_msg_out);	// Empty string
+	#endif
+
 	return 0;
 }
-
-
-int32_t get_fp_dec(float f, uint8_t nb)
-{
-	int32_t mul = 1;
-	f -= (int32_t) f;
-	while(nb-- != 0)	{ mul *= 10; }
-	return (int32_t) (f * mul);
-}
-
-

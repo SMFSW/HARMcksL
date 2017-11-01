@@ -4,7 +4,7 @@
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection header
 ** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
-** 		 otherwise, stings will be printed to ITM0 port only
+** 		 otherwise, define ITM_ENABLED in compiler defines for stings to be printed to ITM0 port
 */
 /****************************************************************/
 #ifndef __STREAM_REDIRECT_H
@@ -35,7 +35,7 @@
 ** \param[in] len - length of message to send
 ** \return Nothing
 **/
-void print_itm_port(int port, const char * str, int len);
+void ITM_port_send(int port, const char * str, int len);
 
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
 int printf_ITM(char * str, ...);
@@ -46,16 +46,6 @@ int	printf_rdir(char * str, ...);
 int	vprintf_rdir(char * str, va_list args);
 
 
-/*!\brief Get floating point number decimal part
-** \note in need to print floats, add '-u _printf_float' in Linker options
-** \warning enabling floating point support from linker seems to fubar printing long variables
-** \param[in] f - floating point value
-** \param[in] nb - Number of decimal to get after floating point
-** \return nb decimal part as integer
-**/
-int32_t get_fp_dec(float f, uint8_t nb);
-
-
 /****************************************************************/
-#endif
+#endif	/* __STREAM_REDIRECT_H */
 /****************************************************************/

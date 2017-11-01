@@ -28,6 +28,10 @@ SOFTWARE.
 * PWM: fixed possible warning in for loop
 * PWM: fixed frequency calculation when PLL clock source used (STM32F3)
 * PWM: added emulated PWM functionality & added config sub-struct (for low frequency PWM generation on GPIO)
+* stdream_rdir: refactoring & removed get_fp_dec (now in sarmfsw)
+* UART_term: added UART terminal hacks
+* RTC_ex: added some helper functions for RTC peripheral
+* time_utils: some functions to deal with time_t
 
 ## v1.1
 

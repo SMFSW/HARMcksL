@@ -5,13 +5,11 @@
 ** \brief Debug tool helpers functions
 **/
 /****************************************************************/
-/****************************************************************/
-
 #include <string.h>
 
-#include "exceptions.h"
-
 #include "stdream_rdir.h"
+#include "exceptions.h"
+/****************************************************************/
 
 
 void stackDump(uint32_t stack[])

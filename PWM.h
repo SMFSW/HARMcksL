@@ -171,6 +171,6 @@ void logPWM_handler(logicPWM * pPWM);
 
 
 /****************************************************************/
-#endif
-#endif /* __PWM_H */
+#endif	/* defined(HAL_TIM_MODULE_ENABLED) */
+#endif	/* __PWM_H */
 /****************************************************************/

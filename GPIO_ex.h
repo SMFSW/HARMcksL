@@ -137,5 +137,5 @@ __INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pi
 
 
 /****************************************************************/
-#endif /* __GPIO_EX_H */
+#endif	/* __GPIO_EX_H */
 /****************************************************************/
