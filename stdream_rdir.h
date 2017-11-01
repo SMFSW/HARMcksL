@@ -26,6 +26,16 @@
 #define	vprintf		vprintf_rdir	//!< Shadowing vprintf
 
 
+#define	SZ_SERIAL_DBG_OUT	128		//!< SERIAL DEBUG send buffer size
+#define	SZ_SERIAL_DBG_IN	32		//!< SERIAL DEBUG receive buffer size
+
+//! \warning dbg_msg_out buffer for stdream is limited to \b SZ_SERIAL_DBG_OUT
+extern char dbg_msg_out[SZ_SERIAL_DBG_OUT];		//!< stdream buffer for output
+//! \warning dbg_msg_in buffer for stdream is limited to \b SZ_SERIAL_DBG_IN
+//! \note dbg_msg_in is only related to UART_term
+extern char dbg_msg_in[SZ_SERIAL_DBG_IN + 1];	//!< stdream buffer for input
+
+
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************

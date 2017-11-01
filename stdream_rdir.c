@@ -16,6 +16,10 @@
 /****************************************************************/
 
 
+char dbg_msg_out[SZ_SERIAL_DBG_OUT] = "";	//!< stdream buffer for output
+char dbg_msg_in[SZ_SERIAL_DBG_IN + 1] = "";	//!< stdream buffer for input
+
+
 /*!\brief Sends string to ITM0 port
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
@@ -78,9 +82,7 @@ int vprintf_ITM(char * str, va_list args)
 /*** GENERAL REDIRECTION ***/
 int printf_rdir(char * str, ...)
 {
-	#if (defined(ITM_ENABLED) || defined(DBG_SERIAL))
 	uint16_t	len;
-	#endif
 	va_list		args;
 
 	#if defined(DBG_SERIAL)
@@ -104,15 +106,14 @@ int printf_rdir(char * str, ...)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif
 
+	UNUSED(len);	// To prevent compilation warnings
 	return 0;
 }
 
 
 int vprintf_rdir(char * str, va_list args)
 {
-	#if (defined(ITM_ENABLED) || defined(DBG_SERIAL))
 	uint16_t len;
-	#endif
 
 	#if defined(DBG_SERIAL)
 	SERIAL_DBG_Wait_Ready(dbg_uart);
@@ -133,5 +134,6 @@ int vprintf_rdir(char * str, va_list args)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif
 
+	UNUSED(len);	// To prevent compilation warnings
 	return 0;
 }

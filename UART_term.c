@@ -12,20 +12,15 @@
 
 #include "stdream_rdir.h"
 #include "UART_term.h"
-/****************************************************************/
 
-
-char breakout_char = '!';					//!< breakout char (message complete)
-
-char dbg_msg_out[SZ_SERIAL_DBG_OUT] = "";	//!< stdream buffer for output
-char dbg_msg_in[SZ_SERIAL_DBG_IN + 1] = "";	//!< stdream buffer for input
-
-
-/****************************************************************/
 #if defined(HAL_UART_MODULE_ENABLED)
+/****************************************************************/
+
 #if !defined(DBG_SERIAL)
 #warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
 #else
+
+char breakout_char = '!';					//!< breakout char (message complete)
 
 static uint8_t uart_in_nb = 0;				//!< Number of chars in input buffer of UART debug terminal
 

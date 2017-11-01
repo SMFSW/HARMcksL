@@ -10,23 +10,16 @@
 	#define __UART_TERM_H
 
 #include "sarmfsw.h"
+
+#if defined(HAL_UART_MODULE_ENABLED)
 /****************************************************************/
 
 
 #define STDREAM__UART_TX_IT			//!< To be defined to send to uart using interrupts
 
 
-#define	SZ_SERIAL_DBG_OUT	128		//!< SERIAL DEBUG send buffer size
-#define	SZ_SERIAL_DBG_IN	32		//!< SERIAL DEBUG receive buffer size
-
-
 //! \note Default user breakout char set to '!' and '\\r' is built-in default breakout char
 extern char breakout_char;						//!< breakout char (message complete)
-
-//! \warning dbg_msg_out buffer for stdream is limited to \b SZ_SERIAL_DBG_OUT
-extern char dbg_msg_out[SZ_SERIAL_DBG_OUT];		//!< stdream buffer for output
-//! \warning dbg_msg_in buffer for stdream is limited to \b SZ_SERIAL_DBG_IN
-extern char dbg_msg_in[SZ_SERIAL_DBG_IN + 1];	//!< stdream buffer for input
 
 extern UART_HandleTypeDef * dbg_uart;			//!< UART debug terminal instance
 
@@ -101,5 +94,6 @@ __INLINE HAL_StatusTypeDef INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef * huart, 
 
 
 /****************************************************************/
+#endif	/* defined(HAL_UART_MODULE_ENABLED) */
 #endif	/* __UART_TERM_H */
 /****************************************************************/
