@@ -48,7 +48,7 @@ static uint32_t get_TIM_clock(TIM_HandleTypeDef * pTim)
 		#endif
 			)
 		{
-			#if defined (STM32F3)
+			#if defined(STM32F3)
 				if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PLL))
 				#if defined(RCC_CFGR3_TIM15SW_PLL)
 					||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PLL))

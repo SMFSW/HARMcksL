@@ -19,8 +19,10 @@ FctERR RTC_SetTime(DateTime * time_new)
 	RTC_TimeTypeDef		RTCTime;
 	RTC_DateTypeDef		RTCDate;
 
-	RTCTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-	RTCTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	#if defined(STM32F2) || defined(STM32F3) || defined(STM32F4) || defined(STM32F7) || defined(STM32H7) || defined(STM32L0) || defined(STM32L1) || defined(STM32L4)
+		RTCTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+		RTCTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	#endif
 	RTCTime.Hours = time_new->Hours;
 	RTCTime.Minutes = time_new->Minutes;
 	RTCTime.Seconds = time_new->Seconds;
