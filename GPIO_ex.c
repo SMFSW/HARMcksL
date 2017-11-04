@@ -88,9 +88,9 @@ FctERR str_GPIO_name(char * name, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 		if (1U << pin == GPIO_Pin)
 		{
 			sprintf(name, "%s%i", port, pin);
-			return ERR_OK;	// Match
+			return ERROR_OK;	// Match
 		}
 	}
 	sprintf(name, "%s%s", port, "xx");
-	return ERR_VALUE;		// No match
+	return ERROR_VALUE;		// No match
 }

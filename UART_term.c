@@ -29,24 +29,24 @@ UART_HandleTypeDef * dbg_uart = DBG_SERIAL;	//!< Instance of UART debug terminal
 
 FctERR SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
 {
-	if (huart != dbg_uart)	{ return ERR_INSTANCE; }
+	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
 	HAL_UART_Receive_IT(huart, (uint8_t *) &dbg_msg_in[uart_in_nb], 1);
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
 FctERR SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 {
-	if (huart != dbg_uart)	{ return ERR_INSTANCE; }
+	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
 	diInterrupts();
 	str_clr(dbg_msg_in);	// Clear input buffer
 	uart_in_nb = 0;			// Empty char number
 	enInterrupts();
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
@@ -59,7 +59,7 @@ __WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, uint8_t len)
 	UNUSED(len);
 
 	if (len)	{ printf("%s\r\n", msg); }	// Parrot
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 

@@ -195,24 +195,24 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity)
 {
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
-	if (!pPWM)	{ return ERR_INSTANCE; }
+	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	diInterrupts();
 	pPWM->cfg.GPIOx = GPIOx;
 	pPWM->cfg.GPIO_Pin = GPIO_Pin;
 	pPWM->cfg.polarity = polarity;
 	enInterrupts();
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
 FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity)
 {
 	uint16_t	tim_freq;
-	FctERR		err = ERR_OK;
+	FctERR		err = ERROR_OK;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	if (!pPWM)	{ return ERR_INSTANCE; }
+	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	granularity = max(10, granularity);
 
@@ -222,7 +222,7 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, 
 		&&	(pTim->Instance->CR1 & TIM_CR1_CEN))
 	{	// Timer already started (try to set period according to already configured timer module)
 		tim_freq = get_TIM_clock(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
-		if ((tim_freq / granularity) < freq)	{ return ERR_VALUE; }
+		if ((tim_freq / granularity) < freq)	{ return ERROR_VALUE; }
 		granularity = tim_freq / freq;
 	}
 	else
@@ -238,7 +238,7 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, 
 	pPWM->cfg.pTim = pTim;
 	enInterrupts();
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
@@ -246,7 +246,7 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 {
 	uint16_t duty;
 
-	if (!pPWM)	{ return ERR_INSTANCE; }
+	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	if (val == 65535)	{ duty = pPWM->cfg.per; }
 	else if (val == 0)	{ duty = 0; }
@@ -256,23 +256,23 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 	pPWM->cfg.duty = duty;
 	enInterrupts();
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
 FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM)
 {
-	if (!pPWM)	{ return ERR_INSTANCE; }
+	if (!pPWM)	{ return ERROR_INSTANCE; }
 	*freq = pPWM->cfg.tim_freq / pPWM->cfg.per;
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
 FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM)
 {
-	if ((!pPWM) || (!duty))	{ return ERR_INSTANCE; }
+	if ((!pPWM) || (!duty))	{ return ERROR_INSTANCE; }
 	*duty = ((float) pPWM->cfg.duty * 100) / (float) pPWM->cfg.per;
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 

@@ -33,9 +33,9 @@ FctERR RTC_SetTime(DateTime * time_new)
 
 	st = HAL_RTC_SetTime(&hrtc, &RTCTime, RTC_FORMAT_BIN);
 	st |= HAL_RTC_SetDate(&hrtc, &RTCDate, RTC_FORMAT_BIN);
-	if (st)	{ return ERR_FAULT; }
+	if (st)	{ return ERROR_FAULT; }
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 
@@ -47,7 +47,7 @@ FctERR RTC_GetTime(DateTime * time_now)
 
 	st = HAL_RTC_GetTime(&hrtc, &RTCTime, RTC_FORMAT_BIN);
 	st |= HAL_RTC_GetDate(&hrtc, &RTCDate, RTC_FORMAT_BIN);
-	if (st)	{ return ERR_FAULT; }
+	if (st)	{ return ERROR_FAULT; }
 
 	time_now->Year = RTCDate.Year;
 	time_now->Month = RTCDate.Month;
@@ -57,7 +57,7 @@ FctERR RTC_GetTime(DateTime * time_now)
 	time_now->Minutes = RTCTime.Minutes;
 	time_now->Seconds = RTCTime.Seconds;
 
-	return ERR_OK;
+	return ERROR_OK;
 }
 
 

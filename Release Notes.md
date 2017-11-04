@@ -32,6 +32,7 @@ SOFTWARE.
 * UART_term: added UART terminal hacks
 * RTC_ex: added some helper functions for RTC peripheral
 * time_utils: some functions to deal with time_t
+* ERR_xx refactored to ERROR_xx
 
 ## v1.1
 
