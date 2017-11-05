@@ -2047,6 +2047,7 @@ PREDEFINED             = DOXY=1 \
                          HAL_IWDG_MODULE_ENABLED \
                          HAL_RTC_MODULE_ENABLED \
                          HAL_UART_MODULE_ENABLED \
+                         DBG_SERIAL \
                          PACK__ \
                          INLINE__ \
                          __INLINE=inline \
