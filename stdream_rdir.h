@@ -40,21 +40,21 @@ extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
-/*!\brief Get floating point number decimal part
+/*!\brief Send string to ITM port
 ** \param[in] port - ITM port number
 ** \param[in] str - pointer to message to send
 ** \param[in] len - length of message to send
 ** \return Nothing
 **/
-void ITM_port_send(int port, const char * str, int len);
+void ITM_port_send(const int port, const char * str, const int len);
 
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
-int printf_ITM(char * str, ...);
-int vprintf_ITM(char * str, va_list args);
+int printf_ITM(const char * str, ...);
+int vprintf_ITM(const char * str, va_list args);
 
 // General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
-int	printf_rdir(char * str, ...);
-int	vprintf_rdir(char * str, va_list args);
+int	printf_rdir(const char * str, ...);
+int	vprintf_rdir(const char * str, va_list args);
 
 
 /****************************************************************/

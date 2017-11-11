@@ -38,7 +38,7 @@ __INLINE char INLINE__ getBreakout_char(void) {
 /*!\brief Set a new breakout character
 ** \param[in] breakout - new breakout character
 **/
-__INLINE void INLINE__ setBreakout_char(char breakout) {
+__INLINE void INLINE__ setBreakout_char(const char breakout) {
 	breakout_char = breakout; }
 
 /*!\brief Start UART SERIAL DEBUG Rx interruptions
@@ -59,7 +59,7 @@ FctERR SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart);
 ** \param[in] len - received message length
 ** \return Error code
 **/
-__WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, uint8_t len);
+__WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len);
 
 
 /*!\brief Waiting for UART global state to be ready for next transmission
@@ -84,7 +84,7 @@ __INLINE void INLINE__ SERIAL_DBG_Wait_Ready(UART_HandleTypeDef * huart)
 ** \param[in] len - length of string
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef * huart, char * str, int len)
+__INLINE HAL_StatusTypeDef INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef * huart, const char * str, const int len)
 {
 	// TODO: find a way to determine if UART Tx interrupts are enabled or not
 	#if defined(STDREAM__UART_TX_IT)

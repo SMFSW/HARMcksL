@@ -10,7 +10,7 @@
 /****************************************************************/
 
 
-uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, uint16_t val)
+uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, const uint16_t val)
 {
 	uint16_t idxMin = 0, idxMax = nb - 1;
 

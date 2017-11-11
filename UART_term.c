@@ -56,7 +56,7 @@ FctERR SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 /*****************/
 /*** CALLBACKS ***/
 /*****************/
-__WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, uint8_t len)
+__WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len)
 {
 	UNUSED(msg);
 	UNUSED(len);

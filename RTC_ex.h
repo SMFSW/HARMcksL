@@ -19,7 +19,7 @@
 ** \param[in] time_new - pointer to DateTime instance
 ** \return FctERR - error code
 **/
-FctERR RTC_SetTime(DateTime * time_new);
+FctERR RTC_SetTime(const DateTime * time_new);
 
 /*!\brief Get time from RTC peripheral
 ** \param[in,out] time_now - pointer to DateTime instance

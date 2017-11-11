@@ -17,7 +17,7 @@
 ** \param[in,out] pTim - pointer to TIM instance
 ** \return TIM Clock frequency
 **/
-static uint32_t get_TIM_clock(TIM_HandleTypeDef * pTim)
+static uint32_t get_TIM_clock(const TIM_HandleTypeDef * pTim)
 {
 	uint32_t	refCLK;
 
@@ -84,7 +84,7 @@ static uint32_t get_TIM_clock(TIM_HandleTypeDef * pTim)
 /*******************/
 /*** TIM RELATED ***/
 /*******************/
-HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq)
+HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq)
 {
 	HAL_StatusTypeDef err;
 
@@ -96,7 +96,7 @@ HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq)
 }
 
 
-HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq)
 {
 	uint32_t	refCLK, per, i;
 
@@ -121,7 +121,7 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq)
 }
 
 
-HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq)
+HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t freq)
 {
 	HAL_StatusTypeDef	st;
 
@@ -160,7 +160,7 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_
 ** \param[in] CCR_val - Scaled duty cycle for CCR register
 ** \return HAL Status
 **/
-__STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t CCR_val)
+__STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t CCR_val)
 {
 	__IO uint32_t * pCCR;	// __IO means volatile for R/W
 
@@ -180,7 +180,7 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(TIM_HandleTypeDef * pTim, u
 }
 
 
-HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty, uint16_t scale)
+HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
 {
 	float tmp = ((float) min(scale, duty) / (float) scale) * pTim->Instance->ARR;
 	return write_CCR(pTim, chan, (uint16_t) tmp);
@@ -192,7 +192,7 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 /*****************/
 /*** LOGIC PWM ***/
 /*****************/
-FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity)
+FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool polarity)
 {
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
 	if (!pPWM)	{ return ERROR_INSTANCE; }
@@ -206,7 +206,7 @@ FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, b
 }
 
 
-FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity)
+FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, const uint16_t freq, uint16_t granularity)
 {
 	uint16_t	tim_freq;
 	FctERR		err = ERROR_OK;
@@ -242,7 +242,7 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, 
 }
 
 
-FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
+FctERR logPWM_setDuty(logicPWM * pPWM, const uint16_t val)
 {
 	uint16_t duty;
 
@@ -260,7 +260,7 @@ FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val)
 }
 
 
-FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM)
+FctERR logPWM_getFreq(uint16_t * freq, const logicPWM * pPWM)
 {
 	if (!pPWM)	{ return ERROR_INSTANCE; }
 	*freq = pPWM->cfg.tim_freq / pPWM->cfg.per;
@@ -268,7 +268,7 @@ FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM)
 }
 
 
-FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM)
+FctERR logPWM_getDutyCycle(float * duty, const logicPWM * pPWM)
 {
 	if ((!pPWM) || (!duty))	{ return ERROR_INSTANCE; }
 	*duty = ((float) pPWM->cfg.duty * 100) / (float) pPWM->cfg.per;

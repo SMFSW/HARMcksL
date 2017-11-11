@@ -41,7 +41,7 @@ typedef __IO struct logicPWM {
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] on - Time Interrupts 0: off, 1: on
 **/
-__INLINE HAL_StatusTypeDef INLINE__ set_TIM_Interrupts(TIM_HandleTypeDef * pTim, bool on) {
+__INLINE HAL_StatusTypeDef INLINE__ set_TIM_Interrupts(TIM_HandleTypeDef * pTim, const bool on) {
 	return on ? HAL_TIM_Base_Start_IT(pTim) : HAL_TIM_Base_Stop_IT(pTim); }
 
 /*!\brief De-Init TIM module and start interruptions
@@ -54,13 +54,13 @@ __INLINE HAL_StatusTypeDef INLINE__ deinit_TIM_Base(TIM_HandleTypeDef * pTim) {
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] freq - Desired TIM frequency
 **/
-HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, uint32_t freq);
+HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq);
 
 /*!\brief Set TIM module frequency
 ** \param[in,out] pTim - pointer to TIM instance for Frequency computation
 ** \param[in] freq - Desired TIM frequency
 **/
-HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
+HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq);
 
 
 /*** PWM ***/
@@ -69,7 +69,7 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, uint32_t freq);
 ** \param[in] chan - Channel to write
 ** \param[in] freq - Desired PWM frequency
 **/
-HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t freq);
+HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t freq);
 
 
 /*!\brief Set PWM channel output on/off
@@ -78,7 +78,7 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_
 ** \param[in] on - Channel Output state 0: off, 1: on
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, uint32_t chan, bool on) {
+__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, const uint32_t chan, const bool on) {
 	return on ? HAL_TIM_PWM_Start(pTim, chan) : HAL_TIM_PWM_Stop(pTim, chan); }
 
 /*!\brief Set TIM module PWM duty cycle (scaled)
@@ -88,7 +88,7 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, uin
 ** \param[in] scale - Full scale value
 ** \return HAL Status
 **/
-HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty, uint16_t scale);
+HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale);
 
 
 /*!\brief Set TIM module PWM duty cycle (percents)
@@ -97,7 +97,7 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(TIM_HandleTypeDef * pTim, uint32_t chan, u
 ** \param[in] duty - Scaled duty cycle value to write
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty) {
+__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, 100); }
 
 
@@ -107,7 +107,7 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(TIM_HandleTypeDef * pTim, 
 ** \param[in] duty - Scaled duty cycle value to write
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(TIM_HandleTypeDef * pTim, uint32_t chan, uint16_t duty) {
+__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint16_t) -1); }
 
 
@@ -117,7 +117,7 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(TIM_HandleTypeDef * pTim, 
 ** \param[in] duty - Scaled duty cycle value to write
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Byte(TIM_HandleTypeDef * pTim, uint32_t chan, uint8_t duty) {
+__INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Byte(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint8_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint8_t) -1); }
 
 
@@ -129,7 +129,7 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Byte(TIM_HandleTypeDef * pTim, 
 ** \param[in] polarity - 0: low polarity, 1: high polarity
 ** \return Error code
 **/
-FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, bool polarity);
+FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool polarity);
 
 /*!\brief Set channel frequency for emulated PWM channel
 ** \warning For multiple PWMs on same timer with different frequencies,
@@ -140,28 +140,28 @@ FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, b
 ** \param[in] granularity - PWM duty cycle granularity
 ** \return Error code
 **/
-FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, uint16_t freq, uint16_t granularity);
+FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, const uint16_t freq, uint16_t granularity);
 
 /*!\brief Set new duty cycle for emulated PWM channel
 ** \param[in,out] pPWM - pointer to emulated PWM channel
 ** \param[in] val - Duty cycle to apply
 ** \return Error code
 **/
-FctERR logPWM_setDuty(logicPWM * pPWM, uint16_t val);
+FctERR logPWM_setDuty(logicPWM * pPWM, const uint16_t val);
 
 /*!\brief Get channel frequency for emulated PWM channel
 ** \param[in,out] freq - pointer to frequency result
 ** \param[in,out] pPWM - pointer to emulated PWM channel
 ** \return Error code
 **/
-FctERR logPWM_getFreq(uint16_t * freq, logicPWM * pPWM);
+FctERR logPWM_getFreq(uint16_t * freq, const logicPWM * pPWM);
 
 /*!\brief Get channel Duty Cycle for emulated PWM channel
 ** \param[in,out] duty - pointer to duty cycle result
 ** \param[in,out] pPWM - pointer to emulated PWM channel
 ** \return Error code
 **/
-FctERR logPWM_getDutyCycle(float * duty, logicPWM * pPWM);
+FctERR logPWM_getDutyCycle(float * duty, const logicPWM * pPWM);
 
 /*!\brief Handler for an emulated PWM channel
 ** \warning Shall be called directly from timer interrupt (HAL_TIM_PeriodElapsedCallback)

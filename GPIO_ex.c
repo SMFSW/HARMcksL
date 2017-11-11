@@ -15,7 +15,7 @@
 #define MAX_PINS_PORT	16
 
 
-void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, uint16_t filter)
+void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const uint16_t filter)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -48,7 +48,7 @@ void GPIO_in_handler(GPIO_in * in)
 }
 
 
-FctERR str_GPIO_name(char * name, GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
+FctERR str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin)
 {
 	const char *port, prt[][7] = { "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIO?" };
 

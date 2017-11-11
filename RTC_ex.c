@@ -13,7 +13,7 @@
 /****************************************************************/
 
 
-FctERR RTC_SetTime(DateTime * time_new)
+FctERR RTC_SetTime(const DateTime * time_new)
 {
 	HAL_StatusTypeDef	st;
 	RTC_TimeTypeDef		RTCTime;

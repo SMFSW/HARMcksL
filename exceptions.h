@@ -38,7 +38,7 @@
 ** 		 use dump_stack() which prepares pointer to current stack instead
 ** \return Nothing
 **/
-void stackDump(uint32_t stack[]);
+void stackDump(const uint32_t stack[]);
 
 
 /*!\brief prints informations about current Hard Fault exception
@@ -49,7 +49,7 @@ void stackDump(uint32_t stack[]);
 ** 			at least, you could inspect exception and stack through debug breakpoint
 ** \return Never (anyways, arm fubared!)
 **/
-void HardFault_Handler_callback(uint32_t stack[]);
+void HardFault_Handler_callback(const uint32_t stack[]);
 
 
 /*!\brief prints informations about current Hard Fault exception
@@ -60,7 +60,7 @@ void HardFault_Handler_callback(uint32_t stack[]);
 ** 			at least, you could inspect exception and stack through debug breakpoint
 ** \return Never (anyways, arm fubared!)
 **/
-void Error_Handler_callback(uint32_t stack[]);
+void Error_Handler_callback(const uint32_t stack[]);
 
 
 /****************************************************************/
