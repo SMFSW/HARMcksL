@@ -16,8 +16,10 @@
 /****************************************************************/
 
 
-char dbg_msg_out[SZ_SERIAL_DBG_OUT] = "";	//!< stdream buffer for output
-char dbg_msg_in[SZ_SERIAL_DBG_IN + 1] = "";	//!< stdream buffer for input
+char dbg_msg_out[SZ_DBG_OUT] = "";		//!< stdream buffer for output
+#if defined(UART_REDIRECT)
+char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
+#endif
 
 
 /*!\brief Sends string to ITM0 port
@@ -85,7 +87,7 @@ int printf_rdir(char * str, ...)
 	uint16_t	len;
 	va_list		args;
 
-	#if defined(DBG_SERIAL)
+	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Wait_Ready(dbg_uart);
 	#endif
 
@@ -98,7 +100,7 @@ int printf_rdir(char * str, ...)
 	ITM_send(dbg_msg_out, len);
 	#endif
 
-	#if defined(DBG_SERIAL)
+	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
 	#endif
 
@@ -115,7 +117,7 @@ int vprintf_rdir(char * str, va_list args)
 {
 	uint16_t len;
 
-	#if defined(DBG_SERIAL)
+	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Wait_Ready(dbg_uart);
 	#endif
 
@@ -126,7 +128,7 @@ int vprintf_rdir(char * str, va_list args)
 	ITM_send(dbg_msg_out, len);
 	#endif
 
-	#if defined(DBG_SERIAL)
+	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
 	#endif
 

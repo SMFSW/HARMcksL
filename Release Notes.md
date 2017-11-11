@@ -21,6 +21,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## v1.3
+
+* pattern2d: added linearization patterns
+* UART_term & stdream_rdir: use UART_REDIRECT define to enable UART redirection
+
 ## v1.2
 
 * removed peripheral includes (already done by sarmfsw library)

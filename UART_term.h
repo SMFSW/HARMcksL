@@ -3,6 +3,7 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief UART terminal header
+** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
 ** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
@@ -12,6 +13,7 @@
 #include "sarmfsw.h"
 
 #if defined(HAL_UART_MODULE_ENABLED)
+#if defined(UART_REDIRECT)
 /****************************************************************/
 
 
@@ -95,5 +97,6 @@ __INLINE HAL_StatusTypeDef INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef * huart, 
 
 /****************************************************************/
 #endif	/* defined(HAL_UART_MODULE_ENABLED) */
+#endif	/* defined(UART_REDIRECT) */
 #endif	/* __UART_TERM_H */
 /****************************************************************/

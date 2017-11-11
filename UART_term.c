@@ -3,6 +3,8 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief UART terminal
+** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
+** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
 #include <stdio.h>
@@ -14,11 +16,12 @@
 #include "UART_term.h"
 
 #if defined(HAL_UART_MODULE_ENABLED)
+#if defined(UART_REDIRECT)
 /****************************************************************/
 
 #if !defined(DBG_SERIAL)
 #warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
-#else
+#endif
 
 char breakout_char = '!';					//!< breakout char (message complete)
 
@@ -98,6 +101,6 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 #endif
 
 /****************************************************************/
-#endif	/* defined(DBG_SERIAL) */
+#endif	/* defined(UART_REDIRECT) */
 #endif	/* defined(HAL_UART_MODULE_ENABLED) */
 /****************************************************************/

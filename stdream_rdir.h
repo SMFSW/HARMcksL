@@ -3,8 +3,8 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection header
-** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
-** 		 otherwise, define ITM_ENABLED in compiler defines for stings to be printed to ITM0 port
+** \note define ITM_ENABLED in compiler defines for stings to be printed to ITM0 port
+** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
 #ifndef __STREAM_REDIRECT_H
@@ -20,20 +20,21 @@
 // *****************************************************************************
 // Section: Constants
 // *****************************************************************************
-// #define ITM_ENABLED				//!< Enable ITM send if defined
 
 #define	printf		printf_rdir		//!< Shadowing printf
 #define	vprintf		vprintf_rdir	//!< Shadowing vprintf
 
 
-#define	SZ_SERIAL_DBG_OUT	128		//!< SERIAL DEBUG send buffer size
-#define	SZ_SERIAL_DBG_IN	32		//!< SERIAL DEBUG receive buffer size
+#define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
+#define	SZ_DBG_IN	32				//!< DEBUG receive buffer size
 
-//! \warning dbg_msg_out buffer for stdream is limited to \b SZ_SERIAL_DBG_OUT
-extern char dbg_msg_out[SZ_SERIAL_DBG_OUT];		//!< stdream buffer for output
-//! \warning dbg_msg_in buffer for stdream is limited to \b SZ_SERIAL_DBG_IN
+//! \warning dbg_msg_out buffer for stdream is limited to \b SZ_DBG_OUT
+extern char dbg_msg_out[SZ_DBG_OUT];	//!< stdream buffer for output
+#if defined(UART_REDIRECT)
+//! \warning dbg_msg_in buffer for stdream is limited to \b SZ_DBG_IN
 //! \note dbg_msg_in is only related to UART_term
-extern char dbg_msg_in[SZ_SERIAL_DBG_IN + 1];	//!< stdream buffer for input
+extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
+#endif
 
 
 // *****************************************************************************
