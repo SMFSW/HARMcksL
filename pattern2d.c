@@ -10,7 +10,7 @@
 /****************************************************************/
 
 
-uint16_t pattern_linearize(const uint16_t tab[][2], const uint16_t nb, uint16_t val)
+uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, uint16_t val)
 {
 	uint16_t idxMin = 0, idxMax = nb - 1;
 
@@ -19,15 +19,15 @@ uint16_t pattern_linearize(const uint16_t tab[][2], const uint16_t nb, uint16_t 
 	{
 		uint16_t idx = ((idxMax - idxMin) / 2 + idxMin);
 
-		if (val < tab[idx][0])	{ idxMax = idx; }
+		if (val < array[idx][0])	{ idxMax = idx; }
 		else					{ idxMin = idx; }
 	}
 
 	// Get interval values
-	uint16_t x0 = tab[idxMin][0];
-	uint16_t y0 = tab[idxMin][1];
-	uint16_t x1 = tab[idxMax][0];
-	uint16_t y1 = tab[idxMax][1];
+	uint16_t x0 = array[idxMin][0];
+	uint16_t y0 = array[idxMin][1];
+	uint16_t x1 = array[idxMax][0];
+	uint16_t y1 = array[idxMax][1];
 
 	// Linearize
 	float coef = (float) (y1 - y0) / (float) (x1 - x0);

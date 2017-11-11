@@ -12,15 +12,22 @@
 /****************************************************************/
 
 
-#define	PATTERN_TAB(name, nbElem)		typedef struct pattern##name {		\
-											const uint16_t	nb;				\
-											const uint16_t	tab[nbElem][2];	\
+#define	PATTERN_TAB(name, nbElem)		typedef struct pattern##name {			\
+											const uint16_t	nb;					\
+											const uint16_t	array[nbElem][2];	\
 										} pattern##name;	//!< Pattern tab typedef declaration with \b name catenation and \b nbElem max tab elements
 
-#define PATTERN_LINEARIZE(name, val)	pattern_linearize(name.tab, name.nb, val)	//!< Macro to call linearization on a PATTERN_TAB typedef
+#define PATTERN_EVALUATE(name, val)		pattern_evaluate(name.array, name.nb, val)	//!< Macro to call linearization on a PATTERN_TAB typedef
 
 
-uint16_t pattern_linearize(const uint16_t tab[][2], const uint16_t nbItems, uint16_t val);
+/*!\brief 2 dimensional pattern evaluation algorithm
+**
+** \param [in] array - pointer to 2 dimensional
+** \param [in] nb - Number of items of the array
+** \param [in] val - Value to evaluate
+** \return Evaluated value in regard of val
+**/
+uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, uint16_t val);
 
 
 /****************************************************************/
