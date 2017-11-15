@@ -65,9 +65,11 @@ __WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len);
 /*!\brief Waiting for UART global state to be ready for next transmission
 ** \param[in] huart - UART handle
 **/
-__INLINE void INLINE__ SERIAL_DBG_Wait_Ready(UART_HandleTypeDef * huart)
+__INLINE FctERR INLINE__ SERIAL_DBG_Wait_Ready(UART_HandleTypeDef * huart)
 {
 	#if defined(STDREAM__UART_TX_IT)
+		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }
+
 		while (huart->gState != HAL_UART_STATE_READY)
 		{
 			#if defined(HAL_IWDG_MODULE_ENABLED)
@@ -75,6 +77,7 @@ __INLINE void INLINE__ SERIAL_DBG_Wait_Ready(UART_HandleTypeDef * huart)
 			#endif
 		}
 	#endif
+	return ERROR_OK;
 }
 
 

@@ -100,7 +100,6 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq)
 {
 	uint32_t	refCLK, per, i;
 
-	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
 	refCLK = get_TIM_clock(pTim);
@@ -125,7 +124,6 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, c
 {
 	HAL_StatusTypeDef	st;
 
-	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CHANNELS(chan));
 
@@ -164,7 +162,6 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(const TIM_HandleTypeDef * p
 {
 	__IO uint32_t * pCCR;	// __IO means volatile for R/W
 
-	/* Check the parameters */
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
 
@@ -182,7 +179,14 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(const TIM_HandleTypeDef * p
 
 HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
 {
-	float tmp = ((float) min(scale, duty) / (float) scale) * pTim->Instance->ARR;
+	float tmp;
+
+	if (!scale)			{ return HAL_ERROR; }	// Division by 0
+
+	if (duty >= scale)	{ tmp = pTim->Instance->ARR + 1; }	// +1 To achieve real 100% duty cycle
+	else if (duty == 0)	{ tmp = 0; }
+	else				{ tmp = ((float) duty / (float) scale) * pTim->Instance->ARR; }
+
 	return write_CCR(pTim, chan, (uint16_t) tmp);
 }
 
@@ -248,9 +252,9 @@ FctERR logPWM_setDuty(logicPWM * pPWM, const uint16_t val)
 
 	if (!pPWM)	{ return ERROR_INSTANCE; }
 
-	if (val == 65535)	{ duty = pPWM->cfg.per; }
-	else if (val == 0)	{ duty = 0; }
-	else				{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->cfg.per)) / 65536) - 1)); }
+	if (val == (uint16_t) -1)	{ duty = pPWM->cfg.per; }
+	else if (val == 0)			{ duty = 0; }
+	else						{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->cfg.per)) / 65536) - 1)); }
 
 	diInterrupts();
 	pPWM->cfg.duty = duty;

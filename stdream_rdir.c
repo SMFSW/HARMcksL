@@ -88,7 +88,7 @@ int printf_rdir(const char * str, ...)
 	va_list		args;
 
 	#if defined(UART_REDIRECT)
-	SERIAL_DBG_Wait_Ready(dbg_uart);
+	if(SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	va_start(args, str);
@@ -118,7 +118,7 @@ int vprintf_rdir(const char * str, va_list args)
 	uint16_t len;
 
 	#if defined(UART_REDIRECT)
-	SERIAL_DBG_Wait_Ready(dbg_uart);
+	if(SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	vsprintf(dbg_msg_out, str, args);
