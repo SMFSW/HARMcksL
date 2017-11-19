@@ -64,6 +64,7 @@ __WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len);
 
 /*!\brief Waiting for UART global state to be ready for next transmission
 ** \param[in] huart - UART handle
+** \return Error code
 **/
 __INLINE FctERR INLINE__ SERIAL_DBG_Wait_Ready(UART_HandleTypeDef * huart)
 {

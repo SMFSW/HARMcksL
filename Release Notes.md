@@ -28,6 +28,7 @@ SOFTWARE.
 * UART_term & stdream_rdir: use UART_REDIRECT define to enable UART redirection
 * uart_term: SERIAL_DBG_Wait_Ready returns ERROR_NOTAVAIL when UART not initialized
 * stdream_rdir: test of SERIAL_DBG_Wait_Ready before sending message (prevents errors when UART is not yet initialized)
+* stdream_rdir: renamed ITM_ENABLED to ITM_REDIRECT for consistency with UART_REDIRECT symbol
 * PWM: added case where duty cycle == scale in set_PWM_Duty_Scaled (to achieve real 100% duty cycles)
 * PWM: check if scale is equal 0 in set_PWM_Duty_Scaled (to avoid Division by 0)
 

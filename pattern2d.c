@@ -20,7 +20,7 @@ uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, const ui
 		uint16_t idx = ((idxMax - idxMin) / 2 + idxMin);
 
 		if (val < array[idx][0])	{ idxMax = idx; }
-		else					{ idxMin = idx; }
+		else						{ idxMin = idx; }
 	}
 
 	// Get interval values

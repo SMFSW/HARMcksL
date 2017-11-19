@@ -3,7 +3,7 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection header
-** \note define ITM_ENABLED in compiler defines for stings to be printed to ITM0 port
+** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
 ** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
@@ -21,8 +21,8 @@
 // Section: Constants
 // *****************************************************************************
 
-#define	printf		printf_rdir		//!< Shadowing printf
-#define	vprintf		vprintf_rdir	//!< Shadowing vprintf
+#define	printf		printf_redir	//!< Shadowing printf
+#define	vprintf		vprintf_redir	//!< Shadowing vprintf
 
 
 #define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
@@ -44,17 +44,44 @@ extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
 ** \param[in] port - ITM port number
 ** \param[in] str - pointer to message to send
 ** \param[in] len - length of message to send
-** \return Nothing
 **/
 void ITM_port_send(const int port, const char * str, const int len);
 
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
+/*!\brief printf like redirected to ITM port 0
+** \param[in] str - pointer to string to send
+** \param[in] ... - Variadic string arguments
+** \return Function status
+** \retval 0 - OK
+**/
 int printf_ITM(const char * str, ...);
+
+/*!\brief printf like redirected to ITM port 0
+** \param[in] str - pointer to string to send
+** \param[in] args - Variadic string arguments
+** \return Function status
+** \retval 0 - OK
+**/
 int vprintf_ITM(const char * str, va_list args);
 
 // General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
-int	printf_rdir(const char * str, ...);
-int	vprintf_rdir(const char * str, va_list args);
+/*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
+** \param[in] str - pointer to string to send
+** \param[in] ... - Variadic string arguments
+** \return Function status
+** \retval -1 - Problem occured
+** \retval 0 - OK
+**/
+int	printf_redir(const char * str, ...);
+
+/*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
+** \param[in] str - pointer to string to send
+** \param[in] args - Variadic string arguments
+** \return Function status
+** \retval -1 - Problem occured
+** \retval 0 - OK
+**/
+int	vprintf_redir(const char * str, va_list args);
 
 
 /****************************************************************/

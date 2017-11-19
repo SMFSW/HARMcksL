@@ -3,6 +3,8 @@
 ** \date 2017
 ** \copyright MIT (c) 2017, SMFSW
 ** \brief Stream redirection
+** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
+** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
 #include <stdarg.h>
@@ -25,7 +27,6 @@ char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
 /*!\brief Sends string to ITM0 port
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
-** \return Nothing
 **/
 static void ITM_send(const char * str, const int len)
 {
@@ -37,12 +38,6 @@ static void ITM_send(const char * str, const int len)
 }
 
 
-/*!\brief Sends string to chosen ITM port
-** \param[in] port - ITM port number
-** \param[in] str - pointer to string to send
-** \param[in] len - length of string
-** \return Nothing
-**/
 void ITM_port_send(const int port, const char * str, const int len)
 {
 	for (int i = 0 ; i < len ; i++)
@@ -82,7 +77,7 @@ int vprintf_ITM(const char * str, va_list args)
 
 
 /*** GENERAL REDIRECTION ***/
-int printf_rdir(const char * str, ...)
+int printf_redir(const char * str, ...)
 {
 	uint16_t	len;
 	va_list		args;
@@ -96,7 +91,7 @@ int printf_rdir(const char * str, ...)
 	va_end(args);
 	len = strlen(dbg_msg_out);
 
-	#if defined(ITM_ENABLED)
+	#if defined(ITM_REDIRECT)
 	ITM_send(dbg_msg_out, len);
 	#endif
 
@@ -113,7 +108,7 @@ int printf_rdir(const char * str, ...)
 }
 
 
-int vprintf_rdir(const char * str, va_list args)
+int vprintf_redir(const char * str, va_list args)
 {
 	uint16_t len;
 
@@ -124,7 +119,7 @@ int vprintf_rdir(const char * str, va_list args)
 	vsprintf(dbg_msg_out, str, args);
 	len = strlen(dbg_msg_out);
 
-	#if defined(ITM_ENABLED)
+	#if defined(ITM_REDIRECT)
 	ITM_send(dbg_msg_out, len);
 	#endif
 
