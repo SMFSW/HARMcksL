@@ -20,7 +20,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
 ## v1.3
 
 * added const qualifier to more function paramaters
@@ -31,6 +30,7 @@ SOFTWARE.
 * stdream_rdir: renamed ITM_ENABLED to ITM_REDIRECT for consistency with UART_REDIRECT symbol
 * PWM: added case where duty cycle == scale in set_PWM_Duty_Scaled (to achieve real 100% duty cycles)
 * PWM: check if scale is equal 0 in set_PWM_Duty_Scaled (to avoid Division by 0)
+* GPIO_ex: added gpio logic and possible callbacks when input set / reset
 
 ## v1.2
 

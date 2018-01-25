@@ -20,7 +20,7 @@
 /*!\enum ActOut
 ** \brief Logic output possible actions enumeration
 **/
-typedef enum ActOut{
+typedef enum ActOut {
 	Reset = 0,	//!< Reset Output
 	Set,		//!< Set Output
 	Toggle		//!< Toggle Output
@@ -31,16 +31,19 @@ typedef enum ActOut{
 ** \brief GPIO input structure
 **/
 typedef struct GPIO_in {
-	bool			in;			//!< Input value
-	eEdge			edge;		//!< Input edge
+	bool			in;					//!< Input value
+	eEdge			edge;				//!< Input edge
 	/*pvt*/
-	bool			mem;		//!< Memo value
-	bool			done;		//!< State change done
-	uint32_t		hIn;		//!< Filter time
+	bool			mem;				//!< Memo value
+	uint32_t		hIn;				//!< Filter time
 	struct {
-	GPIO_TypeDef *	GPIOx;		//!< HAL GPIO instance
-	uint16_t		GPIO_Pin;	//!< HAL GPIO pin
-	uint16_t		filt;		//!< Filter time (ms)
+	GPIO_TypeDef *	GPIOx;				//!< HAL GPIO instance
+	uint16_t		GPIO_Pin;			//!< HAL GPIO pin
+	uint16_t		filt;				//!< Filter time (ms)
+	bool			logic;				//!< Input logic polarity
+	bool			repeat;				//!< Callback ON repeat
+	void			(*onSet)(void);		//!< Push callback ON function pointer
+	void			(*onReset)(void);	//!< Push callback OFF function pointer
 	} cfg;
 } GPIO_in;
 
@@ -50,12 +53,18 @@ typedef struct GPIO_in {
 // *****************************************************************************
 /*!\brief Initialize GPIO_in instance
 ** \param[in,out] in - input instance to initialize
-** \param[in] GPIOx - port to write to
-** \param[in] GPIO_Pin - pin to write to
+** \param[in] GPIOx - port to read from
+** \param[in] GPIO_Pin - pin to read from
+** \param[in] logic - set to 0 if pull-up (switching to GND), 1 if pull-down (switching to Vdd)
 ** \param[in] filter - input filtering time
+** \param[in] onSet - Pointer to callback ON function
+** \param[in] onReset - Pointer to callback OFF function
+** \param[in] repeat - To repeat callback ON as long as input is set
 ** \return Nothing
 **/
-void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const uint16_t filter);
+void GPIO_in_init(	GPIO_in * in,
+					GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
+					void (*onSet)(void), void (*onReset)(void), const bool repeat);
 
 
 /*!\brief Handles GPIO_in read and treatment

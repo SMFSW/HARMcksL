@@ -15,35 +15,53 @@
 #define MAX_PINS_PORT	16
 
 
-void GPIO_in_init(GPIO_in * in, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const uint16_t filter)
+void GPIO_in_init(	GPIO_in * in,
+					GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
+					void (*onSet)(void), void (*onReset)(void), const bool repeat)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
 
 	in->cfg.GPIOx = GPIOx;
 	in->cfg.GPIO_Pin = GPIO_Pin;
+	in->cfg.logic = logic;
 	in->cfg.filt = filter;
+	in->cfg.onSet = onSet;
+	in->cfg.onReset = onReset;
+	in->cfg.repeat = repeat;
 }
 
 
 void GPIO_in_handler(GPIO_in * in)
 {
-	if (in->in == in->mem)		{ in->edge = NoEdge; }
-	else if (in->in > in->mem)	{ in->edge = Rising; }
-	else						{ in->edge = Falling; }
-
-	in->mem = in->in;
-	if (!HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin))
+	if (in->in == in->mem)
 	{
-		if (TPSSUP_MS(in->hIn, in->cfg.filt))
+		in->edge = NoEdge;
+		if ((in->cfg.repeat) && (in->in))
 		{
-			if (!in->done)	{ in->done = in->in = true; }
+			if (in->cfg.onSet)	{ in->cfg.onSet(); }
 		}
+	}
+	else if (in->in > in->mem)
+	{
+		in->edge = Rising;
+		if (in->cfg.onSet)		{ in->cfg.onSet(); }
 	}
 	else
 	{
-		in->done = in->in = false;
-		in->hIn = HAL_GetTick();
+		in->edge = Falling;
+		if (in->cfg.onReset)	{ in->cfg.onReset(); }
+	}
+
+	in->mem = in->in;
+	if (HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin) == (GPIO_PinState) in->cfg.logic)
+	{
+		if (TPSSUP_MS(in->hIn, in->cfg.filt))	{ in->in = true; }
+	}
+	else
+	{
+		in->in = false;
+		in->hIn = HALTicks();
 	}
 }
 
