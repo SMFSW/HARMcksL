@@ -1,8 +1,7 @@
 /*!\file pattern2d.h
 ** \author SMFSW
-** \date 2017
-** \copyright MIT (c) 2017, SMFSW
-** \brief 2 dimensional patterns header
+** \copyright MIT (c) 2017-2018, SMFSW
+** \brief 2 dimensional patterns utilities
 **/
 /****************************************************************/
 #ifndef __PATTERNS2D_H

@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2018 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31,6 +31,10 @@ SOFTWARE.
 * PWM: added case where duty cycle == scale in set_PWM_Duty_Scaled (to achieve real 100% duty cycles)
 * PWM: check if scale is equal 0 in set_PWM_Duty_Scaled (to avoid Division by 0)
 * GPIO_ex: added gpio logic and possible callbacks when input set / reset
+* exceptions: removed erroneous dump_stack macro (functions will now be in stack_utils)
+* exceptions: dumpStack renamed to print_exception_stack, now static to exceptions.c
+* stack_utils: new module to get informations from global registers & stack
+* stack_utils: stack_dump now refactored to work fine
 
 ## v1.2
 

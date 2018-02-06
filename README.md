@@ -1,4 +1,5 @@
 # HARMcksL
+
 ARM HAL toolbox (yet STM32 oriented)
 
 ## Requires
@@ -6,18 +7,15 @@ ARM HAL toolbox (yet STM32 oriented)
 The toolbox uses sarmfsw headers library
 
 - sarmfsw
-  - https://github.com/SMFSW/sarmfsw
+  - [sarmfsw](https://github.com/SMFSW/sarmfsw)
 
-  
 ## Documentation
 
 Doxygen generated documentation can be found in "HARMcksL_vXXX.pdf"
 
-
 ## Release Notes
 
 See [release notes](https://github.com/SMFSW/HARMcksL/ReleaseNotes.md)
-
 
 ## License
 

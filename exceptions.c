@@ -1,8 +1,7 @@
 /*!\file exceptions.c
 ** \author SMFSW
-** \date 2017
-** \copyright MIT (c) 2017, SMFSW
-** \brief Debug tool helpers functions
+** \copyright MIT (c) 2017-2018, SMFSW
+** \brief Debug tool helpers
 **/
 /****************************************************************/
 #include <string.h>
@@ -12,10 +11,17 @@
 /****************************************************************/
 
 
-void stackDump(const uint32_t stack[])
+/*!\brief prints contents of exception stack
+** \param[in] stack - pointer to stack address
+** \note When Exception (Hard fault, ...) occurs, contents of global register are stacked
+** \note print_exception_stack should not be called directly, unless a particular stack is
+** 		 needed use stack_dump() (from stack_utils.h) to get execution dump
+** \return Nothing
+**/
+static void print_exception_stack(const uint32_t stack[])
 {
 	enum { r0, r1, r2, r3, r12, lr, pc, psr};
-
+	
 	printf("stack addr = %lx\r\n", stack);
 	printf("r0  = 0x%08lx\r\n", stack[r0]);
 	printf("r1  = 0x%08lx\r\n", stack[r1]);
@@ -58,9 +64,9 @@ void HardFault_Handler_callback(const uint32_t stack[])
 		}
 	}
 
-	stackDump(stack);
+	print_exception_stack(stack);
 
-	__BKPT(01);
+//	__BKPT(01);
 	while(1);
 }
 
@@ -69,7 +75,7 @@ void Error_Handler_callback(const uint32_t stack[])
 {
 	// TODO: maybe pass by another asm code to retrieve HAL error code if not in stack
 	printf("Error handler\r\n");
-	stackDump(stack);
+	print_exception_stack(stack);
 
 //	__BKPT(01);
 //	while(1);

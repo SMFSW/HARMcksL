@@ -1,8 +1,8 @@
 /*!\file PWM.c
 ** \author SMFSW
-** \date 2017
-** \copyright MIT (c) 2017, SMFSW
+** \copyright MIT (c) 2017-2018, SMFSW
 ** \brief Straightforward PWM handling
+** \warning Shall work for all STM32 F families, L families not totally covered
 **/
 /****************************************************************/
 #include "sarmfsw.h"

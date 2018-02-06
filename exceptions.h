@@ -1,8 +1,7 @@
 /*!\file exceptions.h
 ** \author SMFSW
-** \date 2017
-** \copyright MIT (c) 2017, SMFSW
-** \brief Debug tool and helpers declaration
+** \copyright MIT (c) 2017-2018, SMFSW
+** \brief Debug tool and helpers
 **/
 /****************************************************************/
 #ifndef __EXCEPTIONS_H
@@ -21,24 +20,7 @@
 			"ite EQ \r\n"						\
 			"mrseq r0, MSP \r\n"				\
 			"mrsne r0, PSP \r\n"				\
-			"b " #e "_Handler_callback \r\n")	//!< Exception handler asm caller
-
-
-#define dump_stack()				\
-	__asm(	"tst lr, #4 \r\n"		\
-			"ite EQ \r\n"			\
-			"mrseq r0, MSP \r\n"	\
-			"mrsne r0, PSP \r\n"	\
-			"b stackDump \r\n")		//!< Dump stack asm caller
-
-
-/*!\brief prints contents of stack
-** \param[in] stack - pointer to stack address
-** \note stackDump should not be called directly, unless a particular stack is needed
-** 		 use dump_stack() which prepares pointer to current stack instead
-** \return Nothing
-**/
-void stackDump(const uint32_t stack[]);
+			"b " #e "_Handler_callback \r\n");	//!< Exception handler asm caller
 
 
 /*!\brief prints informations about current Hard Fault exception

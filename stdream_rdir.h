@@ -1,8 +1,7 @@
 /*!\file stdream_rdir.h
 ** \author SMFSW
-** \date 2017
-** \copyright MIT (c) 2017, SMFSW
-** \brief Stream redirection header
+** \copyright MIT (c) 2017-2018, SMFSW
+** \brief Stream redirection
 ** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
 ** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
