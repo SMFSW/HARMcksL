@@ -16,7 +16,7 @@
 // *****************************************************************************
 //! \note The exception_Handler should be called with corresponding exception name \b e as parameter
 #define exception_Handler(e)					\
-	__asm(	"tst lr, #4 \r\n"					\
+	__ASM (	"tst lr, #4 \r\n"					\
 			"ite EQ \r\n"						\
 			"mrseq r0, MSP \r\n"				\
 			"mrsne r0, PSP \r\n"				\

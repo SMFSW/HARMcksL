@@ -35,6 +35,7 @@ SOFTWARE.
 * exceptions: dumpStack renamed to print_exception_stack, now static to exceptions.c
 * stack_utils: new module to get informations from global registers & stack
 * stack_utils: stack_dump now refactored to work fine
+* random_utils: new rand wrapper module to enhance randomness some more
 
 ## v1.2
 
