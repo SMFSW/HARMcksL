@@ -16,16 +16,6 @@
 // *****************************************************************************
 // Section: Types
 // *****************************************************************************
-/*!\enum ActOut
-** \brief Logic output possible actions enumeration
-**/
-typedef enum ActOut {
-	Reset = 0,	//!< Reset Output
-	Set,		//!< Set Output
-	Toggle		//!< Toggle Output
-} eActOut;
-
-
 /*!\struct GPIO_in
 ** \brief GPIO input structure
 **/
@@ -102,7 +92,7 @@ FctERR str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPI
 ** \param[in] Act - type of write
 ** \return Nothing
 **/
-__INLINE void INLINE__ write_GPIO(GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const eActOut Act)
+__INLINE void INLINE__ write_GPIO(GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
