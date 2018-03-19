@@ -168,7 +168,6 @@ __INLINE uint32_t INLINE__ get_PSR(void) {
 void print_stack_address(void);
 
 /*!\brief Print contents of ARM registers
-** \param[in] stack - pointer to stack address
 ** \note This function is for debug purposes while running only
 ** \return Nothing
 **/
