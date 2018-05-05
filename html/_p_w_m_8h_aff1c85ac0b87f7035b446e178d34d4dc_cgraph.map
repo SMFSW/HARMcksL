@@ -1,0 +1,9 @@
+<map id="deinit_TIM_Base" name="deinit_TIM_Base">
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a51c42cad424905985aa05cbc453a0932" title="Start TIM module interrupts. " alt="" coords="339,5,471,32"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#a37b82fffbdd28e7b9c79131e4233a72d" title="Init TIM module and start interruptions. " alt="" coords="179,31,285,57"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="181,81,283,108"/>
+<area shape="rect" id="node6" href="$_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="173,132,291,159"/>
+<area shape="rect" id="node4" href="$_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="354,56,457,83"/>
+<area shape="rect" id="node7" href="$_p_w_m_8h.html#a40d7781f68f1c9baa953fe9481ef1b13" title="Set PWM channel output on/off. " alt="" coords="342,132,469,159"/>
+<area shape="rect" id="node8" href="$_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="520,132,683,159"/>
+</map>
