@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.3
 
+* Adding support for doxygen documentation generation with Travis CI
 * added const qualifier to more function paramaters
 * pattern2d: added linearization patterns
 * UART_term & stdream_rdir: use UART_REDIRECT define to enable UART redirection
