@@ -1,0 +1,4 @@
+<map id="set_PWM_Duty_Perc" name="set_PWM_Duty_Perc">
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="203,5,365,32"/>
+<area shape="rect" id="node3" href="$_p_w_m_8c.html#a443b4a0d6058d98a8f5ec0a8526ddc23" title="Low level TIM module PWM duty cycle write. " alt="" coords="414,5,501,32"/>
+</map>

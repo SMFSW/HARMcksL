@@ -1,0 +1,9 @@
+<map id="write_CCR" name="write_CCR">
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="141,81,304,108"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="366,5,493,32"/>
+<area shape="rect" id="node6" href="$_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="355,56,504,83"/>
+<area shape="rect" id="node7" href="$_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="353,107,506,133"/>
+<area shape="rect" id="node8" href="$_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="355,157,504,184"/>
+<area shape="rect" id="node4" href="$_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="555,5,672,32"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#aa193c1851d6967804d267881a372502a" title="De&#45;Init TIM module and start interruptions. " alt="" coords="720,5,840,32"/>
+</map>

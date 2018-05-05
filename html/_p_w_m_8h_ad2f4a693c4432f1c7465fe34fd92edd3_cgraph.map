@@ -1,5 +1,6 @@
 <map id="init_PWM_Chan" name="init_PWM_Chan">
 <area shape="rect" id="node2" href="$_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="183,5,286,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#a40d7781f68f1c9baa953fe9481ef1b13" title="Set PWM channel output on/off. " alt="" coords="171,56,298,83"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="171,56,298,83"/>
 <area shape="rect" id="node4" href="$_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="347,56,509,83"/>
+<area shape="rect" id="node5" href="$_p_w_m_8c.html#a443b4a0d6058d98a8f5ec0a8526ddc23" title="Low level TIM module PWM duty cycle write. " alt="" coords="558,56,645,83"/>
 </map>
