@@ -20,6 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+## v1.4
+
+* exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
+* flash_check: Added to check flash against computed CRC
+
 ## v1.3
 
 * Adding support for doxygen documentation generation with Travis CI

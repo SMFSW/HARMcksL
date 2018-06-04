@@ -45,6 +45,14 @@ void HardFault_Handler_callback(const uint32_t stack[]);
 void Error_Handler_callback(const uint32_t stack[]);
 
 
+/*!\brief Get the last source of reset
+** \warning This function should be called soon after reset (before or after SystemClock_Config())
+** \note This function using some special macros can't be inlined, thus can't be in sarmfsw stm32 header unfortunately
+** \return Last Reset Source
+**/
+eResetSource Get_Reset_Source(void);
+
+
 /****************************************************************/
 #endif	/* __EXCEPTIONS_H */
 /****************************************************************/

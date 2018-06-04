@@ -81,3 +81,28 @@ void Error_Handler_callback(const uint32_t stack[])
 //	while(1);
 }
 
+
+eResetSource Get_Reset_Source(void)
+{
+	eResetSource rst = RST_UNKNOWN;
+
+	if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))					{ rst = RST_POR; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PINRST))				{ rst = RST_PIN; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST))				{ rst = RST_SW; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST))				{ rst = RST_IWDG; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST))				{ rst = RST_WWDG; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))				{ rst = RST_LPWR; }
+	#if defined(STM32F3)
+		else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))			{ rst = RST_OBL; }
+		#if defined(STM32F301x8) ||													\
+			defined(STM32F302x8) || defined(STM32F302xC) || defined(STM32F302xE) ||	\
+			defined(STM32F303x8) || defined(STM32F303xC) || defined(STM32F303xE) ||	\
+			defined(STM32F334x8) ||	defined(STM32F358xx) || defined(STM32F373xC)
+			else if (__HAL_RCC_GET_FLAG(RCC_FLAG_V18PWRRST))	{ rst = RST_V18PWR; }
+		#endif
+	#endif
+
+	__HAL_RCC_CLEAR_RESET_FLAGS();	// Clear reset flags
+
+	return rst;
+}
