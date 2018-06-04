@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): pattern2d.c File Reference</title>
+<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): flash_check.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,76 +63,59 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">pattern2d.c File Reference</div>  </div>
+<div class="title">flash_check.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>2 dimensional patterns utilities  
+<p>Function to check flash CRC.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="pattern2d_8h_source.html">pattern2d.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for pattern2d.c:</div>
+Include dependency graph for flash_check.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="pattern2d_8c__incl.png" border="0" usemap="#pattern2d_8c" alt=""/></div>
-<map name="pattern2d_8c" id="pattern2d_8c">
-<area shape="rect" id="node3" href="pattern2d_8h.html" title="2 dimensional patterns utilities " alt="" coords="46,80,132,107"/>
+<div class="center"><img src="flash__check_8h__incl.png" border="0" usemap="#flash__check_8h" alt=""/></div>
+<map name="flash__check_8h" id="flash__check_8h">
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="flash__check_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad416ba52f8f7eec7627970ec6f467a49"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pattern2d_8c.html#ad416ba52f8f7eec7627970ec6f467a49">pattern_evaluate</a> (const uint16_t array[][2], const uint16_t nb, const uint16_t val)</td></tr>
-<tr class="memdesc:ad416ba52f8f7eec7627970ec6f467a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">2 dimensional pattern evaluation algorithm  <a href="#ad416ba52f8f7eec7627970ec6f467a49">More...</a><br /></td></tr>
-<tr class="separator:ad416ba52f8f7eec7627970ec6f467a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a879767630ecc6fea8bcc33417c959fd3"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="flash__check_8h.html#a879767630ecc6fea8bcc33417c959fd3">flash_crc_check</a> (const uint32_t flash_size)</td></tr>
+<tr class="memdesc:a879767630ecc6fea8bcc33417c959fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash CRC check.  <a href="#a879767630ecc6fea8bcc33417c959fd3">More...</a><br /></td></tr>
+<tr class="separator:a879767630ecc6fea8bcc33417c959fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>2 dimensional patterns utilities </p>
+<div class="textblock"><p>Function to check flash CRC. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2018, SMFSW </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ad416ba52f8f7eec7627970ec6f467a49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad416ba52f8f7eec7627970ec6f467a49">&#9670;&nbsp;</a></span>pattern_evaluate()</h2>
+<a id="a879767630ecc6fea8bcc33417c959fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a879767630ecc6fea8bcc33417c959fd3">&#9670;&nbsp;</a></span>flash_crc_check()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t pattern_evaluate </td>
+          <td class="memname">FctERR flash_crc_check </td>
           <td>(</td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>array</em>[][2], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>flash_size</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>nb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>2 dimensional pattern evaluation algorithm </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">array</td><td>- pointer to 2 dimensional </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nb</td><td>- Number of items of the array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>- Value to evaluate </td></tr>
+<p>Flash CRC check. </p>
+<dl class="section note"><dt>Note</dt><dd>Assuming flash crc to check against is located in the last 4bytes of flash</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">ERROR_OK</td><td>- Flash CRC consistent </td></tr>
+    <tr><td class="paramname">ERROR_CRC</td><td>- Flash CRC inconsistent </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Evaluated value in regard of val </dd></dl>
 
 </div>
 </div>

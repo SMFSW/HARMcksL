@@ -20,6 +20,7 @@ var searchData=
   ['get_5fr7',['get_R7',['../stack__utils_8h.html#a3c87e1d805e6bb6640fa4e6ba1c16568',1,'stack_utils.h']]],
   ['get_5fr8',['get_R8',['../stack__utils_8h.html#a5bdb4d92ed1d093092a8105d2f6e6393',1,'stack_utils.h']]],
   ['get_5fr9',['get_R9',['../stack__utils_8h.html#a0ef80764439614e533f5db9ee5688086',1,'stack_utils.h']]],
+  ['get_5freset_5fsource',['Get_Reset_Source',['../exceptions_8c.html#a025037e7bede684a8bbb9cb4b56325ec',1,'Get_Reset_Source(void):&#160;exceptions.c'],['../exceptions_8h.html#a025037e7bede684a8bbb9cb4b56325ec',1,'Get_Reset_Source(void):&#160;exceptions.c']]],
   ['get_5fsp',['get_SP',['../stack__utils_8h.html#a1a11185362807d6876d09cff79b82130',1,'stack_utils.h']]],
   ['getbreakout_5fchar',['getBreakout_char',['../_u_a_r_t__term_8h.html#aaac75ba0c470318bc87f40173172e715',1,'UART_term.h']]],
   ['gpio_5fex_2ec',['GPIO_ex.c',['../_g_p_i_o__ex_8c.html',1,'']]],

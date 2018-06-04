@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['get_5fgpio_5fin',['get_GPIO_in',['../_g_p_i_o__ex_8h.html#ac3dcb61d0d358ad5fcccbf92b4a95999',1,'GPIO_ex.h']]],
-  ['get_5fgpio_5fin_5fedge',['get_GPIO_in_edge',['../_g_p_i_o__ex_8h.html#a598ecb6c8be6ef6e97a86d19b3db6150',1,'GPIO_ex.h']]],
-  ['get_5flr',['get_LR',['../stack__utils_8h.html#abf82735e05c332302ec735689a15dd13',1,'stack_utils.h']]],
-  ['get_5fmsp',['get_MSP',['../stack__utils_8h.html#a0fc42f31860d8f4a80b9670ba444409e',1,'stack_utils.h']]],
-  ['get_5fpmsp',['get_pMSP',['../stack__utils_8h.html#a352ac3392dbb43e5d008d885d0fab906',1,'stack_utils.h']]],
-  ['get_5fpsp',['get_pSP',['../stack__utils_8h.html#a6c6d8a2c1661d8772fdf9e60f9f924f3',1,'stack_utils.h']]],
-  ['get_5fpsr',['get_PSR',['../stack__utils_8h.html#ada8fe7cbdb4c05dd8a0a08baf6a11243',1,'stack_utils.h']]],
-  ['get_5fr0',['get_R0',['../stack__utils_8h.html#a553f46cf644cd2ee35234ca6e94adfb9',1,'stack_utils.h']]],
-  ['get_5fr1',['get_R1',['../stack__utils_8h.html#a3ec6771523c9a179c07d7f14ec6a81b8',1,'stack_utils.h']]],
-  ['get_5fr10',['get_R10',['../stack__utils_8h.html#af3b6f1c024a66f068848bf18962a1e75',1,'stack_utils.h']]],
-  ['get_5fr11',['get_R11',['../stack__utils_8h.html#acb4737a42b816f50700514a81439b01c',1,'stack_utils.h']]],
-  ['get_5fr12',['get_R12',['../stack__utils_8h.html#ab10a23bd392ee27c34b7f25236f37242',1,'stack_utils.h']]],
-  ['get_5fr2',['get_R2',['../stack__utils_8h.html#ab38ab38b7fe523e421117765aa74691d',1,'stack_utils.h']]],
-  ['get_5fr3',['get_R3',['../stack__utils_8h.html#ab40ecf86a89b0e2fcc6b5d4300fc885f',1,'stack_utils.h']]],
-  ['get_5fr4',['get_R4',['../stack__utils_8h.html#a7c7e5d300a6a034bf32b626e67c0d59e',1,'stack_utils.h']]],
-  ['get_5fr5',['get_R5',['../stack__utils_8h.html#ac00075bc176f7fb5dd269ebf66637450',1,'stack_utils.h']]],
-  ['get_5fr6',['get_R6',['../stack__utils_8h.html#a3d12a55496b134da17c17d7e5f1e8a6a',1,'stack_utils.h']]],
-  ['get_5fr7',['get_R7',['../stack__utils_8h.html#a3c87e1d805e6bb6640fa4e6ba1c16568',1,'stack_utils.h']]],
-  ['get_5fr8',['get_R8',['../stack__utils_8h.html#a5bdb4d92ed1d093092a8105d2f6e6393',1,'stack_utils.h']]],
-  ['get_5fr9',['get_R9',['../stack__utils_8h.html#a0ef80764439614e533f5db9ee5688086',1,'stack_utils.h']]],
-  ['get_5fsp',['get_SP',['../stack__utils_8h.html#a1a11185362807d6876d09cff79b82130',1,'stack_utils.h']]],
-  ['getbreakout_5fchar',['getBreakout_char',['../_u_a_r_t__term_8h.html#aaac75ba0c470318bc87f40173172e715',1,'UART_term.h']]],
-  ['gpio_5fin_5fhandler',['GPIO_in_handler',['../_g_p_i_o__ex_8c.html#a2398b848386fc318cc6cc152c1792773',1,'GPIO_in_handler(GPIO_in *in):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a2398b848386fc318cc6cc152c1792773',1,'GPIO_in_handler(GPIO_in *in):&#160;GPIO_ex.c']]],
-  ['gpio_5fin_5finit',['GPIO_in_init',['../_g_p_i_o__ex_8c.html#a35f738cbd19eef1dea17a23e4dd858c1',1,'GPIO_in_init(GPIO_in *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(void), void(*onReset)(void), const bool repeat):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a35f738cbd19eef1dea17a23e4dd858c1',1,'GPIO_in_init(GPIO_in *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(void), void(*onReset)(void), const bool repeat):&#160;GPIO_ex.c']]]
+  ['flash_5fcrc_5fcheck',['flash_crc_check',['../flash__check_8c.html#a879767630ecc6fea8bcc33417c959fd3',1,'flash_crc_check(const uint32_t flash_size):&#160;flash_check.c'],['../flash__check_8h.html#a879767630ecc6fea8bcc33417c959fd3',1,'flash_crc_check(const uint32_t flash_size):&#160;flash_check.c']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uart_5fterm_2ec',['UART_term.c',['../_u_a_r_t__term_8c.html',1,'']]],
-  ['uart_5fterm_2eh',['UART_term.h',['../_u_a_r_t__term_8h.html',1,'']]]
+  ['time_5futils_2ec',['time_utils.c',['../time__utils_8c.html',1,'']]],
+  ['time_5futils_2eh',['time_utils.h',['../time__utils_8h.html',1,'']]]
 ];

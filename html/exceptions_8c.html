@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">HARMcksL: ARM HAL toolbox (yet STM32 oriented)
-   &#160;<span id="projectnumber">1.3</span>
+   &#160;<span id="projectnumber">1.4</span>
    </div>
    <div id="projectbrief">SMFSW collection of HAL hacks for STM32</div>
   </td>
@@ -90,6 +90,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1abcf572ddd68c698e9fb80fbfdb9bad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exceptions_8c.html#a1abcf572ddd68c698e9fb80fbfdb9bad">Error_Handler_callback</a> (const uint32_t stack[])</td></tr>
 <tr class="memdesc:a1abcf572ddd68c698e9fb80fbfdb9bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints informations about current Hard Fault exception  <a href="#a1abcf572ddd68c698e9fb80fbfdb9bad">More...</a><br /></td></tr>
 <tr class="separator:a1abcf572ddd68c698e9fb80fbfdb9bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025037e7bede684a8bbb9cb4b56325ec"><td class="memItemLeft" align="right" valign="top">eResetSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exceptions_8c.html#a025037e7bede684a8bbb9cb4b56325ec">Get_Reset_Source</a> (void)</td></tr>
+<tr class="memdesc:a025037e7bede684a8bbb9cb4b56325ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last source of reset.  <a href="#a025037e7bede684a8bbb9cb4b56325ec">More...</a><br /></td></tr>
+<tr class="separator:a025037e7bede684a8bbb9cb4b56325ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Debug tool helpers. </p>
@@ -122,6 +125,29 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>HardFault_Handler_callback should not be called directly use <a class="el" href="exceptions_8h.html#abb24885c7b9423e972f770f696ea2115" title="Exception handler asm caller. ">exception_Handler()</a> which prepares pointer to current stack instead </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Depending how arm is fucked up, informations may not be printed, at least, you could inspect exception and stack through debug breakpoint </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Never (anyways, arm fubared!) </dd></dl>
+
+</div>
+</div>
+<a id="a025037e7bede684a8bbb9cb4b56325ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025037e7bede684a8bbb9cb4b56325ec">&#9670;&nbsp;</a></span>Get_Reset_Source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">eResetSource Get_Reset_Source </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the last source of reset. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This function should be called soon after reset (before or after SystemClock_Config()) </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function using some special macros can't be inlined, thus can't be in sarmfsw stm32 header unfortunately </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Last Reset Source </dd></dl>
 
 </div>
 </div>

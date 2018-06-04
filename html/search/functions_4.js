@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['init_5fpwm_5fchan',['init_PWM_Chan',['../_p_w_m_8c.html#ad2f4a693c4432f1c7465fe34fd92edd3',1,'init_PWM_Chan(TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t freq):&#160;PWM.c'],['../_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3',1,'init_PWM_Chan(TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t freq):&#160;PWM.c']]],
-  ['init_5ftim_5fbase',['init_TIM_Base',['../_p_w_m_8c.html#a37b82fffbdd28e7b9c79131e4233a72d',1,'init_TIM_Base(TIM_HandleTypeDef *pTim, const uint32_t freq):&#160;PWM.c'],['../_p_w_m_8h.html#a37b82fffbdd28e7b9c79131e4233a72d',1,'init_TIM_Base(TIM_HandleTypeDef *pTim, const uint32_t freq):&#160;PWM.c']]],
-  ['itm_5fport_5fsend',['ITM_port_send',['../stdream__rdir_8c.html#a07c5f85168bdf86be094fc76ffd5d40e',1,'ITM_port_send(const int port, const char *str, const int len):&#160;stdream_rdir.c'],['../stdream__rdir_8h.html#a07c5f85168bdf86be094fc76ffd5d40e',1,'ITM_port_send(const int port, const char *str, const int len):&#160;stdream_rdir.c']]]
+  ['hal_5fuart_5frxcpltcallback',['HAL_UART_RxCpltCallback',['../_u_a_r_t__term_8c.html#ae494a9643f29b87d6d81e5264e60e57b',1,'UART_term.c']]],
+  ['hal_5fuart_5ftxcpltcallback',['HAL_UART_TxCpltCallback',['../_u_a_r_t__term_8c.html#abcdf9b59049eccbc87d54042f9235b1a',1,'UART_term.c']]],
+  ['hardfault_5fhandler_5fcallback',['HardFault_Handler_callback',['../exceptions_8c.html#a8c1d442731656ba2f863def48642446e',1,'HardFault_Handler_callback(const uint32_t stack[]):&#160;exceptions.c'],['../exceptions_8h.html#a8c1d442731656ba2f863def48642446e',1,'HardFault_Handler_callback(const uint32_t stack[]):&#160;exceptions.c']]]
 ];
