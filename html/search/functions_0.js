@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['datetime2time_5ft',['DateTime2time_t',['../time__utils_8c.html#a1edc1a7524098eb3f8d6aae11fd1a8b7',1,'DateTime2time_t(const DateTime *time):&#160;time_utils.c'],['../time__utils_8h.html#a1edc1a7524098eb3f8d6aae11fd1a8b7',1,'DateTime2time_t(const DateTime *time):&#160;time_utils.c']]],
-  ['deinit_5ftim_5fbase',['deinit_TIM_Base',['../_p_w_m_8h.html#aa193c1851d6967804d267881a372502a',1,'PWM.h']]],
-  ['diffdatetime',['diffDateTime',['../time__utils_8c.html#a5c0bca555cdb48fb1cbf3252b52a2071',1,'diffDateTime(const DateTime *time2, const DateTime *time1):&#160;time_utils.c'],['../time__utils_8h.html#a5c0bca555cdb48fb1cbf3252b52a2071',1,'diffDateTime(const DateTime *time2, const DateTime *time1):&#160;time_utils.c']]]
+  ['crc_5fcheck',['crc_check',['../_c_r_c__stm32_8c.html#a7bb5f2eca301c014960367e1eb852358',1,'crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c'],['../_c_r_c__stm32_8h.html#a7bb5f2eca301c014960367e1eb852358',1,'crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c']]],
+  ['crc_5fcompute',['crc_compute',['../_c_r_c__stm32_8c.html#a2896d16c39258c8d0cdf7bf986844b6d',1,'crc_compute(uint32_t *crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c'],['../_c_r_c__stm32_8h.html#a2896d16c39258c8d0cdf7bf986844b6d',1,'crc_compute(uint32_t *crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c']]]
 ];

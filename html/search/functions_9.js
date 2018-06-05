@@ -1,18 +1,7 @@
 var searchData=
 [
-  ['serial_5fdbg_5fflush_5frxbuf',['SERIAL_DBG_Flush_RxBuf',['../_u_a_r_t__term_8c.html#a86e0da1380675d097b7e9108f8ff23b5',1,'SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef *huart):&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#a86e0da1380675d097b7e9108f8ff23b5',1,'SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef *huart):&#160;UART_term.c']]],
-  ['serial_5fdbg_5flaunch_5fit_5frx',['SERIAL_DBG_Launch_It_Rx',['../_u_a_r_t__term_8c.html#a331a62475ab1e067c888b206784a7100',1,'SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef *huart):&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#a331a62475ab1e067c888b206784a7100',1,'SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef *huart):&#160;UART_term.c']]],
-  ['serial_5fdbg_5fmessage_5fhandler',['SERIAL_DBG_Message_Handler',['../_u_a_r_t__term_8c.html#ab17882598bea8b22dad77ea4a8515985',1,'SERIAL_DBG_Message_Handler(const char *msg, const uint8_t len):&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#ab17882598bea8b22dad77ea4a8515985',1,'SERIAL_DBG_Message_Handler(const char *msg, const uint8_t len):&#160;UART_term.c']]],
-  ['serial_5fdbg_5fsend',['SERIAL_DBG_Send',['../_u_a_r_t__term_8h.html#a9c704158b15dfde53a1a2ae27e132ffc',1,'UART_term.h']]],
-  ['serial_5fdbg_5fwait_5fready',['SERIAL_DBG_Wait_Ready',['../_u_a_r_t__term_8h.html#a30989533f20806fc4ba7fdd09329beec',1,'UART_term.h']]],
-  ['set_5fpwm_5fduty_5fbyte',['set_PWM_Duty_Byte',['../_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea',1,'PWM.h']]],
-  ['set_5fpwm_5fduty_5fperc',['set_PWM_Duty_Perc',['../_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed',1,'PWM.h']]],
-  ['set_5fpwm_5fduty_5fscaled',['set_PWM_Duty_Scaled',['../_p_w_m_8c.html#a6862bdda2cde20ddee40f9183dea7dce',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale):&#160;PWM.c'],['../_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale):&#160;PWM.c']]],
-  ['set_5fpwm_5fduty_5fword',['set_PWM_Duty_Word',['../_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2',1,'PWM.h']]],
-  ['set_5fpwm_5foutput',['set_PWM_Output',['../_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68',1,'PWM.h']]],
-  ['set_5ftim_5ffreq',['set_TIM_Freq',['../_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076',1,'set_TIM_Freq(TIM_HandleTypeDef *pTim, const uint32_t freq):&#160;PWM.c'],['../_p_w_m_8h.html#aea196aebf15cb83a77d8e68f27b00076',1,'set_TIM_Freq(TIM_HandleTypeDef *pTim, const uint32_t freq):&#160;PWM.c']]],
-  ['set_5ftim_5finterrupts',['set_TIM_Interrupts',['../_p_w_m_8h.html#a738588427f9a03d877d44c60038b2c19',1,'PWM.h']]],
-  ['setbreakout_5fchar',['setBreakout_char',['../_u_a_r_t__term_8h.html#a463b561e7ad31b99b56b669885a04197',1,'UART_term.h']]],
-  ['stack_5fdump',['stack_dump',['../stack__utils_8h.html#a3cc9f57ed39b9897a6dc48e44d55ea28',1,'stack_utils.h']]],
-  ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#a69e057f61503c845b5dc970346ec7710',1,'str_GPIO_name(char *name, const GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a69e057f61503c845b5dc970346ec7710',1,'str_GPIO_name(char *name, const GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]]
+  ['random_5fget',['random_Get',['../random__utils_8c.html#ac1b427e79b4389d012118de4a1679af2',1,'random_Get(uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ac1b427e79b4389d012118de4a1679af2',1,'random_Get(uint32_t start):&#160;random_utils.c']]],
+  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8h.html#ab572d291bef748e74464f1ba674103c7',1,'GPIO_ex.h']]],
+  ['rtc_5fgettime',['RTC_GetTime',['../_r_t_c__ex_8c.html#ad01a9f5abbba714a4fa26483a4cd09ff',1,'RTC_GetTime(DateTime *time_now):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#ad01a9f5abbba714a4fa26483a4cd09ff',1,'RTC_GetTime(DateTime *time_now):&#160;RTC_ex.c']]],
+  ['rtc_5fsettime',['RTC_SetTime',['../_r_t_c__ex_8c.html#a5bafb4b05474bf9411bb01aa46dcd247',1,'RTC_SetTime(const DateTime *time_new):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a5bafb4b05474bf9411bb01aa46dcd247',1,'RTC_SetTime(const DateTime *time_new):&#160;RTC_ex.c']]]
 ];
