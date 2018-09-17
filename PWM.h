@@ -39,12 +39,14 @@ typedef __IO struct logicPWM {
 /*!\brief Start TIM module interrupts
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] on - Time Interrupts 0: off, 1: on
+** \return HAL Status
 **/
 __INLINE HAL_StatusTypeDef INLINE__ set_TIM_Interrupts(TIM_HandleTypeDef * pTim, const bool on) {
 	return on ? HAL_TIM_Base_Start_IT(pTim) : HAL_TIM_Base_Stop_IT(pTim); }
 
 /*!\brief De-Init TIM module and start interruptions
 ** \param[in,out] pTim - pointer to TIM instance
+** \return HAL Status
 **/
 __INLINE HAL_StatusTypeDef INLINE__ deinit_TIM_Base(TIM_HandleTypeDef * pTim) {
 	return set_TIM_Interrupts(pTim, Off); }	// Stop interrupts
@@ -52,12 +54,14 @@ __INLINE HAL_StatusTypeDef INLINE__ deinit_TIM_Base(TIM_HandleTypeDef * pTim) {
 /*!\brief Init TIM module and start interruptions
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] freq - Desired TIM frequency
+** \return HAL Status
 **/
 HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq);
 
 /*!\brief Set TIM module frequency
 ** \param[in,out] pTim - pointer to TIM instance for Frequency computation
 ** \param[in] freq - Desired TIM frequency
+** \return HAL Status
 **/
 HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq);
 
@@ -67,6 +71,7 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq);
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
 ** \param[in] freq - Desired PWM frequency
+** \return HAL Status
 **/
 HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t freq);
 
@@ -80,6 +85,7 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, c
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, const uint32_t chan, const bool on) {
 	return on ? HAL_TIM_PWM_Start(pTim, chan) : HAL_TIM_PWM_Stop(pTim, chan); }
 
+
 /*!\brief Set TIM module PWM duty cycle (scaled)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -88,7 +94,6 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Output(TIM_HandleTypeDef * pTim, con
 ** \return HAL Status
 **/
 HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale);
-
 
 /*!\brief Set TIM module PWM duty cycle (percents)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
@@ -99,7 +104,6 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, 100); }
 
-
 /*!\brief Set TIM module PWM duty cycle (u16-bit value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -108,7 +112,6 @@ __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Perc(const TIM_HandleTypeDef * 
 **/
 __INLINE HAL_StatusTypeDef INLINE__ set_PWM_Duty_Word(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint16_t) -1); }
-
 
 /*!\brief Set TIM module PWM duty cycle (u8-bit value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation

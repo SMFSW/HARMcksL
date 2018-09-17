@@ -81,6 +81,92 @@ static uint32_t get_TIM_clock(const TIM_HandleTypeDef * pTim)
 }
 
 
+/*!\brief Set Preload bit in TIM module for desired channel
+** \param[in,out] pTim - pointer to TIM instance
+** \param[in] chan - Channel to write
+** \return HAL Status
+**/
+static HAL_StatusTypeDef set_PWM_Preload_bit(TIM_HandleTypeDef * pTim, const uint32_t chan)
+{
+	switch (chan)	/* Set the Preload enable bit for channel */
+	{
+		default:
+			return HAL_ERROR;
+
+		case TIM_CHANNEL_1:
+			pTim->Instance->CCMR1 |= TIM_CCMR1_OC1PE;
+			break;
+
+		case TIM_CHANNEL_2:
+			pTim->Instance->CCMR1 |= TIM_CCMR1_OC2PE;
+			break;
+
+		case TIM_CHANNEL_3:
+			pTim->Instance->CCMR2 |= TIM_CCMR2_OC3PE;
+			break;
+
+		case TIM_CHANNEL_4:
+			pTim->Instance->CCMR2 |= TIM_CCMR2_OC4PE;
+			break;
+
+		#if defined(TIM_CHANNEL_6)
+		case TIM_CHANNEL_5:
+			pTim->Instance->CCMR3 |= TIM_CCMR3_OC5PE;
+			break;
+
+		case TIM_CHANNEL_6:
+			pTim->Instance->CCMR3 |= TIM_CCMR3_OC6PE;
+			break;
+
+		#endif
+	}
+
+	return HAL_OK;
+}
+
+
+/*******************/
+/*** PWM DRIVING ***/
+/*******************/
+/*!\brief Low level TIM module PWM duty cycle write
+** \param[in,out] pTim - pointer to TIM instance for PWM generation
+** \param[in] chan - Channel to write
+** \param[in] CCR_val - Scaled duty cycle for CCR register
+** \return HAL Status
+**/
+__STATIC_INLINE HAL_StatusTypeDef INLINE__ set_PWM_CCR(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t CCR_val)
+{
+	__IO uint32_t * pCCR;	// __IO means volatile for R/W
+
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
+	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
+
+	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
+	#if defined(STM32F3)
+		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
+	#endif
+	else 								{ return HAL_ERROR; }
+
+	*pCCR = CCR_val;
+
+	return HAL_OK;
+}
+
+
+HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
+{
+	float tmp;
+
+	if (!scale)			{ return HAL_ERROR; }	// Division by 0
+
+	if (duty >= scale)	{ tmp = pTim->Instance->ARR + 1; }	// +1 To achieve real 100% duty cycle
+	else if (duty == 0)	{ tmp = 0; }
+	else				{ tmp = ((float) duty / (float) scale) * pTim->Instance->ARR; }
+
+	return set_PWM_CCR(pTim, chan, (uint16_t) tmp);
+}
+
+
 /*******************/
 /*** TIM RELATED ***/
 /*******************/
@@ -140,54 +226,20 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, c
 
 		for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
 		{
-			st = set_PWM_Output(pTim, chans[i], true);
+			st = set_PWM_Preload_bit(pTim, chans[i]);
+			//st |= set_PWM_CCR(pTim, chans[i], 0);
+			st |= set_PWM_Output(pTim, chans[i], true);
 			if (st)	{ break; }
 		}
 		return st;
 	}
-	else return set_PWM_Output(pTim, chan, true);
-}
-
-
-/*******************/
-/*** PWM DRIVING ***/
-/*******************/
-/*!\brief Low level TIM module PWM duty cycle write
-** \param[in,out] pTim - pointer to TIM instance for PWM generation
-** \param[in] chan - Channel to write
-** \param[in] CCR_val - Scaled duty cycle for CCR register
-** \return HAL Status
-**/
-__STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t CCR_val)
-{
-	__IO uint32_t * pCCR;	// __IO means volatile for R/W
-
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
-
-	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
-	#if defined(STM32F3)
-		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
-	#endif
-	else 								{ return HAL_ERROR; }
-
-	*pCCR = CCR_val;
-
-	return HAL_OK;
-}
-
-
-HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
-{
-	float tmp;
-
-	if (!scale)			{ return HAL_ERROR; }	// Division by 0
-
-	if (duty >= scale)	{ tmp = pTim->Instance->ARR + 1; }	// +1 To achieve real 100% duty cycle
-	else if (duty == 0)	{ tmp = 0; }
-	else				{ tmp = ((float) duty / (float) scale) * pTim->Instance->ARR; }
-
-	return write_CCR(pTim, chan, (uint16_t) tmp);
+	else
+	{
+		st = set_PWM_Preload_bit(pTim, chan);
+		//st |= set_PWM_CCR(pTim, chan, 0);
+		st |= set_PWM_Output(pTim, chan, true);
+		return st;
+	}
 }
 
 
