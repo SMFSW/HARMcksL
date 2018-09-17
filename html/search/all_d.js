@@ -6,6 +6,7 @@ var searchData=
   ['serial_5fdbg_5fmessage_5fhandler',['SERIAL_DBG_Message_Handler',['../_u_a_r_t__term_8c.html#ab17882598bea8b22dad77ea4a8515985',1,'SERIAL_DBG_Message_Handler(const char *msg, const uint8_t len):&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#ab17882598bea8b22dad77ea4a8515985',1,'SERIAL_DBG_Message_Handler(const char *msg, const uint8_t len):&#160;UART_term.c']]],
   ['serial_5fdbg_5fsend',['SERIAL_DBG_Send',['../_u_a_r_t__term_8h.html#a9c704158b15dfde53a1a2ae27e132ffc',1,'UART_term.h']]],
   ['serial_5fdbg_5fwait_5fready',['SERIAL_DBG_Wait_Ready',['../_u_a_r_t__term_8h.html#a30989533f20806fc4ba7fdd09329beec',1,'UART_term.h']]],
+  ['set_5fpwm_5fccr',['set_PWM_CCR',['../_p_w_m_8c.html#aad2e368bad310a37405d0c2695f433ca',1,'PWM.c']]],
   ['set_5fpwm_5fduty_5fbyte',['set_PWM_Duty_Byte',['../_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea',1,'PWM.h']]],
   ['set_5fpwm_5fduty_5fperc',['set_PWM_Duty_Perc',['../_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed',1,'PWM.h']]],
   ['set_5fpwm_5fduty_5fscaled',['set_PWM_Duty_Scaled',['../_p_w_m_8c.html#a6862bdda2cde20ddee40f9183dea7dce',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale):&#160;PWM.c'],['../_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale):&#160;PWM.c']]],

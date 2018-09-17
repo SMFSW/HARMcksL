@@ -82,6 +82,12 @@ Include dependency graph for PWM.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aad2e368bad310a37405d0c2695f433ca"><td class="memItemLeft" align="right" valign="top">__STATIC_INLINE HAL_StatusTypeDef INLINE__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#aad2e368bad310a37405d0c2695f433ca">set_PWM_CCR</a> (const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t CCR_val)</td></tr>
+<tr class="memdesc:aad2e368bad310a37405d0c2695f433ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level TIM module PWM duty cycle write.  <a href="#aad2e368bad310a37405d0c2695f433ca">More...</a><br /></td></tr>
+<tr class="separator:aad2e368bad310a37405d0c2695f433ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6862bdda2cde20ddee40f9183dea7dce"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a6862bdda2cde20ddee40f9183dea7dce">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)</td></tr>
+<tr class="memdesc:a6862bdda2cde20ddee40f9183dea7dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#a6862bdda2cde20ddee40f9183dea7dce">More...</a><br /></td></tr>
+<tr class="separator:a6862bdda2cde20ddee40f9183dea7dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37b82fffbdd28e7b9c79131e4233a72d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a37b82fffbdd28e7b9c79131e4233a72d">init_TIM_Base</a> (TIM_HandleTypeDef *pTim, const uint32_t freq)</td></tr>
 <tr class="memdesc:a37b82fffbdd28e7b9c79131e4233a72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM module and start interruptions.  <a href="#a37b82fffbdd28e7b9c79131e4233a72d">More...</a><br /></td></tr>
 <tr class="separator:a37b82fffbdd28e7b9c79131e4233a72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,12 +97,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ad2f4a693c4432f1c7465fe34fd92edd3">init_PWM_Chan</a> (TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t freq)</td></tr>
 <tr class="memdesc:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM PWM module channel with frequency and starts the channel.  <a href="#ad2f4a693c4432f1c7465fe34fd92edd3">More...</a><br /></td></tr>
 <tr class="separator:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a443b4a0d6058d98a8f5ec0a8526ddc23"><td class="memItemLeft" align="right" valign="top">__STATIC_INLINE HAL_StatusTypeDef INLINE__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a443b4a0d6058d98a8f5ec0a8526ddc23">write_CCR</a> (const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t CCR_val)</td></tr>
-<tr class="memdesc:a443b4a0d6058d98a8f5ec0a8526ddc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level TIM module PWM duty cycle write.  <a href="#a443b4a0d6058d98a8f5ec0a8526ddc23">More...</a><br /></td></tr>
-<tr class="separator:a443b4a0d6058d98a8f5ec0a8526ddc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6862bdda2cde20ddee40f9183dea7dce"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a6862bdda2cde20ddee40f9183dea7dce">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)</td></tr>
-<tr class="memdesc:a6862bdda2cde20ddee40f9183dea7dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#a6862bdda2cde20ddee40f9183dea7dce">More...</a><br /></td></tr>
-<tr class="separator:a6862bdda2cde20ddee40f9183dea7dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a396657e20b9902f1d00fe3ef1af52dcd"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a396657e20b9902f1d00fe3ef1af52dcd">logPWM_setPin</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool polarity)</td></tr>
 <tr class="memdesc:a396657e20b9902f1d00fe3ef1af52dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set channel pin &amp; polarity for emulated PWM channel.  <a href="#a396657e20b9902f1d00fe3ef1af52dcd">More...</a><br /></td></tr>
 <tr class="separator:a396657e20b9902f1d00fe3ef1af52dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,15 +163,13 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph.png" border="0" usemap="#_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph" alt=""/></div>
 <map name="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph" id="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph">
-<area shape="rect" id="node2" href="_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="183,5,286,32"/>
-<area shape="rect" id="node3" href="_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="171,56,298,83"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="347,56,509,83"/>
-<area shape="rect" id="node5" href="_p_w_m_8c.html#a443b4a0d6058d98a8f5ec0a8526ddc23" title="Low level TIM module PWM duty cycle write. " alt="" coords="558,56,645,83"/>
+<area shape="rect" id="node2" href="_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="171,5,274,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -219,6 +217,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -533,6 +532,63 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aad2e368bad310a37405d0c2695f433ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2e368bad310a37405d0c2695f433ca">&#9670;&nbsp;</a></span>set_PWM_CCR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__STATIC_INLINE HAL_StatusTypeDef INLINE__ set_PWM_CCR </td>
+          <td>(</td>
+          <td class="paramtype">const TIM_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>pTim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>chan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>CCR_val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Low level TIM module PWM duty cycle write. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pTim</td><td>- pointer to TIM instance for PWM generation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">chan</td><td>- Channel to write </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">CCR_val</td><td>- Scaled duty cycle for CCR register </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_p_w_m_8c_aad2e368bad310a37405d0c2695f433ca_icgraph.png" border="0" usemap="#_p_w_m_8c_aad2e368bad310a37405d0c2695f433ca_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_aad2e368bad310a37405d0c2695f433ca_icgraph" id="_p_w_m_8c_aad2e368bad310a37405d0c2695f433ca_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="171,81,333,108"/>
+<area shape="rect" id="node3" href="_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="395,5,522,32"/>
+<area shape="rect" id="node4" href="_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="384,56,533,83"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="382,107,535,133"/>
+<area shape="rect" id="node6" href="_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="384,157,533,184"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a6862bdda2cde20ddee40f9183dea7dce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6862bdda2cde20ddee40f9183dea7dce">&#9670;&nbsp;</a></span>set_PWM_Duty_Scaled()</h2>
 
@@ -587,7 +643,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_cgraph.png" border="0" usemap="#_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_cgraph" alt=""/></div>
 <map name="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_cgraph" id="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_cgraph">
-<area shape="rect" id="node2" href="_p_w_m_8c.html#a443b4a0d6058d98a8f5ec0a8526ddc23" title="Low level TIM module PWM duty cycle write. " alt="" coords="217,5,303,32"/>
+<area shape="rect" id="node2" href="_p_w_m_8c.html#aad2e368bad310a37405d0c2695f433ca" title="Low level TIM module PWM duty cycle write. " alt="" coords="216,5,333,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -596,11 +652,9 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph.png" border="0" usemap="#_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph" alt=""/></div>
 <map name="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph" id="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph">
 <area shape="rect" id="node2" href="_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="230,5,357,32"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="219,56,368,83"/>
-<area shape="rect" id="node6" href="_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="217,107,370,133"/>
-<area shape="rect" id="node7" href="_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="219,157,368,184"/>
-<area shape="rect" id="node3" href="_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="419,5,536,32"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#aa193c1851d6967804d267881a372502a" title="De&#45;Init TIM module and start interruptions. " alt="" coords="584,5,704,32"/>
+<area shape="rect" id="node3" href="_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="219,56,368,83"/>
+<area shape="rect" id="node4" href="_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="217,107,370,133"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="219,157,368,184"/>
 </map>
 </div>
 
@@ -640,6 +694,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -648,65 +703,6 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="_p_w_m_8h.html#a37b82fffbdd28e7b9c79131e4233a72d" title="Init TIM module and start interruptions. " alt="" coords="163,5,269,32"/>
 <area shape="rect" id="node3" href="_p_w_m_8h.html#aa193c1851d6967804d267881a372502a" title="De&#45;Init TIM module and start interruptions. " alt="" coords="323,56,443,83"/>
 <area shape="rect" id="node4" href="_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="157,107,275,133"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a443b4a0d6058d98a8f5ec0a8526ddc23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a443b4a0d6058d98a8f5ec0a8526ddc23">&#9670;&nbsp;</a></span>write_CCR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">__STATIC_INLINE HAL_StatusTypeDef INLINE__ write_CCR </td>
-          <td>(</td>
-          <td class="paramtype">const TIM_HandleTypeDef *&#160;</td>
-          <td class="paramname"><em>pTim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>chan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>CCR_val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Low level TIM module PWM duty cycle write. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">pTim</td><td>- pointer to TIM instance for PWM generation </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">chan</td><td>- Channel to write </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">CCR_val</td><td>- Scaled duty cycle for CCR register </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a443b4a0d6058d98a8f5ec0a8526ddc23_icgraph.png" border="0" usemap="#_p_w_m_8c_a443b4a0d6058d98a8f5ec0a8526ddc23_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a443b4a0d6058d98a8f5ec0a8526ddc23_icgraph" id="_p_w_m_8c_a443b4a0d6058d98a8f5ec0a8526ddc23_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a6862bdda2cde20ddee40f9183dea7dce" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="141,81,304,108"/>
-<area shape="rect" id="node3" href="_p_w_m_8h.html#a09da1b1b45d70027c3dde4329f477f68" title="Set PWM channel output on/off. " alt="" coords="366,5,493,32"/>
-<area shape="rect" id="node6" href="_p_w_m_8h.html#a414b1fb82313b2266cc2e9a436960fed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="355,56,504,83"/>
-<area shape="rect" id="node7" href="_p_w_m_8h.html#ae92f880b43c25b58c79d3a9a94b457a2" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="353,107,506,133"/>
-<area shape="rect" id="node8" href="_p_w_m_8h.html#ae5034f7980fbfa7ab74049c66c28f0ea" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="355,157,504,184"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="555,5,672,32"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#aa193c1851d6967804d267881a372502a" title="De&#45;Init TIM module and start interruptions. " alt="" coords="720,5,840,32"/>
 </map>
 </div>
 
