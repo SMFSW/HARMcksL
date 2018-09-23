@@ -1,5 +1,0 @@
-<map id="get_R4" name="get_R4">
-<area shape="rect" id="node2" href="$stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721" title="Print contents of ARM registers. " alt="" coords="117,31,237,57"/>
-<area shape="rect" id="node3" href="$stack__utils_8h.html#ada8fe7cbdb4c05dd8a0a08baf6a11243" title="Get content of xPSR. " alt="" coords="295,5,369,32"/>
-<area shape="rect" id="node4" href="$stack__utils_8h.html#a3cc9f57ed39b9897a6dc48e44d55ea28" title="prints contents of global registers &amp; stack address " alt="" coords="285,56,379,83"/>
-</map>

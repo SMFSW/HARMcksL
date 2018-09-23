@@ -1,4 +1,4 @@
 <map id="print_stack_address" name="print_stack_address">
-<area shape="rect" id="node2" href="$stack__utils_8h.html#a352ac3392dbb43e5d008d885d0fab906" title="Get pointer to the main stack. " alt="" coords="192,5,275,32"/>
-<area shape="rect" id="node3" href="$stack__utils_8h.html#a0fc42f31860d8f4a80b9670ba444409e" title="Get Main Stack Pointer value. " alt="" coords="323,5,399,32"/>
+<area shape="rect" id="node2" href="$stack__utils_8h.html#ae7df401c0eaa0cc65077ff14eb68c402" title="Get pointer to the main stack. " alt="" coords="192,5,275,32"/>
+<area shape="rect" id="node3" href="$stack__utils_8h.html#a23206b15d779e87859a2b75e471ccacb" title="Get Main Stack Pointer value. " alt="" coords="323,5,399,32"/>
 </map>
