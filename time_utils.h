@@ -7,6 +7,10 @@
 #ifndef __TIME_UTILS_H
 	#define __TIME_UTILS_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include <time.h>
 
 #include "sarmfsw.h"
@@ -48,5 +52,9 @@ DateTime diffDateTime(const DateTime * time2, const DateTime * time1);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* __TIME_UTILS_H */
 /****************************************************************/

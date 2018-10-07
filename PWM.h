@@ -8,6 +8,10 @@
 #ifndef __PWM_H
 	#define __PWM_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
@@ -173,6 +177,10 @@ void logPWM_handler(logicPWM * pPWM);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* defined(HAL_TIM_MODULE_ENABLED) */
 #endif	/* __PWM_H */
 /****************************************************************/

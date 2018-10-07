@@ -7,6 +7,10 @@
 #ifndef __STACK_UTILS_H
 	#define __STACK_UTILS_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 /****************************************************************/
 // TODO: see about volatile qualifier
@@ -184,5 +188,9 @@ __INLINE void INLINE__ stack_dump(void) {
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* __STACK_UTILS_H */
 /****************************************************************/

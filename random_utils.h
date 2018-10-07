@@ -7,6 +7,10 @@
 #ifndef __RANDOM_UTILS_H
 	#define __RANDOM_UTILS_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 /****************************************************************/
 
@@ -20,5 +24,9 @@ uint32_t random_Get(uint32_t start);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* __RANDOM_UTILS_H */
 /****************************************************************/

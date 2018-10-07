@@ -4,8 +4,12 @@
 ** \brief 2 dimensional patterns utilities
 **/
 /****************************************************************/
-#ifndef __PATTERNS2D_H
-	#define __PATTERNS2D_H
+#ifndef __PATTERN2D_H
+	#define __PATTERN2D_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
 
 #include "sarmfsw.h"
 /****************************************************************/
@@ -30,5 +34,9 @@ uint16_t pattern_evaluate(const uint16_t array[][2], const uint16_t nb, const ui
 
 
 /****************************************************************/
-#endif	/* __PATTERNS2D_H */
+#ifdef __cplusplus
+	}
+#endif
+
+#endif	/* __PATTERN2D_H */
 /****************************************************************/

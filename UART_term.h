@@ -9,6 +9,10 @@
 #ifndef __UART_TERM_H
 	#define __UART_TERM_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 
 #if defined(HAL_UART_MODULE_ENABLED)
@@ -99,6 +103,10 @@ __INLINE HAL_StatusTypeDef INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef * huart, 
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* defined(HAL_UART_MODULE_ENABLED) */
 #endif	/* defined(UART_REDIRECT) */
 #endif	/* __UART_TERM_H */

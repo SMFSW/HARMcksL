@@ -4,8 +4,12 @@
 ** \brief Function to check flash CRC
 */
 /****************************************************************/
-#ifndef __FLASHCRC_H__
-	#define __FLASHCRC_H__
+#ifndef __FLASH_CHECK_H
+	#define __FLASH_CHECK_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
 
 #include "sarmfsw.h"
 /****************************************************************/
@@ -21,5 +25,9 @@ FctERR flash_crc_check(const uint32_t flash_size);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
 #endif
+
+#endif /* __FLASH_CHECK_H */
 /****************************************************************/

@@ -4,8 +4,12 @@
 ** \brief Function dealing with STM32 CRC peripheral
 */
 /****************************************************************/
-#ifndef __CRCSTM32_H__
-	#define __CRCSTM32_H__
+#ifndef __CRC_STM32_H
+	#define __CRC_STM32_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
 
 #include "sarmfsw.h"
 /****************************************************************/
@@ -47,5 +51,9 @@ FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uin
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
 #endif
+
+#endif /* __CRC_STM32_H */
 /****************************************************************/

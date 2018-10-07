@@ -7,6 +7,10 @@
 #ifndef __GPIO_EX_H
 	#define __GPIO_EX_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include <string.h>
 
 #include "sarmfsw.h"
@@ -135,5 +139,9 @@ __INLINE GPIO_PinState INLINE__ read_GPIO(GPIO_TypeDef * GPIOx, const uint16_t G
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* __GPIO_EX_H */
 /****************************************************************/

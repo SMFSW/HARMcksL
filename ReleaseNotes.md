@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.4
 
+* Added cpp preprocessor directives in headers
 * Doxyfile update
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral

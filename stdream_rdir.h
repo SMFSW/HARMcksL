@@ -6,8 +6,12 @@
 ** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
 */
 /****************************************************************/
-#ifndef __STREAM_REDIRECT_H
-	#define __STREAM_REDIRECT_H
+#ifndef __STDREAM_RDIR_H
+	#define __STDREAM_RDIR_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
 
 #include <stdarg.h>
 
@@ -84,5 +88,9 @@ int	vprintf_redir(const char * str, va_list args);
 
 
 /****************************************************************/
-#endif	/* __STREAM_REDIRECT_H */
+#ifdef __cplusplus
+	}
+#endif
+
+#endif	/* __STDREAM_RDIR_H */
 /****************************************************************/

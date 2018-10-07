@@ -7,6 +7,10 @@
 #ifndef __EXCEPTIONS_H
 	#define __EXCEPTIONS_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 /****************************************************************/
 
@@ -54,5 +58,9 @@ eResetSource Get_Reset_Source(void);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* __EXCEPTIONS_H */
 /****************************************************************/

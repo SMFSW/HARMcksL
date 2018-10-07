@@ -7,6 +7,10 @@
 #ifndef __RTC_EX_H
 	#define __RTC_EX_H
 
+#ifdef __cplusplus
+	extern "C" {
+#endif
+
 #include "sarmfsw.h"
 #include "time_utils.h"
 
@@ -28,6 +32,10 @@ FctERR RTC_GetTime(DateTime * time_now);
 
 
 /****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
 #endif	/* defined(HAL_RTC_MODULE_ENABLED) */
 #endif	/* __RTC_EX_H */
 /****************************************************************/
