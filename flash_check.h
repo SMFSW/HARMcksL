@@ -21,7 +21,7 @@
 ** \retval ERROR_OK - Flash CRC consistent
 ** \retval ERROR_CRC - Flash CRC inconsistent
 **/
-FctERR flash_crc_check(const uint32_t flash_size);
+FctERR flash_crc_check(void);
 
 
 /****************************************************************/

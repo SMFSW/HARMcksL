@@ -26,7 +26,7 @@ SOFTWARE.
 * Doxyfile update
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
-* flash_check: Added to check flash against computed CRC
+* flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
 
