@@ -17,7 +17,7 @@
 ** \param[in,out] pTim - pointer to TIM instance
 ** \return TIM Clock frequency
 **/
-static uint32_t get_TIM_clock(const TIM_HandleTypeDef * pTim)
+static uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * pTim)
 {
 	uint32_t	refCLK;
 
@@ -86,7 +86,7 @@ static uint32_t get_TIM_clock(const TIM_HandleTypeDef * pTim)
 ** \param[in] chan - Channel to write
 ** \return HAL Status
 **/
-static HAL_StatusTypeDef set_PWM_Preload_bit(TIM_HandleTypeDef * pTim, const uint32_t chan)
+static HAL_StatusTypeDef NONNULL__ set_PWM_Preload_bit(TIM_HandleTypeDef * pTim, const uint32_t chan)
 {
 	switch (chan)	/* Set the Preload enable bit for channel */
 	{
@@ -134,9 +134,9 @@ static HAL_StatusTypeDef set_PWM_Preload_bit(TIM_HandleTypeDef * pTim, const uin
 ** \param[in] CCR_val - Scaled duty cycle for CCR register
 ** \return HAL Status
 **/
-__STATIC_INLINE HAL_StatusTypeDef INLINE__ set_PWM_CCR(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t CCR_val)
+__STATIC_INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_CCR(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t CCR_val)
 {
-	__IO uint32_t * pCCR;	// __IO means volatile for R/W
+	__IO uint32_t * pCCR;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
@@ -153,7 +153,7 @@ __STATIC_INLINE HAL_StatusTypeDef INLINE__ set_PWM_CCR(const TIM_HandleTypeDef *
 }
 
 
-HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
+HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
 {
 	float tmp;
 
@@ -170,7 +170,7 @@ HAL_StatusTypeDef set_PWM_Duty_Scaled(const TIM_HandleTypeDef * pTim, const uint
 /*******************/
 /*** TIM RELATED ***/
 /*******************/
-HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq)
+HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq)
 {
 	HAL_StatusTypeDef err;
 
@@ -178,12 +178,12 @@ HAL_StatusTypeDef init_TIM_Base(TIM_HandleTypeDef * pTim, const uint32_t freq)
 	err = set_TIM_Freq(pTim, freq);			// Configure TIM frequency
 	if (err)	{ return err; }
 	return set_TIM_Interrupts(pTim, On);	// Start interrupts
-
 }
 
 
-HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq)
+HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq)
 {
+	// TODO: now forming a uint16_t max scale (better in 32b?)
 	uint32_t	refCLK, per, i;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
@@ -206,7 +206,7 @@ HAL_StatusTypeDef set_TIM_Freq(TIM_HandleTypeDef * pTim, const uint32_t freq)
 }
 
 
-HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t freq)
+HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, const uint16_t freq)
 {
 	HAL_StatusTypeDef	st;
 
@@ -248,10 +248,9 @@ HAL_StatusTypeDef init_PWM_Chan(TIM_HandleTypeDef * pTim, const uint32_t chan, c
 /*****************/
 /*** LOGIC PWM ***/
 /*****************/
-FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool polarity)
+FctERR NONNULL__ logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool polarity)
 {
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
-	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	diInterrupts();
 	pPWM->cfg.GPIOx = GPIOx;
@@ -262,13 +261,12 @@ FctERR logPWM_setPin(logicPWM * pPWM, GPIO_TypeDef * GPIOx, const uint16_t GPIO_
 }
 
 
-FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, const uint16_t freq, uint16_t granularity)
+FctERR NONNULL__ logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, const uint16_t freq, uint16_t granularity)
 {
 	uint16_t	tim_freq;
 	FctERR		err = ERROR_OK;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	granularity = max(10, granularity);
 
@@ -298,11 +296,9 @@ FctERR logPWM_setFreq(logicPWM * pPWM, TIM_HandleTypeDef * pTim, const uint16_t 
 }
 
 
-FctERR logPWM_setDuty(logicPWM * pPWM, const uint16_t val)
+FctERR NONNULL__ logPWM_setDuty(logicPWM * pPWM, const uint16_t val)
 {
 	uint16_t duty;
-
-	if (!pPWM)	{ return ERROR_INSTANCE; }
 
 	if (val == (uint16_t) -1)	{ duty = pPWM->cfg.per; }
 	else if (val == 0)			{ duty = 0; }
@@ -316,26 +312,23 @@ FctERR logPWM_setDuty(logicPWM * pPWM, const uint16_t val)
 }
 
 
-FctERR logPWM_getFreq(uint16_t * freq, const logicPWM * pPWM)
+FctERR NONNULL__ logPWM_getFreq(uint16_t * freq, const logicPWM * pPWM)
 {
-	if (!pPWM)	{ return ERROR_INSTANCE; }
 	*freq = pPWM->cfg.tim_freq / pPWM->cfg.per;
 	return ERROR_OK;
 }
 
 
-FctERR logPWM_getDutyCycle(float * duty, const logicPWM * pPWM)
+FctERR NONNULL__ logPWM_getDutyCycle(float * duty, const logicPWM * pPWM)
 {
-	if ((!pPWM) || (!duty))	{ return ERROR_INSTANCE; }
 	*duty = ((float) pPWM->cfg.duty * 100) / (float) pPWM->cfg.per;
 	return ERROR_OK;
 }
 
 
-void logPWM_handler(logicPWM * pPWM)
+void NONNULL__ logPWM_handler(logicPWM * pPWM)
 {
 	assert_param(IS_GPIO_PIN(pPWM->cfg.GPIO_Pin));
-	if (!pPWM)	{ return; }
 
 	if (pPWM->cfg.GPIOx)
 	{

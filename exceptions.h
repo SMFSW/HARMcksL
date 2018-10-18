@@ -35,7 +35,7 @@
 ** 			at least, you could inspect exception and stack through debug breakpoint
 ** \return Never (anyways, arm fubared!)
 **/
-void HardFault_Handler_callback(const uint32_t stack[]);
+void NONNULL__ HardFault_Handler_callback(const uint32_t stack[]);
 
 
 /*!\brief prints informations about current Hard Fault exception
@@ -46,7 +46,7 @@ void HardFault_Handler_callback(const uint32_t stack[]);
 ** 			at least, you could inspect exception and stack through debug breakpoint
 ** \return Never (anyways, arm fubared!)
 **/
-void Error_Handler_callback(const uint32_t stack[]);
+void NONNULL__ Error_Handler_callback(const uint32_t stack[]);
 
 
 /*!\brief Get the last source of reset

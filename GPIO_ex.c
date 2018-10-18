@@ -14,9 +14,9 @@
 #define MAX_PINS_PORT	16
 
 
-void GPIO_in_init(	GPIO_in * in,
-					GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
-					void (*onSet)(void), void (*onReset)(void), const bool repeat)
+void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * in,
+									GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
+									void (*onSet)(void), void (*onReset)(void), const bool repeat)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -31,7 +31,7 @@ void GPIO_in_init(	GPIO_in * in,
 }
 
 
-void GPIO_in_handler(GPIO_in * in)
+void NONNULL__ GPIO_in_handler(GPIO_in * in)
 {
 	if (in->in == in->mem)
 	{
@@ -65,14 +65,9 @@ void GPIO_in_handler(GPIO_in * in)
 }
 
 
-FctERR str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin)
+FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin)
 {
 	const char *port, prt[][7] = { "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIO?" };
-
-	/* Check the parameters */
-	assert_param(name);
-
-	if (!name)	{ return -1; }	// pointer for storage is not defined
 
 	// Find port comparing address
 	if (GPIOx == GPIOA)			port = prt[0];

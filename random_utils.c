@@ -21,7 +21,7 @@ static uint32_t random32;
 uint32_t random_Get(uint32_t start)
 {
 	static bool			first_call = true;
-	static uint32_t *	pUID = (uint32_t *) UID_BASE;	// TODO: check all STM32 have UID & address define
+	static uint32_t *	pUID = (uint32_t *) UID_BASE;
 	uint32_t			UID[3], time = HALTicks();
 
 	if (first_call)

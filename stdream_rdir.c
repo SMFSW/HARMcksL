@@ -27,7 +27,7 @@ char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
 **/
-static void ITM_send(const char * str, const int len)
+static void NONNULL__ ITM_send(const char * str, const int len)
 {
 	//while (*str != '\0')
 	for (int i = 0 ; i < len ; i++)
@@ -37,7 +37,7 @@ static void ITM_send(const char * str, const int len)
 }
 
 
-void ITM_port_send(const int port, const char * str, const int len)
+void NONNULL__ ITM_port_send(const int port, const char * str, const int len)
 {
 	for (int i = 0 ; i < len ; i++)
 	{
@@ -52,7 +52,7 @@ void ITM_port_send(const int port, const char * str, const int len)
 /********************/
 
 /*** ITM ***/
-int printf_ITM(const char * str, ...)
+int NONNULL__ printf_ITM(const char * str, ...)
 {
 	va_list args;
 
@@ -65,7 +65,7 @@ int printf_ITM(const char * str, ...)
 	return 0;
 }
 
-int vprintf_ITM(const char * str, va_list args)
+int NONNULL__ vprintf_ITM(const char * str, va_list args)
 {
 	vsprintf(dbg_msg_out, str, args);
 	ITM_send(dbg_msg_out, strlen(dbg_msg_out));
@@ -76,7 +76,7 @@ int vprintf_ITM(const char * str, va_list args)
 
 
 /*** GENERAL REDIRECTION ***/
-int printf_redir(const char * str, ...)
+int NONNULL__ printf_redir(const char * str, ...)
 {
 	uint16_t	len;
 	va_list		args;
@@ -107,7 +107,7 @@ int printf_redir(const char * str, ...)
 }
 
 
-int vprintf_redir(const char * str, va_list args)
+int NONNULL__ vprintf_redir(const char * str, va_list args)
 {
 	uint16_t len;
 

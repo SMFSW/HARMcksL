@@ -30,7 +30,7 @@ DateTime time_t2DateTime(const time_t time)
 }
 
 
-time_t DateTime2time_t(const DateTime * time)
+time_t NONNULL__ DateTime2time_t(const DateTime * time)
 {
 	struct tm time_tm;
 
@@ -47,7 +47,7 @@ time_t DateTime2time_t(const DateTime * time)
 }
 
 
-DateTime diffDateTime(const DateTime * time2, const DateTime * time1)
+DateTime NONNULL__ diffDateTime(const DateTime * time2, const DateTime * time1)
 {
 	time_t t2 = DateTime2time_t(time2);
 	time_t t1 = DateTime2time_t(time1);

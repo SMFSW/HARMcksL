@@ -41,14 +41,14 @@ DateTime time_t2DateTime(const time_t time);
 ** \param[in] time - DateTime representation (broken down time)
 ** \return time_t representation
 **/
-time_t DateTime2time_t(const DateTime * time);
+time_t NONNULL__ DateTime2time_t(const DateTime * time);
 
 /*!\brief Calculate DateTime difference
 ** \param[in] time2 - pointer to closest DateTime representation (broken down time)
 ** \param[in] time1 - pointer to oldest DateTime representation (broken down time)
 ** \return DateTime difference
 **/
-DateTime diffDateTime(const DateTime * time2, const DateTime * time1);
+DateTime NONNULL__ diffDateTime(const DateTime * time2, const DateTime * time1);
 
 
 /****************************************************************/

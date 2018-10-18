@@ -48,7 +48,7 @@ extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
 ** \param[in] str - pointer to message to send
 ** \param[in] len - length of message to send
 **/
-void ITM_port_send(const int port, const char * str, const int len);
+void NONNULL__ ITM_port_send(const int port, const char * str, const int len);
 
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
 /*!\brief printf like redirected to ITM port 0
@@ -57,7 +57,7 @@ void ITM_port_send(const int port, const char * str, const int len);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int printf_ITM(const char * str, ...);
+int NONNULL__ printf_ITM(const char * str, ...);
 
 /*!\brief printf like redirected to ITM port 0
 ** \param[in] str - pointer to string to send
@@ -65,7 +65,7 @@ int printf_ITM(const char * str, ...);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int vprintf_ITM(const char * str, va_list args);
+int NONNULL__ vprintf_ITM(const char * str, va_list args);
 
 // General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
@@ -75,7 +75,7 @@ int vprintf_ITM(const char * str, va_list args);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	printf_redir(const char * str, ...);
+int	NONNULL__ printf_redir(const char * str, ...);
 
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
 ** \param[in] str - pointer to string to send
@@ -84,7 +84,7 @@ int	printf_redir(const char * str, ...);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	vprintf_redir(const char * str, va_list args);
+int	NONNULL__ vprintf_redir(const char * str, va_list args);
 
 
 /****************************************************************/

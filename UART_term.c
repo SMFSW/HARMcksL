@@ -29,7 +29,7 @@ static uint8_t uart_in_nb = 0;				//!< Number of chars in input buffer of UART d
 UART_HandleTypeDef * dbg_uart = DBG_SERIAL;	//!< Instance of UART debug terminal
 
 
-FctERR SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
+FctERR NONNULL__ SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -39,7 +39,7 @@ FctERR SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
 }
 
 
-FctERR SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
+FctERR NONNULL__ SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -55,7 +55,7 @@ FctERR SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 /*****************/
 /*** CALLBACKS ***/
 /*****************/
-__WEAK FctERR SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len)
+__WEAK FctERR NONNULL__ SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len)
 {
 	UNUSED(msg);
 	UNUSED(len);

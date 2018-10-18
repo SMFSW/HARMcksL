@@ -6,6 +6,7 @@
 /****************************************************************/
 #include <string.h>
 
+#include "sarmfsw.h"
 #include "stdream_rdir.h"
 #include "exceptions.h"
 /****************************************************************/
@@ -18,7 +19,7 @@
 ** 		 needed use stack_dump() (from stack_utils.h) to get execution dump
 ** \return Nothing
 **/
-static void print_exception_stack(const uint32_t stack[])
+static void NONNULL__ print_exception_stack(const uint32_t stack[])
 {
 	enum { r0, r1, r2, r3, r12, lr, pc, psr};
 	
@@ -34,7 +35,7 @@ static void print_exception_stack(const uint32_t stack[])
 }
 
 
-void HardFault_Handler_callback(const uint32_t stack[])
+void NONNULL__ HardFault_Handler_callback(const uint32_t stack[])
 {
 	printf("Hard Fault handler\t");
 	printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
@@ -71,7 +72,7 @@ void HardFault_Handler_callback(const uint32_t stack[])
 }
 
 
-void Error_Handler_callback(const uint32_t stack[])
+void NONNULL__ Error_Handler_callback(const uint32_t stack[])
 {
 	// TODO: maybe pass by another asm code to retrieve HAL error code if not in stack
 	printf("Error handler\r\n");
