@@ -104,9 +104,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a35f738cbd19eef1dea17a23e4dd858c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a35f738cbd19eef1dea17a23e4dd858c1">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(void), void(*onReset)(void), const bool repeat)</td></tr>
-<tr class="memdesc:a35f738cbd19eef1dea17a23e4dd858c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#a35f738cbd19eef1dea17a23e4dd858c1">More...</a><br /></td></tr>
-<tr class="separator:a35f738cbd19eef1dea17a23e4dd858c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf42edc7ca26a859489b867edb9ee99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#adaf42edc7ca26a859489b867edb9ee99">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *), void(*onReset)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *), const bool repeat)</td></tr>
+<tr class="memdesc:adaf42edc7ca26a859489b867edb9ee99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#adaf42edc7ca26a859489b867edb9ee99">More...</a><br /></td></tr>
+<tr class="separator:adaf42edc7ca26a859489b867edb9ee99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2398b848386fc318cc6cc152c1792773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a2398b848386fc318cc6cc152c1792773">GPIO_in_handler</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *in)</td></tr>
 <tr class="memdesc:a2398b848386fc318cc6cc152c1792773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> read and treatment.  <a href="#a2398b848386fc318cc6cc152c1792773">More...</a><br /></td></tr>
 <tr class="separator:a2398b848386fc318cc6cc152c1792773"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,8 +251,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a35f738cbd19eef1dea17a23e4dd858c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35f738cbd19eef1dea17a23e4dd858c1">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
+<a id="adaf42edc7ca26a859489b867edb9ee99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf42edc7ca26a859489b867edb9ee99">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,13 +290,13 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *)&#160;</td>
           <td class="paramname"><em>onSet</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *)&#160;</td>
           <td class="paramname"><em>onReset</em>, </td>
         </tr>
         <tr>

@@ -102,12 +102,12 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aae9ca31f95becf32ba08449d3075d788"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__in.html#ac19ea34f74541c48987e9313aca2193c">repeat</a></td></tr>
 <tr class="memdesc:aae9ca31f95becf32ba08449d3075d788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback ON repeat.  <a href="#aae9ca31f95becf32ba08449d3075d788">More...</a><br /></td></tr>
 <tr class="separator:aae9ca31f95becf32ba08449d3075d788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af676f14fbf91a2a334fbfeb2386759"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__in.html#adbc03a7aaa65a4c13d23f9f48e56f546">onSet</a> )(void)</td></tr>
-<tr class="memdesc:a3af676f14fbf91a2a334fbfeb2386759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback ON function pointer.  <a href="#a3af676f14fbf91a2a334fbfeb2386759">More...</a><br /></td></tr>
-<tr class="separator:a3af676f14fbf91a2a334fbfeb2386759"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae0816fcfe99d4879f06e67e6fe39b1"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__in.html#a6af5ffe7fb6d968389d019f35050b208">onReset</a> )(void)</td></tr>
-<tr class="memdesc:a8ae0816fcfe99d4879f06e67e6fe39b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback OFF function pointer.  <a href="#a8ae0816fcfe99d4879f06e67e6fe39b1">More...</a><br /></td></tr>
-<tr class="separator:a8ae0816fcfe99d4879f06e67e6fe39b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5421459c79fd3f128af9aac2228a5d4"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__in.html#a25d5fc4089c20bce82de433a471125d4">onSet</a> )(void *)</td></tr>
+<tr class="memdesc:af5421459c79fd3f128af9aac2228a5d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback ON function pointer.  <a href="#af5421459c79fd3f128af9aac2228a5d4">More...</a><br /></td></tr>
+<tr class="separator:af5421459c79fd3f128af9aac2228a5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5737bf8c9667f54dad2795c5e8a43e76"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__in.html#a79c25dcbe3bac5999014a98391cd56c6">onReset</a> )(void *)</td></tr>
+<tr class="memdesc:a5737bf8c9667f54dad2795c5e8a43e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback OFF function pointer.  <a href="#a5737bf8c9667f54dad2795c5e8a43e76">More...</a><br /></td></tr>
+<tr class="separator:a5737bf8c9667f54dad2795c5e8a43e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c60f1b85f2be840406949bcaa1609a2"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__in.html#a3c60f1b85f2be840406949bcaa1609a2">cfg</a></td></tr>
 <tr class="separator:a3c60f1b85f2be840406949bcaa1609a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -256,14 +256,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a6af5ffe7fb6d968389d019f35050b208"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6af5ffe7fb6d968389d019f35050b208">&#9670;&nbsp;</a></span>onReset</h2>
+<a id="a79c25dcbe3bac5999014a98391cd56c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79c25dcbe3bac5999014a98391cd56c6">&#9670;&nbsp;</a></span>onReset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* GPIO_in::onReset) (void)</td>
+          <td class="memname">void(* GPIO_in::onReset) (void *)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -272,14 +272,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="adbc03a7aaa65a4c13d23f9f48e56f546"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc03a7aaa65a4c13d23f9f48e56f546">&#9670;&nbsp;</a></span>onSet</h2>
+<a id="a25d5fc4089c20bce82de433a471125d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d5fc4089c20bce82de433a471125d4">&#9670;&nbsp;</a></span>onSet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* GPIO_in::onSet) (void)</td>
+          <td class="memname">void(* GPIO_in::onSet) (void *)</td>
         </tr>
       </table>
 </div><div class="memdoc">
