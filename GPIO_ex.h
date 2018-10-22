@@ -24,19 +24,19 @@
 ** \brief GPIO input structure
 **/
 typedef struct GPIO_in {
-	bool			in;					//!< Input value
-	eEdge			edge;				//!< Input edge
+	bool			in;						//!< Input value
+	eEdge			edge;					//!< Input edge
 	/*pvt*/
-	bool			mem;				//!< Memo value
-	uint32_t		hIn;				//!< Filter time
+	bool			mem;					//!< Memo value
+	uint32_t		hIn;					//!< Filter time
 	struct {
-	GPIO_TypeDef *	GPIOx;				//!< HAL GPIO instance
-	uint16_t		GPIO_Pin;			//!< HAL GPIO pin
-	uint16_t		filt;				//!< Filter time (ms)
-	bool			logic;				//!< Input logic polarity
-	bool			repeat;				//!< Callback ON repeat
-	void			(*onSet)(void);		//!< Push callback ON function pointer
-	void			(*onReset)(void);	//!< Push callback OFF function pointer
+	GPIO_TypeDef *	GPIOx;					//!< HAL GPIO instance
+	uint16_t		GPIO_Pin;				//!< HAL GPIO pin
+	uint16_t		filt;					//!< Filter time (ms)
+	bool			logic;					//!< Input logic polarity
+	bool			repeat;					//!< Callback ON repeat
+	void			(*onSet)(void*);		//!< Push callback ON function pointer
+	void			(*onReset)(void*);	//!< Push callback OFF function pointer
 	} cfg;
 } GPIO_in;
 
@@ -57,7 +57,7 @@ typedef struct GPIO_in {
 **/
 void NONNULLX__(1, 2) GPIO_in_init (GPIO_in * in,
 									GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
-									void (*onSet)(void), void (*onReset)(void), const bool repeat);
+									void (*onSet)(GPIO_in*), void (*onReset)(GPIO_in*), const bool repeat);
 
 
 /*!\brief Handles GPIO_in read and treatment

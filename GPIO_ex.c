@@ -16,7 +16,7 @@
 
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * in,
 									GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
-									void (*onSet)(void), void (*onReset)(void), const bool repeat)
+									void (*onSet)(GPIO_in*), void (*onReset)(GPIO_in*), const bool repeat)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -25,8 +25,8 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * in,
 	in->cfg.GPIO_Pin = GPIO_Pin;
 	in->cfg.logic = logic;
 	in->cfg.filt = filter;
-	in->cfg.onSet = onSet;
-	in->cfg.onReset = onReset;
+	in->cfg.onSet = (void*) onSet;
+	in->cfg.onReset = (void*) onReset;
 	in->cfg.repeat = repeat;
 }
 
@@ -38,18 +38,18 @@ void NONNULL__ GPIO_in_handler(GPIO_in * in)
 		in->edge = NoEdge;
 		if ((in->cfg.repeat) && (in->in))
 		{
-			if (in->cfg.onSet)	{ in->cfg.onSet(); }
+			if (in->cfg.onSet)	{ in->cfg.onSet(in); }
 		}
 	}
 	else if (in->in > in->mem)
 	{
 		in->edge = Rising;
-		if (in->cfg.onSet)		{ in->cfg.onSet(); }
+		if (in->cfg.onSet)		{ in->cfg.onSet(in); }
 	}
 	else
 	{
 		in->edge = Falling;
-		if (in->cfg.onReset)	{ in->cfg.onReset(); }
+		if (in->cfg.onReset)	{ in->cfg.onReset(in); }
 	}
 
 	in->mem = in->in;
