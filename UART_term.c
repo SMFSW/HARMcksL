@@ -65,37 +65,47 @@ __WEAK FctERR NONNULL__ SERIAL_DBG_Message_Handler(const char * msg, const uint8
 }
 
 
-/*!\brief Rx Transfer completed callback.
-** \param huart UART handle.
-** \retval None
-**/
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
+void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart)
 {
-	if (huart == dbg_uart)
+	if (	(dbg_msg_in[uart_in_nb] == '\r')			// Carriage return as default breakout char
+		||	(dbg_msg_in[uart_in_nb] == breakout_char)	// User defined breakout char
+		||	(uart_in_nb >= sizeof(dbg_msg_in) - 1))		// Full buffer
 	{
-		if (	(dbg_msg_in[uart_in_nb] == '\r')			// Carriage return as default breakout char
-			||	(dbg_msg_in[uart_in_nb] == breakout_char)	// User defined breakout char
-			||	(uart_in_nb >= sizeof(dbg_msg_in) - 1))		// Full buffer
-		{
-			dbg_msg_in[uart_in_nb] = charNUL;
-			SERIAL_DBG_Message_Handler(dbg_msg_in, uart_in_nb);
-			SERIAL_DBG_Flush_RxBuf(dbg_uart);
-		}
-		else
-		{ uart_in_nb++; }	// Incrementing only when char received & no full message
-
-		SERIAL_DBG_Launch_It_Rx(dbg_uart);	// Waiting for next char to receive
+		dbg_msg_in[uart_in_nb] = charNUL;
+		SERIAL_DBG_Message_Handler(dbg_msg_in, uart_in_nb);
+		SERIAL_DBG_Flush_RxBuf(dbg_uart);
 	}
+	else
+	{ uart_in_nb++; }	// Incrementing only when char received & no full message
+
+	SERIAL_DBG_Launch_It_Rx(dbg_uart);	// Waiting for next char to receive
+}
+
+void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart)
+{
+	str_clr(dbg_msg_out);	// Clear output buffer
+}
+
+
+/*!\brief Rx Transfer completed callback
+** \param[in,out] huart - UART handle
+** \weak Weak implementation of HAL_UART_RxCpltCallback in the library (will get precedence over HAL function)
+** \warning You should probably implement your own callback, especially with multiple UART busses
+**/
+__WEAK void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
+{
+	if (huart == dbg_uart)	{ UART_Term_RxCpltCallback(huart); }
 }
 
 #if defined(STDREAM__UART_TX_IT)
-/*!\brief Tx Transfer completed callback (clear uart_out buffer)
-** \param huart - UART handle
-** \retval None
+/*!\brief Tx Transfer completed callback
+** \param[in,out] huart - UART handle
+** \weak Weak implementation of HAL_UART_TxCpltCallback in the library (will get precedence over HAL function)
+** \warning You should probably implement your own callback, especially with multiple UART busses
 **/
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
+__WEAK void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {
-	if (huart == dbg_uart)	{ str_clr(dbg_msg_out); }	// Clear output buffer
+	if (huart == dbg_uart)	{ UART_Term_TxCpltCallback(huart); }
 }
 #endif
 

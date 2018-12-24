@@ -102,6 +102,19 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ SERIAL_DBG_Send(UART_HandleTypeDef *
 }
 
 
+/*!\brief UART Term Rx Transfer completed callback
+** \param[in,out] huart - UART handle
+** \note Shall be called from HAL_UART_RxCpltCallback with proper UART instance
+**/
+void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart);
+
+/*!\brief UART Term Tx Transfer completed callback
+** \param[in,out] huart - UART handle
+** \note Shall be called from UART_Term_TxCpltCallback with proper UART instance
+**/
+void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart);
+
+
 /****************************************************************/
 #ifdef __cplusplus
 	}
