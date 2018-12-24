@@ -120,6 +120,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a2c48dfbcd2ee36a14394e17bd1e72686"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__term_8h.html#a2c48dfbcd2ee36a14394e17bd1e72686">SERIAL_DBG_Send</a> (UART_HandleTypeDef *huart, const char *str, const int len)</td></tr>
 <tr class="memdesc:a2c48dfbcd2ee36a14394e17bd1e72686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends string to UART.  <a href="#a2c48dfbcd2ee36a14394e17bd1e72686">More...</a><br /></td></tr>
 <tr class="separator:a2c48dfbcd2ee36a14394e17bd1e72686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae656c9b479c9951a030d8652a6ce3174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__term_8h.html#ae656c9b479c9951a030d8652a6ce3174">UART_Term_RxCpltCallback</a> (UART_HandleTypeDef *huart)</td></tr>
+<tr class="memdesc:ae656c9b479c9951a030d8652a6ce3174"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Term Rx Transfer completed callback.  <a href="#ae656c9b479c9951a030d8652a6ce3174">More...</a><br /></td></tr>
+<tr class="separator:ae656c9b479c9951a030d8652a6ce3174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b5de01594f460479d09051e1171dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__term_8h.html#a09b5de01594f460479d09051e1171dea">UART_Term_TxCpltCallback</a> (UART_HandleTypeDef *huart)</td></tr>
+<tr class="memdesc:a09b5de01594f460479d09051e1171dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Term Tx Transfer completed callback.  <a href="#a09b5de01594f460479d09051e1171dea">More...</a><br /></td></tr>
+<tr class="separator:a09b5de01594f460479d09051e1171dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -281,7 +287,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Treat fully received message. </p>
-<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000001">Weak Functions:</a></b></dt><dd>This function is implemented as weak to be implemented in projects (weak one only prints &amp; flushes the buffer) </dd></dl>
+<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000003">Weak Functions:</a></b></dt><dd>This function is implemented as weak to be implemented in projects (weak one only prints &amp; flushes the buffer) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>- pointer to received message </td></tr>
@@ -351,6 +357,15 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t__term_8h_a2c48dfbcd2ee36a14394e17bd1e72686_cgraph.png" border="0" usemap="#_u_a_r_t__term_8h_a2c48dfbcd2ee36a14394e17bd1e72686_cgraph" alt=""/></div>
+<map name="_u_a_r_t__term_8h_a2c48dfbcd2ee36a14394e17bd1e72686_cgraph" id="_u_a_r_t__term_8h_a2c48dfbcd2ee36a14394e17bd1e72686_cgraph">
+<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#ae656c9b479c9951a030d8652a6ce3174" title="UART Term Rx Transfer completed callback. " alt="" coords="197,5,392,32"/>
+<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a09b5de01594f460479d09051e1171dea" title="UART Term Tx Transfer completed callback. " alt="" coords="198,56,391,83"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -437,6 +452,78 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#a331a62475ab1e067c888b206784a7100" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="179,5,373,32"/>
 <area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a86e0da1380675d097b7e9108f8ff23b5" title="Clear buffer in used for SERIAL DEBUG. " alt="" coords="181,56,371,83"/>
 <area shape="rect" id="node4" href="_u_a_r_t__term_8h.html#a47d1b831af139df7723cb709ecb5c197" title="Treat fully received message. " alt="" coords="193,107,359,149"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae656c9b479c9951a030d8652a6ce3174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae656c9b479c9951a030d8652a6ce3174">&#9670;&nbsp;</a></span>UART_Term_RxCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART_Term_RxCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>huart</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UART Term Rx Transfer completed callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">huart</td><td>- UART handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Shall be called from HAL_UART_RxCpltCallback with proper UART instance </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t__term_8h_ae656c9b479c9951a030d8652a6ce3174_icgraph.png" border="0" usemap="#_u_a_r_t__term_8h_ae656c9b479c9951a030d8652a6ce3174_icgraph" alt=""/></div>
+<map name="_u_a_r_t__term_8h_ae656c9b479c9951a030d8652a6ce3174_icgraph" id="_u_a_r_t__term_8h_ae656c9b479c9951a030d8652a6ce3174_icgraph">
+<area shape="rect" id="node2" href="_u_a_r_t__term_8c.html#ae494a9643f29b87d6d81e5264e60e57b" title="Rx Transfer completed callback. " alt="" coords="249,5,439,32"/>
+<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a2c48dfbcd2ee36a14394e17bd1e72686" title="Sends string to UART. " alt="" coords="273,56,415,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a09b5de01594f460479d09051e1171dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b5de01594f460479d09051e1171dea">&#9670;&nbsp;</a></span>UART_Term_TxCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART_Term_TxCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">UART_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>huart</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UART Term Tx Transfer completed callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">huart</td><td>- UART handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Shall be called from UART_Term_TxCpltCallback with proper UART instance </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_u_a_r_t__term_8h_a09b5de01594f460479d09051e1171dea_icgraph.png" border="0" usemap="#_u_a_r_t__term_8h_a09b5de01594f460479d09051e1171dea_icgraph" alt=""/></div>
+<map name="_u_a_r_t__term_8h_a09b5de01594f460479d09051e1171dea_icgraph" id="_u_a_r_t__term_8h_a09b5de01594f460479d09051e1171dea_icgraph">
+<area shape="rect" id="node2" href="_u_a_r_t__term_8c.html#abcdf9b59049eccbc87d54042f9235b1a" title="Tx Transfer completed callback. " alt="" coords="248,5,437,32"/>
+<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a2c48dfbcd2ee36a14394e17bd1e72686" title="Sends string to UART. " alt="" coords="271,56,414,83"/>
 </map>
 </div>
 
