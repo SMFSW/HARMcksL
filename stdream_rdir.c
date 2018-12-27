@@ -23,35 +23,34 @@ char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
 #endif
 
 
+/********************/
+/*** ITM TRANSMIT ***/
+/********************/
+void NONNULL__ ITM_port_send(const int port, const char * str, const int len)
+{
+	for (char * pStr = (char *) str ; pStr < &str[len] ; pStr++)
+	{
+		while (ITM->PORT[port].u32 == 0);	// Wait for port to be ready
+		ITM->PORT[port].u8 = *pStr;
+	}
+}
+
 /*!\brief Sends string to ITM0 port
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
 **/
 static void NONNULL__ ITM_send(const char * str, const int len)
 {
-	//while (*str != '\0')
-	for (int i = 0 ; i < len ; i++)
+	for (char * pStr = (char *) str ; pStr < &str[len] ; pStr++)
 	{
-		ITM_SendChar(*str++);
+		ITM_SendChar(*pStr);
 	}
 }
 
 
-void NONNULL__ ITM_port_send(const int port, const char * str, const int len)
-{
-	for (int i = 0 ; i < len ; i++)
-	{
-		while (ITM->PORT[port].u32 == 0);	// Wait for port to be ready
-		ITM->PORT[port].u8 = *str++;
-	}
-}
-
-
-/********************/
-/*** PRINTF LIKES ***/
-/********************/
-
-/*** ITM ***/
+/***********************/
+/*** ITM REDIRECTION ***/
+/***********************/
 int NONNULL__ printf_ITM(const char * str, ...)
 {
 	va_list args;
@@ -75,20 +74,24 @@ int NONNULL__ vprintf_ITM(const char * str, va_list args)
 }
 
 
+/***************************/
 /*** GENERAL REDIRECTION ***/
+/***************************/
 int NONNULL__ printf_redir(const char * str, ...)
 {
-	uint16_t	len;
-	va_list		args;
+	va_list args;
 
 	#if defined(UART_REDIRECT)
-	if(SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
+	if (SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	va_start(args, str);
 	vsprintf(dbg_msg_out, str, args);
 	va_end(args);
-	len = strlen(dbg_msg_out);
+
+	#if defined(ITM_REDIRECT) || defined(UART_REDIRECT)
+	uint16_t len = strlen(dbg_msg_out);
+	#endif
 
 	#if defined(ITM_REDIRECT)
 	ITM_send(dbg_msg_out, len);
@@ -96,27 +99,26 @@ int NONNULL__ printf_redir(const char * str, ...)
 
 	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
-	#endif
-
 	#if !defined(STDREAM__UART_TX_IT)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif
+	#endif
 
-	UNUSED(len);	// To prevent compilation warnings
 	return 0;
 }
 
 
 int NONNULL__ vprintf_redir(const char * str, va_list args)
 {
-	uint16_t len;
-
 	#if defined(UART_REDIRECT)
-	if(SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
+	if (SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	vsprintf(dbg_msg_out, str, args);
-	len = strlen(dbg_msg_out);
+
+	#if defined(ITM_REDIRECT) || defined(UART_REDIRECT)
+	uint16_t len = strlen(dbg_msg_out);
+	#endif
 
 	#if defined(ITM_REDIRECT)
 	ITM_send(dbg_msg_out, len);
@@ -124,12 +126,10 @@ int NONNULL__ vprintf_redir(const char * str, va_list args)
 
 	#if defined(UART_REDIRECT)
 	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
-	#endif
-
 	#if !defined(STDREAM__UART_TX_IT)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif
+	#endif
 
-	UNUSED(len);	// To prevent compilation warnings
 	return 0;
 }

@@ -31,6 +31,7 @@ SOFTWARE.
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
+* stdream_rdir & UART_term: refactoring
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with muliple busses to handle)
 
 ## v1.3

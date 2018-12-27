@@ -43,10 +43,8 @@ FctERR NONNULL__ SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
-	diInterrupts();
 	str_clr(dbg_msg_in);	// Clear input buffer
 	uart_in_nb = 0;			// Empty char number
-	enInterrupts();
 
 	return ERROR_OK;
 }
@@ -57,9 +55,6 @@ FctERR NONNULL__ SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 /*****************/
 __WEAK FctERR NONNULL__ SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len)
 {
-	UNUSED(msg);
-	UNUSED(len);
-
 	if (len)	{ printf("%s\r\n", msg); }	// Parrot
 	return ERROR_OK;
 }
@@ -75,10 +70,9 @@ void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart)
 		SERIAL_DBG_Message_Handler(dbg_msg_in, uart_in_nb);
 		SERIAL_DBG_Flush_RxBuf(dbg_uart);
 	}
-	else
-	{ uart_in_nb++; }	// Incrementing only when char received & no full message
+	else	{ uart_in_nb++; }							// Incrementing only when char received & no full message
 
-	SERIAL_DBG_Launch_It_Rx(dbg_uart);	// Waiting for next char to receive
+	SERIAL_DBG_Launch_It_Rx(dbg_uart);					// Waiting for next char to receive
 }
 
 void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart)
