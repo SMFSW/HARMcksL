@@ -82,7 +82,7 @@ int NONNULL__ printf_redir(const char * str, ...)
 	va_list args;
 
 	#if defined(UART_REDIRECT)
-	if (SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
+	if (UART_Term_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	va_start(args, str);
@@ -98,7 +98,7 @@ int NONNULL__ printf_redir(const char * str, ...)
 	#endif
 
 	#if defined(UART_REDIRECT)
-	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
+	UART_Term_Send(dbg_uart, dbg_msg_out, len);
 	#if !defined(STDREAM__UART_TX_IT)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif
@@ -111,7 +111,7 @@ int NONNULL__ printf_redir(const char * str, ...)
 int NONNULL__ vprintf_redir(const char * str, va_list args)
 {
 	#if defined(UART_REDIRECT)
-	if (SERIAL_DBG_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
+	if (UART_Term_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }
 	#endif
 
 	vsprintf(dbg_msg_out, str, args);
@@ -125,7 +125,7 @@ int NONNULL__ vprintf_redir(const char * str, va_list args)
 	#endif
 
 	#if defined(UART_REDIRECT)
-	SERIAL_DBG_Send(dbg_uart, dbg_msg_out, len);
+	UART_Term_Send(dbg_uart, dbg_msg_out, len);
 	#if !defined(STDREAM__UART_TX_IT)
 	str_clr(dbg_msg_out);	// Empty string
 	#endif

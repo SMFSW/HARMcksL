@@ -29,7 +29,7 @@ static uint8_t uart_in_nb = 0;				//!< Number of chars in input buffer of UART d
 UART_HandleTypeDef * dbg_uart = DBG_SERIAL;	//!< Instance of UART debug terminal
 
 
-FctERR NONNULL__ SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
+FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -39,7 +39,7 @@ FctERR NONNULL__ SERIAL_DBG_Launch_It_Rx(UART_HandleTypeDef * huart)
 }
 
 
-FctERR NONNULL__ SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
+FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -53,7 +53,7 @@ FctERR NONNULL__ SERIAL_DBG_Flush_RxBuf(UART_HandleTypeDef * huart)
 /*****************/
 /*** CALLBACKS ***/
 /*****************/
-__WEAK FctERR NONNULL__ SERIAL_DBG_Message_Handler(const char * msg, const uint8_t len)
+__WEAK FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_t len)
 {
 	if (len)	{ printf("%s\r\n", msg); }	// Parrot
 	return ERROR_OK;
@@ -62,21 +62,25 @@ __WEAK FctERR NONNULL__ SERIAL_DBG_Message_Handler(const char * msg, const uint8
 
 void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart)
 {
+	UNUSED(huart);	// Prevent compiler warnings
+
 	if (	(dbg_msg_in[uart_in_nb] == '\r')			// Carriage return as default breakout char
 		||	(dbg_msg_in[uart_in_nb] == breakout_char)	// User defined breakout char
 		||	(uart_in_nb >= sizeof(dbg_msg_in) - 1))		// Full buffer
 	{
 		dbg_msg_in[uart_in_nb] = charNUL;
-		SERIAL_DBG_Message_Handler(dbg_msg_in, uart_in_nb);
-		SERIAL_DBG_Flush_RxBuf(dbg_uart);
+		UART_Term_Message_Handler(dbg_msg_in, uart_in_nb);
+		UART_Term_Flush_RxBuf(dbg_uart);
 	}
 	else	{ uart_in_nb++; }							// Incrementing only when char received & no full message
 
-	SERIAL_DBG_Launch_It_Rx(dbg_uart);					// Waiting for next char to receive
+	UART_Term_Launch_It_Rx(dbg_uart);					// Waiting for next char to receive
 }
 
 void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart)
 {
+	UNUSED(huart);	// Prevent compiler warnings
+
 	str_clr(dbg_msg_out);	// Clear output buffer
 }
 
