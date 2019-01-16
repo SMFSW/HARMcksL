@@ -11,7 +11,7 @@
 /****************************************************************/
 
 
-FctERR NONNULL__ crc_compute(uint32_t * crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size)
+FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size)
 {
 	div_t			len;
 	uint8_t *		dat8 = NULL;

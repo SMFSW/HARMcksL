@@ -29,7 +29,7 @@ static uint8_t uart_in_nb = 0;				//!< Number of chars in input buffer of UART d
 UART_HandleTypeDef * dbg_uart = DBG_SERIAL;	//!< Instance of UART debug terminal
 
 
-FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * huart)
+FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -39,7 +39,7 @@ FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * huart)
 }
 
 
-FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * huart)
+FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
@@ -60,7 +60,7 @@ __WEAK FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_
 }
 
 
-void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart)
+void UART_Term_RxCpltCallback(UART_HandleTypeDef * const huart)
 {
 	UNUSED(huart);	// Prevent compiler warnings
 
@@ -77,7 +77,7 @@ void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart)
 	UART_Term_Launch_It_Rx(dbg_uart);					// Waiting for next char to receive
 }
 
-void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart)
+void UART_Term_TxCpltCallback(UART_HandleTypeDef * const huart)
 {
 	UNUSED(huart);	// Prevent compiler warnings
 

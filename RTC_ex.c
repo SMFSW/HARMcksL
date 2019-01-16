@@ -12,7 +12,7 @@
 /****************************************************************/
 
 
-FctERR NONNULL__ RTC_SetTime(const DateTime * time_new)
+FctERR NONNULL__ RTC_SetTime(const DateTime * const time_new)
 {
 	HAL_StatusTypeDef	st;
 	RTC_TimeTypeDef		RTCTime;
@@ -38,7 +38,7 @@ FctERR NONNULL__ RTC_SetTime(const DateTime * time_new)
 }
 
 
-FctERR NONNULL__ RTC_GetTime(DateTime * time_now)
+FctERR NONNULL__ RTC_GetTime(DateTime * const time_now)
 {
 	HAL_StatusTypeDef	st;
 	RTC_TimeTypeDef		RTCTime;

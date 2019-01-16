@@ -20,7 +20,7 @@
 **
 ** \return Generated random number
 **/
-uint32_t random_Get(uint32_t start);
+uint32_t random_Get(const uint32_t start);
 
 
 /****************************************************************/

@@ -26,7 +26,7 @@ char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
 /********************/
 /*** ITM TRANSMIT ***/
 /********************/
-void NONNULL__ ITM_port_send(const int port, const char * str, const int len)
+void NONNULL__ ITM_port_send(const char * str, const int len, const int port)
 {
 	for (char * pStr = (char *) str ; pStr < &str[len] ; pStr++)
 	{

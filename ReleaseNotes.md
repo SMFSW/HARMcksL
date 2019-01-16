@@ -24,6 +24,7 @@ SOFTWARE.
 
 * Added cpp preprocessor directives in headers
 * Doxyfile update
+* const pointers in functions parameters reviewed (for const pointer, const content or both)
 * Use of NONNULL__ attribute instead of checking pointer set to value in code
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
@@ -31,6 +32,8 @@ SOFTWARE.
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
+* PWM: changed pre-comp test for consistency
+* PWM: set_PWM_Duty_Scaled calulations now only using integers
 * stdream_rdir & UART_term: refactoring
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with muliple busses to handle)
 

@@ -16,19 +16,19 @@ uint16_t NONNULL__ pattern_evaluate(const uint16_t array[][2], const uint16_t nb
 	// Find indexes
 	while (idxMax > idxMin + 1)
 	{
-		uint16_t idx = ((idxMax - idxMin) / 2 + idxMin);
+		const uint16_t idx = ((idxMax - idxMin) / 2 + idxMin);
 
 		if (val < array[idx][0])	{ idxMax = idx; }
 		else						{ idxMin = idx; }
 	}
 
 	// Get interval values
-	uint16_t x0 = array[idxMin][0];
-	uint16_t y0 = array[idxMin][1];
-	uint16_t x1 = array[idxMax][0];
-	uint16_t y1 = array[idxMax][1];
+	const uint16_t x0 = array[idxMin][0];
+	const uint16_t y0 = array[idxMin][1];
+	const uint16_t x1 = array[idxMax][0];
+	const uint16_t y1 = array[idxMax][1];
 
 	// Linearize
-	float coef = (float) (y1 - y0) / (float) (x1 - x0);
+	const float coef = (float) (y1 - y0) / (float) (x1 - x0);
 	return (uint16_t) (coef * (val -  x0) + y0);
 }

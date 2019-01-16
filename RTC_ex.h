@@ -22,13 +22,13 @@
 ** \param[in] time_new - pointer to DateTime instance
 ** \return FctERR - error code
 **/
-FctERR NONNULL__ RTC_SetTime(const DateTime * time_new);
+FctERR NONNULL__ RTC_SetTime(const DateTime * const time_new);
 
 /*!\brief Get time from RTC peripheral
 ** \param[in,out] time_now - pointer to DateTime instance
 ** \return FctERR - error code
 **/
-FctERR NONNULL__ RTC_GetTime(DateTime * time_now);
+FctERR NONNULL__ RTC_GetTime(DateTime * const time_now);
 
 
 /****************************************************************/

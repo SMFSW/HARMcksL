@@ -18,7 +18,7 @@
 static uint32_t random32;
 
 
-uint32_t random_Get(uint32_t start)
+uint32_t random_Get(const uint32_t start)
 {
 	static bool			first_call = true;
 	static uint32_t *	pUID = (uint32_t *) UID_BASE;

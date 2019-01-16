@@ -14,8 +14,8 @@
 #define MAX_PINS_PORT	16
 
 
-void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * in,
-									GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
+void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
+									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
 									void (*onSet)(GPIO_in*), void (*onReset)(GPIO_in*), const bool repeat)
 {
 	/* Check the parameters */
@@ -31,7 +31,7 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * in,
 }
 
 
-void NONNULL__ GPIO_in_handler(GPIO_in * in)
+void NONNULL__ GPIO_in_handler(GPIO_in * const in)
 {
 	if (in->in == in->mem)
 	{
@@ -65,7 +65,7 @@ void NONNULL__ GPIO_in_handler(GPIO_in * in)
 }
 
 
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin)
+FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
 	const char *port, prt[][7] = { "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIO?" };
 

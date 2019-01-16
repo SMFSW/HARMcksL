@@ -44,11 +44,11 @@ extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
 // Section: Interface Routines
 // *****************************************************************************
 /*!\brief Send string to ITM port
-** \param[in] port - ITM port number
 ** \param[in] str - pointer to message to send
 ** \param[in] len - length of message to send
+** \param[in] port - ITM port number
 **/
-void NONNULL__ ITM_port_send(const int port, const char * str, const int len);
+void NONNULL__ ITM_port_send(const char * str, const int len, const int port);
 
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
 /*!\brief printf like redirected to ITM port 0

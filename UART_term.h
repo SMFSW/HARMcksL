@@ -48,13 +48,13 @@ __INLINE void INLINE__ setBreakout_char(const char breakout) {
 ** \param[in] huart - UART handle
 ** \return Error code
 **/
-FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * huart);
+FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart);
 
 /*!\brief Clear buffer in used for SERIAL DEBUG
 ** \param[in] huart - UART handle (reserved for future use if needed)
 ** \return Error code
 **/
-FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * huart);
+FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
 
 /*!\brief Treat fully received message
 ** \weak This function is implemented as weak to be implemented in projects (weak one only prints & flushes the buffer)
@@ -69,7 +69,7 @@ FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_t len);
 ** \param[in] huart - UART handle
 ** \return Error code
 **/
-__INLINE FctERR NONNULL_INLINE__ UART_Term_Wait_Ready(UART_HandleTypeDef * huart)
+__INLINE FctERR NONNULL_INLINE__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
 {
 	#if defined(STDREAM__UART_TX_IT)
 		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }
@@ -91,7 +91,7 @@ __INLINE FctERR NONNULL_INLINE__ UART_Term_Wait_Ready(UART_HandleTypeDef * huart
 ** \param[in] len - length of string
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef NONNULL_INLINE__ UART_Term_Send(UART_HandleTypeDef * huart, const char * str, const int len)
+__INLINE HAL_StatusTypeDef NONNULL_INLINE__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len)
 {
 	// TODO: find a way to determine if UART Tx interrupts are enabled or not
 	#if defined(STDREAM__UART_TX_IT)
@@ -106,13 +106,13 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ UART_Term_Send(UART_HandleTypeDef * 
 ** \param[in,out] huart - UART handle
 ** \note Shall be called from HAL_UART_RxCpltCallback with proper UART instance
 **/
-void UART_Term_RxCpltCallback(UART_HandleTypeDef * huart);
+void UART_Term_RxCpltCallback(UART_HandleTypeDef * const huart);
 
 /*!\brief UART Term Tx Transfer completed callback
 ** \param[in,out] huart - UART handle
 ** \note Shall be called from UART_Term_TxCpltCallback with proper UART instance
 **/
-void UART_Term_TxCpltCallback(UART_HandleTypeDef * huart);
+void UART_Term_TxCpltCallback(UART_HandleTypeDef * const huart);
 
 
 /****************************************************************/

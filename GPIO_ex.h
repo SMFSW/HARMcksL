@@ -55,8 +55,8 @@ typedef struct GPIO_in {
 ** \param[in] repeat - To repeat callback ON as long as input is set
 ** \return Nothing
 **/
-void NONNULLX__(1, 2) GPIO_in_init (GPIO_in * in,
-									GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
+void NONNULLX__(1, 2) GPIO_in_init (GPIO_in * const in,
+									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
 									void (*onSet)(GPIO_in*), void (*onReset)(GPIO_in*), const bool repeat);
 
 
@@ -71,14 +71,14 @@ void NONNULL__ GPIO_in_handler(GPIO_in * in);
 ** \param[in] in - input instance
 ** \return Input value
 **/
-__INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * in) { return in->in; }
+__INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * const in) { return in->in; }
 
 
 /*!\brief Get GPIO_in input edge
 ** \param[in] in - input instance
 ** \return Input edge
 **/
-__INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * in) { return in->edge; }
+__INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) { return in->edge; }
 
 
 /*!\brief Get name from Port, Pin
@@ -87,7 +87,7 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * in) { return in-
 ** \param[in] GPIO_Pin - pin to write to
 ** \return Error code
 **/
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin);
+FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin);
 
 
 /*!\brief Write GPIO
@@ -96,7 +96,7 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * GPIOx, const ui
 ** \param[in] Act - type of write
 ** \return Nothing
 **/
-__INLINE void NONNULL_INLINE__ write_GPIO(GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
+__INLINE void NONNULL_INLINE__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -121,7 +121,7 @@ __INLINE void NONNULL_INLINE__ write_GPIO(GPIO_TypeDef * GPIOx, const uint16_t G
 ** \param[in] GPIO_Pin - pin to read from
 ** \return Pin state
 **/
-__INLINE GPIO_PinState NONNULL_INLINE__ read_GPIO(GPIO_TypeDef * GPIOx, const uint16_t GPIO_Pin)
+__INLINE GPIO_PinState NONNULL_INLINE__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));

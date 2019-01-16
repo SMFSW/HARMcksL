@@ -34,7 +34,7 @@ typedef enum eCRCFeedSize {
 ** \retval ERROR_VALUE - feed_size is not a value of enum eCRCFeedSize
 ** \retval ERROR_COMMON - size is not int division with feed_size
 **/
-FctERR NONNULL__ crc_compute(uint32_t * crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size);
+FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size);
 
 
 /*!\brief CRC check
