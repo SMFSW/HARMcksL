@@ -88,9 +88,9 @@ Include dependency graph for stdream_rdir.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a07c5f85168bdf86be094fc76ffd5d40e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#a07c5f85168bdf86be094fc76ffd5d40e">ITM_port_send</a> (const int port, const char *str, const int len)</td></tr>
-<tr class="memdesc:a07c5f85168bdf86be094fc76ffd5d40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send string to ITM port.  <a href="#a07c5f85168bdf86be094fc76ffd5d40e">More...</a><br /></td></tr>
-<tr class="separator:a07c5f85168bdf86be094fc76ffd5d40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa111e332c2ec06ced0b1e5961e50e9fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#aa111e332c2ec06ced0b1e5961e50e9fb">ITM_port_send</a> (const char *str, const int len, const int port)</td></tr>
+<tr class="memdesc:aa111e332c2ec06ced0b1e5961e50e9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send string to ITM port.  <a href="#aa111e332c2ec06ced0b1e5961e50e9fb">More...</a><br /></td></tr>
+<tr class="separator:aa111e332c2ec06ced0b1e5961e50e9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07a60f1174e7164a67f326336b51a89c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#a07a60f1174e7164a67f326336b51a89c">printf_ITM</a> (const char *str,...)</td></tr>
 <tr class="memdesc:a07a60f1174e7164a67f326336b51a89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">printf like redirected to ITM port 0  <a href="#a07a60f1174e7164a67f326336b51a89c">More...</a><br /></td></tr>
 <tr class="separator:a07a60f1174e7164a67f326336b51a89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,8 +121,8 @@ Variables</h2></td></tr>
 <dd>
 define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a07c5f85168bdf86be094fc76ffd5d40e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07c5f85168bdf86be094fc76ffd5d40e">&#9670;&nbsp;</a></span>ITM_port_send()</h2>
+<a id="aa111e332c2ec06ced0b1e5961e50e9fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa111e332c2ec06ced0b1e5961e50e9fb">&#9670;&nbsp;</a></span>ITM_port_send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,12 +130,6 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
         <tr>
           <td class="memname">void ITM_port_send </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>str</em>, </td>
         </tr>
@@ -143,7 +137,13 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>port</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -156,9 +156,9 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
 <p>Send string to ITM port. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>- ITM port number </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- pointer to message to send </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>- length of message to send </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>- ITM port number </td></tr>
   </table>
   </dd>
 </dl>
@@ -256,7 +256,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph.png" border="0" usemap="#stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph" alt=""/></div>
 <map name="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph" id="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph">
-<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#a5cd793a3d6d81b5bcb60a42b37f58a77" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="137,5,311,32"/>
+<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="137,5,311,32"/>
 </map>
 </div>
 
@@ -353,7 +353,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph.png" border="0" usemap="#stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph" alt=""/></div>
 <map name="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph" id="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph">
-<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#a5cd793a3d6d81b5bcb60a42b37f58a77" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="145,5,319,32"/>
+<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="145,5,319,32"/>
 </map>
 </div>
 

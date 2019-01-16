@@ -1,0 +1,4 @@
+<map id="set_TIM_Interrupts" name="set_TIM_Interrupts">
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="187,5,293,32"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="341,31,461,57"/>
+</map>

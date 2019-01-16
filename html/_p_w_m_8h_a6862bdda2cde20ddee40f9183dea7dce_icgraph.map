@@ -1,6 +1,0 @@
-<map id="set_PWM_Duty_Scaled" name="set_PWM_Duty_Scaled">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#a40d7781f68f1c9baa953fe9481ef1b13" title="Set PWM channel output on/off. " alt="" coords="230,5,357,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#a52a628ced46f7e2c4c02ce648ce027ed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="219,56,368,83"/>
-<area shape="rect" id="node4" href="$_p_w_m_8h.html#adb85b88e1e0005f6eb470869c5ee4327" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="217,107,370,133"/>
-<area shape="rect" id="node5" href="$_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="219,157,368,184"/>
-</map>

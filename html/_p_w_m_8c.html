@@ -82,36 +82,36 @@ Include dependency graph for PWM.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6862bdda2cde20ddee40f9183dea7dce"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a6862bdda2cde20ddee40f9183dea7dce">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)</td></tr>
-<tr class="memdesc:a6862bdda2cde20ddee40f9183dea7dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#a6862bdda2cde20ddee40f9183dea7dce">More...</a><br /></td></tr>
-<tr class="separator:a6862bdda2cde20ddee40f9183dea7dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37b82fffbdd28e7b9c79131e4233a72d"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a37b82fffbdd28e7b9c79131e4233a72d">init_TIM_Base</a> (TIM_HandleTypeDef *pTim, const uint32_t freq)</td></tr>
-<tr class="memdesc:a37b82fffbdd28e7b9c79131e4233a72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM module and start interruptions.  <a href="#a37b82fffbdd28e7b9c79131e4233a72d">More...</a><br /></td></tr>
-<tr class="separator:a37b82fffbdd28e7b9c79131e4233a72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea196aebf15cb83a77d8e68f27b00076"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076">set_TIM_Freq</a> (TIM_HandleTypeDef *pTim, const uint32_t freq)</td></tr>
-<tr class="memdesc:aea196aebf15cb83a77d8e68f27b00076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module frequency.  <a href="#aea196aebf15cb83a77d8e68f27b00076">More...</a><br /></td></tr>
-<tr class="separator:aea196aebf15cb83a77d8e68f27b00076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ad2f4a693c4432f1c7465fe34fd92edd3">init_PWM_Chan</a> (TIM_HandleTypeDef *pTim, const uint32_t chan, const uint16_t freq)</td></tr>
-<tr class="memdesc:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM PWM module channel with frequency and starts the channel.  <a href="#ad2f4a693c4432f1c7465fe34fd92edd3">More...</a><br /></td></tr>
-<tr class="separator:ad2f4a693c4432f1c7465fe34fd92edd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a396657e20b9902f1d00fe3ef1af52dcd"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a396657e20b9902f1d00fe3ef1af52dcd">logPWM_setPin</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool polarity)</td></tr>
-<tr class="memdesc:a396657e20b9902f1d00fe3ef1af52dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set channel pin &amp; polarity for emulated PWM channel.  <a href="#a396657e20b9902f1d00fe3ef1af52dcd">More...</a><br /></td></tr>
-<tr class="separator:a396657e20b9902f1d00fe3ef1af52dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae40c20a22d1c2c8df30a8688b5f11266"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ae40c20a22d1c2c8df30a8688b5f11266">logPWM_setFreq</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM, TIM_HandleTypeDef *pTim, const uint16_t freq, uint16_t granularity)</td></tr>
-<tr class="memdesc:ae40c20a22d1c2c8df30a8688b5f11266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set channel frequency for emulated PWM channel.  <a href="#ae40c20a22d1c2c8df30a8688b5f11266">More...</a><br /></td></tr>
-<tr class="separator:ae40c20a22d1c2c8df30a8688b5f11266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ba6791c99125693a012c489488ef8f8"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a6ba6791c99125693a012c489488ef8f8">logPWM_setDuty</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM, const uint16_t val)</td></tr>
-<tr class="memdesc:a6ba6791c99125693a012c489488ef8f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new duty cycle for emulated PWM channel.  <a href="#a6ba6791c99125693a012c489488ef8f8">More...</a><br /></td></tr>
-<tr class="separator:a6ba6791c99125693a012c489488ef8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf17481652d971e1fbf6cf5a31dd982e"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#acf17481652d971e1fbf6cf5a31dd982e">logPWM_getFreq</a> (uint16_t *freq, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM)</td></tr>
-<tr class="memdesc:acf17481652d971e1fbf6cf5a31dd982e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel frequency for emulated PWM channel.  <a href="#acf17481652d971e1fbf6cf5a31dd982e">More...</a><br /></td></tr>
-<tr class="separator:acf17481652d971e1fbf6cf5a31dd982e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d8aec3a58f4ad22aa44496479d8f859"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a1d8aec3a58f4ad22aa44496479d8f859">logPWM_getDutyCycle</a> (float *duty, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM)</td></tr>
-<tr class="memdesc:a1d8aec3a58f4ad22aa44496479d8f859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel Duty Cycle for emulated PWM channel.  <a href="#a1d8aec3a58f4ad22aa44496479d8f859">More...</a><br /></td></tr>
-<tr class="separator:a1d8aec3a58f4ad22aa44496479d8f859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae47f6da647bd7ec5800f90df55a289df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ae47f6da647bd7ec5800f90df55a289df">logPWM_handler</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *pPWM)</td></tr>
-<tr class="memdesc:ae47f6da647bd7ec5800f90df55a289df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for an emulated PWM channel.  <a href="#ae47f6da647bd7ec5800f90df55a289df">More...</a><br /></td></tr>
-<tr class="separator:ae47f6da647bd7ec5800f90df55a289df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ae9d0ba6e5ccf3a6387bacc0e8625f911">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)</td></tr>
+<tr class="memdesc:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#ae9d0ba6e5ccf3a6387bacc0e8625f911">More...</a><br /></td></tr>
+<tr class="separator:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6697828e26b4f3a2f8a5a987b13f5cae"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae">init_TIM_Base</a> (TIM_HandleTypeDef *const pTim, const uint32_t freq)</td></tr>
+<tr class="memdesc:a6697828e26b4f3a2f8a5a987b13f5cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM module and start interruptions.  <a href="#a6697828e26b4f3a2f8a5a987b13f5cae">More...</a><br /></td></tr>
+<tr class="separator:a6697828e26b4f3a2f8a5a987b13f5cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3126b49c3c05b2111887981d7f11597a"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a">set_TIM_Freq</a> (TIM_HandleTypeDef *const pTim, const uint32_t freq)</td></tr>
+<tr class="memdesc:a3126b49c3c05b2111887981d7f11597a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module frequency.  <a href="#a3126b49c3c05b2111887981d7f11597a">More...</a><br /></td></tr>
+<tr class="separator:a3126b49c3c05b2111887981d7f11597a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4d850437cd32c6efa1833fbf2c0d78"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#aab4d850437cd32c6efa1833fbf2c0d78">init_PWM_Chan</a> (TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq)</td></tr>
+<tr class="memdesc:aab4d850437cd32c6efa1833fbf2c0d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM PWM module channel with frequency and starts the channel.  <a href="#aab4d850437cd32c6efa1833fbf2c0d78">More...</a><br /></td></tr>
+<tr class="separator:aab4d850437cd32c6efa1833fbf2c0d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5171c7e5432d81a8b0fe82de96fbf55d"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a5171c7e5432d81a8b0fe82de96fbf55d">logPWM_setPin</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool polarity)</td></tr>
+<tr class="memdesc:a5171c7e5432d81a8b0fe82de96fbf55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set channel pin &amp; polarity for emulated PWM channel.  <a href="#a5171c7e5432d81a8b0fe82de96fbf55d">More...</a><br /></td></tr>
+<tr class="separator:a5171c7e5432d81a8b0fe82de96fbf55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a041448f84566cc7102608b96c129ca60"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a041448f84566cc7102608b96c129ca60">logPWM_setFreq</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM, TIM_HandleTypeDef *const pTim, const uint16_t freq, uint16_t granularity)</td></tr>
+<tr class="memdesc:a041448f84566cc7102608b96c129ca60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set channel frequency for emulated PWM channel.  <a href="#a041448f84566cc7102608b96c129ca60">More...</a><br /></td></tr>
+<tr class="separator:a041448f84566cc7102608b96c129ca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35196dcc8081077be152546f3c63325"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ae35196dcc8081077be152546f3c63325">logPWM_setDuty</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM, const uint16_t val)</td></tr>
+<tr class="memdesc:ae35196dcc8081077be152546f3c63325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new duty cycle for emulated PWM channel.  <a href="#ae35196dcc8081077be152546f3c63325">More...</a><br /></td></tr>
+<tr class="separator:ae35196dcc8081077be152546f3c63325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3fa76e5b98d70ffa22c90977746424b"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ad3fa76e5b98d70ffa22c90977746424b">logPWM_getFreq</a> (uint16_t *const freq, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
+<tr class="memdesc:ad3fa76e5b98d70ffa22c90977746424b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel frequency for emulated PWM channel.  <a href="#ad3fa76e5b98d70ffa22c90977746424b">More...</a><br /></td></tr>
+<tr class="separator:ad3fa76e5b98d70ffa22c90977746424b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fa50dba3b075816fc73e13726d242f"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ac7fa50dba3b075816fc73e13726d242f">logPWM_getDutyCycle</a> (float *const duty, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
+<tr class="memdesc:ac7fa50dba3b075816fc73e13726d242f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel Duty Cycle for emulated PWM channel.  <a href="#ac7fa50dba3b075816fc73e13726d242f">More...</a><br /></td></tr>
+<tr class="separator:ac7fa50dba3b075816fc73e13726d242f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc4073ce95da9e1fadfa375c828356a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#adcc4073ce95da9e1fadfa375c828356a">logPWM_handler</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
+<tr class="memdesc:adcc4073ce95da9e1fadfa375c828356a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for an emulated PWM channel.  <a href="#adcc4073ce95da9e1fadfa375c828356a">More...</a><br /></td></tr>
+<tr class="separator:adcc4073ce95da9e1fadfa375c828356a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Straightforward PWM handling. </p>
@@ -119,8 +119,8 @@ Functions</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2018, SMFSW </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Shall work for all STM32 F families, L families not totally covered </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ad2f4a693c4432f1c7465fe34fd92edd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2f4a693c4432f1c7465fe34fd92edd3">&#9670;&nbsp;</a></span>init_PWM_Chan()</h2>
+<a id="aab4d850437cd32c6efa1833fbf2c0d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4d850437cd32c6efa1833fbf2c0d78">&#9670;&nbsp;</a></span>init_PWM_Chan()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +128,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">HAL_StatusTypeDef init_PWM_Chan </td>
           <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramtype">TIM_HandleTypeDef *const&#160;</td>
           <td class="paramname"><em>pTim</em>, </td>
         </tr>
         <tr>
@@ -164,24 +164,24 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph.png" border="0" usemap="#_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph" alt=""/></div>
-<map name="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph" id="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_cgraph">
-<area shape="rect" id="node2" href="_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="171,5,274,32"/>
+<div class="center"><img src="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_cgraph.png" border="0" usemap="#_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_cgraph" alt=""/></div>
+<map name="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_cgraph" id="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_cgraph">
+<area shape="rect" id="node2" href="_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="171,5,274,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_icgraph.png" border="0" usemap="#_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_icgraph" id="_p_w_m_8c_ad2f4a693c4432f1c7465fe34fd92edd3_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aff1c85ac0b87f7035b446e178d34d4dc" title="De&#45;Init TIM module and start interruptions. " alt="" coords="171,5,291,32"/>
+<div class="center"><img src="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_icgraph.png" border="0" usemap="#_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_icgraph" id="_p_w_m_8c_aab4d850437cd32c6efa1833fbf2c0d78_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="171,5,291,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a37b82fffbdd28e7b9c79131e4233a72d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37b82fffbdd28e7b9c79131e4233a72d">&#9670;&nbsp;</a></span>init_TIM_Base()</h2>
+<a id="a6697828e26b4f3a2f8a5a987b13f5cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6697828e26b4f3a2f8a5a987b13f5cae">&#9670;&nbsp;</a></span>init_TIM_Base()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +189,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">HAL_StatusTypeDef init_TIM_Base </td>
           <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramtype">TIM_HandleTypeDef *const&#160;</td>
           <td class="paramname"><em>pTim</em>, </td>
         </tr>
         <tr>
@@ -218,25 +218,25 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_cgraph.png" border="0" usemap="#_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_cgraph" alt=""/></div>
-<map name="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_cgraph" id="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_cgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a51c42cad424905985aa05cbc453a0932" title="Start TIM module interrupts. " alt="" coords="161,5,293,32"/>
-<area shape="rect" id="node3" href="_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="175,56,278,83"/>
+<div class="center"><img src="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph.png" border="0" usemap="#_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph" alt=""/></div>
+<map name="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph" id="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="161,5,293,32"/>
+<area shape="rect" id="node3" href="_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="175,56,278,83"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_icgraph.png" border="0" usemap="#_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_icgraph" id="_p_w_m_8c_a37b82fffbdd28e7b9c79131e4233a72d_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aff1c85ac0b87f7035b446e178d34d4dc" title="De&#45;Init TIM module and start interruptions. " alt="" coords="160,5,280,32"/>
+<div class="center"><img src="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph.png" border="0" usemap="#_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph" id="_p_w_m_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="160,5,280,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1d8aec3a58f4ad22aa44496479d8f859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d8aec3a58f4ad22aa44496479d8f859">&#9670;&nbsp;</a></span>logPWM_getDutyCycle()</h2>
+<a id="ac7fa50dba3b075816fc73e13726d242f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7fa50dba3b075816fc73e13726d242f">&#9670;&nbsp;</a></span>logPWM_getDutyCycle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -244,13 +244,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">FctERR logPWM_getDutyCycle </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
+          <td class="paramtype">float *const&#160;</td>
           <td class="paramname"><em>duty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em>&#160;</td>
         </tr>
         <tr>
@@ -273,16 +273,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a1d8aec3a58f4ad22aa44496479d8f859_icgraph.png" border="0" usemap="#_p_w_m_8c_a1d8aec3a58f4ad22aa44496479d8f859_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a1d8aec3a58f4ad22aa44496479d8f859_icgraph" id="_p_w_m_8c_a1d8aec3a58f4ad22aa44496479d8f859_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="213,5,363,32"/>
+<div class="center"><img src="_p_w_m_8c_ac7fa50dba3b075816fc73e13726d242f_icgraph.png" border="0" usemap="#_p_w_m_8c_ac7fa50dba3b075816fc73e13726d242f_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_ac7fa50dba3b075816fc73e13726d242f_icgraph" id="_p_w_m_8c_ac7fa50dba3b075816fc73e13726d242f_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="213,5,363,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="acf17481652d971e1fbf6cf5a31dd982e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf17481652d971e1fbf6cf5a31dd982e">&#9670;&nbsp;</a></span>logPWM_getFreq()</h2>
+<a id="ad3fa76e5b98d70ffa22c90977746424b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fa76e5b98d70ffa22c90977746424b">&#9670;&nbsp;</a></span>logPWM_getFreq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,13 +290,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">FctERR logPWM_getFreq </td>
           <td>(</td>
-          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramtype">uint16_t *const&#160;</td>
           <td class="paramname"><em>freq</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em>&#160;</td>
         </tr>
         <tr>
@@ -319,16 +319,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_acf17481652d971e1fbf6cf5a31dd982e_icgraph.png" border="0" usemap="#_p_w_m_8c_acf17481652d971e1fbf6cf5a31dd982e_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_acf17481652d971e1fbf6cf5a31dd982e_icgraph" id="_p_w_m_8c_acf17481652d971e1fbf6cf5a31dd982e_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
+<div class="center"><img src="_p_w_m_8c_ad3fa76e5b98d70ffa22c90977746424b_icgraph.png" border="0" usemap="#_p_w_m_8c_ad3fa76e5b98d70ffa22c90977746424b_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_ad3fa76e5b98d70ffa22c90977746424b_icgraph" id="_p_w_m_8c_ad3fa76e5b98d70ffa22c90977746424b_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae47f6da647bd7ec5800f90df55a289df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae47f6da647bd7ec5800f90df55a289df">&#9670;&nbsp;</a></span>logPWM_handler()</h2>
+<a id="adcc4073ce95da9e1fadfa375c828356a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc4073ce95da9e1fadfa375c828356a">&#9670;&nbsp;</a></span>logPWM_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,7 +336,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void logPWM_handler </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em></td><td>)</td>
           <td></td>
         </tr>
@@ -354,16 +354,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ae47f6da647bd7ec5800f90df55a289df_icgraph.png" border="0" usemap="#_p_w_m_8c_ae47f6da647bd7ec5800f90df55a289df_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_ae47f6da647bd7ec5800f90df55a289df_icgraph" id="_p_w_m_8c_ae47f6da647bd7ec5800f90df55a289df_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
+<div class="center"><img src="_p_w_m_8c_adcc4073ce95da9e1fadfa375c828356a_icgraph.png" border="0" usemap="#_p_w_m_8c_adcc4073ce95da9e1fadfa375c828356a_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_adcc4073ce95da9e1fadfa375c828356a_icgraph" id="_p_w_m_8c_adcc4073ce95da9e1fadfa375c828356a_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6ba6791c99125693a012c489488ef8f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ba6791c99125693a012c489488ef8f8">&#9670;&nbsp;</a></span>logPWM_setDuty()</h2>
+<a id="ae35196dcc8081077be152546f3c63325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35196dcc8081077be152546f3c63325">&#9670;&nbsp;</a></span>logPWM_setDuty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,7 +371,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">FctERR logPWM_setDuty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em>, </td>
         </tr>
         <tr>
@@ -400,16 +400,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a6ba6791c99125693a012c489488ef8f8_icgraph.png" border="0" usemap="#_p_w_m_8c_a6ba6791c99125693a012c489488ef8f8_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a6ba6791c99125693a012c489488ef8f8_icgraph" id="_p_w_m_8c_a6ba6791c99125693a012c489488ef8f8_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="179,5,328,32"/>
+<div class="center"><img src="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph.png" border="0" usemap="#_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph" id="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="179,5,328,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae40c20a22d1c2c8df30a8688b5f11266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae40c20a22d1c2c8df30a8688b5f11266">&#9670;&nbsp;</a></span>logPWM_setFreq()</h2>
+<a id="a041448f84566cc7102608b96c129ca60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a041448f84566cc7102608b96c129ca60">&#9670;&nbsp;</a></span>logPWM_setFreq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,13 +417,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">FctERR logPWM_setFreq </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramtype">TIM_HandleTypeDef *const&#160;</td>
           <td class="paramname"><em>pTim</em>, </td>
         </tr>
         <tr>
@@ -461,16 +461,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ae40c20a22d1c2c8df30a8688b5f11266_icgraph.png" border="0" usemap="#_p_w_m_8c_ae40c20a22d1c2c8df30a8688b5f11266_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_ae40c20a22d1c2c8df30a8688b5f11266_icgraph" id="_p_w_m_8c_ae40c20a22d1c2c8df30a8688b5f11266_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
+<div class="center"><img src="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph.png" border="0" usemap="#_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph" id="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a396657e20b9902f1d00fe3ef1af52dcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a396657e20b9902f1d00fe3ef1af52dcd">&#9670;&nbsp;</a></span>logPWM_setPin()</h2>
+<a id="a5171c7e5432d81a8b0fe82de96fbf55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5171c7e5432d81a8b0fe82de96fbf55d">&#9670;&nbsp;</a></span>logPWM_setPin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,13 +478,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">FctERR logPWM_setPin </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
           <td class="paramname"><em>pPWM</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">GPIO_TypeDef *&#160;</td>
+          <td class="paramtype">GPIO_TypeDef *const&#160;</td>
           <td class="paramname"><em>GPIOx</em>, </td>
         </tr>
         <tr>
@@ -521,16 +521,16 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a396657e20b9902f1d00fe3ef1af52dcd_icgraph.png" border="0" usemap="#_p_w_m_8c_a396657e20b9902f1d00fe3ef1af52dcd_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a396657e20b9902f1d00fe3ef1af52dcd_icgraph" id="_p_w_m_8c_a396657e20b9902f1d00fe3ef1af52dcd_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="171,5,320,32"/>
+<div class="center"><img src="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph.png" border="0" usemap="#_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph" id="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="171,5,320,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6862bdda2cde20ddee40f9183dea7dce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6862bdda2cde20ddee40f9183dea7dce">&#9670;&nbsp;</a></span>set_PWM_Duty_Scaled()</h2>
+<a id="ae9d0ba6e5ccf3a6387bacc0e8625f911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9d0ba6e5ccf3a6387bacc0e8625f911">&#9670;&nbsp;</a></span>set_PWM_Duty_Scaled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,7 +538,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">HAL_StatusTypeDef set_PWM_Duty_Scaled </td>
           <td>(</td>
-          <td class="paramtype">const TIM_HandleTypeDef *&#160;</td>
+          <td class="paramtype">const TIM_HandleTypeDef *const&#160;</td>
           <td class="paramname"><em>pTim</em>, </td>
         </tr>
         <tr>
@@ -581,19 +581,19 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph.png" border="0" usemap="#_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph" id="_p_w_m_8c_a6862bdda2cde20ddee40f9183dea7dce_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a40d7781f68f1c9baa953fe9481ef1b13" title="Set PWM channel output on/off. " alt="" coords="230,5,357,32"/>
-<area shape="rect" id="node3" href="_p_w_m_8h.html#a52a628ced46f7e2c4c02ce648ce027ed" title="Set TIM module PWM duty cycle (percents) " alt="" coords="219,56,368,83"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#adb85b88e1e0005f6eb470869c5ee4327" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="217,107,370,133"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#a512ec4a9e06ca804e8f34fcdcb50e331" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="219,157,368,184"/>
+<div class="center"><img src="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph.png" border="0" usemap="#_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph" id="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed" title="Set PWM channel output on/off. " alt="" coords="230,5,357,32"/>
+<area shape="rect" id="node3" href="_p_w_m_8h.html#a77653558d0ee7800b7a91e62d503d0f2" title="Set TIM module PWM duty cycle (percents) " alt="" coords="219,56,368,83"/>
+<area shape="rect" id="node4" href="_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="217,107,370,133"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="219,157,368,184"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aea196aebf15cb83a77d8e68f27b00076"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea196aebf15cb83a77d8e68f27b00076">&#9670;&nbsp;</a></span>set_TIM_Freq()</h2>
+<a id="a3126b49c3c05b2111887981d7f11597a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3126b49c3c05b2111887981d7f11597a">&#9670;&nbsp;</a></span>set_TIM_Freq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,7 +601,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">HAL_StatusTypeDef set_TIM_Freq </td>
           <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramtype">TIM_HandleTypeDef *const&#160;</td>
           <td class="paramname"><em>pTim</em>, </td>
         </tr>
         <tr>
@@ -630,11 +630,11 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_aea196aebf15cb83a77d8e68f27b00076_icgraph.png" border="0" usemap="#_p_w_m_8c_aea196aebf15cb83a77d8e68f27b00076_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_aea196aebf15cb83a77d8e68f27b00076_icgraph" id="_p_w_m_8c_aea196aebf15cb83a77d8e68f27b00076_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#a37b82fffbdd28e7b9c79131e4233a72d" title="Init TIM module and start interruptions. " alt="" coords="163,5,269,32"/>
-<area shape="rect" id="node3" href="_p_w_m_8h.html#aff1c85ac0b87f7035b446e178d34d4dc" title="De&#45;Init TIM module and start interruptions. " alt="" coords="323,56,443,83"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="157,107,275,133"/>
+<div class="center"><img src="_p_w_m_8c_a3126b49c3c05b2111887981d7f11597a_icgraph.png" border="0" usemap="#_p_w_m_8c_a3126b49c3c05b2111887981d7f11597a_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_a3126b49c3c05b2111887981d7f11597a_icgraph" id="_p_w_m_8c_a3126b49c3c05b2111887981d7f11597a_icgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="163,5,269,32"/>
+<area shape="rect" id="node3" href="_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="323,56,443,83"/>
+<area shape="rect" id="node4" href="_p_w_m_8h.html#aab4d850437cd32c6efa1833fbf2c0d78" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="157,107,275,133"/>
 </map>
 </div>
 

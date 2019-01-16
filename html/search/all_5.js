@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['get_5fgpio_5fin',['get_GPIO_in',['../_g_p_i_o__ex_8h.html#a58ccf32f5fb0ea92bd386b378aaceb28',1,'GPIO_ex.h']]],
-  ['get_5fgpio_5fin_5fedge',['get_GPIO_in_edge',['../_g_p_i_o__ex_8h.html#afa5b87ed88c6b93429a79fbd21a36177',1,'GPIO_ex.h']]],
+  ['get_5fgpio_5fin',['get_GPIO_in',['../_g_p_i_o__ex_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3',1,'GPIO_ex.h']]],
+  ['get_5fgpio_5fin_5fedge',['get_GPIO_in_edge',['../_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e',1,'GPIO_ex.h']]],
   ['get_5flr',['get_LR',['../stack__utils_8h.html#a20bf375774584947dc7f4919ccaef0b1',1,'stack_utils.h']]],
   ['get_5fmsp',['get_MSP',['../stack__utils_8h.html#a23206b15d779e87859a2b75e471ccacb',1,'stack_utils.h']]],
   ['get_5fpmsp',['get_pMSP',['../stack__utils_8h.html#ae7df401c0eaa0cc65077ff14eb68c402',1,'stack_utils.h']]],
@@ -26,8 +26,8 @@ var searchData=
   ['gpio_5fex_2ec',['GPIO_ex.c',['../_g_p_i_o__ex_8c.html',1,'']]],
   ['gpio_5fex_2eh',['GPIO_ex.h',['../_g_p_i_o__ex_8h.html',1,'']]],
   ['gpio_5fin',['GPIO_in',['../struct_g_p_i_o__in.html',1,'GPIO_in'],['../_g_p_i_o__ex_8h.html#abc6d15410add51566ee624311e59ed2e',1,'GPIO_in():&#160;GPIO_ex.h']]],
-  ['gpio_5fin_5fhandler',['GPIO_in_handler',['../_g_p_i_o__ex_8c.html#a2398b848386fc318cc6cc152c1792773',1,'GPIO_in_handler(GPIO_in *in):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a2398b848386fc318cc6cc152c1792773',1,'GPIO_in_handler(GPIO_in *in):&#160;GPIO_ex.c']]],
-  ['gpio_5fin_5finit',['GPIO_in_init',['../_g_p_i_o__ex_8c.html#adaf42edc7ca26a859489b867edb9ee99',1,'GPIO_in_init(GPIO_in *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(GPIO_in *), void(*onReset)(GPIO_in *), const bool repeat):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#adaf42edc7ca26a859489b867edb9ee99',1,'GPIO_in_init(GPIO_in *in, GPIO_TypeDef *GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(GPIO_in *), void(*onReset)(GPIO_in *), const bool repeat):&#160;GPIO_ex.c']]],
+  ['gpio_5fin_5fhandler',['GPIO_in_handler',['../_g_p_i_o__ex_8c.html#a2ecb5cf22efb7d5f2ee37216d524a870',1,'GPIO_in_handler(GPIO_in *const in):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a2398b848386fc318cc6cc152c1792773',1,'GPIO_in_handler(GPIO_in *in):&#160;GPIO_ex.c']]],
+  ['gpio_5fin_5finit',['GPIO_in_init',['../_g_p_i_o__ex_8c.html#aa773f5b079224f35c8761993675e5b11',1,'GPIO_in_init(GPIO_in *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(GPIO_in *), void(*onReset)(GPIO_in *), const bool repeat):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#aa773f5b079224f35c8761993675e5b11',1,'GPIO_in_init(GPIO_in *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(GPIO_in *), void(*onReset)(GPIO_in *), const bool repeat):&#160;GPIO_ex.c']]],
   ['gpio_5fpin',['GPIO_Pin',['../struct_g_p_i_o__in.html#aa85c0be79a1ee60437e319c4b0c2f8f6',1,'GPIO_in::GPIO_Pin()'],['../structlogic_p_w_m.html#a03d4b050eadd16f49be32ad4e31e8a04',1,'logicPWM::GPIO_Pin()']]],
   ['gpiox',['GPIOx',['../struct_g_p_i_o__in.html#ace5e2804d02a86fedfacba25af8540cb',1,'GPIO_in::GPIOx()'],['../structlogic_p_w_m.html#afd824ff7248b01fea3d02307c60ac04f',1,'logicPWM::GPIOx()']]]
 ];

@@ -1,7 +1,0 @@
-<map id="deinit_TIM_Base" name="deinit_TIM_Base">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#a51c42cad424905985aa05cbc453a0932" title="Start TIM module interrupts. " alt="" coords="339,5,471,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#a37b82fffbdd28e7b9c79131e4233a72d" title="Init TIM module and start interruptions. " alt="" coords="179,31,285,57"/>
-<area shape="rect" id="node5" href="$_p_w_m_8h.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="181,81,283,108"/>
-<area shape="rect" id="node6" href="$_p_w_m_8h.html#ad2f4a693c4432f1c7465fe34fd92edd3" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="173,132,291,159"/>
-<area shape="rect" id="node4" href="$_p_w_m_8c.html#aea196aebf15cb83a77d8e68f27b00076" title="Set TIM module frequency. " alt="" coords="354,81,457,108"/>
-</map>

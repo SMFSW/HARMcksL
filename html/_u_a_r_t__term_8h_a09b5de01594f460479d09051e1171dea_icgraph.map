@@ -1,4 +1,0 @@
-<map id="UART_Term_TxCpltCallback" name="UART_Term_TxCpltCallback">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#abcdf9b59049eccbc87d54042f9235b1a" title="Tx Transfer completed callback. " alt="" coords="248,5,437,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ace5e5783a988679d768b16bfe5bc87c0" title="Sends string to UART. " alt="" coords="276,56,409,83"/>
-</map>
