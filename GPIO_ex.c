@@ -105,5 +105,5 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 		}
 	}
 //	sprintf(name, "%s%c%c", "GPIO", port, 'x');
-//	return ERROR_VALUE;			// No match
+	return ERROR_VALUE;			// No match
 }
