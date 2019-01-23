@@ -16,7 +16,7 @@
 
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
-									void (*onSet)(GPIO_in*), void (*onReset)(GPIO_in*), const bool repeat)
+									void (*onSet)(GPIO_in * const), void (*onReset)(GPIO_in * const), const bool repeat)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
@@ -25,8 +25,8 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 	in->cfg.GPIO_Pin = GPIO_Pin;
 	in->cfg.logic = logic;
 	in->cfg.filt = filter;
-	in->cfg.onSet = (void*) onSet;
-	in->cfg.onReset = (void*) onReset;
+	in->cfg.onSet = (void *) onSet;
+	in->cfg.onReset = (void *) onReset;
 	in->cfg.repeat = repeat;
 }
 
@@ -67,7 +67,8 @@ void NONNULL__ GPIO_in_handler(GPIO_in * const in)
 
 FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
-	const char *port, prt[][7] = { "GPIOA", "GPIOB", "GPIOC", "GPIOD", "GPIOE", "GPIOF", "GPIOG", "GPIOH", "GPIO?" };
+	const char	prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
+	char		port;
 
 	// Find port comparing address
 	if (GPIOx == GPIOA)			port = prt[0];
@@ -97,12 +98,12 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	// Find pin shifting values to get pin index
 	for (int pin = 0 ; pin < MAX_PINS_PORT ; pin++)
 	{
-		if (1U << pin == GPIO_Pin)
+		if (1 << pin == GPIO_Pin)
 		{
-			sprintf(name, "%s%i", port, pin);
+			sprintf(name, "%s%c%i", "GPIO", port, pin);
 			return ERROR_OK;	// Match
 		}
 	}
-	sprintf(name, "%s%s", port, "xx");
-	return ERROR_VALUE;		// No match
+//	sprintf(name, "%s%c%c", "GPIO", port, 'x');
+//	return ERROR_VALUE;			// No match
 }

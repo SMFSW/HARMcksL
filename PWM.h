@@ -39,7 +39,9 @@ typedef __IO struct logicPWM {
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/****************/
 /*** TIM Base ***/
+/****************/
 /*!\brief Start TIM module interrupts
 ** \param[in,out] pTim - pointer to TIM instance
 ** \param[in] on - Time Interrupts 0: off, 1: on
@@ -70,7 +72,9 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq);
 
 
+/***********/
 /*** PWM ***/
+/***********/
 /*!\brief Init TIM PWM module channel with frequency and starts the channel
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
@@ -127,7 +131,9 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Byte(const TIM_HandleTy
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint8_t) -1); }
 
 
+/********************/
 /*** Emulated PWM ***/
+/********************/
 /*!\brief Set channel pin & polarity for emulated PWM channel
 ** \param[in] GPIOx - port for emulated PWM
 ** \param[in] GPIO_Pin - pin for emulated PWM
@@ -156,18 +162,18 @@ FctERR NONNULL__ logPWM_setFreq(logicPWM * const pPWM, TIM_HandleTypeDef * const
 FctERR NONNULL__ logPWM_setDuty(logicPWM * const pPWM, const uint16_t val);
 
 /*!\brief Get channel frequency for emulated PWM channel
-** \param[in,out] freq - pointer to frequency result
 ** \param[in,out] pPWM - pointer to emulated PWM channel
-** \return Error code
+** \return PWM frequency
 **/
-FctERR NONNULL__ logPWM_getFreq(uint16_t * const freq, const logicPWM * const pPWM);
+__INLINE uint16_t NONNULL__ logPWM_getFreq(const logicPWM * const pPWM) {
+	return pPWM->cfg.tim_freq / pPWM->cfg.per; }
 
 /*!\brief Get channel Duty Cycle for emulated PWM channel
-** \param[in,out] duty - pointer to duty cycle result
 ** \param[in,out] pPWM - pointer to emulated PWM channel
-** \return Error code
+** \return PWM Duty cycle
 **/
-FctERR NONNULL__ logPWM_getDutyCycle(float * const duty, const logicPWM * const pPWM);
+__INLINE uint16_t NONNULL__ logPWM_getDutyCycle(const logicPWM * const pPWM) {
+	return ((pPWM->cfg.duty * 100) / pPWM->cfg.per); }
 
 /*!\brief Handler for an emulated PWM channel
 ** \warning Shall be called directly from timer interrupt (HAL_TIM_PeriodElapsedCallback)

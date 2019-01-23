@@ -18,9 +18,9 @@ FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size,
 	uint16_t *		dat16 = NULL;
 	uint32_t *		dat32 = NULL;
 
-	if (feed_size == CRC_Feed_BYTE)			{ dat8 = (uint8_t *) start_addr; }
+	if  (feed_size == CRC_Feed_DWORD)		{ dat32 = (uint32_t *) start_addr; }
 	else if (feed_size == CRC_Feed_WORD)	{ dat16 = (uint16_t *) start_addr; }
-	else if  (feed_size == CRC_Feed_DWORD)	{ dat32 = (uint32_t *) start_addr; }
+	else if (feed_size == CRC_Feed_BYTE)	{ dat8 = (uint8_t *) start_addr; }
 	else									{ return ERROR_VALUE; }
 
 	len = div(size, feed_size);

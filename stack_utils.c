@@ -18,21 +18,21 @@ void print_stack_address(void) {
 
 void print_global_regs(void)
 {
-	uint32_t r0_reg = get_R0();
-	uint32_t r1_reg = get_R1();
-	uint32_t r2_reg = get_R2();
-	uint32_t r3_reg = get_R3();
-	uint32_t r4_reg = get_R4();
-	uint32_t r5_reg = get_R5();
-	uint32_t r6_reg = get_R6();
-	uint32_t r7_reg = get_R7();
-	uint32_t r8_reg = get_R8();
-	uint32_t r9_reg = get_R9();
-	uint32_t r10_reg = get_R10();
-	uint32_t r11_reg = get_R11();
-	uint32_t r12_reg = get_R12();
-	//uint32_t lr_reg = get_LR();
-	//uint32_t psr_reg = get_PSR();
+	const uint32_t r0_reg = get_R0();
+	const uint32_t r1_reg = get_R1();
+	const uint32_t r2_reg = get_R2();
+	const uint32_t r3_reg = get_R3();
+	const uint32_t r4_reg = get_R4();
+	const uint32_t r5_reg = get_R5();
+	const uint32_t r6_reg = get_R6();
+	const uint32_t r7_reg = get_R7();
+	const uint32_t r8_reg = get_R8();
+	const uint32_t r9_reg = get_R9();
+	const uint32_t r10_reg = get_R10();
+	const uint32_t r11_reg = get_R11();
+	const uint32_t r12_reg = get_R12();
+	//const uint32_t lr_reg = get_LR();
+	//const uint32_t psr_reg = get_PSR();
 
 	printf("r0  = 0x%08lx\r\n", r0_reg);
 	printf("r1  = 0x%08lx\r\n", r1_reg);

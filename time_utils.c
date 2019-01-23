@@ -49,9 +49,9 @@ time_t NONNULL__ DateTime2time_t(const DateTime * const time)
 
 DateTime NONNULL__ diffDateTime(const DateTime * const time2, const DateTime * const time1)
 {
-	time_t t2 = DateTime2time_t(time2);
-	time_t t1 = DateTime2time_t(time1);
-	time_t diff = difftime(t2, t1);
+	const time_t t2 = DateTime2time_t(time2);
+	const time_t t1 = DateTime2time_t(time1);
+	const time_t diff = difftime(t2, t1);
 	return time_t2DateTime(diff);
 }
 

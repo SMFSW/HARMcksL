@@ -21,8 +21,9 @@ static uint32_t random32;
 uint32_t random_Get(const uint32_t start)
 {
 	static bool			first_call = true;
-	static uint32_t *	pUID = (uint32_t *) UID_BASE;
-	uint32_t			UID[3], time = HALTicks();
+	const uint32_t *	pUID = (uint32_t *) UID_BASE;
+	const uint32_t		time = HALTicks();
+	uint32_t			UID[3];
 
 	if (first_call)
 	{

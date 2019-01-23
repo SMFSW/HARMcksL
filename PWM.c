@@ -182,24 +182,22 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	// TODO: now forming a uint16_t max scale (better in 32b?)
-	uint32_t	refCLK, per, i;
+	uint32_t period, prescaler;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
-	refCLK = get_TIM_clock(pTim);
+	const uint32_t refCLK = get_TIM_clock(pTim);
 	if (freq > refCLK / 100)		{ return HAL_ERROR; }
 
-	// TODO: find prescaler & period with i++ instead of shifts for more accuracy (despite of time passed)
-	for (i = 1 ; i < (uint16_t) -1 ; i <<= 1)
+	for (prescaler = 1 ; prescaler < (uint16_t) -1 ; prescaler++)
 	{
-		per = (refCLK / (freq * (i + 1))) - 1;
-		if (per <= (uint16_t) -1)	{ break; }				// If in 16b range
-		if (i == 1 << 15)			{ return HAL_ERROR; }	// If nothing has been found (last iteration)
+		period = (refCLK / (freq * (prescaler + 1))) - 1;
+		if (period <= (uint16_t) -1)	{ break; }				// If in 16b range
+		if (prescaler == 1 << 15)		{ return HAL_ERROR; }	// If nothing has been found (last iteration)
 	}
 
-	pTim->Init.Period = per;
-	pTim->Init.Prescaler = i;
+	pTim->Init.Period = period;
+	pTim->Init.Prescaler = prescaler;
 
 	return HAL_TIM_Base_Init(pTim);
 }
@@ -226,7 +224,6 @@ HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const 
 		for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
 		{
 			st = set_PWM_Preload_bit(pTim, chans[i]);
-			//st |= set_PWM_CCR(pTim, chans[i], 0);
 			st |= set_PWM_Output(pTim, chans[i], true);
 			if (st)	{ break; }
 		}
@@ -235,7 +232,6 @@ HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const 
 	else
 	{
 		st = set_PWM_Preload_bit(pTim, chan);
-		//st |= set_PWM_CCR(pTim, chan, 0);
 		st |= set_PWM_Output(pTim, chan, true);
 		return st;
 	}
@@ -262,8 +258,7 @@ FctERR NONNULL__ logPWM_setPin(logicPWM * const pPWM, GPIO_TypeDef * const GPIOx
 
 FctERR NONNULL__ logPWM_setFreq(logicPWM * const pPWM, TIM_HandleTypeDef * const pTim, const uint16_t freq, uint16_t granularity)
 {
-	uint16_t	tim_freq;
-	FctERR		err = ERROR_OK;
+	uint16_t tim_freq;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
@@ -271,8 +266,7 @@ FctERR NONNULL__ logPWM_setFreq(logicPWM * const pPWM, TIM_HandleTypeDef * const
 
 	// TODO: set some limits for frequency (regarding granularity?)
 
-	if (	(pTim->Instance->DIER & TIM_IT_UPDATE)
-		&&	(pTim->Instance->CR1 & TIM_CR1_CEN))
+	if ((pTim->Instance->DIER & TIM_IT_UPDATE) && (pTim->Instance->CR1 & TIM_CR1_CEN))
 	{	// Timer already started (try to set period according to already configured timer module)
 		tim_freq = get_TIM_clock(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
 		if ((tim_freq / granularity) < freq)	{ return ERROR_VALUE; }
@@ -281,8 +275,8 @@ FctERR NONNULL__ logPWM_setFreq(logicPWM * const pPWM, TIM_HandleTypeDef * const
 	else
 	{
 		tim_freq = freq * granularity;
-		err = init_TIM_Base(pTim, tim_freq);
-		if (err)	{ return err; }
+		HAL_StatusTypeDef st = init_TIM_Base(pTim, tim_freq);
+		if (st)	{ return HALERRtoFCTERR(st); }
 	}
 
 	diInterrupts();
@@ -307,20 +301,6 @@ FctERR NONNULL__ logPWM_setDuty(logicPWM * const pPWM, const uint16_t val)
 	pPWM->cfg.duty = duty;
 	enInterrupts();
 
-	return ERROR_OK;
-}
-
-
-FctERR NONNULL__ logPWM_getFreq(uint16_t * const freq, const logicPWM * const pPWM)
-{
-	*freq = pPWM->cfg.tim_freq / pPWM->cfg.per;
-	return ERROR_OK;
-}
-
-
-FctERR NONNULL__ logPWM_getDutyCycle(float * const duty, const logicPWM * const pPWM)
-{
-	*duty = (pPWM->cfg.duty * 100) / (float) pPWM->cfg.per;
 	return ERROR_OK;
 }
 

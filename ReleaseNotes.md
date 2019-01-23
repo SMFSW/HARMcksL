@@ -30,10 +30,14 @@ SOFTWARE.
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument
+* GPIO_ex: str_GPIO_name optimized
+* GPIO_ex: few refactoring
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
 * PWM: changed pre-comp test for consistency
 * PWM: set_PWM_Duty_Scaled calulations now only using integers
+* PWM: more precision when trying to set TIM frequency (still 16b max)
+* PMW: logic PWM getters now returns value directly instead of using pointer in function parameters
 * stdream_rdir & UART_term: refactoring
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with muliple busses to handle)
 
