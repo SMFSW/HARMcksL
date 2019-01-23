@@ -142,12 +142,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae35196dcc8081077be152546f3c63325"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325">logPWM_setDuty</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM, const uint16_t val)</td></tr>
 <tr class="memdesc:ae35196dcc8081077be152546f3c63325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set new duty cycle for emulated PWM channel.  <a href="#ae35196dcc8081077be152546f3c63325">More...</a><br /></td></tr>
 <tr class="separator:ae35196dcc8081077be152546f3c63325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3fa76e5b98d70ffa22c90977746424b"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#ad3fa76e5b98d70ffa22c90977746424b">logPWM_getFreq</a> (uint16_t *const freq, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
-<tr class="memdesc:ad3fa76e5b98d70ffa22c90977746424b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel frequency for emulated PWM channel.  <a href="#ad3fa76e5b98d70ffa22c90977746424b">More...</a><br /></td></tr>
-<tr class="separator:ad3fa76e5b98d70ffa22c90977746424b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7fa50dba3b075816fc73e13726d242f"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#ac7fa50dba3b075816fc73e13726d242f">logPWM_getDutyCycle</a> (float *const duty, const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
-<tr class="memdesc:ac7fa50dba3b075816fc73e13726d242f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel Duty Cycle for emulated PWM channel.  <a href="#ac7fa50dba3b075816fc73e13726d242f">More...</a><br /></td></tr>
-<tr class="separator:ac7fa50dba3b075816fc73e13726d242f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2face5c79dc78a5f605caee5841ebd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#aac2face5c79dc78a5f605caee5841ebd">logPWM_getFreq</a> (const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
+<tr class="memdesc:aac2face5c79dc78a5f605caee5841ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel frequency for emulated PWM channel.  <a href="#aac2face5c79dc78a5f605caee5841ebd">More...</a><br /></td></tr>
+<tr class="separator:aac2face5c79dc78a5f605caee5841ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6080f854c8361bfe24769154651bac5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#ac6080f854c8361bfe24769154651bac5">logPWM_getDutyCycle</a> (const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
+<tr class="memdesc:ac6080f854c8361bfe24769154651bac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get channel Duty Cycle for emulated PWM channel.  <a href="#ac6080f854c8361bfe24769154651bac5">More...</a><br /></td></tr>
+<tr class="separator:ac6080f854c8361bfe24769154651bac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcc4073ce95da9e1fadfa375c828356a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html#adcc4073ce95da9e1fadfa375c828356a">logPWM_handler</a> (<a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const pPWM)</td></tr>
 <tr class="memdesc:adcc4073ce95da9e1fadfa375c828356a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for an emulated PWM channel.  <a href="#adcc4073ce95da9e1fadfa375c828356a">More...</a><br /></td></tr>
 <tr class="separator:adcc4073ce95da9e1fadfa375c828356a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,95 +336,81 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ac7fa50dba3b075816fc73e13726d242f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7fa50dba3b075816fc73e13726d242f">&#9670;&nbsp;</a></span>logPWM_getDutyCycle()</h2>
+<a id="ac6080f854c8361bfe24769154651bac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6080f854c8361bfe24769154651bac5">&#9670;&nbsp;</a></span>logPWM_getDutyCycle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">FctERR logPWM_getDutyCycle </td>
+          <td class="memname">uint16_t logPWM_getDutyCycle </td>
           <td>(</td>
-          <td class="paramtype">float *const&#160;</td>
-          <td class="paramname"><em>duty</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
-          <td class="paramname"><em>pPWM</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>pPWM</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get channel Duty Cycle for emulated PWM channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">duty</td><td>- pointer to duty cycle result </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">pPWM</td><td>- pointer to emulated PWM channel </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>PWM Duty cycle </dd></dl>
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8h_ac7fa50dba3b075816fc73e13726d242f_icgraph.png" border="0" usemap="#_p_w_m_8h_ac7fa50dba3b075816fc73e13726d242f_icgraph" alt=""/></div>
-<map name="_p_w_m_8h_ac7fa50dba3b075816fc73e13726d242f_icgraph" id="_p_w_m_8h_ac7fa50dba3b075816fc73e13726d242f_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="213,5,363,32"/>
+<div class="center"><img src="_p_w_m_8h_ac6080f854c8361bfe24769154651bac5_cgraph.png" border="0" usemap="#_p_w_m_8h_ac6080f854c8361bfe24769154651bac5_cgraph" alt=""/></div>
+<map name="_p_w_m_8h_ac6080f854c8361bfe24769154651bac5_cgraph" id="_p_w_m_8h_ac6080f854c8361bfe24769154651bac5_cgraph">
+<area shape="rect" id="node2" href="_p_w_m_8h.html#adcc4073ce95da9e1fadfa375c828356a" title="Handler for an emulated PWM channel. " alt="" coords="214,5,335,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad3fa76e5b98d70ffa22c90977746424b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3fa76e5b98d70ffa22c90977746424b">&#9670;&nbsp;</a></span>logPWM_getFreq()</h2>
+<a id="aac2face5c79dc78a5f605caee5841ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac2face5c79dc78a5f605caee5841ebd">&#9670;&nbsp;</a></span>logPWM_getFreq()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">FctERR logPWM_getFreq </td>
+          <td class="memname">uint16_t logPWM_getFreq </td>
           <td>(</td>
-          <td class="paramtype">uint16_t *const&#160;</td>
-          <td class="paramname"><em>freq</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="structlogic_p_w_m.html">logicPWM</a> *const&#160;</td>
-          <td class="paramname"><em>pPWM</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>pPWM</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Get channel frequency for emulated PWM channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">freq</td><td>- pointer to frequency result </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">pPWM</td><td>- pointer to emulated PWM channel </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_p_w_m_8h_ad3fa76e5b98d70ffa22c90977746424b_icgraph.png" border="0" usemap="#_p_w_m_8h_ad3fa76e5b98d70ffa22c90977746424b_icgraph" alt=""/></div>
-<map name="_p_w_m_8h_ad3fa76e5b98d70ffa22c90977746424b_icgraph" id="_p_w_m_8h_ad3fa76e5b98d70ffa22c90977746424b_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
-</map>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>PWM frequency </dd></dl>
 
 </div>
 </div>
@@ -457,7 +443,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8h_adcc4073ce95da9e1fadfa375c828356a_icgraph.png" border="0" usemap="#_p_w_m_8h_adcc4073ce95da9e1fadfa375c828356a_icgraph" alt=""/></div>
 <map name="_p_w_m_8h_adcc4073ce95da9e1fadfa375c828356a_icgraph" id="_p_w_m_8h_adcc4073ce95da9e1fadfa375c828356a_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="176,5,325,32"/>
+<area shape="rect" id="node2" href="_p_w_m_8h.html#ac6080f854c8361bfe24769154651bac5" title="Get channel Duty Cycle for emulated PWM channel. " alt="" coords="177,5,335,32"/>
 </map>
 </div>
 
@@ -689,9 +675,6 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node3" href="_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d" title="Set channel pin &amp; polarity for emulated PWM channel. " alt="" coords="226,56,342,83"/>
 <area shape="rect" id="node4" href="_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="223,107,345,133"/>
 <area shape="rect" id="node5" href="_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325" title="Set new duty cycle for emulated PWM channel. " alt="" coords="221,157,347,184"/>
-<area shape="rect" id="node6" href="_p_w_m_8h.html#ad3fa76e5b98d70ffa22c90977746424b" title="Get channel frequency for emulated PWM channel. " alt="" coords="223,208,345,235"/>
-<area shape="rect" id="node7" href="_p_w_m_8h.html#ac7fa50dba3b075816fc73e13726d242f" title="Get channel Duty Cycle for emulated PWM channel. " alt="" coords="205,259,363,285"/>
-<area shape="rect" id="node8" href="_p_w_m_8h.html#adcc4073ce95da9e1fadfa375c828356a" title="Handler for an emulated PWM channel. " alt="" coords="223,309,345,336"/>
 </map>
 </div>
 
