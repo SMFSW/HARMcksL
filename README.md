@@ -11,7 +11,7 @@ The toolbox uses sarmfsw headers library
 
 ## Documentation
 
-Doxygen generated documentation can be found in "HARMcksL_vXXX.pdf"
+Doxygen doc can be generated using "Doxyfile"
 
 See [generated documentation](https://smfsw.github.io/HARMcksL/)
 
