@@ -203,38 +203,42 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 }
 
 
-HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t freq)
+HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity)
 {
-	HAL_StatusTypeDef	st;
+	HAL_StatusTypeDef st;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CHANNELS(chan));
 
 	st = set_TIM_Freq(pTim, freq);
-	if (st)	{ return st; }
 
-	if (chan == TIM_CHANNEL_ALL)
+	if (st == HAL_OK)
 	{
-		#if defined(TIM_CHANNEL_6)
-			uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
-		#else
-			uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
-		#endif
-
-		for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
+		if (chan == TIM_CHANNEL_ALL)
 		{
-			st = set_PWM_Preload_bit(pTim, chans[i]);
-			st |= set_PWM_Output(pTim, chans[i], true);
-			if (st)	{ break; }
+			#if defined(TIM_CHANNEL_6)
+				const uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
+			#else
+				const uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
+			#endif
+
+			for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
+			{
+				st = set_PWM_Preload_bit(pTim, chans[i]);
+				st |= set_PWM_CCR(pTim, chans[i], (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
+				st |= set_PWM_Output(pTim, chans[i], true);
+				if (st)	{ break; }
+			}
 		}
-		return st;
+		else
+		{
+			st = set_PWM_Preload_bit(pTim, chan);
+			st |= set_PWM_CCR(pTim, chan, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
+			st |= set_PWM_Output(pTim, chan, true);
+		}
 	}
-	else
-	{
-		st = set_PWM_Preload_bit(pTim, chan);
-		st |= set_PWM_Output(pTim, chan, true);
-		return st;
-	}
+
+	return st;
 }
 
 

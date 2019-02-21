@@ -38,8 +38,9 @@ SOFTWARE.
 * PWM: set_PWM_Duty_Scaled calulations now only using integers
 * PWM: more precision when trying to set TIM frequency (still 16b max)
 * PMW: logic PWM getters now returns value directly instead of using pointer in function parameters
+* PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
 * stdream_rdir & UART_term: refactoring
-* UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with muliple busses to handle)
+* UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
 
 ## v1.3
 
