@@ -2,7 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2018, SMFSW
 ** \brief Straightforward PWM handling
-** \warning Shall work for all STM32 F families, L families not totally covered
+** \warning Shall work for all STM32 F/G families, L families not totally covered
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -13,7 +13,7 @@
 
 
 /*!\brief Get TIM module clock
-** \warning Shall work for all STM32 F families, L families not totally covered
+** \warning Shall work for all STM32 F/G families, L families not totally covered
 ** \param[in,out] pTim - pointer to TIM instance
 ** \return TIM Clock frequency
 **/
@@ -21,7 +21,10 @@ static uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
 {
 	uint32_t	refCLK;
 
-	#if defined(STM32F0)
+	#if defined(STM32G0)
+		refCLK = HAL_RCC_GetPCLK1Freq();
+		if ((RCC->CFGR & RCC_CFGR_PPRE) != 0)	{ refCLK *= 2; }
+	#elif defined(STM32F0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
 	#else
 		if (	(pTim->Instance == TIM1)

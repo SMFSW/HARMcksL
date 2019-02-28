@@ -27,11 +27,12 @@ SOFTWARE.
 * const pointers in functions parameters reviewed (for const pointer, const content or both)
 * Use of NONNULL__ attribute instead of checking pointer set to value in code
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
+* exceptions: changes using G0 family
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument
 * GPIO_ex: str_GPIO_name optimized
-* GPIO_ex: few refactoring
+* GPIO_ex: refactoring and including stdio.h
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
 * PWM: changed pre-comp test for consistency
@@ -39,7 +40,9 @@ SOFTWARE.
 * PWM: more precision when trying to set TIM frequency (still 16b max)
 * PMW: logic PWM getters now returns value directly instead of using pointer in function parameters
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
+* PWM: added clock path for G0 family in get_TIM_clock
 * stdream_rdir & UART_term: refactoring
+* stdream_rdir: added pre-comp option for ITM
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
 
 ## v1.3

@@ -18,6 +18,12 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+#if defined(STM32G0)
+//! \note The exception_Handler should be called with corresponding exception name \b e as parameter
+#define exception_Handler(e)					\
+	__ASM (	"mrs r0, MSP \r\n"					\
+			"bl " #e "_Handler_callback \r\n");	//!< Exception handler asm caller
+#else
 //! \note The exception_Handler should be called with corresponding exception name \b e as parameter
 #define exception_Handler(e)					\
 	__ASM (	"tst lr, #4 \r\n"					\
@@ -25,6 +31,7 @@
 			"mrseq r0, MSP \r\n"				\
 			"mrsne r0, PSP \r\n"				\
 			"b " #e "_Handler_callback \r\n");	//!< Exception handler asm caller
+#endif
 
 
 /*!\brief prints informations about current Hard Fault exception

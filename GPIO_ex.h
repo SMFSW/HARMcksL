@@ -11,8 +11,6 @@
 	extern "C" {
 #endif
 
-#include <string.h>
-
 #include "sarmfsw.h"
 /****************************************************************/
 
@@ -67,6 +65,23 @@ void NONNULLX__(1, 2) GPIO_in_init (GPIO_in * const in,
 void NONNULL__ GPIO_in_handler(GPIO_in * const in);
 
 
+/*!\brief Write GPIO
+** \param[in] GPIOx - port to write to
+** \param[in] GPIO_Pin - pin to write to
+** \param[in] Act - type of write
+** \return Nothing
+**/
+void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act);
+
+
+/*!\brief Read GPIO
+** \param[in] GPIOx - port to read from
+** \param[in] GPIO_Pin - pin to read from
+** \return Pin state
+**/
+GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin);
+
+
 /*!\brief Get GPIO_in input value
 ** \param[in] in - input instance
 ** \return Input value
@@ -81,63 +96,6 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * const in) {
 **/
 __INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
 	return in->edge; }
-
-
-/*!\brief Get name from Port, Pin
-** \param[in,out] name - pointer to string for name
-** \param[in] GPIOx - port
-** \param[in] GPIO_Pin - pin
-** \return Error code
-**/
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin);
-
-
-/*!\brief Write GPIO
-** \param[in] GPIOx - port to write to
-** \param[in] GPIO_Pin - pin to write to
-** \param[in] Act - type of write
-** \return Nothing
-**/
-__INLINE void NONNULL_INLINE__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
-{
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
-	if (Act > Toggle)		{ return; }
-	else
-	{
-		if (Act == Reset)	{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
-		if (Act == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
-		if (Act == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
-		#if defined(VERBOSE)
-			char port[10] = "";
-			str_GPIO_name(port, GPIOx, GPIO_Pin);
-			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
-		#endif
-	}
-}
-
-
-/*!\brief Read GPIO
-** \param[in] GPIOx - port to read from
-** \param[in] GPIO_Pin - pin to read from
-** \return Pin state
-**/
-__INLINE GPIO_PinState NONNULL_INLINE__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
-{
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
-	const GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
-
-	#if defined(VERBOSE)
-		char port[10] = "";
-		str_GPIO_name(port, GPIOx, GPIO_Pin);
-		printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
-	#endif
-
-	return pin;
-}
 
 
 /****************************************************************/

@@ -43,6 +43,7 @@ extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+#if defined(ITM)
 /*!\brief Send string to ITM port
 ** \param[in] str - pointer to message to send
 ** \param[in] len - length of message to send
@@ -66,6 +67,7 @@ int NONNULL__ printf_ITM(const char * str, ...);
 ** \retval 0 - OK
 **/
 int NONNULL__ vprintf_ITM(const char * str, va_list args);
+#endif
 
 // General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0

@@ -21,7 +21,7 @@
 **/
 static void NONNULL__ print_exception_stack(const uint32_t stack[])
 {
-	enum { r0, r1, r2, r3, r12, lr, pc, psr};
+	enum { r0, r1, r2, r3, r12, lr, pc, psr };
 	
 	printf("stack addr = %lx\r\n", stack);
 	printf("r0  = 0x%08lx\r\n", stack[r0]);
@@ -38,32 +38,35 @@ static void NONNULL__ print_exception_stack(const uint32_t stack[])
 void NONNULL__ HardFault_Handler_callback(const uint32_t stack[])
 {
 	printf("Hard Fault handler\t");
-	printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
 
-	if ((SCB->HFSR & (1 << 30)) != 0)
-	{
-		uint32_t CFSRValue = SCB->CFSR;
+	#if !defined(STM32G0)
+		printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
 
-		printf("Hard Fault\t");
-		printf("SCB->CFSR = 0x%08lx\r\n", CFSRValue);
-		if ((SCB->CFSR & 0xFFFF0000) != 0)
+		if ((SCB->HFSR & (1 << 30)) != 0)
 		{
-			printf("Usage fault: ");
-			CFSRValue >>= 16;	// right shift to lsb
-			if((CFSRValue & (1 << 9)) != 0) { printf("Zero div\r\n"); }
-		}
+			uint32_t CFSRValue = SCB->CFSR;
 
-		if ((SCB->CFSR & 0xFF00) != 0)
-		{
-			CFSRValue = ((CFSRValue & 0x0000FF00) >> 8); // mask and shift
-			printf("Bus fault: 0x%02lx\r\n", CFSRValue);
-		}
+			printf("Hard Fault\t");
+			printf("SCB->CFSR = 0x%08lx\r\n", CFSRValue);
+			if ((SCB->CFSR & 0xFFFF0000) != 0)
+			{
+				printf("Usage fault: ");
+				CFSRValue >>= 16;	// right shift to lsb
+				if((CFSRValue & (1 << 9)) != 0) { printf("Zero div\r\n"); }
+			}
 
-		if ((SCB->CFSR & 0xFF) != 0) {
-			CFSRValue &= 0x000000FF; // mask other faults
-			printf("Memory Management fault: 0x%02lx\r\n", CFSRValue);
+			if ((SCB->CFSR & 0xFF00) != 0)
+			{
+				CFSRValue = ((CFSRValue & 0x0000FF00) >> 8); // mask and shift
+				printf("Bus fault: 0x%02lx\r\n", CFSRValue);
+			}
+
+			if ((SCB->CFSR & 0xFF) != 0) {
+				CFSRValue &= 0x000000FF; // mask other faults
+				printf("Memory Management fault: 0x%02lx\r\n", CFSRValue);
+			}
 		}
-	}
+	#endif
 
 	print_exception_stack(stack);
 
@@ -87,7 +90,11 @@ eResetSource Get_Reset_Source(void)
 {
 	eResetSource rst = RST_UNKNOWN;
 
-	if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))					{ rst = RST_POR; }
+	#if defined(STM32G0)
+		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PWRRST))				{ rst = RST_POR; }
+	#else
+		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
+	#endif
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PINRST))				{ rst = RST_PIN; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST))				{ rst = RST_SW; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST))				{ rst = RST_IWDG; }

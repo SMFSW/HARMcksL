@@ -26,6 +26,7 @@ char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
 /********************/
 /*** ITM TRANSMIT ***/
 /********************/
+#if defined(ITM)
 void NONNULL__ ITM_port_send(const char * str, const int len, const int port)
 {
 	for (char * pStr = (char *) str ; pStr < &str[len] ; pStr++)
@@ -72,6 +73,7 @@ int NONNULL__ vprintf_ITM(const char * str, va_list args)
 
 	return 0;
 }
+#endif
 
 
 /***************************/
@@ -93,7 +95,7 @@ int NONNULL__ printf_redir(const char * str, ...)
 	uint16_t len = strlen(dbg_msg_out);
 	#endif
 
-	#if defined(ITM_REDIRECT)
+	#if defined(ITM_REDIRECT) && defined(ITM)
 	ITM_send(dbg_msg_out, len);
 	#endif
 
@@ -120,7 +122,7 @@ int NONNULL__ vprintf_redir(const char * str, va_list args)
 	uint16_t len = strlen(dbg_msg_out);
 	#endif
 
-	#if defined(ITM_REDIRECT)
+	#if defined(ITM_REDIRECT) && defined(ITM)
 	ITM_send(dbg_msg_out, len);
 	#endif
 

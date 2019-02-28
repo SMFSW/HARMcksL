@@ -4,8 +4,7 @@
 ** \brief Simple extension for GPIOs
 **/
 /****************************************************************/
-#include <string.h>
-#include <assert.h>
+#include <stdio.h>
 
 #include "GPIO_ex.h"
 /****************************************************************/
@@ -65,7 +64,13 @@ void NONNULL__ GPIO_in_handler(GPIO_in * const in)
 }
 
 
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
+/*!\brief Get name from Port, Pin
+** \param[in,out] name - pointer to string for name
+** \param[in] GPIOx - port
+** \param[in] GPIO_Pin - pin
+** \return Error code
+**/
+static FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
 	const char	prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
 	char		port;
@@ -106,4 +111,41 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	}
 //	sprintf(name, "%s%c%c", "GPIO", port, 'x');
 	return ERROR_VALUE;			// No match
+}
+
+
+void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
+{
+	/* Check the parameters */
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
+
+	if (Act > Toggle)		{ return; }
+	else
+	{
+		if (Act == Reset)	{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
+		if (Act == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
+		if (Act == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
+		#if defined(VERBOSE)
+			char port[10] = "";
+			str_GPIO_name(port, GPIOx, GPIO_Pin);
+			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
+		#endif
+	}
+}
+
+
+GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
+{
+	/* Check the parameters */
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
+
+	const GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
+
+	#if defined(VERBOSE)
+		char port[10] = "";
+		str_GPIO_name(port, GPIOx, GPIO_Pin);
+		printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
+	#endif
+
+	return pin;
 }
