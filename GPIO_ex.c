@@ -65,12 +65,13 @@ void NONNULL__ GPIO_in_handler(GPIO_in * const in)
 
 
 /*!\brief Get name from Port, Pin
+** \note Static, but may not be called, no static declaration to prevent warnings
 ** \param[in,out] name - pointer to string for name
 ** \param[in] GPIOx - port
 ** \param[in] GPIO_Pin - pin
 ** \return Error code
 **/
-static FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
+FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
 	const char	prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
 	char		port;
