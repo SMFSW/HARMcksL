@@ -71,8 +71,7 @@ $(function() {
 
 <p>Simple extension for GPIOs.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;sarmfsw.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for GPIO_ex.h:</div>
 <div class="dyncontent">
@@ -110,21 +109,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a2ecb5cf22efb7d5f2ee37216d524a870">GPIO_in_handler</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
 <tr class="memdesc:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> read and treatment.  <a href="#a2ecb5cf22efb7d5f2ee37216d524a870">More...</a><br /></td></tr>
 <tr class="separator:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3">get_GPIO_in</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
-<tr class="memdesc:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input value.  <a href="#a5f2a1a1d03e692f8131c99563cfa0af3">More...</a><br /></td></tr>
-<tr class="separator:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a01979653245fb3c41842eb287ba6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e">get_GPIO_in_edge</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
-<tr class="memdesc:a93a01979653245fb3c41842eb287ba6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input edge.  <a href="#a93a01979653245fb3c41842eb287ba6e">More...</a><br /></td></tr>
-<tr class="separator:a93a01979653245fb3c41842eb287ba6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada385c7d700819240acb2652617819bd"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd">str_GPIO_name</a> (char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin)</td></tr>
-<tr class="memdesc:ada385c7d700819240acb2652617819bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get name from Port, Pin.  <a href="#ada385c7d700819240acb2652617819bd">More...</a><br /></td></tr>
-<tr class="separator:ada385c7d700819240acb2652617819bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64">write_GPIO</a> (GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)</td></tr>
 <tr class="memdesc:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write GPIO.  <a href="#a24a22d2c4d867bf61c9518b3b5d0ec64">More...</a><br /></td></tr>
 <tr class="separator:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1c26aac07c2e07fbbf6ed016722bc5c"><td class="memItemLeft" align="right" valign="top">GPIO_PinState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c">read_GPIO</a> (GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin)</td></tr>
 <tr class="memdesc:af1c26aac07c2e07fbbf6ed016722bc5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read GPIO.  <a href="#af1c26aac07c2e07fbbf6ed016722bc5c">More...</a><br /></td></tr>
 <tr class="separator:af1c26aac07c2e07fbbf6ed016722bc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3">get_GPIO_in</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
+<tr class="memdesc:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input value.  <a href="#a5f2a1a1d03e692f8131c99563cfa0af3">More...</a><br /></td></tr>
+<tr class="separator:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a01979653245fb3c41842eb287ba6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e">get_GPIO_in_edge</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
+<tr class="memdesc:a93a01979653245fb3c41842eb287ba6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input edge.  <a href="#a93a01979653245fb3c41842eb287ba6e">More...</a><br /></td></tr>
+<tr class="separator:a93a01979653245fb3c41842eb287ba6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple extension for GPIOs. </p>
@@ -213,14 +209,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Input edge </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8h_a93a01979653245fb3c41842eb287ba6e_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8h_a93a01979653245fb3c41842eb287ba6e_cgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8h_a93a01979653245fb3c41842eb287ba6e_cgraph" id="_g_p_i_o__ex_8h_a93a01979653245fb3c41842eb287ba6e_cgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd" title="Get name from Port, Pin. " alt="" coords="187,5,303,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -336,9 +324,6 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">GPIO_PinState read_GPIO </td>
@@ -358,11 +343,6 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Read GPIO. </p>
@@ -374,69 +354,6 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pin state </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8h_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8h_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8h_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph" id="_g_p_i_o__ex_8h_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd" title="Get name from Port, Pin. " alt="" coords="142,5,258,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ada385c7d700819240acb2652617819bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada385c7d700819240acb2652617819bd">&#9670;&nbsp;</a></span>str_GPIO_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FctERR str_GPIO_name </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const GPIO_TypeDef *const&#160;</td>
-          <td class="paramname"><em>GPIOx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>GPIO_Pin</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get name from Port, Pin. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">name</td><td>- pointer to string for name </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">GPIOx</td><td>- port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">GPIO_Pin</td><td>- pin </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8h_ada385c7d700819240acb2652617819bd_icgraph.png" border="0" usemap="#_g_p_i_o__ex_8h_ada385c7d700819240acb2652617819bd_icgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8h_ada385c7d700819240acb2652617819bd_icgraph" id="_g_p_i_o__ex_8h_ada385c7d700819240acb2652617819bd_icgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="171,5,303,32"/>
-<area shape="rect" id="node3" href="_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64" title="Write GPIO. " alt="" coords="192,56,283,83"/>
-<area shape="rect" id="node4" href="_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c" title="Read GPIO. " alt="" coords="194,107,281,133"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -445,9 +362,6 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void write_GPIO </td>
@@ -473,11 +387,6 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Write GPIO. </p>
@@ -490,14 +399,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8h_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8h_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8h_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph" id="_g_p_i_o__ex_8h_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd" title="Get name from Port, Pin. " alt="" coords="145,5,261,32"/>
-</map>
-</div>
 
 </div>
 </div>

@@ -3,7 +3,7 @@ var searchData=
   ['random_5fget',['random_Get',['../random__utils_8c.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c']]],
   ['random_5futils_2ec',['random_utils.c',['../random__utils_8c.html',1,'']]],
   ['random_5futils_2eh',['random_utils.h',['../random__utils_8h.html',1,'']]],
-  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'GPIO_ex.h']]],
+  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
   ['repeat',['repeat',['../struct_g_p_i_o__in.html#ac19ea34f74541c48987e9313aca2193c',1,'GPIO_in']]],
   ['rtc_5fex_2ec',['RTC_ex.c',['../_r_t_c__ex_8c.html',1,'']]],
   ['rtc_5fex_2eh',['RTC_ex.h',['../_r_t_c__ex_8h.html',1,'']]],

@@ -1,3 +1,6 @@
 <map id="vprintf_redir" name="vprintf_redir">
 <area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="145,5,319,32"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="165,56,299,83"/>
+<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="368,31,563,57"/>
+<area shape="rect" id="node5" href="$_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="369,81,562,108"/>
 </map>

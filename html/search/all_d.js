@@ -15,7 +15,6 @@ var searchData=
   ['stdream_5f_5fuart_5ftx_5fit',['STDREAM__UART_TX_IT',['../_u_a_r_t__term_8h.html#a6a94e0fce19020e3f578df717a7106f2',1,'UART_term.h']]],
   ['stdream_5frdir_2ec',['stdream_rdir.c',['../stdream__rdir_8c.html',1,'']]],
   ['stdream_5frdir_2eh',['stdream_rdir.h',['../stdream__rdir_8h.html',1,'']]],
-  ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
   ['sz_5fdbg_5fin',['SZ_DBG_IN',['../stdream__rdir_8h.html#aafef780a551cedd16e3023245b3fb762',1,'stdream_rdir.h']]],
   ['sz_5fdbg_5fout',['SZ_DBG_OUT',['../stdream__rdir_8h.html#a55feddd4610786fb60b30272eb49bce6',1,'stdream_rdir.h']]]
 ];
