@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): random_utils.h File Reference</title>
+<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): ADC_ex.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,73 +60,37 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">random_utils.h File Reference</div>  </div>
+<div class="title">ADC_ex.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>(A little less pseudo) random numbers generation utilities  
+<p>Simple extension for ADCs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for random_utils.h:</div>
+Include dependency graph for ADC_ex.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="random__utils_8h__incl.png" border="0" usemap="#random__utils_8h" alt=""/></div>
-<map name="random__utils_8h" id="random__utils_8h">
+<div class="center"><img src="_a_d_c__ex_8h__incl.png" border="0" usemap="#_a_d_c__ex_8h" alt=""/></div>
+<map name="_a_d_c__ex_8h" id="_a_d_c__ex_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="random__utils_8h__dep__incl.png" border="0" usemap="#random__utils_8hdep" alt=""/></div>
-<map name="random__utils_8hdep" id="random__utils_8hdep">
-<area shape="rect" id="node2" href="random__utils_8c.html" title="(A little less pseudo) random numbers generation utilities " alt="" coords="5,80,112,107"/>
+<div class="center"><img src="_a_d_c__ex_8h__dep__incl.png" border="0" usemap="#_a_d_c__ex_8hdep" alt=""/></div>
+<map name="_a_d_c__ex_8hdep" id="_a_d_c__ex_8hdep">
+<area shape="rect" id="node2" href="_a_d_c__ex_8c.html" title="Simple extension for ADCs. " alt="" coords="4,80,85,107"/>
 </map>
 </div>
 </div>
-<p><a href="random__utils_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ae7f2232ba39936d7ebe30a73568aaecf"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf">random_Get</a> (const uint32_t start)</td></tr>
-<tr class="memdesc:ae7f2232ba39936d7ebe30a73568aaecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random number based on STM32 unique ID.  <a href="#ae7f2232ba39936d7ebe30a73568aaecf">More...</a><br /></td></tr>
-<tr class="separator:ae7f2232ba39936d7ebe30a73568aaecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
+<p><a href="_a_d_c__ex_8h_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>(A little less pseudo) random numbers generation utilities </p>
+<div class="textblock"><p>Simple extension for ADCs. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2019, SMFSW </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae7f2232ba39936d7ebe30a73568aaecf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7f2232ba39936d7ebe30a73568aaecf">&#9670;&nbsp;</a></span>random_Get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t random_Get </td>
-          <td>(</td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>start</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate a random number based on STM32 unique ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>- Value for a first seed (if a value has been stored for next reset)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Generated random number </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<dl class="section note"><dt>Note</dt><dd>Configuration done calling ADC_cfg.h file </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['logic',['logic',['../struct_g_p_i_o__in.html#abec4269efa462c63b97f43c478a96bc8',1,'GPIO_in']]],
-  ['logicpwm',['logicPWM',['../structlogic_p_w_m.html',1,'logicPWM'],['../_p_w_m_8h.html#a0a55d5ab2b637aa77ff75876ff1ea4d6',1,'logicPWM():&#160;PWM.h']]],
-  ['logpwm_5fgetdutycycle',['logPWM_getDutyCycle',['../_p_w_m_8h.html#ac6080f854c8361bfe24769154651bac5',1,'PWM.h']]],
-  ['logpwm_5fgetfreq',['logPWM_getFreq',['../_p_w_m_8h.html#aac2face5c79dc78a5f605caee5841ebd',1,'PWM.h']]],
-  ['logpwm_5fhandler',['logPWM_handler',['../_p_w_m_8c.html#adcc4073ce95da9e1fadfa375c828356a',1,'logPWM_handler(logicPWM *const pPWM):&#160;PWM.c'],['../_p_w_m_8h.html#adcc4073ce95da9e1fadfa375c828356a',1,'logPWM_handler(logicPWM *const pPWM):&#160;PWM.c']]],
-  ['logpwm_5fsetduty',['logPWM_setDuty',['../_p_w_m_8c.html#ae35196dcc8081077be152546f3c63325',1,'logPWM_setDuty(logicPWM *const pPWM, const uint16_t val):&#160;PWM.c'],['../_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325',1,'logPWM_setDuty(logicPWM *const pPWM, const uint16_t val):&#160;PWM.c']]],
-  ['logpwm_5fsetfreq',['logPWM_setFreq',['../_p_w_m_8c.html#a041448f84566cc7102608b96c129ca60',1,'logPWM_setFreq(logicPWM *const pPWM, TIM_HandleTypeDef *const pTim, const uint16_t freq, uint16_t granularity):&#160;PWM.c'],['../_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60',1,'logPWM_setFreq(logicPWM *const pPWM, TIM_HandleTypeDef *const pTim, const uint16_t freq, uint16_t granularity):&#160;PWM.c']]],
-  ['logpwm_5fsetpin',['logPWM_setPin',['../_p_w_m_8c.html#a5171c7e5432d81a8b0fe82de96fbf55d',1,'logPWM_setPin(logicPWM *const pPWM, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool polarity):&#160;PWM.c'],['../_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d',1,'logPWM_setPin(logicPWM *const pPWM, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool polarity):&#160;PWM.c']]]
+  ['in',['in',['../struct_g_p_i_o__in.html#a44ea280cd232feb3ba51c51edea928f1',1,'GPIO_in']]],
+  ['init_5fpwm_5fchan',['init_PWM_Chan',['../_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c'],['../_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c']]],
+  ['init_5ftim_5fbase',['init_TIM_Base',['../_p_w_m_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae',1,'init_TIM_Base(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;PWM.c'],['../_p_w_m_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae',1,'init_TIM_Base(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;PWM.c']]]
 ];

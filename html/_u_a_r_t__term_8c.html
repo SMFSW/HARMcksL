@@ -121,7 +121,7 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UART terminal. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2018, SMFSW </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2019, SMFSW </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>UART redirection is enabled when UART_REDIRECT symbol is defined at project level </dd>
 <dd>
 define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART </dd></dl>
@@ -143,14 +143,14 @@ define DBG_SERIAL in compiler defines with an UART instance to send printf likes
 </div><div class="memdoc">
 
 <p>Rx Transfer completed callback. </p>
+<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000001">Weak Functions:</a></b></dt><dd>Weak implementation of HAL_UART_RxCpltCallback in the library (will get precedence over HAL function) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>You should probably implement your own callback, especially with multiple UART busses </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">huart</td><td>- UART handle </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000001">Weak Functions:</a></b></dt><dd>Weak implementation of HAL_UART_RxCpltCallback in the library (will get precedence over HAL function) </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>You should probably implement your own callback, especially with multiple UART busses </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -179,14 +179,14 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Tx Transfer completed callback. </p>
+<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000002">Weak Functions:</a></b></dt><dd>Weak implementation of HAL_UART_TxCpltCallback in the library (will get precedence over HAL function) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>You should probably implement your own callback, especially with multiple UART busses </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">huart</td><td>- UART handle </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="weak"><dt><b><a class="el" href="weak.html#_weak000002">Weak Functions:</a></b></dt><dd>Weak implementation of HAL_UART_TxCpltCallback in the library (will get precedence over HAL function) </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>You should probably implement your own callback, especially with multiple UART busses </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

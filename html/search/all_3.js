@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['ecrcfeedsize',['eCRCFeedSize',['../_c_r_c__stm32_8h.html#abedc84bb459f7c4722fbc7ee878b9048',1,'eCRCFeedSize():&#160;CRC_stm32.h'],['../_c_r_c__stm32_8h.html#ac63da70a232b68118cf0e46b3d733f90',1,'eCRCFeedSize():&#160;CRC_stm32.h']]],
-  ['edge',['edge',['../struct_g_p_i_o__in.html#abf3e97ffbc1c976e10b295b5d6366d28',1,'GPIO_in']]],
-  ['error_5fhandler_5fcallback',['Error_Handler_callback',['../exceptions_8c.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c'],['../exceptions_8h.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c']]],
-  ['exception_5fhandler',['exception_Handler',['../exceptions_8h.html#abb24885c7b9423e972f770f696ea2115',1,'exceptions.h']]],
-  ['exceptions_2ec',['exceptions.c',['../exceptions_8c.html',1,'']]],
-  ['exceptions_2eh',['exceptions.h',['../exceptions_8h.html',1,'']]]
+  ['datetime',['DateTime',['../struct_date_time.html',1,'DateTime'],['../time__utils_8h.html#a337e90c806c812c6b07ae5be30546f54',1,'DateTime():&#160;time_utils.h']]],
+  ['datetime2time_5ft',['DateTime2time_t',['../time__utils_8c.html#aa6fccbff0e13e88285511d0b4c63121f',1,'DateTime2time_t(const DateTime *const time):&#160;time_utils.c'],['../time__utils_8h.html#aa6fccbff0e13e88285511d0b4c63121f',1,'DateTime2time_t(const DateTime *const time):&#160;time_utils.c']]],
+  ['day',['Day',['../struct_date_time.html#afc1a4fb7e060c4e20001a41c29f9b045',1,'DateTime']]],
+  ['dbg_5fmsg_5fin',['dbg_msg_in',['../stdream__rdir_8c.html#a3231409693aee1eba1e4d4dfbb8c9708',1,'dbg_msg_in():&#160;stdream_rdir.c'],['../stdream__rdir_8h.html#a3231409693aee1eba1e4d4dfbb8c9708',1,'dbg_msg_in():&#160;stdream_rdir.c']]],
+  ['dbg_5fmsg_5fout',['dbg_msg_out',['../stdream__rdir_8c.html#af60f4f11f4b14d02d0dc5564a238281d',1,'dbg_msg_out():&#160;stdream_rdir.c'],['../stdream__rdir_8h.html#af60f4f11f4b14d02d0dc5564a238281d',1,'dbg_msg_out():&#160;stdream_rdir.c']]],
+  ['dbg_5fuart',['dbg_uart',['../_u_a_r_t__term_8c.html#ae4328d58bcdc00e56f77a78c1674e8af',1,'dbg_uart():&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#ae4328d58bcdc00e56f77a78c1674e8af',1,'dbg_uart():&#160;UART_term.c']]],
+  ['deinit_5ftim_5fbase',['deinit_TIM_Base',['../_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c',1,'PWM.h']]],
+  ['diffdatetime',['diffDateTime',['../time__utils_8c.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c'],['../time__utils_8h.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c']]],
+  ['duty',['duty',['../structlogic_p_w_m.html#a102275dc178a220cf46e96cabdbdc44f',1,'logicPWM']]]
 ];
