@@ -1,8 +1,8 @@
 /*!\file PWM.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2018, SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief Straightforward PWM handling
-** \warning Shall work for all STM32 F/G families, L families not totally covered
+** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
 /****************************************************************/
 #ifndef __PWM_H

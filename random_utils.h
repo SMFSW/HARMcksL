@@ -1,6 +1,6 @@
 /*!\file random_utils.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2018, SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief (A little less pseudo) random numbers generation utilities
 **/
 /****************************************************************/

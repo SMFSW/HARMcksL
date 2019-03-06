@@ -1,6 +1,6 @@
 /*!\file UART_term.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2018, SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief UART terminal
 ** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
 ** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
@@ -86,9 +86,9 @@ void UART_Term_TxCpltCallback(UART_HandleTypeDef * const huart)
 
 
 /*!\brief Rx Transfer completed callback
-** \param[in,out] huart - UART handle
 ** \weak Weak implementation of HAL_UART_RxCpltCallback in the library (will get precedence over HAL function)
 ** \warning You should probably implement your own callback, especially with multiple UART busses
+** \param[in,out] huart - UART handle
 **/
 __WEAK void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 {
@@ -97,9 +97,9 @@ __WEAK void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart)
 
 #if defined(STDREAM__UART_TX_IT)
 /*!\brief Tx Transfer completed callback
-** \param[in,out] huart - UART handle
 ** \weak Weak implementation of HAL_UART_TxCpltCallback in the library (will get precedence over HAL function)
 ** \warning You should probably implement your own callback, especially with multiple UART busses
+** \param[in,out] huart - UART handle
 **/
 __WEAK void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 {

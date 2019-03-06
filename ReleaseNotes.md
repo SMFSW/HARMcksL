@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2019 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,7 @@ SOFTWARE.
 * Use of NONNULL__ attribute instead of checking pointer set to value in code
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
 * exceptions: changes using G0 family
+* ADC_ex: Added base ADC module for single ended without injection conversions (with support from ADC_cfg.h in project)
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument

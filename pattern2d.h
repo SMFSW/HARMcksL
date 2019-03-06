@@ -1,6 +1,6 @@
 /*!\file pattern2d.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2018, SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief 2 dimensional patterns utilities
 **/
 /****************************************************************/
