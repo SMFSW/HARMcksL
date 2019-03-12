@@ -29,6 +29,7 @@ SOFTWARE.
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
 * exceptions: changes using G0 family
 * ADC_ex: Added base ADC module for single ended without injection conversions (with support from ADC_cfg.h in project)
+* ADC_ex: Added USE_ADC_EX symbol test to enable ADC_ex functions
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument

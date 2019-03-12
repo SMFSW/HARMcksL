@@ -2,6 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief Simple extension for ADCs
+** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done calling ADC_cfg.h file
 **/
 /****************************************************************/
@@ -14,7 +15,7 @@
 
 #include "sarmfsw.h"
 
-#if defined(HAL_ADC_MODULE_ENABLED)
+#if defined(HAL_ADC_MODULE_ENABLED) && defined(USE_ADC_EX)
 
 #include "ADC_cfg.h"
 /****************************************************************/
