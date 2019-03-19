@@ -30,6 +30,9 @@ SOFTWARE.
 * exceptions: changes using G0 family
 * ADC_ex: Added base ADC module for single ended without injection conversions (with support from ADC_cfg.h in project)
 * ADC_ex: Added USE_ADC_EX symbol test to enable ADC_ex functions
+* ADC_ex: Def_VIn automatically computed
+* ADC_ex: ADC_CALIBRATION & ADC_CALIBRATION set when not available only generates warning now (symbol undef)
+* ADC_ex: Some conversion calculations changed for various families
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument

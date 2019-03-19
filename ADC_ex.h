@@ -2,6 +2,17 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief Simple extension for ADCs
+** \details ADC_ex is meant to automate ADC conversions using DMA.
+** 			- DMA must be configured for ADC peripherals:
+** 				- Peripheral to Memory
+** 				- Circular Mode
+** 				- Increment Memory
+** 				- Data width Word for both peripheral and memory
+** 			- ADC configuration:
+** 				- Scan conversion mode across channels enabled
+** 				- Continuous conversion is optional (if disabled, user has to start conversions manually when needed)
+** 				- DMA continuous request when available
+** 				- Interrupt generated at end of conversion
 ** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done calling ADC_cfg.h file
 **/

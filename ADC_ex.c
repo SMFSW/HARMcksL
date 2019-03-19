@@ -2,6 +2,17 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2019, SMFSW
 ** \brief Simple extension for ADCs
+** \details ADC_ex is meant to automate ADC conversions using DMA.
+** 			- DMA must be configured for ADC peripherals:
+** 				- Peripheral to Memory
+** 				- Circular Mode
+** 				- Increment Memory
+** 				- Data width Word for both peripheral and memory
+** 			- ADC configuration:
+** 				- Scan conversion mode across channels enabled
+** 				- Continuous conversion is optional (if disabled, user has to start conversions manually when needed)
+** 				- DMA continuous request when available
+** 				- Interrupt generated at end of conversion
 ** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done calling ADC_cfg.h file
 **/
@@ -15,15 +26,26 @@
 
 #if (	(	defined(STM32F0)		\
 		 || defined(STM32F2)		\
-		 || defined(STM32F4))		\
+		 || defined(STM32F4)		\
+		 || defined(STM32F7)		\
+		 || defined(STM32L1))		\
 	 && defined(ADC_CALIBRATION))
-// TODO: see all families supporting calibration
-#error "STM32F4 family doesn't support ADC peripherals calibration."
+#undef ADC_CALIBRATION
+#warning "Current STM32 family doesn't support ADC peripherals calibration. Undef ADC_CALIBRATION for you!"
+#endif
+
+#if defined(STM32F1) && defined(ADC_COMPENSATION)
+#undef ADC_COMPENSATION
+#warning "Current STM32 family doesn't have VREF_CAL register. Undef ADC_COMPENSATION for you!"
 #endif
 
 #if !defined(ADC_USE_VREF) && defined(ADC_COMPENSATION)
 #error "ADC_USE_VREF shall be defined when using ADC_COMPENSATION."
 #endif
+
+
+#define Def_VIn				((float) VDD_VALUE / 1000.0f)			//!< Vin voltage (in V)
+#define Def_Step			(Def_VIn / 4095.0f)						//!< Step value (in V)
 
 
 #if !defined(Def_V25) || !defined(Def_AvgSlope)
@@ -39,10 +61,10 @@
 
 	#if defined(STM32F0)
 		#define Def_V30				(1430.0f)	//!< Temperature at 30°c (in mV)
-		//!\warning	Beware F0 family has reference at 30°C
 		#define Def_AvgSlope		(4.3f)		//!< Average Slope (in mV)
 	#elif defined(STM32F1)
-		// TODO: add F1 temperature constants symbols
+		#define Def_V25				(1430.0f)	//!< Temperature at 25°c (in mV)
+		#define Def_AvgSlope		(4.3f)		//!< Average Slope (in mV)
 	#elif defined(STM32F2)
 		#define Def_V25				(760.0f)	//!< Temperature at 25°c (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
@@ -57,10 +79,10 @@
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32G0)
 		#define Def_V30				(760.0f)	//!< Temperature at 30°c (in mV)
-		//!\warning	Beware G0 family has reference at 30°C
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32H7)
-		// TODO: add H7 temperature constants symbols
+		#define Def_V30				(620.0f)	//!< Temperature at 30°c (in mV)
+		#define Def_AvgSlope		(2.0f)		//!< Average Slope (in mV)
 	#elif defined(STM32L0)
 		#define Def_V130			(670.0f)	//!< Temperature at 130°c (in mV)
 		//!\warning	Beware L0 family has reference at 130°C
@@ -71,34 +93,39 @@
 		#define Def_AvgSlope		(1.61f)		//!< Average Slope (in mV)
 	#elif defined(STM32L4)
 		#define Def_V30				(760.0f)	//!< Temperature at 30°c (in mV)
-		//!\warning	Beware L4 family has reference at 30°C
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#endif
 #endif
 #endif
 
 
+#if !defined(STM32F1)
 #if !defined(STM32F2)
-#if defined(ADC_COMPENSATION) && !defined(STM32_VREF_CAL)
+
+#if !defined(STM32_VREF_CAL)
+#ifndef VREF_CAL_ADDR
+#error "Refer to datasheet to find VREF_CAL address!"
+#endif
 #define STM32_VREF_CAL		(VAL_AT(VREF_CAL_ADDR, uint16_t))		//!< VRef (ADC) calibration address content
 #endif
-#if defined(ADC_USE_TEMP) && !defined(TEMP_CALC_V25)
-#ifndef STM32_TS_CAL1
-#define STM32_TS_CAL1		(VAL_AT(TS_CAL1_ADDR, uint16_t))		//!< Temp sensor ADC raw data acquired at 30°C, VDDA=3.3V address content
+
+#if !defined(TEMP_CALC_V25)
+#if !defined(STM32_TS_CAL1)
+#ifndef TS_CAL1_ADDR
+#error "Refer to datasheet to find TS_CAL1 address!"
 #endif
-#ifndef STM32_TS_CAL2
-#define STM32_TS_CAL2		(VAL_AT(TS_CAL2_ADDR, uint16_t))		//!< Temp sensor raw data acquired at 110°C, VDDA=3.3V address content
+#define STM32_TS_CAL1		(VAL_AT(TS_CAL1_ADDR, uint16_t))		//!< Temp sensor ADC raw data acquired at Lower temperature address content
 #endif
+#if !defined(STM32_TS_CAL2)
+#ifndef TS_CAL2_ADDR
+#error "Refer to datasheet to find TS_CAL2 address!"
+#endif
+#define STM32_TS_CAL2		(VAL_AT(TS_CAL2_ADDR, uint16_t))		//!< Temp sensor ADC raw data acquired at Higher temperature address content
 #endif
 #endif
 
-
-#ifndef Def_VIn
-#define Def_VIn				(3.3f)		//!< Vin voltage (in V)
-//!< Def_VIn can be defined in globals.h or at project level if power supply is not 3.3VDC
 #endif
-
-#define Def_Step			(Def_VIn / 4095.0f)		//!< Step value (in V)
+#endif
 
 
 #ifndef ADC_NB
@@ -116,12 +143,12 @@
 
 #ifndef ADC_SAMP_BUF_SIZE
 #define ADC_SAMP_BUF_SIZE	4			//!< Size of the input buffer per analog input
-//!< ADC_SAMP_BUFF_SIZE can be defined in globals.h or at project level if higher amount of samples required
+//!< ADC_SAMP_BUFF_SIZE can be defined in adc_cfg.h, globals.h or at project level if higher amount of samples required
 #endif
+
 
 typedef struct AnalogTab {
 	uint16_t	Array[ADC_SAMP_BUF_SIZE];	//!< Samples
-	//uint16_t	Average;					//!< Averaged samples
 } AnalogTab;
 
 
@@ -174,25 +201,39 @@ static float ADC_ConvertVal(const eAnalogInput input)
 
 				#if defined(ADC_USE_TEMP)
 					case Adc_Temp:
-						// TODO: code temperature following families (F3/F4 handled so far)
+						// TODO: code temperature following families (L0/L1 not handled yet)
 						#ifdef TEMP_CALC_V25
 							// With raw converted value to mV
-							#if defined(STM32F3)
+							#if defined(STM32F0) || defined(STM32G0) || defined(STM32H7) || defined(STM32L4)
+								val = ((Def_V30 - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
+							#elif defined(STM32F1) || defined(STM32F3)
 								val = ((Def_V25 - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
-							#elif defined(STM32F4)
+							#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
 								val = (((in_v * 1000.0f) - Def_V25) / Def_AvgSlope) + (float) 25;
 							#endif
 						#else
 							// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
-							// Temp = 80 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
-							val = ((80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+							#if defined(STM32G0) || defined(STM32L0)
+								// Temp = 100 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
+								val = ((100 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+							#else
+								// Temp = 80 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
+								val = ((80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+							#endif
 						#endif
 						break;
 				#endif
 
 				#if defined(ADC_USE_VBAT)
 					case Adc_Vbat:
-						val = in_v * 2.0f;
+						#if defined(STM32F4) || defined(STM32F7) || defined(STM32H7)
+							val = in_v * 4.0f;
+							//!\warning *2.0f for STM32F40xx and STM32F41xx devices
+						#elif defined(STM32G0) || defined(STM32L4)
+							val = in_v * 3.0f;
+						#else
+							val = in_v * 2.0f;
+						#endif
 						break;
 				#endif
 
