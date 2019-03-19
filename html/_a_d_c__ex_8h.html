@@ -88,10 +88,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple extension for ADCs. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2019, SMFSW </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Define USE_ADC_EX symbol at project level to use ADC_ex functionalities </dd>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2019, SMFSW</dd></dl>
+<p>ADC_ex is meant to automate ADC conversions using DMA.</p><ul>
+<li>DMA must be configured for ADC peripherals:<ul>
+<li>Peripheral to Memory</li>
+<li>Circular Mode</li>
+<li>Increment Memory</li>
+<li>Data width Word for both peripheral and memory</li>
+</ul>
+</li>
+<li>ADC configuration:<ul>
+<li>Scan conversion mode across channels enabled</li>
+<li>Continuous conversion is optional (if disabled, user has to start conversions manually when needed)</li>
+<li>DMA continuous request when available</li>
+<li>Interrupt generated at end of conversion <dl class="section note"><dt>Note</dt><dd>Define USE_ADC_EX symbol at project level to use ADC_ex functionalities </dd>
 <dd>
 Configuration done calling ADC_cfg.h file </dd></dl>
+</li>
+</ul>
+</li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
