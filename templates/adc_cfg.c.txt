@@ -1,0 +1,52 @@
+/*!\file adc_cfg.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
+** \brief ADC configuration
+** \note Simple adc_cfg.c example to handle Vref, temperature & Vbat + 1 channel conversion with declared callback (on STM32F3)
+**/
+
+#include "sarmfsw.h"
+
+#include "ADC_ex.h"
+#include "ADC_cfg.h"
+
+
+static float get_Chan_Conv(const float val);	// Callback prototype
+
+
+const ADC_Cfg ADCConfig[Adc_MAX] = {
+	//	ADC index	channel		conversion function
+	{	ADC_1,		0,			NULL },				//!< Vref
+	{	ADC_1,		1,			NULL },				//!< Temperature
+	{	ADC_1,		2,			NULL },				//!< Vbat
+	{	ADC_2,		0,			get_Chan_Conv },	//!< Channel with callback
+};	//!< ADC inputs configuration array
+
+
+float ADCconv[Adc_MAX];		//!< ADC converted values array
+
+
+__WEAK void ADC_handler(void)
+{
+	static uint32_t hUpdADC = 0;
+
+	if (TPSSUP_MS(hUpdADC, ADC_REFRESH_PERIOD))
+	{
+		for (eAnalogInput in = Adc_Vref ; in < Adc_MAX ; in++)
+		{
+			ADCconv[in] = ADC_GetConvertedVal(in);
+		}
+
+		hUpdADC = HAL_GetTick();
+	}
+}
+
+
+/*!\brief Convert Channel raw value to final value
+** \param[in] val - Raw ADC value (in Volts)
+** \return Converted value (in mV)
+**/
+static float get_Chan_Conv(const float val)
+{
+	return (val * 1000);	// Conversion example from Raw volts to mV
+}

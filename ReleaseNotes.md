@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.4
 
+* templates: Added folder (with adc_cfg example)
 * Added cpp preprocessor directives in headers
 * Doxyfile update
 * const pointers in functions parameters reviewed (for const pointer, const content or both)
@@ -49,6 +50,7 @@ SOFTWARE.
 * stdream_rdir & UART_term: refactoring
 * stdream_rdir: added pre-comp option for ITM
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
+* pattern2D: removed (now part of sarmfsw in arm_inlines_linearization.h)
 
 ## v1.3
 
