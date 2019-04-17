@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['pattern2d_2ec',['pattern2d.c',['../pattern2d_8c.html',1,'']]],
-  ['pattern2d_2eh',['pattern2d.h',['../pattern2d_8h.html',1,'']]],
-  ['pattern_5fevaluate',['PATTERN_EVALUATE',['../pattern2d_8h.html#a1f29f704c59d3124e035c4d503f12328',1,'PATTERN_EVALUATE():&#160;pattern2d.h'],['../pattern2d_8c.html#ad416ba52f8f7eec7627970ec6f467a49',1,'pattern_evaluate(const uint16_t array[][2], const uint16_t nb, const uint16_t val):&#160;pattern2d.c'],['../pattern2d_8h.html#ad416ba52f8f7eec7627970ec6f467a49',1,'pattern_evaluate(const uint16_t array[][2], const uint16_t nb, const uint16_t val):&#160;pattern2d.c']]],
-  ['pattern_5ftab',['PATTERN_TAB',['../pattern2d_8h.html#a4034d9899730df884a65ba7dccfd3587',1,'pattern2d.h']]],
   ['per',['per',['../structlogic_p_w_m.html#ace26d23d7fe1448326b386a5685dbcfc',1,'logicPWM']]],
   ['polarity',['polarity',['../structlogic_p_w_m.html#afaa010af8cf5f93da304740d55be1934',1,'logicPWM']]],
   ['print_5fglobal_5fregs',['print_global_regs',['../stack__utils_8c.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c']]],
