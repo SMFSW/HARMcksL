@@ -68,7 +68,7 @@ void UART_Term_RxCpltCallback(UART_HandleTypeDef * const huart)
 		||	(dbg_msg_in[uart_in_nb] == breakout_char)	// User defined breakout char
 		||	(uart_in_nb >= sizeof(dbg_msg_in) - 1))		// Full buffer
 	{
-		dbg_msg_in[uart_in_nb] = charNUL;
+		dbg_msg_in[uart_in_nb] = charNull;
 		UART_Term_Message_Handler(dbg_msg_in, uart_in_nb);
 		UART_Term_Flush_RxBuf(dbg_uart);
 	}
