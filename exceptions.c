@@ -90,7 +90,9 @@ eResetSource Get_Reset_Source(void)
 {
 	eResetSource rst = RST_UNKNOWN;
 
-	#if defined(STM32G0)
+	#if defined(STM32L4)
+		if (__HAL_RCC_GET_FLAG(RCC_FLAG_FWRST))					{ rst = RST_FW; }
+	#elif defined(STM32G0)
 		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PWRRST))				{ rst = RST_POR; }
 	#else
 		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
@@ -100,7 +102,7 @@ eResetSource Get_Reset_Source(void)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST))				{ rst = RST_IWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST))				{ rst = RST_WWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))				{ rst = RST_LPWR; }
-	#if defined(STM32F3)
+	#if defined(STM32F3) || defined(STM32L4)
 		else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))			{ rst = RST_OBL; }
 		#if defined(STM32F301x8) ||													\
 			defined(STM32F302x8) || defined(STM32F302xC) || defined(STM32F302xE) ||	\

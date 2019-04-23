@@ -28,7 +28,8 @@ SOFTWARE.
 * const pointers in functions parameters reviewed (for const pointer, const content or both)
 * Use of NONNULL__ attribute instead of checking pointer set to value in code
 * exceptions: Added function to catch last reset source (unfortunately can't be included in sarmfsw lib)
-* exceptions: changes using G0 family
+* exceptions: Changes using G0 family
+* exceptions: Added reset sources for L4 family (Get_Reset_Source)
 * ADC_ex: Added base ADC module for single ended without injection conversions (with support from ADC_cfg.h in project)
 * ADC_ex: Added USE_ADC_EX symbol test to enable ADC_ex functions
 * ADC_ex: Def_VIn automatically computed
