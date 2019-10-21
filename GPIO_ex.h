@@ -22,19 +22,19 @@
 ** \brief GPIO input structure
 **/
 typedef struct GPIO_in {
-	bool			in;					//!< Input value
-	eEdge			edge;				//!< Input edge
+	bool			in;									//!< Input value
+	eEdge			edge;								//!< Input edge
 	/*pvt*/
-	bool			mem;				//!< Memo value
-	uint32_t		hIn;				//!< Filter time
+	bool			mem;								//!< Memo value
+	uint32_t		hIn;								//!< Filter time
 	struct {
-	GPIO_TypeDef *	GPIOx;				//!< HAL GPIO instance
-	uint16_t		GPIO_Pin;			//!< HAL GPIO pin
-	uint16_t		filt;				//!< Filter time (ms)
-	bool			logic;				//!< Input logic polarity
-	bool			repeat;				//!< Callback ON repeat
-	void			(*onSet)(void *);	//!< Push callback ON function pointer
-	void			(*onReset)(void *);	//!< Push callback OFF function pointer
+	GPIO_TypeDef *	GPIOx;								//!< HAL GPIO instance
+	uint16_t		GPIO_Pin;							//!< HAL GPIO pin
+	uint16_t		filt;								//!< Filter time (ms)
+	bool			logic;								//!< Input logic polarity
+	bool			repeat;								//!< Callback ON repeat
+	void			(*onSet)(struct GPIO_in * const);	//!< Push callback ON function pointer
+	void			(*onReset)(struct GPIO_in * const);	//!< Push callback OFF function pointer
 	} cfg;
 } GPIO_in;
 

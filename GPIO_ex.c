@@ -24,8 +24,8 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 	in->cfg.GPIO_Pin = GPIO_Pin;
 	in->cfg.logic = logic;
 	in->cfg.filt = filter;
-	in->cfg.onSet = (void *) onSet;
-	in->cfg.onReset = (void *) onReset;
+	in->cfg.onSet = onSet;
+	in->cfg.onReset = onReset;
 	in->cfg.repeat = repeat;
 }
 
