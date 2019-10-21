@@ -1,4 +1,4 @@
 <map id="crc_compute" name="crc_compute">
-<area shape="rect" id="node2" href="$_c_r_c__stm32_8h.html#a7bb5f2eca301c014960367e1eb852358" title="CRC check. " alt="" coords="152,5,235,32"/>
-<area shape="rect" id="node3" href="$flash__check_8h.html#aaf11be85677bd5d169e06171fe723188" title="Flash CRC check. " alt="" coords="283,5,400,32"/>
+<area shape="rect" id="node2" href="$_c_r_c__stm32_8h.html#a7bb5f2eca301c014960367e1eb852358" title="CRC check. " alt="" coords="159,5,244,32"/>
+<area shape="rect" id="node3" href="$flash__check_8h.html#aaf11be85677bd5d169e06171fe723188" title="Flash CRC check. " alt="" coords="292,5,415,32"/>
 </map>

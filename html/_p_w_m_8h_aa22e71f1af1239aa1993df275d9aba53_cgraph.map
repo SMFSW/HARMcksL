@@ -1,6 +1,6 @@
 <map id="set_PWM_Duty_Byte" name="set_PWM_Duty_Byte">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#ae9d0ba6e5ccf3a6387bacc0e8625f911" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="203,5,365,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d" title="Set channel pin &amp; polarity for emulated PWM channel. " alt="" coords="226,56,342,83"/>
-<area shape="rect" id="node4" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="223,107,345,133"/>
-<area shape="rect" id="node5" href="$_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325" title="Set new duty cycle for emulated PWM channel. " alt="" coords="221,157,347,184"/>
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#ae9d0ba6e5ccf3a6387bacc0e8625f911" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="205,5,372,32"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d" title="Set channel pin &amp; polarity for emulated PWM channel. " alt="" coords="230,56,347,83"/>
+<area shape="rect" id="node4" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="226,107,351,133"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325" title="Set new duty cycle for emulated PWM channel. " alt="" coords="225,157,353,184"/>
 </map>

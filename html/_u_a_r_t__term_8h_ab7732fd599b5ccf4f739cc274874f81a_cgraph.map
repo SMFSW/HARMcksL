@@ -1,5 +1,5 @@
 <map id="setBreakout_char" name="setBreakout_char">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="191,5,375,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab6e78a2d96a561997f60c956caea90d0" title="Clear buffer in used for SERIAL DEBUG. " alt="" coords="193,56,372,83"/>
-<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#a04c0be8da4882338152488d93e2b20b3" title="Treat fully received message. " alt="" coords="179,107,387,133"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="204,5,387,32"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab6e78a2d96a561997f60c956caea90d0" title="Clear buffer in used for SERIAL DEBUG. " alt="" coords="207,56,383,83"/>
+<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#a04c0be8da4882338152488d93e2b20b3" title="Treat fully received message. " alt="" coords="188,107,403,133"/>
 </map>
