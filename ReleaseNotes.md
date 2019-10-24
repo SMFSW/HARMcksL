@@ -23,6 +23,7 @@ SOFTWARE.
 ## v1.4
 
 * templates: Added folder (with adc_cfg example)
+* templates: Added Logic_ex_ample & GPIO_ex_ample examples
 * Added cpp preprocessor directives in headers
 * Doxyfile update
 * const pointers in functions parameters reviewed (for const pointer, const content or both)
@@ -40,6 +41,8 @@ SOFTWARE.
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument (with fix to struct typedef instead of void*)
 * GPIO_ex: str_GPIO_name optimized
 * GPIO_ex: refactoring and including stdio.h
+* GPIO_ex: cut code to Logic_ex to make it generic for both GPIO (working same as before) and any variable  
+* Logic_ex: cut from GPIO_ex GPIO_in (and now used by GPIO_in) to have code working to monitor bit in a variable as a logic input signal
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
 * PWM: changed pre-comp test for consistency

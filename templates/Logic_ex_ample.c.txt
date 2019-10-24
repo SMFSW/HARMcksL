@@ -1,0 +1,97 @@
+/*!\file Logic_ex_ample.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
+** \brief Logic_in example
+** \note Simple Logic_ex.c example to handle different variables inputs with callbacks
+**/
+
+#include "sarmfsw.h"
+
+#include "Logic_ex.h"
+
+
+Logic_in var_b11 = { 0 };		//!< Logic_in var_b11 instance structure declaration
+Logic_in var_b15 = { 0 };		//!< Logic_in var_b15 instance structure declaration
+Logic_in var_b19 = { 0 };		//!< Logic_in var_b19 instance structure declaration
+
+
+uint32_t var_test = 0;
+
+uint32_t get_var_test(Logic_in * const in) {
+	return var_test;
+}
+
+/*!\brief Callback for inputs when on
+** \note Callbacks On declared with same function callback (to demonstrate use of passed argument Logic_in *)
+**/
+static void Callback_ON(Logic_in * const in)
+{
+	static uint32_t hRepeat_b19 = 0;
+
+	if (in == &var_b11)
+	{
+		// On Callback for var_b11
+	}
+	else if (in == &var_b15)
+	{
+		// On Callback for var_b15
+	}
+	else if (in == &var_b19)
+	{
+		if (TPSSUP_MS(hRepeat_b19, 500))	// Repeat every 500ms
+		{
+			hRepeat_b19 = HALTicks();
+
+			// On Callback for var_b19 (repeat)
+		}
+	}
+}
+
+
+/*!\brief Callback for b11 when getting off
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void Callback_OFF_b11(Logic_in * const in)
+{
+	// Off Callback for var_b11
+}
+
+/*!\brief Callback for b15 when getting off
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void Callback_OFF_b15(Logic_in * const in)
+{
+	// Off Callback for var_b15
+}
+
+/*!\brief Callback for b19 when getting off
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void Callback_OFF_b19(Logic_in * const in)
+{
+	// Off Callback for var_b19
+}
+
+
+void Logic_ex_ample_handler(void)
+{
+	static bool init_io = false;
+	
+	if (!init_io)
+	{
+		// Inputs configured logic high active, 75ms debounce, both OFF & ON callbacks (with ON repeat only for B2)
+		// With get_var_test getter, getting bit position 11 (0x800), 15 (0x8000) & 19 (0x80000) respectively
+		Logic_in_init(&var_b11, get_var_test, 11, true, 75, Callback_ON, Callback_OFF_b11, false);
+		Logic_in_init(&var_b15, get_var_test, 15, true, 75, Callback_ON, Callback_OFF_b15, false);
+		Logic_in_init(&var_b19, get_var_test, 19, true, 75, Callback_ON, Callback_OFF_b19, true);
+
+		init_io = true;
+	}
+
+	Logic_in_handler(&var_b11);
+	Logic_in_handler(&var_b15);
+	Logic_in_handler(&var_b19);
+
+	var_test++
+}
+

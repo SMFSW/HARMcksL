@@ -1,0 +1,96 @@
+/*!\file GPIO_ex_ample.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2019, SMFSW
+** \brief GPIO_in example
+** \note Simple GPIO_ex.c example to handle different GPIO inputs with callbacks (on STM32F3)
+**/
+
+#include "sarmfsw.h"
+
+#include "GPIO_ex.h"
+
+
+#define IN_B0_Pin GPIO_PIN_0
+#define IN_B0_GPIO_Port GPIOB
+#define IN_B1_Pin GPIO_PIN_1
+#define IN_B1_GPIO_Port GPIOB
+#define IN_B2_Pin GPIO_PIN_2
+#define IN_B2_GPIO_Port GPIOB
+
+
+GPIO_in pb_B0 = { 0 };		//!< GPIO_in pb_B0 instance structure declaration
+GPIO_in pb_B1 = { 0 };		//!< GPIO_in pb_B1 instance structure declaration
+GPIO_in pb_B2 = { 0 };		//!< GPIO_in pb_B2 instance structure declaration
+
+
+/*!\brief Callback for inputs when pushing
+** \note Callbacks On declared with same function callback (to demonstrate use of passed argument GPIO_in *)
+**/
+static void PB_Callback_ON(GPIO_in * const in)
+{
+	static uint32_t hRepeatB2 = 0;
+
+	if (in == &pb_B0)
+	{
+		// On Callback for pb_B0
+	}
+	else if (in == &pb_B1)
+	{
+		// On Callback for pb_B1
+	}
+	else if (in == &pb_B2)
+	{
+		if (TPSSUP_MS(hRepeatB2, 500))	// Repeat every 500ms
+		{
+			hRepeatB2 = HALTicks();
+
+			// On Callback for pb_B2 (repeat)
+		}
+	}
+}
+
+
+/*!\brief Callback for B0 when releasing
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void PB_Callback_OFF_B0(GPIO_in * const in)
+{
+	// Off Callback for pb_B0
+}
+
+/*!\brief Callback for B1 when releasing
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void PB_Callback_OFF_B1(GPIO_in * const in)
+{
+	// Off Callback for pb_B1
+}
+
+/*!\brief Callback for B2 when releasing
+** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
+**/
+static void PB_Callback_OFF_B2(GPIO_in * const in)
+{
+	// Off Callback for pb_B2
+}
+
+
+void GPIO_ex_ample_handler(void)
+{
+	static bool init_io = false;
+
+	if (!init_io)
+	{
+		// Inputs configured logic low active, 75ms debounce, both OFF & ON callbacks (with ON repeat only for B2)
+		GPIO_in_init(&pb_B0, GPIO(IN_B0), false, 75, PB_Callback_ON, PB_Callback_OFF_B0, false);
+		GPIO_in_init(&pb_B1, GPIO(IN_B1), false, 75, PB_Callback_ON, PB_Callback_OFF_B1, false);
+		GPIO_in_init(&pb_B2, GPIO(IN_B2), false, 75, PB_Callback_ON, PB_Callback_OFF_B2, true);
+
+		init_io = true;
+	}
+
+	GPIO_in_handler(&pb_B0);
+	GPIO_in_handler(&pb_B1);
+	GPIO_in_handler(&pb_B2);
+}
+

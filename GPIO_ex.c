@@ -6,11 +6,20 @@
 /****************************************************************/
 #include <stdio.h>
 
+#include "Logic_ex.h"
 #include "GPIO_ex.h"
 /****************************************************************/
 
 
 #define MAX_PINS_PORT	16
+
+
+/*!\brief Get GPIO port value
+** \param[in,out] in - input instance
+** \return GPIO port value
+**/
+static uint32_t GPIO_getter(GPIO_in * const in) {
+	return HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin); }
 
 
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
@@ -22,55 +31,47 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 
 	in->cfg.GPIOx = GPIOx;
 	in->cfg.GPIO_Pin = GPIO_Pin;
-	in->cfg.logic = logic;
-	in->cfg.filt = filter;
-	in->cfg.onSet = onSet;
-	in->cfg.onReset = onReset;
-	in->cfg.repeat = repeat;
+	Logic_in_init(&in->logic, (uint32_t (*)(Logic_in *)) GPIO_getter, 0, logic, filter, (void (*)(Logic_in *)) onSet, (void (*)(Logic_in *)) onReset, repeat);
 }
 
 
-void NONNULL__ GPIO_in_handler(GPIO_in * const in)
+void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
 {
-	if (in->in == in->mem)
-	{
-		in->edge = NoEdge;
-		if ((in->cfg.repeat) && (in->in))
-		{
-			if (in->cfg.onSet)	{ in->cfg.onSet(in); }
-		}
-	}
-	else if (in->in > in->mem)
-	{
-		in->edge = Rising;
-		if (in->cfg.onSet)		{ in->cfg.onSet(in); }
-	}
-	else
-	{
-		in->edge = Falling;
-		if (in->cfg.onReset)	{ in->cfg.onReset(in); }
-	}
+	/* Check the parameters */
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
 
-	in->mem = in->in;
-	if (HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin) == (GPIO_PinState) in->cfg.logic)
-	{
-		if (TPSSUP_MS(in->hIn, in->cfg.filt))	{ in->in = true; }
-	}
+	if (Act > Toggle)		{ return; }
 	else
 	{
-		in->in = false;
-		in->hIn = HALTicks();
+		if (Act == Reset)	{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
+		if (Act == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
+		if (Act == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
+		#if defined(VERBOSE)
+			char port[10] = "";
+			str_GPIO_name(port, GPIOx, GPIO_Pin);
+			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
+		#endif
 	}
 }
 
 
-/*!\brief Get name from Port, Pin
-** \note Static, but may not be called, no static declaration to prevent warnings
-** \param[in,out] name - pointer to string for name
-** \param[in] GPIOx - port
-** \param[in] GPIO_Pin - pin
-** \return Error code
-**/
+GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
+{
+	/* Check the parameters */
+	assert_param(IS_GPIO_PIN(GPIO_Pin));
+
+	const GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
+
+	#if defined(VERBOSE)
+		char port[10] = "";
+		str_GPIO_name(port, GPIOx, GPIO_Pin);
+		printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
+	#endif
+
+	return pin;
+}
+
+
 FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
 	const char	prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
@@ -112,41 +113,4 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	}
 //	sprintf(name, "%s%c%c", "GPIO", port, 'x');
 	return ERROR_VALUE;			// No match
-}
-
-
-void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
-{
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
-	if (Act > Toggle)		{ return; }
-	else
-	{
-		if (Act == Reset)	{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
-		if (Act == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
-		if (Act == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
-		#if defined(VERBOSE)
-			char port[10] = "";
-			str_GPIO_name(port, GPIOx, GPIO_Pin);
-			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
-		#endif
-	}
-}
-
-
-GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
-{
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
-	const GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
-
-	#if defined(VERBOSE)
-		char port[10] = "";
-		str_GPIO_name(port, GPIOx, GPIO_Pin);
-		printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
-	#endif
-
-	return pin;
 }
