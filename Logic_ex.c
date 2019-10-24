@@ -4,6 +4,8 @@
 ** \brief Simple extension for logic variable handling
 **/
 /****************************************************************/
+#include <string.h>
+
 #include "Logic_ex.h"
 /****************************************************************/
 
@@ -15,7 +17,7 @@ void NONNULLX__(1, 2) Logic_in_init(Logic_in * const in,
 	/* Check the parameters */
 	assert_param(pos < 32);
 
-	//memcpy(&in->cfg, &getter, sizeof(((Logic_in *) 0)->cfg));
+	memset(in, 0, OFFSET_OF(Logic_in, cfg));
 	in->cfg.get = getter;
 	in->cfg.pos = pos;
 	in->cfg.logic = logic;

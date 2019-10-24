@@ -10,9 +10,9 @@
 #include "Logic_ex.h"
 
 
-Logic_in var_b11 = { 0 };		//!< Logic_in var_b11 instance structure declaration
-Logic_in var_b15 = { 0 };		//!< Logic_in var_b15 instance structure declaration
-Logic_in var_b19 = { 0 };		//!< Logic_in var_b19 instance structure declaration
+Logic_in var_b11;	//!< Logic_in var_b11 instance structure declaration
+Logic_in var_b15;	//!< Logic_in var_b15 instance structure declaration
+Logic_in var_b19;	//!< Logic_in var_b19 instance structure declaration
 
 
 uint32_t var_test = 0;

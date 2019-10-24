@@ -18,9 +18,9 @@
 #define IN_B2_GPIO_Port GPIOB
 
 
-GPIO_in pb_B0 = { 0 };		//!< GPIO_in pb_B0 instance structure declaration
-GPIO_in pb_B1 = { 0 };		//!< GPIO_in pb_B1 instance structure declaration
-GPIO_in pb_B2 = { 0 };		//!< GPIO_in pb_B2 instance structure declaration
+GPIO_in pb_B0;	//!< GPIO_in pb_B0 instance structure declaration
+GPIO_in pb_B1;	//!< GPIO_in pb_B1 instance structure declaration
+GPIO_in pb_B2;	//!< GPIO_in pb_B2 instance structure declaration
 
 
 /*!\brief Callback for inputs when pushing
