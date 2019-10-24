@@ -2,6 +2,7 @@ var searchData=
 [
   ['per',['per',['../structlogic_p_w_m.html#ace26d23d7fe1448326b386a5685dbcfc',1,'logicPWM']]],
   ['polarity',['polarity',['../structlogic_p_w_m.html#afaa010af8cf5f93da304740d55be1934',1,'logicPWM']]],
+  ['pos',['pos',['../struct_logic__in.html#a2baa6924610a4571c6de284981bc9890',1,'Logic_in']]],
   ['print_5fglobal_5fregs',['print_global_regs',['../stack__utils_8c.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c']]],
   ['print_5fstack_5faddress',['print_stack_address',['../stack__utils_8c.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c']]],
   ['printf',['printf',['../stdream__rdir_8h.html#a3cb9f0894fab1c8fbb0753c9c7c2a8d9',1,'stdream_rdir.h']]],

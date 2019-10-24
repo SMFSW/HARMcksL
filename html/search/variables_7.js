@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['in',['in',['../struct_g_p_i_o__in.html#a44ea280cd232feb3ba51c51edea928f1',1,'GPIO_in']]]
+  ['in',['in',['../struct_logic__in.html#adedd70bc22273f4439aadf8b8f5f9798',1,'Logic_in']]]
 ];

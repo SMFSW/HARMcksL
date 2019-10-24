@@ -9,5 +9,5 @@ var searchData=
   ['set_5ftim_5finterrupts',['set_TIM_Interrupts',['../_p_w_m_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222',1,'PWM.h']]],
   ['setbreakout_5fchar',['setBreakout_char',['../_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a',1,'UART_term.h']]],
   ['stack_5fdump',['stack_dump',['../stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291',1,'stack_utils.h']]],
-  ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd',1,'GPIO_ex.c']]]
+  ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]]
 ];

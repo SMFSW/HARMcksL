@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['logic_5fin_5fhandler',['Logic_in_handler',['../_logic__ex_8c.html#ac7c379f4058315150094f2c6c5685888',1,'Logic_in_handler(Logic_in *const in):&#160;Logic_ex.c'],['../_logic__ex_8h.html#ac7c379f4058315150094f2c6c5685888',1,'Logic_in_handler(Logic_in *const in):&#160;Logic_ex.c']]],
+  ['logic_5fin_5finit',['Logic_in_init',['../_logic__ex_8c.html#a038342aba9ff5fa4be8feb4909badfb2',1,'Logic_in_init(Logic_in *const in, uint32_t(*getter)(Logic_in *const), const uint32_t pos, const bool logic, const uint16_t filter, void(*onSet)(Logic_in *const), void(*onReset)(Logic_in *const), const bool repeat):&#160;Logic_ex.c'],['../_logic__ex_8h.html#a038342aba9ff5fa4be8feb4909badfb2',1,'Logic_in_init(Logic_in *const in, uint32_t(*getter)(Logic_in *const), const uint32_t pos, const bool logic, const uint16_t filter, void(*onSet)(Logic_in *const), void(*onReset)(Logic_in *const), const bool repeat):&#160;Logic_ex.c']]],
   ['logpwm_5fgetdutycycle',['logPWM_getDutyCycle',['../_p_w_m_8h.html#ac6080f854c8361bfe24769154651bac5',1,'PWM.h']]],
   ['logpwm_5fgetfreq',['logPWM_getFreq',['../_p_w_m_8h.html#aac2face5c79dc78a5f605caee5841ebd',1,'PWM.h']]],
   ['logpwm_5fhandler',['logPWM_handler',['../_p_w_m_8c.html#adcc4073ce95da9e1fadfa375c828356a',1,'logPWM_handler(logicPWM *const pPWM):&#160;PWM.c'],['../_p_w_m_8h.html#adcc4073ce95da9e1fadfa375c828356a',1,'logPWM_handler(logicPWM *const pPWM):&#160;PWM.c']]],

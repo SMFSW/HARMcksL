@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onreset',['onReset',['../struct_g_p_i_o__in.html#a8447a7f6219ce3746c20da8d118d7dc9',1,'GPIO_in']]],
-  ['onset',['onSet',['../struct_g_p_i_o__in.html#aac85c419ca7795d3b3a1333bb8066cca',1,'GPIO_in']]]
+  ['onreset',['onReset',['../struct_logic__in.html#ae9cd5537e56798e3b9d94fbdfd4cb236',1,'Logic_in']]],
+  ['onset',['onSet',['../struct_logic__in.html#a173deda1f19945eab2114ebbd7e0eb54',1,'Logic_in']]]
 ];
