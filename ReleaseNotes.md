@@ -54,6 +54,7 @@ SOFTWARE.
 * PWM: added clock path for G0 family in get_TIM_clock
 * stdream_rdir & UART_term: refactoring
 * stdream_rdir: added pre-comp option for ITM
+* tick_utils: Delay_us added
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
 * pattern2D: removed (now part of sarmfsw in arm_inlines_linearization.h)
 
