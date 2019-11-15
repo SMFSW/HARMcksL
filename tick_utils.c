@@ -17,14 +17,16 @@ void Delay_us(const uint32_t us)
 	{
 		init = true;
 
-		//DWT->LAR = 0xC5ACCE55;	// Cortex M7, need to enable access to DWT
+		#if (__CORTEX_M == 0x07U)
+		DWT->LAR = 0xC5ACCE55;		// Cortex M7, need to enable access to DWT
+		#endif
 		DWT->CYCCNT = 0;
 		DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 	}
 
-	const float CYCCNT_ratio = (float) SystemCoreClock / 1000000.0f;
-	const uint32_t hNow = DWT->CYCCNT;
-	const uint32_t delay = us * CYCCNT_ratio;
+	const uint32_t	hNow = DWT->CYCCNT;
+	const float		CYCCNT_ratio = (float) SystemCoreClock / 1000000.0f;
+	const uint32_t	delay = us * CYCCNT_ratio;
 
 	while (DWT->CYCCNT - hNow < delay);
 }

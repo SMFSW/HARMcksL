@@ -17,9 +17,9 @@
 
 /*!\brief Microseconds delay generator (blocking)
 ** \note Please keep in mind Delay_us is blocking code execution for the given amount of time (except interrupts).
-** \note On Cortex M7 (and maybe some other cores), need to enable access to DWT manually prior to call Delay_us.
+** \note On some Cortex cores, need to enable access to DWT prior to init Delay_us (automatically done only for M7 core).
 ** \warning Delay initialization instructions being executed on first call, this delay will last a little longer.
-**			If delay really needs to be accurate on first go, call Delay_us(1) at startup before using it for the purpose.
+**			If delay really needs to be accurate on first go, call Delay_us(1) at startup before realy using it.
 ** \warning As for functions like HAL_Delay, don't expect accurate delay for just a few us (through tests, overtaking is observed weighted by System Clock)
 ** \param[in] delay - delay (in µs)
 **/
