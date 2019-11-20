@@ -9,6 +9,8 @@
 /****************************************************************/
 
 
+#if (__CORTEX_M != 0U)
+// TODO: use counters based on instruction timing to generate delay
 void Delay_us(const uint32_t us)
 {
 	static bool init = false;
@@ -30,3 +32,4 @@ void Delay_us(const uint32_t us)
 
 	while (DWT->CYCCNT - hNow < delay);
 }
+#endif
