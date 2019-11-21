@@ -2081,7 +2081,8 @@ PREDEFINED             = DOXY=1 \
                          "__I=volatile const" \
                          __IOM=volatile \
                          __OM=volatile \
-                         "__IM=volatile const"
+                         "__IM=volatile const" \
+                         "__CORTEX_M=0x04U"
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
