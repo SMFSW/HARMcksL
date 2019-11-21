@@ -10,7 +10,6 @@
 
 
 #if (__CORTEX_M != 0U)
-// TODO: use counters based on instruction timing to generate delay
 void Delay_us(const uint32_t us)
 {
 	static bool init = false;
@@ -19,8 +18,10 @@ void Delay_us(const uint32_t us)
 	{
 		init = true;
 
+		CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;	// CoreDebug trace seems enabled only in debug sessions, enable
+
 		#if (__CORTEX_M == 0x07U)
-		DWT->LAR = 0xC5ACCE55;		// Cortex M7, need to enable access to DWT
+		DWT->LAR = 0xC5ACCE55;							// Cortex M7, need to enable access to DWT
 		#endif
 		DWT->CYCCNT = 0;
 		DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
@@ -32,4 +33,6 @@ void Delay_us(const uint32_t us)
 
 	while (DWT->CYCCNT - hNow < delay);
 }
+#else
+// TODO: use counters based on instruction timing to generate delay (beware execution from RAM/FLASH timings are different)
 #endif

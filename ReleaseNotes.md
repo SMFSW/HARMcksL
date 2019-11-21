@@ -56,6 +56,7 @@ SOFTWARE.
 * stdream_rdir: added pre-comp option for ITM
 * tick_utils: Delay_us added
 * tick_utils: Delay_us disabled on cortex M0/M0+ (no DWT peripheral)
+* tick_utils: Fix core debug trace not necessarily enabled
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
 * pattern2D: removed (now part of sarmfsw in arm_inlines_linearization.h)
 
