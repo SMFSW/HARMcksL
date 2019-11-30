@@ -10,6 +10,27 @@
 #include "time_utils.h"
 /****************************************************************/
 
+const char Weekdays[Weekdays_Max][10] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+const char Months[Months_Max][10] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+
+eWeekdays Get_Weekday(uint16_t year, uint8_t month, uint8_t day)
+{
+	if ((year < 1700) || (year >= 2400))	{ return -1; }
+
+	static const uint8_t century_code[7] = { 4, 2, 0, 6, 4, 2, 0 };		// 1700s, 1800s, 1900s, 2000s, 2100s, 2200s, 2300s
+	static const uint8_t month_code[Months_Max] = { 0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5 };
+
+	const uint8_t leap = ((month < 3) && (is_LeapYear(year))) ? 1 : 0;
+
+	uint16_t year_code = year % 100;
+	year_code = (year_code + (year_code / 4)) % 7;
+
+	const uint8_t code = (year_code + month_code[month - 1] + century_code[(year / 100) - 17] + day - leap) % 7;
+
+	return code;
+}
+
 
 DateTime time_t2DateTime(const time_t time)
 {
