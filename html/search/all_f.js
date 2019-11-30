@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['tick_5futils_2ec',['tick_utils.c',['../tick__utils_8c.html',1,'']]],
-  ['tick_5futils_2eh',['tick_utils.h',['../tick__utils_8h.html',1,'']]],
-  ['tim_5ffreq',['tim_freq',['../structlogic_p_w_m.html#ab775531470032670cd5a3cdf50576a57',1,'logicPWM']]],
-  ['time_5ft2datetime',['time_t2DateTime',['../time__utils_8c.html#acf1569c77e083af101da12bd5d90a4ef',1,'time_t2DateTime(const time_t time):&#160;time_utils.c'],['../time__utils_8h.html#acf1569c77e083af101da12bd5d90a4ef',1,'time_t2DateTime(const time_t time):&#160;time_utils.c']]],
-  ['time_5futils_2ec',['time_utils.c',['../time__utils_8c.html',1,'']]],
-  ['time_5futils_2eh',['time_utils.h',['../time__utils_8h.html',1,'']]]
+  ['random_5fget',['random_Get',['../random__utils_8c.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c']]],
+  ['random_5futils_2ec',['random_utils.c',['../random__utils_8c.html',1,'']]],
+  ['random_5futils_2eh',['random_utils.h',['../random__utils_8h.html',1,'']]],
+  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
+  ['repeat',['repeat',['../struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de',1,'Logic_in']]],
+  ['rtc_5fex_2ec',['RTC_ex.c',['../_r_t_c__ex_8c.html',1,'']]],
+  ['rtc_5fex_2eh',['RTC_ex.h',['../_r_t_c__ex_8h.html',1,'']]],
+  ['rtc_5fgettime',['RTC_GetTime',['../_r_t_c__ex_8c.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c']]],
+  ['rtc_5fsettime',['RTC_SetTime',['../_r_t_c__ex_8c.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c']]]
 ];

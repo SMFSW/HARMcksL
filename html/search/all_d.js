@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['random_5fget',['random_Get',['../random__utils_8c.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c']]],
-  ['random_5futils_2ec',['random_utils.c',['../random__utils_8c.html',1,'']]],
-  ['random_5futils_2eh',['random_utils.h',['../random__utils_8h.html',1,'']]],
-  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
-  ['repeat',['repeat',['../struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de',1,'Logic_in']]],
-  ['rtc_5fex_2ec',['RTC_ex.c',['../_r_t_c__ex_8c.html',1,'']]],
-  ['rtc_5fex_2eh',['RTC_ex.h',['../_r_t_c__ex_8h.html',1,'']]],
-  ['rtc_5fgettime',['RTC_GetTime',['../_r_t_c__ex_8c.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c']]],
-  ['rtc_5fsettime',['RTC_SetTime',['../_r_t_c__ex_8c.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c']]]
+  ['october',['October',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a8e8c7d515e22b7c7d882ae4c97584c14',1,'time_utils.h']]],
+  ['onreset',['onReset',['../struct_logic__in.html#ae9cd5537e56798e3b9d94fbdfd4cb236',1,'Logic_in']]],
+  ['onset',['onSet',['../struct_logic__in.html#a173deda1f19945eab2114ebbd7e0eb54',1,'Logic_in']]]
 ];

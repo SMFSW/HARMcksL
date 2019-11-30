@@ -1,3 +1,5 @@
 <map id="time_t2DateTime" name="time_t2DateTime">
 <area shape="rect" id="node2" href="$time__utils_8h.html#add92b553f649e9cf394cbbb73f23f907" title="Calculate DateTime difference. " alt="" coords="187,5,289,32"/>
+<area shape="rect" id="node3" href="$time__utils_8h.html#a0201956a657cced2952c9b841ddb97de" title="Determine if given year is leap. " alt="" coords="337,31,433,57"/>
+<area shape="rect" id="node4" href="$time__utils_8h.html#a224e8ef533edb58211b87fdbb94bedd7" title="Determine weekday for a given date. " alt="" coords="481,31,589,57"/>
 </map>
