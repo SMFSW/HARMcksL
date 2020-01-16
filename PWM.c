@@ -200,7 +200,7 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 	const uint32_t refCLK = get_TIM_clock(pTim);
 	if (freq > refCLK / PWM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee minimum steps
 
-	for (prescaler = 1 ; prescaler <= max_prescaler ; prescaler++)
+	for (prescaler = 0 ; prescaler <= max_prescaler ; prescaler++)
 	{
 		period = (refCLK / (freq * (prescaler + 1))) - 1;
 		if (period <= max_period)				{ break; }				// If in 16b range
