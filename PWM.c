@@ -1,6 +1,6 @@
 /*!\file PWM.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2019, SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief Straightforward PWM handling
 ** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
@@ -10,6 +10,12 @@
 
 #if defined(HAL_TIM_MODULE_ENABLED)
 /****************************************************************/
+
+
+#ifndef PWM_MIN_GRANULARITY
+#define	PWM_MIN_GRANULARITY	255		//!< Minimum granularity for PWM channel (on TIM PWM outputs)
+//! \note PWM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
+#endif
 
 
 /*!\brief Get TIM module clock
@@ -185,19 +191,21 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
+	const uint32_t max_prescaler = (uint16_t) -1;
 	uint32_t period, prescaler;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
 	const uint32_t refCLK = get_TIM_clock(pTim);
-	if (freq > refCLK / 100)		{ return HAL_ERROR; }
+	if (freq > refCLK / PWM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee at least 100 steps
 
-	for (prescaler = 1 ; prescaler < (uint16_t) -1 ; prescaler++)
+	for (prescaler = 1 ; prescaler <= max_prescaler ; prescaler++)
 	{
 		period = (refCLK / (freq * (prescaler + 1))) - 1;
-		if (period <= (uint16_t) -1)	{ break; }				// If in 16b range
-		if (prescaler == 1 << 15)		{ return HAL_ERROR; }	// If nothing has been found (last iteration)
+		if (period <= max_prescaler)			{ break; }				// If in 16b range
 	}
+
+	if (prescaler == max_prescaler + 1)			{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
 
 	pTim->Init.Period = period;
 	pTim->Init.Prescaler = prescaler;
@@ -208,36 +216,35 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity)
 {
-	HAL_StatusTypeDef st;
-
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	assert_param(IS_TIM_CHANNELS(chan));
-
-	st = set_TIM_Freq(pTim, freq);
+	HAL_StatusTypeDef st = set_TIM_Freq(pTim, freq);
 
 	if (st == HAL_OK)
 	{
+		unsigned int i, end;
+
 		if (chan == TIM_CHANNEL_ALL)
 		{
-			#if defined(TIM_CHANNEL_6)
-				const uint32_t chans[6] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4, TIM_CHANNEL_5, TIM_CHANNEL_6 };
-			#else
-				const uint32_t chans[4] = { TIM_CHANNEL_1, TIM_CHANNEL_2, TIM_CHANNEL_3, TIM_CHANNEL_4 };
-			#endif
-
-			for (unsigned int i = 0 ; i < SZ_OBJ(chans, uint32_t) ; i++)
-			{
-				st = set_PWM_Preload_bit(pTim, chans[i]);
-				st |= set_PWM_CCR(pTim, chans[i], (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
-				st |= set_PWM_Output(pTim, chans[i], true);
-				if (st)	{ break; }
-			}
+			i = 0;
+			end = 6;	// 6 channels max on bigger MCUs
 		}
 		else
 		{
-			st = set_PWM_Preload_bit(pTim, chan);
-			st |= set_PWM_CCR(pTim, chan, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
-			st |= set_PWM_Output(pTim, chan, true);
+			i = chan >> 2;
+			end = i + 1;
+		}
+
+		for ( ; i < end ; i++)
+		{
+			const uint32_t channel = i << 2;
+			if ((st) || (IS_TIM_CCX_INSTANCE(pTim->Instance, channel) == 0))	// Channel does not exist on TIM
+			{
+				if (chan != TIM_CHANNEL_ALL)	{ st = HAL_ERROR; }				// set HAL_ERROR only for specified channel
+				break;
+			}
+
+			st = set_PWM_Preload_bit(pTim, channel);
+			st |= set_PWM_CCR(pTim, channel, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
+			st |= set_PWM_Output(pTim, channel, true);
 		}
 	}
 

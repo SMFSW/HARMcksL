@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2020 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -52,6 +52,7 @@ SOFTWARE.
 * PMW: logic PWM getters now returns value directly instead of using pointer in function parameters
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
 * PWM: added clock path for G0 family in get_TIM_clock
+* PWM: init_PWM_Chan refactored to produce less code and performing more checks not to init undesired or non-existing TIM channel
 * stdream_rdir & UART_term: refactoring
 * stdream_rdir: added pre-comp option for ITM
 * tick_utils: Delay_us added

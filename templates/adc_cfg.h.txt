@@ -1,6 +1,6 @@
 /*!\file adc_cfg.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2019, SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief ADC configuration
 ** \note Simple adc_cfg.c example to handle Vref, temperature & Vbat (on STM32F3)
 **/
