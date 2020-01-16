@@ -191,18 +191,19 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	const uint32_t max_prescaler = (uint16_t) -1;
+	const uint32_t max_prescaler = 0xFFFFFFFF;
+	const uint32_t max_period = 0xFFFFFFFF;
 	uint32_t period, prescaler;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
 	const uint32_t refCLK = get_TIM_clock(pTim);
-	if (freq > refCLK / PWM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee at least 100 steps
+	if (freq > refCLK / PWM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee minimum steps
 
 	for (prescaler = 1 ; prescaler <= max_prescaler ; prescaler++)
 	{
 		period = (refCLK / (freq * (prescaler + 1))) - 1;
-		if (period <= max_prescaler)			{ break; }				// If in 16b range
+		if (period <= max_period)				{ break; }				// If in 16b range
 	}
 
 	if (prescaler == max_prescaler + 1)			{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
