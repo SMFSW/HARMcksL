@@ -191,8 +191,9 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	const uint32_t max_prescaler = 0xFFFFFFFF;
-	const uint32_t max_period = 0xFFFFFFFF;
+	// Only a few TIM instances are 32b timers, limit to 16b
+	const uint32_t max_prescaler = 0xFFFF;
+	const uint32_t max_period = 0xFFFF;
 	uint32_t period, prescaler;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
