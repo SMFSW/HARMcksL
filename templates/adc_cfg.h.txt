@@ -22,7 +22,7 @@
 #endif
 
 
-//#define TEMP_CALC_V25						//!< If defined, use Def_V25 for temperature calculations, otherwise use calibration values
+//#define TEMP_CALC_VTEMP					//!< If defined, use Def_VTemp for temperature calculations, otherwise use calibration values
 #define ADC_COMPENSATION					//!< If defined, use of Vref and Vref calibration value to improve values accuracy
 #define ADC_CALIBRATION						//!< If defined, init will launch ADC peripherals calibration
 
@@ -34,7 +34,7 @@
 #define	ADC_NB				2				//!< Number of ADC peripherals used
 #define	ADC_NB_CHAN			3				//!< Number of ADC channels used (per peripheral)
 
-#define Def_V25				(1430.0f)		//!< Temperature at 25°c (in mV)
+#define Def_VTemp			(1430.0f)		//!< Temperature at 25Â°c (in mV) -> following given family
 #define Def_AvgSlope		(4.3f)			//!< Average Slope (in mV)
 
 #define VREF_CAL_ADDR		(0x1FFFF7BA)	//!< VRef ADC calibration address
@@ -52,7 +52,7 @@ typedef enum eAnalogInput {
 	Adc_Vref,		//!< Adc VRef (converted value in V)
 	#endif
 	#if defined(ADC_USE_TEMP)
-	Adc_Temp,		//!< Adc Temperature (converted value in °C)
+	Adc_Temp,		//!< Adc Temperature (converted value in ï¿½C)
 	#endif
 	#if defined(ADC_USE_VBAT)
 	Adc_Vbat,		//!< Adc VBat (converted value in V)

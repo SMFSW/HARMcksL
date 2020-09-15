@@ -32,6 +32,13 @@
 /****************************************************************/
 
 
+#define TEMP_CALC_V25	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V25 (not accurate following families, leading to name change)
+#define TEMP_CALC_V30	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V30 (not accurate following families, leading to name change)
+
+#define Def_V25			Def_VTemp			//!< Alias for legacy code using Def_V25 (not accurate following families, leading to name change)
+#define Def_V30			Def_VTemp			//!< Alias for legacy code using Def_V30 (not accurate following families, leading to name change)
+
+
 /*!\enum eADCidx
 ** \brief ADC peripheral instance indexes
 **/
@@ -49,12 +56,13 @@ typedef enum eADCidx {
 } eADCidx;
 
 
+// TODO: declare weak if possible with breaking legacy compatibility
 //typedef enum eAnalogInput {
 //	#if defined(ADC_USE_VREF)
 //	Adc_Vref,		//!< Adc VRef (converted value in V)
 //	#endif
 //	#if defined(ADC_USE_TEMP)
-//	Adc_Temp,		//!< Adc Temperature (converted value in °C)
+//	Adc_Temp,		//!< Adc Temperature (converted value in Â°C)
 //	#endif
 //	#if defined(ADC_USE_VBAT)
 //	Adc_Vbat,		//!< Adc VBat (converted value in V)

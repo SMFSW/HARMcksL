@@ -31,12 +31,17 @@
 		 || defined(STM32L1))		\
 	 && defined(ADC_CALIBRATION))
 #undef ADC_CALIBRATION
-#warning "Current STM32 family doesn't support ADC peripherals calibration. Undef ADC_CALIBRATION for you!"
+#warning "Current STM32 family (F0/F2/F4/F7/L1) doesn't support ADC peripheral calibration. Undef ADC_CALIBRATION for you!"
 #endif
 
 #if defined(STM32F1) && defined(ADC_COMPENSATION)
 #undef ADC_COMPENSATION
-#warning "Current STM32 family doesn't have VREF_CAL register. Undef ADC_COMPENSATION for you!"
+#warning "Current STM32 family (F1) doesn't have VREF_CAL register. Undef ADC_COMPENSATION for you!"
+#endif
+
+#if defined(TEMP_CALC_VTEMP) && (defined(STM32L0) || defined(STM32L1))
+#undef TEMP_CALC_VTEMP
+#warning "Current STM32 family (L0/L1) only use VREF_CAL registers for temperature computation. Undef TEMP_CALC_VTEMP for you!"
 #endif
 
 #if !defined(ADC_USE_VREF) && defined(ADC_COMPENSATION)
@@ -48,54 +53,63 @@
 #define Def_Step			(Def_VIn / 4095.0f)						//!< Step value (in V)
 
 
-#if !defined(Def_V25) || !defined(Def_AvgSlope)
-#if defined(TEMP_CALC_V25)
-	#if defined(Def_V25)
-	#undef Def_V25
-	#endif
-	#if defined(Def_AvgSlope)
-	#undef Def_AvgSlope
-	#endif
-
-	#warning "You should define both Def_V25 & Def_AvgSlope with parameters given in datasheet, using STM32 family presumed default instead!"
+#if !defined(Def_AvgSlope)
+	#warning "You should define Def_AvgSlope with parameters given in datasheet, using STM32 family common default values instead!"
 
 	#if defined(STM32F0)
-		#define Def_V30				(1430.0f)	//!< Temperature at 30캽 (in mV)
 		#define Def_AvgSlope		(4.3f)		//!< Average Slope (in mV)
 	#elif defined(STM32F1)
-		#define Def_V25				(1430.0f)	//!< Temperature at 25캽 (in mV)
 		#define Def_AvgSlope		(4.3f)		//!< Average Slope (in mV)
 	#elif defined(STM32F2)
-		#define Def_V25				(760.0f)	//!< Temperature at 25캽 (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32F3)
-		#define Def_V25				(1430.0f)	//!< Temperature at 25캽 (in mV)
 		#define Def_AvgSlope		(4.3f)		//!< Average Slope (in mV)
 	#elif defined(STM32F4)
-		#define Def_V25				(760.0f)	//!< Temperature at 25캽 (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32F7)
-		#define Def_V25				(760.0f)	//!< Temperature at 25캽 (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32G0)
-		#define Def_V30				(760.0f)	//!< Temperature at 30캽 (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32H7)
-		#define Def_V30				(620.0f)	//!< Temperature at 30캽 (in mV)
 		#define Def_AvgSlope		(2.0f)		//!< Average Slope (in mV)
 	#elif defined(STM32L0)
-		#define Def_V130			(670.0f)	//!< Temperature at 130캽 (in mV)
-		//!\warning	Beware L0 family has reference at 130캜
 		#define Def_AvgSlope		(1.48f)		//!< Average Slope (in mV)
 	#elif defined(STM32L1)
-		#define Def_V110			(628.8f)	//!< Temperature at 110캽 (in mV)
-		//!\warning	Beware L1 family has reference at 110캜
 		#define Def_AvgSlope		(1.61f)		//!< Average Slope (in mV)
 	#elif defined(STM32L4)
-		#define Def_V30				(760.0f)	//!< Temperature at 30캽 (in mV)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#endif
 #endif
+
+
+#if !defined(Def_VTemp)
+	#warning "You should define Def_VTemp with parameters given in datasheet, using STM32 family common default values instead!"
+
+	#if defined(STM32F0)
+		#define Def_VTemp			(1430.0f)	//!< Temperature at 30째C (in mV)
+	#elif defined(STM32F1)
+		#define Def_VTemp			(1430.0f)	//!< Temperature at 25째C (in mV)
+	#elif defined(STM32F2)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 25째C (in mV)
+	#elif defined(STM32F3)
+		#define Def_VTemp			(1430.0f)	//!< Temperature at 25째C (in mV)
+	#elif defined(STM32F4)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 25째C (in mV)
+	#elif defined(STM32F7)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 25째C (in mV)
+	#elif defined(STM32G0)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30째C (in mV)
+	#elif defined(STM32H7)
+		#define Def_VTemp			(620.0f)	//!< Temperature at 30째C (in mV)
+	#elif defined(STM32L0)
+		//!< \note For reference only, not used in code
+		#define Def_VTemp			(670.0f)	//!< Temperature at 130째C (in mV)
+	#elif defined(STM32L1)
+		//!< \note For reference only, not used in code
+		#define Def_VTemp			(628.8f)	//!< Temperature at 110째C (in mV)
+	#elif defined(STM32L4)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30째C (in mV)
+	#endif
 #endif
 
 
@@ -109,7 +123,7 @@
 #define STM32_VREF_CAL		(VAL_AT(VREF_CAL_ADDR, uint16_t))		//!< VRef (ADC) calibration address content
 #endif
 
-#if !defined(TEMP_CALC_V25)
+#if !defined(TEMP_CALC_VTEMP)
 #if !defined(STM32_TS_CAL1)
 #ifndef TS_CAL1_ADDR
 #error "Refer to datasheet to find TS_CAL1 address!"
@@ -143,7 +157,7 @@
 
 #ifndef ADC_SAMP_BUF_SIZE
 #define ADC_SAMP_BUF_SIZE	4			//!< Size of the input buffer per analog input
-//!< ADC_SAMP_BUFF_SIZE can be defined in adc_cfg.h, globals.h or at project level if higher amount of samples required
+//! \note ADC_SAMP_BUFF_SIZE can be defined in adc_cfg.h, globals.h or at project level if higher amount of samples required
 #endif
 
 
@@ -175,6 +189,7 @@ static float ADC_ConvertVal(const eAnalogInput input)
 	#if defined(ADC_COMPENSATION)
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
+		if (!vrefint_dat)	{ return 0.0f; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
 	#else
 		const int16_t	in_raw = ADC_GetRawVal(input);									// read input value
@@ -201,15 +216,14 @@ static float ADC_ConvertVal(const eAnalogInput input)
 
 				#if defined(ADC_USE_TEMP)
 					case Adc_Temp:
-						// TODO: code temperature following families (L0/L1 not handled yet)
-						#ifdef TEMP_CALC_V25
+						#ifdef TEMP_CALC_VTEMP
 							// With raw converted value to mV
 							#if defined(STM32F0) || defined(STM32G0) || defined(STM32H7) || defined(STM32L4)
-								val = ((Def_V30 - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
+								val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
 							#elif defined(STM32F1) || defined(STM32F3)
-								val = ((Def_V25 - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
+								val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
 							#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
-								val = (((in_v * 1000.0f) - Def_V25) / Def_AvgSlope) + (float) 25;
+								val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + (float) 25;
 							#endif
 						#else
 							// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
