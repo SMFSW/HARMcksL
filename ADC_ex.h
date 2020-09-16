@@ -35,8 +35,12 @@
 #define TEMP_CALC_V25	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V25 (not accurate following families, leading to name change)
 #define TEMP_CALC_V30	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V30 (not accurate following families, leading to name change)
 
-#define Def_V25			Def_VTemp			//!< Alias for legacy code using Def_V25 (not accurate following families, leading to name change)
-#define Def_V30			Def_VTemp			//!< Alias for legacy code using Def_V30 (not accurate following families, leading to name change)
+#if defined(Def_V25)
+#define Def_VTemp		Def_V25				//!< Alias for legacy code using Def_V25 (not accurate following families, leading to name change)
+#endif
+#if defined(Def_V30)
+#define Def_VTemp		Def_V30				//!< Alias for legacy code using Def_V30 (not accurate following families, leading to name change)
+#endif
 
 
 /*!\enum eADCidx
@@ -56,7 +60,6 @@ typedef enum eADCidx {
 } eADCidx;
 
 
-// TODO: declare weak if possible with breaking legacy compatibility
 //typedef enum eAnalogInput {
 //	#if defined(ADC_USE_VREF)
 //	Adc_Vref,		//!< Adc VRef (converted value in V)

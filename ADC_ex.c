@@ -180,12 +180,37 @@ static __IO DMA_sz_t	ADCbuffer_DMA[TOTAL_ADC_CHANS];	//!< DMA ADC buffer
 static __IO AnalogTab	ADCbuffer[TOTAL_ADC_CHANS];		//!< ADC buffer
 
 
-/**!\brief Compute converted value for given channel
-**	\param[in] input - Input index
-**	\return Channel converted value
+/**!\brief Get ADC num and channel corresponding to input
+**	\param[in,out] adc - Pointer to ADC instance result
+**	\param[in,out] chan - Pointer to channel result
+**	\return Error code
 **/
-static float ADC_ConvertVal(const eAnalogInput input)
+static FctERR NONNULL__ ADC_GetChan(uint8_t * const adc, uint8_t * const chan, const eAnalogInput input)
 {
+	if (input >= Adc_MAX)	{ return ERROR_VALUE; }
+
+	*adc = ADCConfig[input].adc;
+	*chan = ADCConfig[input].chan;
+
+	return ERROR_OK;
+}
+
+
+uint16_t ADC_GetRawVal(const eAnalogInput input)
+{
+	uint8_t adc_num, chan;
+
+	if (ADC_GetChan(&adc_num, &chan, input) != ERROR_OK)	{ return 0; }
+
+	const uint8_t idx = adc_num + (chan * ADC_NB);
+	return RestrictedAverage_WORD(ADCbuffer[idx].Array, SZ_OBJ(ADCbuffer[idx].Array, uint16_t));
+}
+
+
+float ADC_GetConvertedVal(const eAnalogInput input)
+{
+	if (input >= Adc_MAX)	{ return 0.0f; }
+
 	#if defined(ADC_COMPENSATION)
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
@@ -259,40 +284,6 @@ static float ADC_ConvertVal(const eAnalogInput input)
 	}
 
 	return val;
-}
-
-
-/**!\brief Get ADC num and channel corresponding to input
-**	\param[in,out] adc - Pointer to ADC instance result
-**	\param[in,out] chan - Pointer to channel result
-**	\return Error code
-**/
-static FctERR NONNULL__ ADC_GetChan(uint8_t * const adc, uint8_t * const chan, const eAnalogInput input)
-{
-	if (input >= Adc_MAX)	{ return ERROR_VALUE; }
-
-	*adc = ADCConfig[input].adc;
-	*chan = ADCConfig[input].chan;
-
-	return ERROR_OK;
-}
-
-
-uint16_t ADC_GetRawVal(const eAnalogInput input)
-{
-	uint8_t adc_num, chan;
-
-	if (ADC_GetChan(&adc_num, &chan, input) != ERROR_OK)	{ return 0; }
-
-	const uint8_t idx = adc_num + (chan * ADC_NB);
-	return RestrictedAverage_WORD(ADCbuffer[idx].Array, SZ_OBJ(ADCbuffer[idx].Array, uint16_t));
-}
-
-float ADC_GetConvertedVal(const eAnalogInput input)
-{
-	if (input >= Adc_MAX)	{ return 0; }
-
-	return ADC_ConvertVal(input);
 }
 
 

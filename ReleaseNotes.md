@@ -34,7 +34,8 @@ SOFTWARE.
 * ADC_ex: Using ADC_COMPENSATION, Hardware fault may occur at MCU start when average Vref == 0 (not ready), returns 0 for any query in this case
 * ADC_ex: split slope and reference temp defines
 * ADC_ex: alias TEMP_CALC_V25... to TEMP_CALC_VTEMP (for legacy use)
-* ADC_ex: alias Def_V25... to Def_VTemp (for legacy use)
+* ADC_ex: alias & fix for Def_V25... to Def_VTemp (for legacy use)
+* ADC_ex: merged static ADC_ConvertVal in public ADC_GetConvertedVal
 * ADC_ex: undef TEMP_CALC_VTEMP for L0/L1 temperature conversion (using calibration values instead)
 * adc_cfg.h: template update following changes
 * ADC_ex: Added base ADC module for single ended without injection conversions (with support from ADC_cfg.h in project)
