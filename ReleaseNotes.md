@@ -51,6 +51,8 @@ SOFTWARE.
 * GPIO_ex: cut code to Logic_ex to make it generic for both GPIO (working same as before) and any variable  
 * Logic_ex: cut from GPIO_ex GPIO_in (and now used by GPIO_in) to have code working to monitor bit in a variable as a logic input signal
 * Logic_ex: set working elements to 0 at instance init (no need of initialized struct)
+* PWM: get_TIM_clock not static (can be used to get TIM reference clock when needed)
+* PWM: set_PWM_CCR not set to be always inlined anymore
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: Renamed write_CRR to Set_PWM_CCR
 * PWM: changed pre-comp test for consistency

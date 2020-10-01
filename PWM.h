@@ -39,6 +39,14 @@ typedef __IO struct logicPWM {
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*!\brief Get TIM module clock
+** \warning Shall work for all STM32 F/G families, L families not totally covered
+** \param[in,out] pTim - pointer to TIM instance
+** \return TIM Clock frequency
+**/
+uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim);
+
+
 /****************/
 /*** TIM Base ***/
 /****************/

@@ -18,14 +18,11 @@
 #endif
 
 
-/*!\brief Get TIM module clock
-** \warning Shall work for all STM32 F/G families, L families not totally covered
-** \param[in,out] pTim - pointer to TIM instance
-** \return TIM Clock frequency
-**/
-static uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
+uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
 {
-	uint32_t	refCLK;
+	// TODO: cover Lx families
+
+	uint32_t refCLK;
 
 	#if defined(STM32G0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
@@ -142,7 +139,7 @@ static HAL_StatusTypeDef NONNULL__ set_PWM_Preload_bit(TIM_HandleTypeDef * const
 ** \param[in] CCR_val - Scaled duty cycle for CCR register
 ** \return HAL Status
 **/
-__STATIC_INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t CCR_val)
+static HAL_StatusTypeDef NONNULL__ set_PWM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t CCR_val)
 {
 	__IO uint32_t * pCCR;
 
