@@ -1,3 +1,4 @@
 <map id="init_PWM_Chan" name="init_PWM_Chan">
 <area shape="rect" id="node2" href="$_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="172,5,276,32"/>
+<area shape="rect" id="node3" href="$_p_w_m_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="324,5,435,32"/>
 </map>

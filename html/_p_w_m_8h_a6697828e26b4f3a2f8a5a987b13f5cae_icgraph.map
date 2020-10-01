@@ -1,3 +1,5 @@
 <map id="init_TIM_Base" name="init_TIM_Base">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="161,5,285,32"/>
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="161,5,287,32"/>
+<area shape="rect" id="node4" href="$_p_w_m_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM module and start interruptions. " alt="" coords="162,56,286,83"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="335,5,487,32"/>
 </map>
