@@ -1,5 +1,0 @@
-<map id="init_TIM_Base" name="init_TIM_Base">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="161,5,300,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="179,56,283,83"/>
-<area shape="rect" id="node4" href="$_p_w_m_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="348,56,459,83"/>
-</map>

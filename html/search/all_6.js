@@ -25,7 +25,7 @@ var searchData=
   ['get_5fr9',['get_R9',['../stack__utils_8h.html#acf58b5c325bcf469795185ed38b63b25',1,'stack_utils.h']]],
   ['get_5freset_5fsource',['Get_Reset_Source',['../exceptions_8c.html#a025037e7bede684a8bbb9cb4b56325ec',1,'Get_Reset_Source(void):&#160;exceptions.c'],['../exceptions_8h.html#a025037e7bede684a8bbb9cb4b56325ec',1,'Get_Reset_Source(void):&#160;exceptions.c']]],
   ['get_5fsp',['get_SP',['../stack__utils_8h.html#ace45d0a547b7c05d1c86439afde3bf8f',1,'stack_utils.h']]],
-  ['get_5ftim_5fclock',['get_TIM_clock',['../_p_w_m_8c.html#ad8048c17830084ea0c22bd16af8476d7',1,'get_TIM_clock(const TIM_HandleTypeDef *const pTim):&#160;PWM.c'],['../_p_w_m_8h.html#ad8048c17830084ea0c22bd16af8476d7',1,'get_TIM_clock(const TIM_HandleTypeDef *const pTim):&#160;PWM.c']]],
+  ['get_5ftim_5fclock',['get_TIM_clock',['../_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7',1,'get_TIM_clock(const TIM_HandleTypeDef *const pTim):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#ad8048c17830084ea0c22bd16af8476d7',1,'get_TIM_clock(const TIM_HandleTypeDef *const pTim):&#160;TIM_ex.c']]],
   ['get_5fweekday',['Get_Weekday',['../time__utils_8c.html#a224e8ef533edb58211b87fdbb94bedd7',1,'Get_Weekday(uint16_t year, uint8_t month, uint8_t day):&#160;time_utils.c'],['../time__utils_8h.html#a224e8ef533edb58211b87fdbb94bedd7',1,'Get_Weekday(uint16_t year, uint8_t month, uint8_t day):&#160;time_utils.c']]],
   ['getbreakout_5fchar',['getBreakout_char',['../_u_a_r_t__term_8h.html#aef999196a3d4e1b9f4889671a1b2df76',1,'UART_term.h']]],
   ['gpio_5fex_2ec',['GPIO_ex.c',['../_g_p_i_o__ex_8c.html',1,'']]],

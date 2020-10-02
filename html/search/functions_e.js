@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['write_5fgpio',['write_GPIO',['../_g_p_i_o__ex_8c.html#a24a22d2c4d867bf61c9518b3b5d0ec64',1,'write_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64',1,'write_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act):&#160;GPIO_ex.c']]]
+  ['write_5fgpio',['write_GPIO',['../_g_p_i_o__ex_8c.html#a24a22d2c4d867bf61c9518b3b5d0ec64',1,'write_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64',1,'write_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act):&#160;GPIO_ex.c']]],
+  ['write_5ftim_5fccr',['write_TIM_CCR',['../_t_i_m__ex_8c.html#a33bc80aceb3220bdef6971624fc43082',1,'write_TIM_CCR(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t CCR_val):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a33bc80aceb3220bdef6971624fc43082',1,'write_TIM_CCR(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t CCR_val):&#160;TIM_ex.c']]],
+  ['write_5ftim_5fpreload',['write_TIM_Preload',['../_t_i_m__ex_8c.html#a24890afe1db08ba685fc655aaf97f14c',1,'write_TIM_Preload(TIM_HandleTypeDef *const pTim, const uint32_t chan):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a24890afe1db08ba685fc655aaf97f14c',1,'write_TIM_Preload(TIM_HandleTypeDef *const pTim, const uint32_t chan):&#160;TIM_ex.c']]]
 ];

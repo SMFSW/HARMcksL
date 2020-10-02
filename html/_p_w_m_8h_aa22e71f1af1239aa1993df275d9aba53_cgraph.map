@@ -1,10 +1,11 @@
 <map id="set_PWM_Duty_Byte" name="set_PWM_Duty_Byte">
 <area shape="rect" id="node2" href="$_p_w_m_8h.html#ae9d0ba6e5ccf3a6387bacc0e8625f911" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="205,5,372,32"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d" title="Set channel pin &amp; polarity for emulated PWM channel. " alt="" coords="230,56,347,83"/>
-<area shape="rect" id="node4" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="226,107,351,133"/>
-<area shape="rect" id="node9" href="$_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325" title="Set new duty cycle for emulated PWM channel. " alt="" coords="225,157,353,184"/>
-<area shape="rect" id="node5" href="$_p_w_m_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="763,132,873,159"/>
-<area shape="rect" id="node6" href="$_p_w_m_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="420,132,528,159"/>
-<area shape="rect" id="node7" href="$_p_w_m_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="576,132,715,159"/>
-<area shape="rect" id="node8" href="$_p_w_m_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="593,183,697,209"/>
+<area shape="rect" id="node4" href="$_p_w_m_8h.html#a5171c7e5432d81a8b0fe82de96fbf55d" title="Set channel pin &amp; polarity for emulated PWM channel. " alt="" coords="230,56,347,83"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="226,107,351,133"/>
+<area shape="rect" id="node10" href="$_p_w_m_8h.html#ae35196dcc8081077be152546f3c63325" title="Set new duty cycle for emulated PWM channel. " alt="" coords="225,157,353,184"/>
+<area shape="rect" id="node3" href="$_t_i_m__ex_8c.html#a33bc80aceb3220bdef6971624fc43082" title="Low level TIM module CCR write. " alt="" coords="420,5,533,32"/>
+<area shape="rect" id="node6" href="$_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="768,132,879,159"/>
+<area shape="rect" id="node7" href="$_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="423,132,531,159"/>
+<area shape="rect" id="node8" href="$_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="581,132,720,159"/>
+<area shape="rect" id="node9" href="$_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="599,183,703,209"/>
 </map>

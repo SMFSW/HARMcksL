@@ -9,6 +9,5 @@ var searchData=
   ['printf_5fredir',['printf_redir',['../stdream__rdir_8c.html#ae6a3221689c59b6397655fb3983e7dd0',1,'printf_redir(const char *str,...):&#160;stdream_rdir.c'],['../stdream__rdir_8h.html#ae6a3221689c59b6397655fb3983e7dd0',1,'printf_redir(const char *str,...):&#160;stdream_rdir.c']]],
   ['ptim',['pTim',['../structlogic_p_w_m.html#ae9a35f1061f7ce1d728aa28f2461c222',1,'logicPWM']]],
   ['pwm_2ec',['PWM.c',['../_p_w_m_8c.html',1,'']]],
-  ['pwm_2eh',['PWM.h',['../_p_w_m_8h.html',1,'']]],
-  ['pwm_5fmin_5fgranularity',['PWM_MIN_GRANULARITY',['../_p_w_m_8c.html#afe08d17d0a4637f203012191e4271f77',1,'PWM.c']]]
+  ['pwm_2eh',['PWM.h',['../_p_w_m_8h.html',1,'']]]
 ];

@@ -1,3 +1,4 @@
 <map id="set_PWM_Output" name="set_PWM_Output">
 <area shape="rect" id="node2" href="$_p_w_m_8h.html#ae9d0ba6e5ccf3a6387bacc0e8625f911" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="184,5,351,32"/>
+<area shape="rect" id="node3" href="$_t_i_m__ex_8c.html#a33bc80aceb3220bdef6971624fc43082" title="Low level TIM module CCR write. " alt="" coords="399,5,512,32"/>
 </map>
