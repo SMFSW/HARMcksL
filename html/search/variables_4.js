@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filt',['filt',['../struct_logic__in.html#a83048e8b77ec1eab4563fabc176a483c',1,'Logic_in']]]
+  ['edge',['edge',['../struct_logic__in.html#a246f9178b6aef1fe151b3fdf1e394047',1,'Logic_in']]]
 ];

@@ -9,5 +9,9 @@ var searchData=
   ['printf_5fredir',['printf_redir',['../stdream__rdir_8c.html#ae6a3221689c59b6397655fb3983e7dd0',1,'printf_redir(const char *str,...):&#160;stdream_rdir.c'],['../stdream__rdir_8h.html#ae6a3221689c59b6397655fb3983e7dd0',1,'printf_redir(const char *str,...):&#160;stdream_rdir.c']]],
   ['ptim',['pTim',['../structlogic_p_w_m.html#ae9a35f1061f7ce1d728aa28f2461c222',1,'logicPWM']]],
   ['pwm_2ec',['PWM.c',['../_p_w_m_8c.html',1,'']]],
-  ['pwm_2eh',['PWM.h',['../_p_w_m_8h.html',1,'']]]
+  ['pwm_2eh',['PWM.h',['../_p_w_m_8h.html',1,'']]],
+  ['pwm_5fic',['PWM_IC',['../struct_p_w_m___i_c.html',1,'PWM_IC'],['../_p_w_m___i_c_8h.html#a325403b8952521384e6945b5e55fea6b',1,'PWM_IC():&#160;PWM_IC.h']]],
+  ['pwm_5fic_2ec',['PWM_IC.c',['../_p_w_m___i_c_8c.html',1,'']]],
+  ['pwm_5fic_2eh',['PWM_IC.h',['../_p_w_m___i_c_8h.html',1,'']]],
+  ['pwmin',['PWMin',['../_p_w_m___i_c_8c.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c'],['../_p_w_m___i_c_8h.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c']]]
 ];

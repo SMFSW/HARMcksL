@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logic',['logic',['../struct_g_p_i_o__in.html#ad760e65c57bb512def35839602234a3e',1,'GPIO_in::logic()'],['../struct_logic__in.html#a62eaf1db67f55ac485551513a76e072b',1,'Logic_in::logic()']]]
+  ['in',['in',['../struct_logic__in.html#adedd70bc22273f4439aadf8b8f5f9798',1,'Logic_in']]],
+  ['indirect_5fpin',['Indirect_Pin',['../struct_p_w_m___i_c.html#aa2775e2ac2ad192eab048202f0979f2c',1,'PWM_IC']]]
 ];

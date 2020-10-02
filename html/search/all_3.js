@@ -10,5 +10,7 @@ var searchData=
   ['deinit_5ftim_5fbase',['deinit_TIM_Base',['../_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c',1,'TIM_ex.h']]],
   ['delay_5fus',['Delay_us',['../tick__utils_8c.html#af9dfe7ae2fdc14569aea2f3e22f85e99',1,'Delay_us(const uint32_t us):&#160;tick_utils.c'],['../tick__utils_8h.html#af9dfe7ae2fdc14569aea2f3e22f85e99',1,'Delay_us(const uint32_t us):&#160;tick_utils.c']]],
   ['diffdatetime',['diffDateTime',['../time__utils_8c.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c'],['../time__utils_8h.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c']]],
-  ['duty',['duty',['../structlogic_p_w_m.html#a102275dc178a220cf46e96cabdbdc44f',1,'logicPWM']]]
+  ['direct_5fpin',['Direct_Pin',['../struct_p_w_m___i_c.html#ae0d8fde4b2be8b34574e8a94f02b4e29',1,'PWM_IC']]],
+  ['duty',['duty',['../structlogic_p_w_m.html#a102275dc178a220cf46e96cabdbdc44f',1,'logicPWM']]],
+  ['dutycycle',['DutyCycle',['../struct_p_w_m___i_c.html#ab1b6d7d3fbb5de08ad7a52be25a03051',1,'PWM_IC']]]
 ];

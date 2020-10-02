@@ -4,6 +4,7 @@ var searchData=
   ['random_5futils_2ec',['random_utils.c',['../random__utils_8c.html',1,'']]],
   ['random_5futils_2eh',['random_utils.h',['../random__utils_8h.html',1,'']]],
   ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
+  ['refclk',['refCLK',['../struct_p_w_m___i_c.html#a7d129c44fbfe68d5e5b06c2515eecce2',1,'PWM_IC']]],
   ['repeat',['repeat',['../struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de',1,'Logic_in']]],
   ['rtc_5fex_2ec',['RTC_ex.c',['../_r_t_c__ex_8c.html',1,'']]],
   ['rtc_5fex_2eh',['RTC_ex.h',['../_r_t_c__ex_8h.html',1,'']]],

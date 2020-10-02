@@ -1,6 +1,7 @@
 var searchData=
 [
   ['saturday',['Saturday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a5a996d296d81b9b8bd3b9201afa4c547',1,'time_utils.h']]],
+  ['scale',['Scale',['../struct_p_w_m___i_c.html#a45562256b419f056827339816974b15a',1,'PWM_IC']]],
   ['seconds',['Seconds',['../struct_date_time.html#a35e49d1f83a9c48d30414881b61fdf27',1,'DateTime']]],
   ['september',['September',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0af5dc1d3f398ac54dfac9985fb9fbe47d',1,'time_utils.h']]],
   ['set_5fpwm_5fduty_5fbyte',['set_PWM_Duty_Byte',['../_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53',1,'PWM.h']]],
@@ -18,6 +19,7 @@ var searchData=
   ['stdream_5frdir_2ec',['stdream_rdir.c',['../stdream__rdir_8c.html',1,'']]],
   ['stdream_5frdir_2eh',['stdream_rdir.h',['../stdream__rdir_8h.html',1,'']]],
   ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
+  ['strong_20functions_20list',['Strong Functions List',['../strong.html',1,'']]],
   ['sunday',['Sunday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a50f766951431e13654ab869ef85e162c',1,'time_utils.h']]],
   ['sz_5fdbg_5fin',['SZ_DBG_IN',['../stdream__rdir_8h.html#aafef780a551cedd16e3023245b3fb762',1,'stdream_rdir.h']]],
   ['sz_5fdbg_5fout',['SZ_DBG_OUT',['../stdream__rdir_8h.html#a55feddd4610786fb60b30272eb49bce6',1,'stdream_rdir.h']]]

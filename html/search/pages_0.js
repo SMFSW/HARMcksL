@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weak_20functions_20list',['Weak Functions List',['../weak.html',1,'']]]
+  ['strong_20functions_20list',['Strong Functions List',['../strong.html',1,'']]]
 ];
