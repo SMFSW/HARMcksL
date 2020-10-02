@@ -2,162 +2,19 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief Straightforward PWM handling
-** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
 /****************************************************************/
 #include "sarmfsw.h"
+#include "TIM_ex.h"
 #include "PWM.h"
 
 #if defined(HAL_TIM_MODULE_ENABLED)
 /****************************************************************/
 
 
-#ifndef PWM_MIN_GRANULARITY
-#define	PWM_MIN_GRANULARITY	255		//!< Minimum granularity for PWM channel (on TIM PWM outputs)
-//! \note PWM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
-#endif
-
-
-uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
-{
-	// TODO: cover Lx families
-
-	uint32_t refCLK;
-
-	#if defined(STM32G0)
-		refCLK = HAL_RCC_GetPCLK1Freq();
-		if ((RCC->CFGR & RCC_CFGR_PPRE) != 0)	{ refCLK *= 2; }
-	#elif defined(STM32F0)
-		refCLK = HAL_RCC_GetPCLK1Freq();
-	#else
-		if (	(pTim->Instance == TIM1)
-		#if defined(TIM8)
-			||	(pTim->Instance == TIM8)
-		#endif
-		#if defined(TIM9)
-			||	(pTim->Instance == TIM9)
-		#endif
-		#if defined(TIM10)
-			||	(pTim->Instance == TIM10)
-		#endif
-		#if defined(TIM11)
-			||	(pTim->Instance == TIM11)
-		#endif
-		#if defined(TIM15)
-			||	(pTim->Instance == TIM15)
-		#endif
-		#if defined(TIM16)
-			||	(pTim->Instance == TIM16)
-		#endif
-		#if defined(TIM17)
-			||	(pTim->Instance == TIM17)
-		#endif
-			)
-		{
-			#if defined(STM32F3)
-				if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PLL))
-				#if defined(RCC_CFGR3_TIM15SW_PLL)
-					||	((pTim->Instance == TIM15) && (RCC->CFGR3 & RCC_CFGR3_TIM15SW_PLL))
-				#endif
-				#if defined(RCC_CFGR3_TIM16SW_PLL)
-					||	((pTim->Instance == TIM16) && (RCC->CFGR3 & RCC_CFGR3_TIM16SW_PLL))
-				#endif
-				#if defined(RCC_CFGR3_TIM17SW_PLL)
-					||	((pTim->Instance == TIM17) && (RCC->CFGR3 & RCC_CFGR3_TIM17SW_PLL))
-				#endif
-					)
-				{	// Get SYCLK (HCLK) frequency
-					refCLK = HAL_RCC_GetHCLKFreq() * 2;
-				}
-				else
-			#endif
-			{	// Get APB2 (PCLK2) frequency
-				refCLK = HAL_RCC_GetPCLK2Freq();
-				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)	{ refCLK *= 2; }
-			}
-		}
-		else
-		{	// Get APB1 (PCLK1) frequency
-			refCLK = HAL_RCC_GetPCLK1Freq();
-			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)	{ refCLK *= 2; }
-		}
-	#endif
-
-	return refCLK;
-}
-
-
-/*!\brief Set Preload bit in TIM module for desired channel
-** \param[in,out] pTim - pointer to TIM instance
-** \param[in] chan - Channel to write
-** \return HAL Status
-**/
-static HAL_StatusTypeDef NONNULL__ set_PWM_Preload_bit(TIM_HandleTypeDef * const pTim, const uint32_t chan)
-{
-	switch (chan)	/* Set the Preload enable bit for channel */
-	{
-		default:
-			return HAL_ERROR;
-
-		case TIM_CHANNEL_1:
-			pTim->Instance->CCMR1 |= TIM_CCMR1_OC1PE;
-			break;
-
-		case TIM_CHANNEL_2:
-			pTim->Instance->CCMR1 |= TIM_CCMR1_OC2PE;
-			break;
-
-		case TIM_CHANNEL_3:
-			pTim->Instance->CCMR2 |= TIM_CCMR2_OC3PE;
-			break;
-
-		case TIM_CHANNEL_4:
-			pTim->Instance->CCMR2 |= TIM_CCMR2_OC4PE;
-			break;
-
-		#if defined(TIM_CHANNEL_6)
-		case TIM_CHANNEL_5:
-			pTim->Instance->CCMR3 |= TIM_CCMR3_OC5PE;
-			break;
-
-		case TIM_CHANNEL_6:
-			pTim->Instance->CCMR3 |= TIM_CCMR3_OC6PE;
-			break;
-		#endif
-	}
-
-	return HAL_OK;
-}
-
-
 /*******************/
 /*** PWM DRIVING ***/
 /*******************/
-/*!\brief Low level TIM module PWM duty cycle write
-** \param[in,out] pTim - pointer to TIM instance for PWM generation
-** \param[in] chan - Channel to write
-** \param[in] CCR_val - Scaled duty cycle for CCR register
-** \return HAL Status
-**/
-static HAL_StatusTypeDef NONNULL__ set_PWM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t CCR_val)
-{
-	__IO uint32_t * pCCR;
-
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
-
-	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
-	#if defined(TIM_CHANNEL_6)
-		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
-	#endif
-	else 								{ return HAL_ERROR; }
-
-	*pCCR = CCR_val;
-
-	return HAL_OK;
-}
-
-
 HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)
 {
 	uint16_t tmp;
@@ -168,48 +25,7 @@ HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const 
 	else if (duty == 0)	{ tmp = 0; }
 	else				{ tmp = (duty * pTim->Instance->ARR) / scale; }
 
-	return set_PWM_CCR(pTim, chan, tmp);
-}
-
-
-/*******************/
-/*** TIM RELATED ***/
-/*******************/
-HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const uint32_t freq)
-{
-	HAL_StatusTypeDef err;
-
-	err = set_TIM_Interrupts(pTim, Off);	// Stop interrupts if they were already started
-	err = set_TIM_Freq(pTim, freq);			// Configure TIM frequency
-	if (err)	{ return err; }
-	return set_TIM_Interrupts(pTim, On);	// Start interrupts
-}
-
-
-HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
-{
-	// Only a few TIM instances are 32b timers, limit to 16b
-	const uint32_t max_prescaler = 0xFFFF;
-	const uint32_t max_period = 0xFFFF;
-	uint32_t period, prescaler;
-
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-
-	const uint32_t refCLK = get_TIM_clock(pTim);
-	if (freq > refCLK / PWM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee minimum steps
-
-	for (prescaler = 0 ; prescaler <= max_prescaler ; prescaler++)
-	{
-		period = (refCLK / (freq * (prescaler + 1))) - 1;
-		if (period <= max_period)				{ break; }				// If in 16b range
-	}
-
-	if (prescaler == max_prescaler + 1)			{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
-
-	pTim->Init.Period = period;
-	pTim->Init.Prescaler = prescaler;
-
-	return HAL_TIM_Base_Init(pTim);
+	return write_TIM_CCR(pTim, chan, tmp);
 }
 
 
@@ -241,8 +57,8 @@ HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const 
 				break;
 			}
 
-			st = set_PWM_Preload_bit(pTim, channel);
-			st |= set_PWM_CCR(pTim, channel, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
+			st = write_TIM_Preload(pTim, channel);
+			st |= write_TIM_CCR(pTim, channel, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
 			st |= set_PWM_Output(pTim, channel, true);
 		}
 	}

@@ -51,10 +51,7 @@ SOFTWARE.
 * GPIO_ex: cut code to Logic_ex to make it generic for both GPIO (working same as before) and any variable  
 * Logic_ex: cut from GPIO_ex GPIO_in (and now used by GPIO_in) to have code working to monitor bit in a variable as a logic input signal
 * Logic_ex: set working elements to 0 at instance init (no need of initialized struct)
-* PWM: get_TIM_clock not static (can be used to get TIM reference clock when needed)
-* PWM: set_PWM_CCR not set to be always inlined anymore
 * PWM: Set preload configuration bit when initializing PWM channel
-* PWM: Renamed write_CRR to Set_PWM_CCR
 * PWM: changed pre-comp test for consistency
 * PWM: set_PWM_Duty_Scaled calulations now only using integers
 * PWM: more precision when trying to set TIM frequency (still 16b max)
@@ -62,6 +59,9 @@ SOFTWARE.
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
 * PWM: added clock path for G0 family in get_TIM_clock
 * PWM: init_PWM_Chan refactored to produce less code and performing more checks not to init undesired or non-existing TIM channel
+* TIM_ex: PWM file split between TIM_ex & PWM (with functions name refactoring)
+* TIM_ex: set_TIM_Freq handling for TIM2 & TIM5 32b range period (increasing output duty cycle accuracy depending requested freq)
+* TIM_ex: get_TIM_clock not static (can be used to get TIM reference clock when needed)
 * stdream_rdir & UART_term: refactoring
 * stdream_rdir: added pre-comp option for ITM
 * tick_utils: Delay_us added
