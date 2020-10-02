@@ -1,7 +1,7 @@
 /*!\file Logic_ex.h
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
-** \brief Simple extension for logic variable handling
+** \brief Extensions for logic variable handling
 **/
 /****************************************************************/
 #ifndef __LOGIC_EX_H

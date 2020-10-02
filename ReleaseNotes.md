@@ -59,6 +59,7 @@ SOFTWARE.
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
 * PWM: added clock path for G0 family in get_TIM_clock
 * PWM: init_PWM_Chan refactored to produce less code and performing more checks not to init undesired or non-existing TIM channel
+* PWM_IC: Input capture for PWM input module added
 * TIM_ex: PWM file split between TIM_ex & PWM (with functions name refactoring)
 * TIM_ex: set_TIM_Freq handling for TIM2 & TIM5 32b range period (increasing output duty cycle accuracy depending requested freq)
 * TIM_ex: get_TIM_clock not static (can be used to get TIM reference clock when needed)

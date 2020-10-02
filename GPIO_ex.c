@@ -1,7 +1,7 @@
 /*!\file GPIO_ex.c
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
-** \brief Simple extension for GPIOs
+** \brief Extensions for GPIOs (R/W)
 **/
 /****************************************************************/
 #include <stdio.h>

@@ -2057,6 +2057,8 @@ PREDEFINED             = DOXY=1 \
                          HAL_IWDG_MODULE_ENABLED \
                          HAL_RTC_MODULE_ENABLED \
                          HAL_UART_MODULE_ENABLED \
+                         USE_ADC_EX \
+                         NB_PWM_IC=1 \
                          UART_REDIRECT \
                          DBG_SERIAL \
                          __INLINE=inline \
