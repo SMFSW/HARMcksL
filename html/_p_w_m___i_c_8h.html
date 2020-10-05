@@ -107,6 +107,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6d9cd006e7379672e6d480487e3445c"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c">init_PWM_IC</a> (<a class="el" href="struct_p_w_m___i_c.html">PWM_IC</a> *const pPWM_IC, TIM_HandleTypeDef *const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale)</td></tr>
 <tr class="memdesc:ae6d9cd006e7379672e6d480487e3445c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init PWM Input Capture channel.  <a href="#ae6d9cd006e7379672e6d480487e3445c">More...</a><br /></td></tr>
 <tr class="separator:ae6d9cd006e7379672e6d480487e3445c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22dd2d1d6fa9ee4945e5a382ff614678"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___i_c_8h.html#a22dd2d1d6fa9ee4945e5a382ff614678">get_PWM_IC_Freq</a> (const <a class="el" href="struct_p_w_m___i_c.html">PWM_IC</a> *const pPWM_IC)</td></tr>
+<tr class="memdesc:a22dd2d1d6fa9ee4945e5a382ff614678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current PWM Input Capture frequency.  <a href="#a22dd2d1d6fa9ee4945e5a382ff614678">More...</a><br /></td></tr>
+<tr class="separator:a22dd2d1d6fa9ee4945e5a382ff614678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1aa10a534786273848c1785511be55"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___i_c_8h.html#afb1aa10a534786273848c1785511be55">get_PWM_IC_DutyCycle</a> (const <a class="el" href="struct_p_w_m___i_c.html">PWM_IC</a> *const pPWM_IC)</td></tr>
+<tr class="memdesc:afb1aa10a534786273848c1785511be55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current PWM Input Capture duty cycle.  <a href="#afb1aa10a534786273848c1785511be55">More...</a><br /></td></tr>
+<tr class="separator:afb1aa10a534786273848c1785511be55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -119,13 +125,13 @@ Variables</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2020, SMFSW</dd></dl>
 <p>PWM_In configuration: TIM with multiple channels with slave mode capability shall be used</p>
 <p>Slave Mode: Reset Mode Trigger: TI2FP2 (?? depending channels ??) Channel1: Input Capture indirect mode Channel2: Input Capture direct mode</p>
-<p>Prescaler &amp; CLK div: 0 Counter Period: max possible value Counter Mode: Up Auto-Reload Preload: Disabled Trigger Output parameters: Disabled Input Capture Channel1: Falling Edge, Indirect, No CLK div Input Capture Channel2: Rising Edge, Direct, No CLK div</p>
+<p>Prescaler &amp; CLK div: 0, No CLK div Counter Period: max possible value Counter Mode: Up Auto-Reload Preload: Disabled Trigger Output parameters: Disabled Input Capture Channel1: Falling Edge, Indirect, No CLK div Input Capture Channel2: Rising Edge, Direct, No CLK div</p>
 <p>GPIO configuration: Alternate Function Push Pull ; Pull Up ; High Speed</p>
 <p>NVIC configuration: Enable interrupt(s)</p>
 <dl class="section warning"><dt>Warning</dt><dd>Input Capture limitation:<ul>
 <li>Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.</li>
 <li>As capture is based on interrupts, if signal becomes continuous (pin held low or high), last PWM value with edges will remain as current measure<ul>
-<li>It may not be a big issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continous signal)</li>
+<li>It may not be an issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continuous signal)</li>
 <li>Thus, to overcome this issue, PWM signal shall always have edges to keep measures working and consistent </li>
 </ul>
 </li>
@@ -148,6 +154,76 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="afb1aa10a534786273848c1785511be55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb1aa10a534786273848c1785511be55">&#9670;&nbsp;</a></span>get_PWM_IC_DutyCycle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get_PWM_IC_DutyCycle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_p_w_m___i_c.html">PWM_IC</a> *const&#160;</td>
+          <td class="paramname"><em>pPWM_IC</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get current PWM Input Capture duty cycle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pPWM_IC</td><td>- pointer to <a class="el" href="struct_p_w_m___i_c.html" title="PWM input capture structure. ">PWM_IC</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Measured duty cycle </dd></dl>
+
+</div>
+</div>
+<a id="a22dd2d1d6fa9ee4945e5a382ff614678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22dd2d1d6fa9ee4945e5a382ff614678">&#9670;&nbsp;</a></span>get_PWM_IC_Freq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t get_PWM_IC_Freq </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_p_w_m___i_c.html">PWM_IC</a> *const&#160;</td>
+          <td class="paramname"><em>pPWM_IC</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get current PWM Input Capture frequency. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pPWM_IC</td><td>- pointer to <a class="el" href="struct_p_w_m___i_c.html" title="PWM input capture structure. ">PWM_IC</a> instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Measured frequency </dd></dl>
+
+</div>
+</div>
 <a id="ae6d9cd006e7379672e6d480487e3445c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6d9cd006e7379672e6d480487e3445c">&#9670;&nbsp;</a></span>init_PWM_IC()</h2>
 

@@ -103,13 +103,13 @@ Variables</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2020, SMFSW</dd></dl>
 <p>PWM_In configuration: TIM with multiple channels with slave mode capability shall be used</p>
 <p>Slave Mode: Reset Mode Trigger: TI2FP2 (?? depending channels ??) Channel1: Input Capture indirect mode Channel2: Input Capture direct mode</p>
-<p>Prescaler &amp; CLK div: 0 Counter Period: max possible value Counter Mode: Up Auto-Reload Preload: Disabled Trigger Output parameters: Disabled Input Capture Channel1: Falling Edge, Indirect, No CLK div Input Capture Channel2: Rising Edge, Direct, No CLK div</p>
+<p>Prescaler &amp; CLK div: 0, No CLK div Counter Period: max possible value Counter Mode: Up Auto-Reload Preload: Disabled Trigger Output parameters: Disabled Input Capture Channel1: Falling Edge, Indirect, No CLK div Input Capture Channel2: Rising Edge, Direct, No CLK div</p>
 <p>GPIO configuration: Alternate Function Push Pull ; Pull Up ; High Speed</p>
 <p>NVIC configuration: Enable interrupt(s)</p>
 <dl class="section warning"><dt>Warning</dt><dd>Input Capture limitation:<ul>
 <li>Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.</li>
 <li>As capture is based on interrupts, if signal becomes continuous (pin held low or high), last PWM value with edges will remain as current measure<ul>
-<li>It may not be a big issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continous signal)</li>
+<li>It may not be an issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continuous signal)</li>
 <li>Thus, to overcome this issue, PWM signal shall always have edges to keep measures working and consistent </li>
 </ul>
 </li>

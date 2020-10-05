@@ -10,6 +10,8 @@ var searchData=
   ['get_5fpmsp',['get_pMSP',['../stack__utils_8h.html#ae7df401c0eaa0cc65077ff14eb68c402',1,'stack_utils.h']]],
   ['get_5fpsp',['get_pSP',['../stack__utils_8h.html#a32f5bc09af8d45f3177ee9b818d37c21',1,'stack_utils.h']]],
   ['get_5fpsr',['get_PSR',['../stack__utils_8h.html#a6c28637c0a207615017cbb7d73da2748',1,'stack_utils.h']]],
+  ['get_5fpwm_5fic_5fdutycycle',['get_PWM_IC_DutyCycle',['../_p_w_m___i_c_8h.html#afb1aa10a534786273848c1785511be55',1,'PWM_IC.h']]],
+  ['get_5fpwm_5fic_5ffreq',['get_PWM_IC_Freq',['../_p_w_m___i_c_8h.html#a22dd2d1d6fa9ee4945e5a382ff614678',1,'PWM_IC.h']]],
   ['get_5fr0',['get_R0',['../stack__utils_8h.html#a20d3ba3587930937fc24c952e74b8f83',1,'stack_utils.h']]],
   ['get_5fr1',['get_R1',['../stack__utils_8h.html#a370e5288152100dcef91f0ecb8dabfa7',1,'stack_utils.h']]],
   ['get_5fr10',['get_R10',['../stack__utils_8h.html#ae3253ecd39492d85ffe125c281447723',1,'stack_utils.h']]],
