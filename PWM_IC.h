@@ -10,7 +10,7 @@
 ** Channel1: Input Capture indirect mode
 ** Channel2: Input Capture direct mode
 **
-** Prescaler & CLK div: 0
+** Prescaler & CLK div: 0, No CLK div
 ** Counter Period: max possible value
 ** Counter Mode: Up
 ** Auto-Reload Preload: Disabled
@@ -25,7 +25,7 @@
 ** \warning Input Capture limitation:
 ** 			- Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.
 ** 			- As capture is based on interrupts, if signal becomes continuous (pin held low or high), last PWM value with edges will remain as current measure
-** 				- It may not be a big issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continous signal)
+** 				- It may not be an issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continuous signal)
 ** 				- Thus, to overcome this issue, PWM signal shall always have edges to keep measures working and consistent
 ** \note Define NB_PWM_IC symbol with number of inputs at project level to use PWM_IC functionalities
 **/
@@ -79,6 +79,22 @@ extern PWM_IC PWMin[NB_PWM_IC];
 ** \return HAL Status
 **/
 FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale);
+
+
+/*!\brief Get current PWM Input Capture frequency
+** \param[in] pPWM_IC - pointer to PWM_IC instance
+** \return Measured frequency
+**/
+__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_Freq(const PWM_IC * const pPWM_IC) {
+	return pPWM_IC->Frequency; }
+
+
+/*!\brief Get current PWM Input Capture duty cycle
+** \param[in] pPWM_IC - pointer to PWM_IC instance
+** \return Measured duty cycle
+**/
+__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_DutyCycle(const PWM_IC * const pPWM_IC) {
+	return pPWM_IC->DutyCycle; }
 
 
 /****************************************************************/
