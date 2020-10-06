@@ -1,0 +1,8 @@
+<map id="write_TIM_CCR" name="write_TIM_CCR">
+<area shape="rect" id="node2" href="$_p_w_m_8h.html#a3eb48710efe5bc9fd3579fc69fe71374" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="167,107,333,133"/>
+<area shape="rect" id="node4" href="$_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="584,107,703,133"/>
+<area shape="rect" id="node3" href="$_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed" title="Set PWM channel output on/off. " alt="" coords="393,5,524,32"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16 value) " alt="" coords="381,56,536,83"/>
+<area shape="rect" id="node6" href="$_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8 value) " alt="" coords="383,107,535,133"/>
+<area shape="rect" id="node7" href="$_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="383,157,534,184"/>
+</map>

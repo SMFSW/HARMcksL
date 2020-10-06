@@ -84,9 +84,9 @@ Include dependency graph for PWM.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ae9d0ba6e5ccf3a6387bacc0e8625f911">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale)</td></tr>
-<tr class="memdesc:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#ae9d0ba6e5ccf3a6387bacc0e8625f911">More...</a><br /></td></tr>
-<tr class="separator:ae9d0ba6e5ccf3a6387bacc0e8625f911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb48710efe5bc9fd3579fc69fe71374"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#a3eb48710efe5bc9fd3579fc69fe71374">set_PWM_Duty_Scaled</a> (const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint32_t duty, const uint32_t scale)</td></tr>
+<tr class="memdesc:a3eb48710efe5bc9fd3579fc69fe71374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module PWM duty cycle (scaled)  <a href="#a3eb48710efe5bc9fd3579fc69fe71374">More...</a><br /></td></tr>
+<tr class="separator:a3eb48710efe5bc9fd3579fc69fe71374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5545850898ae5b86b195301082640a9"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9">init_PWM_Chan</a> (TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity)</td></tr>
 <tr class="memdesc:ab5545850898ae5b86b195301082640a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init TIM PWM module channel with frequency and starts the channel.  <a href="#ab5545850898ae5b86b195301082640a9">More...</a><br /></td></tr>
 <tr class="separator:ab5545850898ae5b86b195301082640a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,10 +164,10 @@ Here is the call graph for this function:</div>
 <map name="_p_w_m_8c_ab5545850898ae5b86b195301082640a9_cgraph" id="_p_w_m_8c_ab5545850898ae5b86b195301082640a9_cgraph">
 <area shape="rect" id="node2" href="_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="187,5,291,32"/>
 <area shape="rect" id="node4" href="_t_i_m__ex_8c.html#a24890afe1db08ba685fc655aaf97f14c" title="Write preload bit in TIM module for desired channel. " alt="" coords="172,56,307,83"/>
-<area shape="rect" id="node5" href="_t_i_m__ex_8c.html#a33bc80aceb3220bdef6971624fc43082" title="Low level TIM module CCR write. " alt="" coords="569,132,683,159"/>
+<area shape="rect" id="node5" href="_t_i_m__ex_8c.html#a935ad6f645ae2953ab82a8c3720d4cac" title="Low level TIM module CCR write. " alt="" coords="569,132,683,159"/>
 <area shape="rect" id="node6" href="_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed" title="Set PWM channel output on/off. " alt="" coords="174,157,305,184"/>
 <area shape="rect" id="node3" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="383,5,493,32"/>
-<area shape="rect" id="node7" href="_p_w_m_8h.html#ae9d0ba6e5ccf3a6387bacc0e8625f911" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="355,157,521,184"/>
+<area shape="rect" id="node7" href="_p_w_m_8h.html#a3eb48710efe5bc9fd3579fc69fe71374" title="Set TIM module PWM duty cycle (scaled) " alt="" coords="355,157,521,184"/>
 </map>
 </div>
 
@@ -248,7 +248,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph.png" border="0" usemap="#_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph" alt=""/></div>
 <map name="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph" id="_p_w_m_8c_ae35196dcc8081077be152546f3c63325_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="181,5,333,32"/>
+<area shape="rect" id="node2" href="_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="181,5,332,32"/>
 </map>
 </div>
 
@@ -320,7 +320,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph.png" border="0" usemap="#_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph" alt=""/></div>
 <map name="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph" id="_p_w_m_8c_a041448f84566cc7102608b96c129ca60_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="179,5,331,32"/>
+<area shape="rect" id="node2" href="_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="179,5,329,32"/>
 </map>
 </div>
 
@@ -380,14 +380,14 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph.png" border="0" usemap="#_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph" alt=""/></div>
 <map name="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph" id="_p_w_m_8c_a5171c7e5432d81a8b0fe82de96fbf55d_icgraph">
-<area shape="rect" id="node2" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="171,5,323,32"/>
+<area shape="rect" id="node2" href="_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="171,5,321,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae9d0ba6e5ccf3a6387bacc0e8625f911"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d0ba6e5ccf3a6387bacc0e8625f911">&#9670;&nbsp;</a></span>set_PWM_Duty_Scaled()</h2>
+<a id="a3eb48710efe5bc9fd3579fc69fe71374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb48710efe5bc9fd3579fc69fe71374">&#9670;&nbsp;</a></span>set_PWM_Duty_Scaled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,13 +407,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramtype">const uint32_t&#160;</td>
           <td class="paramname"><em>duty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramtype">const uint32_t&#160;</td>
           <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
@@ -438,20 +438,20 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_cgraph.png" border="0" usemap="#_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_cgraph" alt=""/></div>
-<map name="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_cgraph" id="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_cgraph">
-<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#a33bc80aceb3220bdef6971624fc43082" title="Low level TIM module CCR write. " alt="" coords="220,5,333,32"/>
+<div class="center"><img src="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_cgraph.png" border="0" usemap="#_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_cgraph" alt=""/></div>
+<map name="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_cgraph" id="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_cgraph">
+<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#a935ad6f645ae2953ab82a8c3720d4cac" title="Low level TIM module CCR write. " alt="" coords="220,5,333,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph.png" border="0" usemap="#_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph" alt=""/></div>
-<map name="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph" id="_p_w_m_8c_ae9d0ba6e5ccf3a6387bacc0e8625f911_icgraph">
+<div class="center"><img src="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_icgraph.png" border="0" usemap="#_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_icgraph" alt=""/></div>
+<map name="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_icgraph" id="_p_w_m_8c_a3eb48710efe5bc9fd3579fc69fe71374_icgraph">
 <area shape="rect" id="node2" href="_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed" title="Set PWM channel output on/off. " alt="" coords="232,5,363,32"/>
-<area shape="rect" id="node4" href="_p_w_m_8h.html#a77653558d0ee7800b7a91e62d503d0f2" title="Set TIM module PWM duty cycle (percents) " alt="" coords="222,56,373,83"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16&#45;bit value) " alt="" coords="220,107,375,133"/>
-<area shape="rect" id="node6" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="221,157,373,184"/>
+<area shape="rect" id="node4" href="_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16 value) " alt="" coords="220,56,375,83"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8 value) " alt="" coords="221,107,373,133"/>
+<area shape="rect" id="node6" href="_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="222,157,373,184"/>
 <area shape="rect" id="node3" href="_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="423,5,541,32"/>
 </map>
 </div>

@@ -3,5 +3,5 @@
 <area shape="rect" id="node3" href="$_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="163,56,271,83"/>
 <area shape="rect" id="node6" href="$_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="325,107,449,133"/>
 <area shape="rect" id="node4" href="$_p_w_m_8h.html#a041448f84566cc7102608b96c129ca60" title="Set channel frequency for emulated PWM channel. " alt="" coords="324,56,449,83"/>
-<area shape="rect" id="node5" href="$_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8&#45;bit value) " alt="" coords="497,56,649,83"/>
+<area shape="rect" id="node5" href="$_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="497,56,648,83"/>
 </map>
