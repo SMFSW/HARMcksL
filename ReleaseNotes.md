@@ -59,11 +59,14 @@ SOFTWARE.
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
 * PWM: added clock path for G0 family in get_TIM_clock
 * PWM: init_PWM_Chan refactored to produce less code and performing more checks not to init undesired or non-existing TIM channel
+* PWM: set_PWM_Duty_Scaled duty & scale parameters needs to be 32b (for 32b timers TIM2 & TIM5) + computation cast to uint64_t to operate correctly 
 * PWM_IC: Input capture for PWM input module added
 * PWM_IC: Measured Frequency & Duty Cycle getters added
+* PWM_IC: Removed active channel 5 & 6 in init_PWM_IC (seems those channels, when available cannot be used for Input Capture)
 * TIM_ex: PWM file split between TIM_ex & PWM (with functions name refactoring)
 * TIM_ex: set_TIM_Freq handling for TIM2 & TIM5 32b range period (increasing output duty cycle accuracy depending requested freq)
 * TIM_ex: get_TIM_clock not static (can be used to get TIM reference clock when needed)
+* TIM_ex: write_TIM_CCR CCR_val needs to be 32b (for 32b timers TIM2 & TIM5)
 * stdream_rdir & UART_term: refactoring
 * stdream_rdir: added pre-comp option for ITM
 * tick_utils: Delay_us added

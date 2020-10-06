@@ -43,7 +43,7 @@ HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, co
 ** \param[in] CCR_val - CCR value
 ** \return HAL Status
 **/
-HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t CCR_val);
+HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t CCR_val);
 
 
 /*!\brief Start TIM module interrupts

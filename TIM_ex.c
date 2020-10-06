@@ -87,11 +87,6 @@ uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
 }
 
 
-/*!\brief Write preload bit in TIM module for desired channel
-** \param[in,out] pTim - pointer to TIM instance
-** \param[in] chan - Channel to write
-** \return HAL Status
-**/
 HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, const uint32_t chan)
 {
 	switch (chan)	/* Set the Preload enable bit for channel */
@@ -132,13 +127,7 @@ HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, co
 }
 
 
-/*!\brief Low level TIM module CCR write
-** \param[in,out] pTim - pointer to TIM instance for PWM generation
-** \param[in] chan - Channel to write
-** \param[in] CCR_val - CCR value
-** \return HAL Status
-**/
-HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t CCR_val)
+HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t CCR_val)
 {
 	__IO uint32_t * pCCR;
 

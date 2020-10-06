@@ -73,18 +73,6 @@ FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const
 		case TIM_CHANNEL_4:
 			pPWM_IC->cfg.ActiveChan = HAL_TIM_ACTIVE_CHANNEL_4;
 			break;
-
-		#if defined(TIM_CHANNEL_5)
-		case TIM_CHANNEL_5:
-			pPWM_IC->cfg.ActiveChan = HAL_TIM_ACTIVE_CHANNEL_5;
-			break;
-		#endif
-
-		#if defined(TIM_CHANNEL_6)
-		case TIM_CHANNEL_6:
-			pPWM_IC->cfg.ActiveChan = HAL_TIM_ACTIVE_CHANNEL_6;
-			break;
-		#endif
 	}
 
 	pPWM_IC->cfg.htim = pTim;

@@ -69,34 +69,34 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Output(TIM_HandleTypeDef * c
 ** \param[in] scale - Full scale value
 ** \return HAL Status
 **/
-HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t duty, const uint16_t scale);
+HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t duty, const uint32_t scale);
 
-/*!\brief Set TIM module PWM duty cycle (percents)
+/*!\brief Set TIM module PWM duty cycle (u16 value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
-** \param[in] duty - Scaled duty cycle value to write
-** \return HAL Status
-**/
-__INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Perc(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t duty) {
-	return set_PWM_Duty_Scaled(pTim, chan, duty, 100); }
-
-/*!\brief Set TIM module PWM duty cycle (u16-bit value)
-** \param[in,out] pTim - pointer to TIM instance for PWM generation
-** \param[in] chan - Channel to write
-** \param[in] duty - Scaled duty cycle value to write
+** \param[in] duty - 16b duty cycle value to write
 ** \return HAL Status
 **/
 __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Word(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint16_t) -1); }
 
-/*!\brief Set TIM module PWM duty cycle (u8-bit value)
+/*!\brief Set TIM module PWM duty cycle (u8 value)
 ** \param[in,out] pTim - pointer to TIM instance for PWM generation
 ** \param[in] chan - Channel to write
-** \param[in] duty - Scaled duty cycle value to write
+** \param[in] duty - 8b duty cycle value to write
 ** \return HAL Status
 **/
 __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Byte(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint8_t duty) {
 	return set_PWM_Duty_Scaled(pTim, chan, duty, (uint8_t) -1); }
+
+/*!\brief Set TIM module PWM duty cycle (percents)
+** \param[in,out] pTim - pointer to TIM instance for PWM generation
+** \param[in] chan - Channel to write
+** \param[in] duty - Percent duty cycle value to write
+** \return HAL Status
+**/
+__INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Perc(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint8_t duty) {
+	return set_PWM_Duty_Scaled(pTim, chan, duty, 100); }
 
 
 /********************/
