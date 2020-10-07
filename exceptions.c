@@ -22,8 +22,8 @@
 static void NONNULL__ print_exception_stack(const uint32_t stack[])
 {
 	enum { r0, r1, r2, r3, r12, lr, pc, psr };
-	
-	printf("stack addr = %lx\r\n", stack);
+
+	printf("stack addr = %p\r\n", stack);
 	printf("r0  = 0x%08lx\r\n", stack[r0]);
 	printf("r1  = 0x%08lx\r\n", stack[r1]);
 	printf("r2  = 0x%08lx\r\n", stack[r2]);

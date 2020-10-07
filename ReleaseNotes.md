@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.4
 
+* strict aliasing types in printf statements
 * templates: Added folder (with adc_cfg example)
 * templates: Added Logic_ex_ample & GPIO_ex_ample examples
 * Added cpp preprocessor directives in headers

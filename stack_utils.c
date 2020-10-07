@@ -13,7 +13,7 @@
 
 
 void print_stack_address(void) {
-	printf("stack addr = %lx\r\n", get_pMSP()); }
+	printf("stack addr = %p\r\n", get_pMSP()); }
 
 
 void print_global_regs(void)
