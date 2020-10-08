@@ -14,12 +14,95 @@
 
 #include "UART_term.h"
 #include "stdream_rdir.h"
+
+#if (defined(UART_REDIRECT) || defined(ITM_REDIRECT)) && !STDREAM_RDIR_SND_SYSCALLS
+#warning "Using ITM or UART stream redirection, you should consider using syscalls, the old printf likes shadowing way is only kept for compatibility!"
+#endif
 /****************************************************************/
 
-
+#if defined(ITM) || !STDREAM_RDIR_SND_SYSCALLS
 char dbg_msg_out[SZ_DBG_OUT] = "";		//!< stdream buffer for output
-#if defined(UART_REDIRECT)
-char dbg_msg_in[SZ_DBG_IN + 1] = "";	//!< stdream buffer for input
+#endif
+
+
+#if (defined(UART_REDIRECT) || defined(ITM_REDIRECT)) && STDREAM_RDIR_SND_SYSCALLS
+#if defined(USE_IO_PUTCHAR)
+
+int __io_putchar(int ch)
+{
+	static bool init = false;
+
+	if (!init)
+	{
+		setvbuf(stdout, NULL, _IONBF, 0);
+		init = true;
+	}
+
+	#if defined(ITM) && defined(ITM_REDIRECT)
+		ITM_SendChar(ch);
+	#endif
+
+	#if defined(HAL_UART_MODULE_ENABLED) && defined(UART_REDIRECT)
+		if (HAL_UART_Transmit(dbg_uart, (uint8_t *) &ch, 1, 30))	{ return -1; }
+	#endif
+
+	return ch;
+}
+
+#else
+
+int _write(int file, char * ptr, int len)
+{
+	#if defined(ITM) && defined(ITM_REDIRECT)
+		ITM_port_send(ptr, len, 0);
+	#endif
+
+	#if defined(HAL_UART_MODULE_ENABLED) && defined(UART_REDIRECT)
+		if (UART_Term_Send(dbg_uart, ptr, len))	{ return -1; }
+	#endif
+
+//	for (int DataIdx = 0 ; DataIdx < len ; DataIdx++)
+//	{
+//		__io_putchar(*ptr++);
+//	}
+
+	return len;
+}
+
+#endif
+#endif
+
+
+#if defined(UART_REDIRECT) && STDREAM_RDIR_RCV_SYSCALLS
+// FIXME: bad implementation (and not working)
+int __io_getchar(void)
+{
+	static bool init = false;
+	int ch;
+
+	if (!init)
+	{
+		//setvbuf(stdin, NULL, _IONBF, 0);
+		init = true;
+	}
+
+	#if defined(HAL_UART_MODULE_ENABLED) && defined(UART_REDIRECT)
+		if (HAL_UART_Receive(dbg_uart, (uint8_t *) &ch, 1, 1))		{ return -1; }
+		UART_Term_Char_Handler(dbg_uart, ch);
+	#endif
+
+	return ch;
+}
+
+//int _read(int file, char * ptr, int len)
+//{
+//	for (int DataIdx = 0 ; DataIdx < len ; DataIdx++)
+//	{
+//		*ptr++ = __io_getchar();
+//	}
+//	return len;
+//}
+
 #endif
 
 
@@ -76,6 +159,7 @@ int NONNULL__ vprintf_ITM(const char * str, va_list args)
 #endif
 
 
+#if !STDREAM_RDIR_SND_SYSCALLS
 /***************************/
 /*** GENERAL REDIRECTION ***/
 /***************************/
@@ -135,3 +219,4 @@ int NONNULL__ vprintf_redir(const char * str, va_list args)
 
 	return 0;
 }
+#endif

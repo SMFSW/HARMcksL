@@ -19,24 +19,32 @@
 /****************************************************************/
 // TODO: add puts redirect ??
 
+#ifndef STDREAM_RDIR_SND_SYSCALLS
+//!\note STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscall way encouraged, as shadowing is deprecated)
+//!\note Define USE_IO_PUTCHAR at project level also for __io_putchar implementation instead of full _write implementation (from syscalls)
+#define STDREAM_RDIR_SND_SYSCALLS	1
+#endif
+
+#ifndef STDREAM_RDIR_RCV_SYSCALLS
+//!\note STDREAM_RDIR_RCV_SYSCALLS can be defined at project level to define redirection behavior
+#define STDREAM_RDIR_RCV_SYSCALLS	0
+#endif
 
 // *****************************************************************************
 // Section: Constants
 // *****************************************************************************
 
+#ifndef STDREAM_RDIR_SND_SYSCALLS
 #define	printf		printf_redir	//!< Shadowing printf
 #define	vprintf		vprintf_redir	//!< Shadowing vprintf
+#endif
 
 
+#if defined(ITM) || !STDREAM_RDIR_SND_SYSCALLS
+#ifndef SZ_DBG_OUT
+//!\note SZ_DBG_OUT can be defined at project level to define debug transmit buffer size (for ITM and/or if STDREAM_RDIR_SND_SYSCALLS is not used)
 #define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
-#define	SZ_DBG_IN	32				//!< DEBUG receive buffer size
-
-//! \warning dbg_msg_out buffer for stdream is limited to \b SZ_DBG_OUT
-extern char dbg_msg_out[SZ_DBG_OUT];	//!< stdream buffer for output
-#if defined(UART_REDIRECT)
-//! \warning dbg_msg_in buffer for stdream is limited to \b SZ_DBG_IN
-//! \note dbg_msg_in is only related to UART_term
-extern char dbg_msg_in[SZ_DBG_IN + 1];	//!< stdream buffer for input
+#endif
 #endif
 
 
@@ -69,6 +77,8 @@ int NONNULL__ printf_ITM(const char * str, ...);
 int NONNULL__ vprintf_ITM(const char * str, va_list args);
 #endif
 
+
+#if !STDREAM_RDIR_SND_SYSCALLS
 // General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
 ** \param[in] str - pointer to string to send
@@ -88,6 +98,7 @@ int	NONNULL__ printf_redir(const char * str, ...);
 **/
 int	NONNULL__ vprintf_redir(const char * str, va_list args);
 
+#endif
 
 /****************************************************************/
 #ifdef __cplusplus

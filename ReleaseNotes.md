@@ -76,6 +76,8 @@ SOFTWARE.
 * time_utils: Added functions to determine if leap year and weekday for a given date
 * UART_term: dissociated HAL & UART Term callbacks (to be able to call UART Term callbacks in project from HAL callbacks with multiple busses to handle)
 * pattern2D: removed (now part of sarmfsw in arm_inlines_linearization.h)
+* stdream_rdir & UART_term: total overhaul (using syscalls to write data to stream). Backward compatibility kept, yet discouraged with a warning
+* stdream_rdir: some code added (not activated) & refactoring for syscalls use of input UART stream (only for test, not working, and not that relevant... Maybe removed soon)
 
 ## v1.3
 
