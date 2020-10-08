@@ -61,8 +61,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">stdream_rdir.c File Reference</div>  </div>
 </div><!--header-->
@@ -88,21 +87,8 @@ Include dependency graph for stdream_rdir.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae6a3221689c59b6397655fb3983e7dd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#ae6a3221689c59b6397655fb3983e7dd0">printf_redir</a> (const char *str,...)</td></tr>
-<tr class="memdesc:ae6a3221689c59b6397655fb3983e7dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">printf like redirected to DBG_SERIAL UART and/or ITM port 0  <a href="#ae6a3221689c59b6397655fb3983e7dd0">More...</a><br /></td></tr>
-<tr class="separator:ae6a3221689c59b6397655fb3983e7dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad3a2a4a278faee4a7f1840e95334f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#a2ad3a2a4a278faee4a7f1840e95334f9">vprintf_redir</a> (const char *str, va_list args)</td></tr>
-<tr class="memdesc:a2ad3a2a4a278faee4a7f1840e95334f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">printf like redirected to DBG_SERIAL UART and/or ITM port 0  <a href="#a2ad3a2a4a278faee4a7f1840e95334f9">More...</a><br /></td></tr>
-<tr class="separator:a2ad3a2a4a278faee4a7f1840e95334f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:af60f4f11f4b14d02d0dc5564a238281d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#af60f4f11f4b14d02d0dc5564a238281d">dbg_msg_out</a> [<a class="el" href="stdream__rdir_8h.html#a55feddd4610786fb60b30272eb49bce6">SZ_DBG_OUT</a>] = &quot;&quot;</td></tr>
-<tr class="memdesc:af60f4f11f4b14d02d0dc5564a238281d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stdream buffer for output  <a href="#af60f4f11f4b14d02d0dc5564a238281d">More...</a><br /></td></tr>
-<tr class="separator:af60f4f11f4b14d02d0dc5564a238281d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3231409693aee1eba1e4d4dfbb8c9708"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#a3231409693aee1eba1e4d4dfbb8c9708">dbg_msg_in</a> [<a class="el" href="stdream__rdir_8h.html#aafef780a551cedd16e3023245b3fb762">SZ_DBG_IN</a>+1] = &quot;&quot;</td></tr>
-<tr class="memdesc:a3231409693aee1eba1e4d4dfbb8c9708"><td class="mdescLeft">&#160;</td><td class="mdescRight">stdream buffer for input  <a href="#a3231409693aee1eba1e4d4dfbb8c9708">More...</a><br /></td></tr>
-<tr class="separator:a3231409693aee1eba1e4d4dfbb8c9708"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9">_write</a> (int file, char *ptr, int len)</td></tr>
+<tr class="separator:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stream redirection. </p>
@@ -112,23 +98,29 @@ Variables</h2></td></tr>
 <dd>
 define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae6a3221689c59b6397655fb3983e7dd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6a3221689c59b6397655fb3983e7dd0">&#9670;&nbsp;</a></span>printf_redir()</h2>
+<a id="aa025a12d45f60c7d0eae249e61f0c7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa025a12d45f60c7d0eae249e61f0c7f9">&#9670;&nbsp;</a></span>_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int printf_redir </td>
+          <td class="memname">int _write </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -137,126 +129,19 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>printf like redirected to DBG_SERIAL UART and/or ITM port 0 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- pointer to string to send </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">...</td><td>- Variadic string arguments </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Function status </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">-1</td><td>- Problem occured </td></tr>
-    <tr><td class="paramname">0</td><td>- OK </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph.png" border="0" usemap="#stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph" alt=""/></div>
-<map name="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph" id="stdream__rdir_8c_ae6a3221689c59b6397655fb3983e7dd0_cgraph">
-<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="144,5,315,32"/>
-<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="163,56,296,83"/>
-<area shape="rect" id="node4" href="_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="363,31,556,57"/>
-<area shape="rect" id="node5" href="_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="363,81,555,108"/>
+<div class="center"><img src="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph.png" border="0" usemap="#stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph" alt=""/></div>
+<map name="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph" id="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph">
+<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="131,56,264,83"/>
+<area shape="rect" id="node4" href="_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="572,81,759,108"/>
+<area shape="rect" id="node7" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,157,283,184"/>
+<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="331,5,524,32"/>
+<area shape="rect" id="node6" href="_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="331,56,523,83"/>
+<area shape="rect" id="node5" href="_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="574,5,757,32"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a2ad3a2a4a278faee4a7f1840e95334f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ad3a2a4a278faee4a7f1840e95334f9">&#9670;&nbsp;</a></span>vprintf_redir()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int vprintf_redir </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">va_list&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>printf like redirected to DBG_SERIAL UART and/or ITM port 0 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- pointer to string to send </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>- Variadic string arguments </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Function status </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">-1</td><td>- Problem occured </td></tr>
-    <tr><td class="paramname">0</td><td>- OK </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph.png" border="0" usemap="#stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph" alt=""/></div>
-<map name="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph" id="stdream__rdir_8c_a2ad3a2a4a278faee4a7f1840e95334f9_cgraph">
-<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="152,5,323,32"/>
-<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="171,56,304,83"/>
-<area shape="rect" id="node4" href="_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="371,31,564,57"/>
-<area shape="rect" id="node5" href="_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="371,81,563,108"/>
-</map>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a3231409693aee1eba1e4d4dfbb8c9708"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3231409693aee1eba1e4d4dfbb8c9708">&#9670;&nbsp;</a></span>dbg_msg_in</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char dbg_msg_in[<a class="el" href="stdream__rdir_8h.html#aafef780a551cedd16e3023245b3fb762">SZ_DBG_IN</a>+1] = &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>stdream buffer for input </p>
-<dl class="section warning"><dt>Warning</dt><dd>dbg_msg_in buffer for stdream is limited to <b>SZ_DBG_IN</b> </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>dbg_msg_in is only related to UART_term </dd></dl>
-
-</div>
-</div>
-<a id="af60f4f11f4b14d02d0dc5564a238281d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af60f4f11f4b14d02d0dc5564a238281d">&#9670;&nbsp;</a></span>dbg_msg_out</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char dbg_msg_out[<a class="el" href="stdream__rdir_8h.html#a55feddd4610786fb60b30272eb49bce6">SZ_DBG_OUT</a>] = &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>stdream buffer for output </p>
-<dl class="section warning"><dt>Warning</dt><dd>dbg_msg_out buffer for stdream is limited to <b>SZ_DBG_OUT</b> </dd></dl>
 
 </div>
 </div>

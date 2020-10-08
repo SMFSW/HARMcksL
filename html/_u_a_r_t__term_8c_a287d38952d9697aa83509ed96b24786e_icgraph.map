@@ -1,6 +1,5 @@
 <map id="UART_Term_RxCpltCallback" name="UART_Term_RxCpltCallback">
 <area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#ae494a9643f29b87d6d81e5264e60e57b" title="Rx Transfer completed callback. " alt="" coords="247,5,435,32"/>
 <area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="274,56,407,83"/>
-<area shape="rect" id="node4" href="$stdream__rdir_8h.html#ae6a3221689c59b6397655fb3983e7dd0" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0 " alt="" coords="487,31,577,57"/>
-<area shape="rect" id="node5" href="$stdream__rdir_8h.html#a2ad3a2a4a278faee4a7f1840e95334f9" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0 " alt="" coords="483,81,581,108"/>
+<area shape="rect" id="node4" href="$stdream__rdir_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9" title="_write" alt="" coords="483,56,541,83"/>
 </map>

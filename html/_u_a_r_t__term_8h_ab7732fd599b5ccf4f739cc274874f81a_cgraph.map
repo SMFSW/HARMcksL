@@ -1,5 +1,7 @@
 <map id="setBreakout_char" name="setBreakout_char">
 <area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="204,5,387,32"/>
 <area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab6e78a2d96a561997f60c956caea90d0" title="Clear buffer in used for SERIAL DEBUG. " alt="" coords="207,56,383,83"/>
-<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#a04c0be8da4882338152488d93e2b20b3" title="Treat fully received message. " alt="" coords="188,107,403,133"/>
+<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="202,107,389,133"/>
+<area shape="rect" id="node5" href="$_u_a_r_t__term_8h.html#a04c0be8da4882338152488d93e2b20b3" title="Treat fully received message. " alt="" coords="188,157,403,184"/>
+<area shape="rect" id="node6" href="$_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="451,157,643,184"/>
 </map>

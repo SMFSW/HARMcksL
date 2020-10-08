@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['random_5fget',['random_Get',['../random__utils_8c.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c']]],
-  ['random_5futils_2ec',['random_utils.c',['../random__utils_8c.html',1,'']]],
-  ['random_5futils_2eh',['random_utils.h',['../random__utils_8h.html',1,'']]],
-  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
-  ['refclk',['refCLK',['../struct_p_w_m___i_c.html#a7d129c44fbfe68d5e5b06c2515eecce2',1,'PWM_IC']]],
-  ['repeat',['repeat',['../struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de',1,'Logic_in']]],
-  ['rtc_5fex_2ec',['RTC_ex.c',['../_r_t_c__ex_8c.html',1,'']]],
-  ['rtc_5fex_2eh',['RTC_ex.h',['../_r_t_c__ex_8h.html',1,'']]],
-  ['rtc_5fgettime',['RTC_GetTime',['../_r_t_c__ex_8c.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c']]],
-  ['rtc_5fsettime',['RTC_SetTime',['../_r_t_c__ex_8c.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c']]]
+  ['per',['per',['../structlogic_p_w_m.html#ace26d23d7fe1448326b386a5685dbcfc',1,'logicPWM']]],
+  ['polarity',['polarity',['../structlogic_p_w_m.html#afaa010af8cf5f93da304740d55be1934',1,'logicPWM']]],
+  ['pos',['pos',['../struct_logic__in.html#a2baa6924610a4571c6de284981bc9890',1,'Logic_in']]],
+  ['print_5fglobal_5fregs',['print_global_regs',['../stack__utils_8c.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c']]],
+  ['print_5fstack_5faddress',['print_stack_address',['../stack__utils_8c.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c']]],
+  ['ptim',['pTim',['../structlogic_p_w_m.html#ae9a35f1061f7ce1d728aa28f2461c222',1,'logicPWM']]],
+  ['pwm_2ec',['PWM.c',['../_p_w_m_8c.html',1,'']]],
+  ['pwm_2eh',['PWM.h',['../_p_w_m_8h.html',1,'']]],
+  ['pwm_5fic',['PWM_IC',['../struct_p_w_m___i_c.html',1,'PWM_IC'],['../_p_w_m___i_c_8h.html#a325403b8952521384e6945b5e55fea6b',1,'PWM_IC():&#160;PWM_IC.h']]],
+  ['pwm_5fic_2ec',['PWM_IC.c',['../_p_w_m___i_c_8c.html',1,'']]],
+  ['pwm_5fic_2eh',['PWM_IC.h',['../_p_w_m___i_c_8h.html',1,'']]],
+  ['pwmin',['PWMin',['../_p_w_m___i_c_8c.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c'],['../_p_w_m___i_c_8h.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c']]]
 ];

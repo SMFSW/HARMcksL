@@ -1,3 +1,5 @@
 <map id="HAL_UART_RxCpltCallback" name="HAL_UART_RxCpltCallback">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="241,5,435,32"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="241,31,435,57"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="483,5,669,32"/>
+<area shape="rect" id="node4" href="$_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="485,56,667,83"/>
 </map>

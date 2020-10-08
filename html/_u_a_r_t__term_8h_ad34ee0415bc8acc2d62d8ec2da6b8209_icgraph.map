@@ -1,6 +1,6 @@
 <map id="UART_Term_TxCpltCallback" name="UART_Term_TxCpltCallback">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#abcdf9b59049eccbc87d54042f9235b1a" title="Tx Transfer completed callback. " alt="" coords="245,5,432,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="272,56,405,83"/>
-<area shape="rect" id="node4" href="$stdream__rdir_8h.html#ae6a3221689c59b6397655fb3983e7dd0" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0 " alt="" coords="484,31,575,57"/>
-<area shape="rect" id="node5" href="$stdream__rdir_8h.html#a2ad3a2a4a278faee4a7f1840e95334f9" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0 " alt="" coords="480,81,579,108"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a04c0be8da4882338152488d93e2b20b3" title="Treat fully received message. " alt="" coords="245,5,460,32"/>
+<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="286,56,419,83"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a" title="Set a new breakout character. " alt="" coords="508,5,643,32"/>
+<area shape="rect" id="node5" href="$stdream__rdir_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9" title="_write" alt="" coords="546,56,605,83"/>
 </map>
