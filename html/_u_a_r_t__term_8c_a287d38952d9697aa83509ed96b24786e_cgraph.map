@@ -1,4 +1,0 @@
-<map id="UART_Term_RxCpltCallback" name="UART_Term_RxCpltCallback">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="247,5,433,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="249,56,431,83"/>
-</map>

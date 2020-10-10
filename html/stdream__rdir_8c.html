@@ -69,9 +69,7 @@ $(function() {
 
 <p>Stream redirection.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdarg.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;sarmfsw.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t__term_8h_source.html">UART_term.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="stdream__rdir_8h_source.html">stdream_rdir.h</a>&quot;</code><br />
@@ -80,14 +78,15 @@ Include dependency graph for stdream_rdir.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdream__rdir_8c__incl.png" border="0" usemap="#stdream__rdir_8c" alt=""/></div>
 <map name="stdream__rdir_8c" id="stdream__rdir_8c">
-<area shape="rect" id="node6" href="_u_a_r_t__term_8h.html" title="UART terminal header. " alt="" coords="399,80,504,107"/>
-<area shape="rect" id="node7" href="stdream__rdir_8h.html" title="Stream redirection. " alt="" coords="209,80,324,107"/>
+<area shape="rect" id="node4" href="_u_a_r_t__term_8h.html" title="UART terminal header. " alt="" coords="147,80,252,107"/>
+<area shape="rect" id="node5" href="stdream__rdir_8h.html" title="Stream redirection. " alt="" coords="277,80,391,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9">_write</a> (int file, char *ptr, int len)</td></tr>
+<tr class="memdesc:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">syscalls implementation of _write  <a href="#aa025a12d45f60c7d0eae249e61f0c7f9">More...</a><br /></td></tr>
 <tr class="separator:aa025a12d45f60c7d0eae249e61f0c7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -129,17 +128,31 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>syscalls implementation of _write </p>
+<dl class="strong"><dt><b><a class="el" href="strong.html#_strong000002">Strong Functions:</a></b></dt><dd>Strong implementation of _write for UART &amp; ITM string send to stream </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>- unused </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>- pointer to string to send to stream </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>- length of string to send to stream </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>length written to stream (-1 otherwise) </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-1</td><td>is returned in case of failure (UART) </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph.png" border="0" usemap="#stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph" alt=""/></div>
 <map name="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph" id="stdream__rdir_8c_aa025a12d45f60c7d0eae249e61f0c7f9_cgraph">
-<area shape="rect" id="node2" href="_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="131,56,264,83"/>
-<area shape="rect" id="node4" href="_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="572,81,759,108"/>
-<area shape="rect" id="node7" href="_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,157,283,184"/>
-<area shape="rect" id="node3" href="_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="331,5,524,32"/>
-<area shape="rect" id="node6" href="_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="331,56,523,83"/>
-<area shape="rect" id="node5" href="_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="574,5,757,32"/>
+<area shape="rect" id="node2" href="_u_a_r_t__term_8c.html#ac3de2a3b591e7e03ad63703bae6bc4a0" title="Sends string to UART. " alt="" coords="131,5,264,32"/>
+<area shape="rect" id="node3" href="_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,56,283,83"/>
 </map>
 </div>
 

@@ -69,8 +69,7 @@ $(function() {
 
 <p>Stream redirection.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdarg.h&gt;</code><br />
-<code>#include &quot;sarmfsw.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for stdream_rdir.h:</div>
 <div class="dyncontent">
@@ -133,7 +132,7 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscall way encouraged, as shadowing is deprecated) </dd>
+<dl class="section note"><dt>Note</dt><dd>STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscalls implementation preferred, shadowing being deprecated) </dd>
 <dd>
 Define USE_IO_PUTCHAR at project level also for __io_putchar implementation instead of full _write implementation (from syscalls) </dd></dl>
 

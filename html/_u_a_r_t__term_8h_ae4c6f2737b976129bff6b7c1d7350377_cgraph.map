@@ -1,6 +1,0 @@
-<map id="UART_Term_Send" name="UART_Term_Send">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="187,31,380,57"/>
-<area shape="rect" id="node5" href="$_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="187,81,379,108"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="428,5,615,32"/>
-<area shape="rect" id="node4" href="$_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="430,56,613,83"/>
-</map>

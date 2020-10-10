@@ -1,8 +1,4 @@
 <map id="_write" name="_write">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#ae4c6f2737b976129bff6b7c1d7350377" title="Sends string to UART. " alt="" coords="131,56,264,83"/>
-<area shape="rect" id="node4" href="$_u_a_r_t__term_8c.html#a209e9310d0acc1fa732d90043714b306" title="Received character handler on SERIAL DEBUG. " alt="" coords="572,81,759,108"/>
-<area shape="rect" id="node7" href="$_u_a_r_t__term_8h.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,157,283,184"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback. " alt="" coords="331,5,524,32"/>
-<area shape="rect" id="node6" href="$_u_a_r_t__term_8h.html#ad34ee0415bc8acc2d62d8ec2da6b8209" title="UART Term Tx Transfer completed callback. " alt="" coords="331,56,523,83"/>
-<area shape="rect" id="node5" href="$_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions. " alt="" coords="574,5,757,32"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#ac3de2a3b591e7e03ad63703bae6bc4a0" title="Sends string to UART. " alt="" coords="131,5,264,32"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,56,283,83"/>
 </map>
