@@ -1,4 +1,4 @@
 <map id="_write" name="_write">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#ac3de2a3b591e7e03ad63703bae6bc4a0" title="Sends string to UART. " alt="" coords="131,5,264,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="112,56,283,83"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#ac3de2a3b591e7e03ad63703bae6bc4a0" title="Sends string to UART. " alt="" coords="112,5,245,32"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="293,31,464,57"/>
 </map>
