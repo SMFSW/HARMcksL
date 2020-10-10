@@ -3,7 +3,8 @@
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief UART terminal header
 ** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
-** \note define DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
+** \note define DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
+** \note It is recommended to have interrupts enabled for UART instance (and is required when reception is needed)
 */
 /****************************************************************/
 #ifndef __UART_TERM_H
@@ -20,11 +21,11 @@
 /****************************************************************/
 
 #ifndef STDREAM__UART_TX_IT
-#if defined(STDREAM_RDIR_SND_SYSCALLS) && defined(USE_IO_PUTCHAR)
+#if STDREAM_RDIR_SND_SYSCALLS && defined(USE_IO_PUTCHAR)
+#define STDREAM__UART_TX_IT		0			//!< Somehow useless if writing char by char using interrupt
+#else
 //!\note STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
 #define STDREAM__UART_TX_IT		1			//!< To be defined to send to uart using interrupts
-#else
-#define STDREAM__UART_TX_IT		0			//!< Somehow useless if writing char by char using interrupt
 #endif
 #endif
 
@@ -60,18 +61,26 @@ __INLINE void INLINE__ setBreakout_char(const char breakout) {
 **/
 FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart);
 
+/*!\brief Waiting for UART global state to be ready for next transmission
+** \param[in] huart - UART handle
+** \return Error code
+**/
+FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart);
+
 /*!\brief Clear buffer in used for SERIAL DEBUG
 ** \param[in] huart - UART handle
 ** \return Error code
 **/
 FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
 
-/*!\brief Received character handler on SERIAL DEBUG
+/*!\brief Sends string to UART
 ** \param[in] huart - UART handle
-** \param[in] ch - char received (only if STDREAM_RDIR_SYSCALL is defined, unuseful otherwise)
+** \param[in] str - pointer to string to send
+** \param[in] len - length of string
 ** \return Error code
 **/
-FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart, const char ch);
+FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len);
+
 
 /*!\brief Treat fully received message
 ** \weak This function is implemented as weak to be implemented in projects (weak one only prints & flushes the buffer)
@@ -81,50 +90,20 @@ FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart, const 
 **/
 FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_t len);
 
-/*!\brief Waiting for UART global state to be ready for next transmission
-** \param[in] huart - UART handle
-** \return Error code
-**/
-__INLINE FctERR NONNULL_INLINE__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
-{
-	#if STDREAM__UART_TX_IT
-		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }
-
-		while (huart->gState != HAL_UART_STATE_READY)
-		{
-			#if defined(HAL_IWDG_MODULE_ENABLED)
-				HAL_IWDG_Refresh(&hiwdg);
-			#endif
-		}
-	#endif
-	return ERROR_OK;
-}
-
-
-/*!\brief Sends string to UART
-** \param[in] huart - UART handle
-** \param[in] str - pointer to string to send
-** \param[in] len - length of string
-** \return HAL Status
-**/
-__INLINE HAL_StatusTypeDef NONNULL_INLINE__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len)
-{
-	// TODO: find a way to determine if UART Tx interrupts are enabled or not
-	#if STDREAM__UART_TX_IT
-		return HAL_UART_Transmit_IT(huart, (uint8_t *) str, len);
-	#else
-		return HAL_UART_Transmit(huart, (uint8_t *) str, len, 30);
-	#endif
-}
-
 
 /*!\brief UART Term Rx Transfer completed callback
+** \note Can be used with callback registering CubeMX functionality
+** \warning When not using callback registering CubeMX functionality, you may need to implement your own custom HAL_UART_RxCpltCallback
+** 			weak HAL_UART_RxCpltCallback is defined in the library (handle for debug UART only), you may have to define your own when multiple UARTs are in use.
 ** \param[in,out] huart - UART handle
 ** \note Shall be called from HAL_UART_RxCpltCallback with proper UART instance
 **/
 void UART_Term_RxCpltCallback(UART_HandleTypeDef * const huart);
 
 /*!\brief UART Term Tx Transfer completed callback
+** \note Can be used with callback registering CubeMX functionality
+** \warning When not using callback registering CubeMX functionality, you may need to implement your own custom HAL_UART_TxCpltCallback
+** 			weak HAL_UART_TxCpltCallback is defined in the library (handle for debug UART only), you may have to define your own when multiple UARTs are in use.
 ** \param[in,out] huart - UART handle
 ** \note Shall be called from UART_Term_TxCpltCallback with proper UART instance
 **/

@@ -13,14 +13,12 @@
 	extern "C" {
 #endif
 
-#include <stdarg.h>
-
 #include "sarmfsw.h"
 /****************************************************************/
-// TODO: add puts redirect ??
+
 
 #ifndef STDREAM_RDIR_SND_SYSCALLS
-//!\note STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscall way encouraged, as shadowing is deprecated)
+//!\note STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscalls implementation preferred, shadowing being deprecated)
 //!\note Define USE_IO_PUTCHAR at project level also for __io_putchar implementation instead of full _write implementation (from syscalls)
 #define STDREAM_RDIR_SND_SYSCALLS	1
 #endif
@@ -34,13 +32,12 @@
 // Section: Constants
 // *****************************************************************************
 
-#ifndef STDREAM_RDIR_SND_SYSCALLS
+#if !STDREAM_RDIR_SND_SYSCALLS
+#include <stdarg.h>
+
 #define	printf		printf_redir	//!< Shadowing printf
 #define	vprintf		vprintf_redir	//!< Shadowing vprintf
-#endif
 
-
-#if defined(ITM) || !STDREAM_RDIR_SND_SYSCALLS
 #ifndef SZ_DBG_OUT
 //!\note SZ_DBG_OUT can be defined at project level to define debug transmit buffer size (for ITM and/or if STDREAM_RDIR_SND_SYSCALLS is not used)
 #define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
@@ -57,8 +54,9 @@
 ** \param[in] len - length of message to send
 ** \param[in] port - ITM port number
 **/
-void NONNULL__ ITM_port_send(const char * str, const int len, const int port);
+void NONNULL__ ITM_port_send(char * str, const int len, const int port);
 
+#if !STDREAM_RDIR_SND_SYSCALLS
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
 /*!\brief printf like redirected to ITM port 0
 ** \param[in] str - pointer to string to send
@@ -66,7 +64,7 @@ void NONNULL__ ITM_port_send(const char * str, const int len, const int port);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int NONNULL__ printf_ITM(const char * str, ...);
+int NONNULL__ printf_ITM(char * str, ...);
 
 /*!\brief printf like redirected to ITM port 0
 ** \param[in] str - pointer to string to send
@@ -74,7 +72,8 @@ int NONNULL__ printf_ITM(const char * str, ...);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int NONNULL__ vprintf_ITM(const char * str, va_list args);
+int NONNULL__ vprintf_ITM(char * str, va_list args);
+#endif
 #endif
 
 
@@ -87,7 +86,7 @@ int NONNULL__ vprintf_ITM(const char * str, va_list args);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	NONNULL__ printf_redir(const char * str, ...);
+int	NONNULL__ printf_redir(char * str, ...);
 
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
 ** \param[in] str - pointer to string to send
@@ -96,8 +95,7 @@ int	NONNULL__ printf_redir(const char * str, ...);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	NONNULL__ vprintf_redir(const char * str, va_list args);
-
+int	NONNULL__ vprintf_redir(char * str, va_list args);
 #endif
 
 /****************************************************************/
