@@ -73,6 +73,9 @@ FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
 FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len)
 {
 	#if STDREAM__UART_TX_IT
+		#if STDREAM_RDIR_SND_SYSCALLS
+		UART_Term_Wait_Ready(huart);
+		#endif
 		return HALERRtoFCTERR(HAL_UART_Transmit_IT(huart, (uint8_t *) str, len));
 	#else
 		return HALERRtoFCTERR(HAL_UART_Transmit(huart, (uint8_t *) str, len, 30));
