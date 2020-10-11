@@ -4,7 +4,7 @@
 ** \brief Debug tool helpers
 **/
 /****************************************************************/
-#include <string.h>
+#include <stdio.h>
 
 #include "sarmfsw.h"
 #include "stdream_rdir.h"
@@ -97,11 +97,21 @@ eResetSource Get_Reset_Source(void)
 	#else
 		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
 	#endif
+	#if defined(STM32H7) || defined(STM32H7)
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST))				{ rst = RST_BOR; }
+	#endif
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PINRST))				{ rst = RST_PIN; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST))				{ rst = RST_SW; }
+	#if defined(STM32H7)
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDG1RST))				{ rst = RST_IWDG; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDG1RST))				{ rst = RST_WWDG; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWR1RST))				{ rst = RST_LPWR; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWR2RST))				{ rst = RST_LPWR; }
+	#else
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST))				{ rst = RST_IWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST))				{ rst = RST_WWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))				{ rst = RST_LPWR; }
+	#endif
 	#if defined(STM32F3) || defined(STM32L4)
 		else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))			{ rst = RST_OBL; }
 		#if defined(STM32F301x8) ||													\

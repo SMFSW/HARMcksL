@@ -4,8 +4,7 @@
 ** \brief Stack utilities
 **/
 /****************************************************************/
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 #include "stdream_rdir.h"
 #include "stack_utils.h"
