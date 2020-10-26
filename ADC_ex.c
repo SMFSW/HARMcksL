@@ -49,10 +49,6 @@
 #endif
 
 
-#define Def_VIn				((float) VDD_VALUE / 1000.0f)			//!< Vin voltage (in V)
-#define Def_Step			(Def_VIn / 4095.0f)						//!< Step value (in V)
-
-
 #if !defined(Def_AvgSlope)
 	#warning "You should define Def_AvgSlope with parameters given in datasheet, using STM32 family common default values instead!"
 

@@ -43,6 +43,10 @@
 #endif
 
 
+#define Def_VIn			((float) VDD_VALUE / 1000.0f)	//!< Vin voltage (in V)
+#define Def_Step		(Def_VIn / 4095.0f)				//!< Step value (in V)
+
+
 /*!\enum eADCidx
 ** \brief ADC peripheral instance indexes
 **/

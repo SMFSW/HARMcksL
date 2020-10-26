@@ -34,6 +34,7 @@ SOFTWARE.
 * exceptions: Changes using G0 family
 * exceptions: Added reset sources for L4 family (Get_Reset_Source)
 * exceptions: Added reset sources for F7, H7 families (Get_Reset_Source)
+* ADC_ex: Def_VIn & Def_Step moved to header file
 * ADC_ex: Using ADC_COMPENSATION, Hardware fault may occur at MCU start when average Vref == 0 (not ready), returns 0 for any query in this case
 * ADC_ex: split slope and reference temp defines
 * ADC_ex: alias TEMP_CALC_V25... to TEMP_CALC_VTEMP (for legacy use)
