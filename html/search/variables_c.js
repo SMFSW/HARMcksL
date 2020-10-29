@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['per',['per',['../structlogic_p_w_m.html#ace26d23d7fe1448326b386a5685dbcfc',1,'logicPWM']]],
-  ['polarity',['polarity',['../structlogic_p_w_m.html#afaa010af8cf5f93da304740d55be1934',1,'logicPWM']]],
+  ['per',['per',['../struct_p_w_m___g_p_i_o.html#a558eb5e3146f7cbc68f4b5b6f445947f',1,'PWM_GPIO']]],
+  ['polarity',['polarity',['../struct_p_w_m___g_p_i_o.html#aacffba5c78aa07a9a701dfcd91c677b3',1,'PWM_GPIO']]],
   ['pos',['pos',['../struct_logic__in.html#a2baa6924610a4571c6de284981bc9890',1,'Logic_in']]],
-  ['ptim',['pTim',['../structlogic_p_w_m.html#ae9a35f1061f7ce1d728aa28f2461c222',1,'logicPWM']]],
+  ['ptim',['pTim',['../struct_p_w_m___g_p_i_o.html#a45ce3b6221b791c29a5d38c69c77b17b',1,'PWM_GPIO']]],
   ['pwmin',['PWMin',['../_p_w_m___i_c_8c.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c'],['../_p_w_m___i_c_8h.html#af05f0561de09f984cc442bf6adfee539',1,'PWMin():&#160;PWM_IC.c']]]
 ];

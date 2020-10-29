@@ -1,7 +1,6 @@
 var searchData=
 [
   ['march',['March',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a6514826513b9cfb1bf828001f1a8f246',1,'time_utils.h']]],
-  ['max_5fpins_5fport',['MAX_PINS_PORT',['../_g_p_i_o__ex_8c.html#ac4f37448048ea107bab80b15226cfcf7',1,'GPIO_ex.c']]],
   ['may',['May',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a56032654a15262d69e8be7d42a7ab381',1,'time_utils.h']]],
   ['mem',['mem',['../struct_logic__in.html#a6516eb22687e4f8a71b6de43d52460f7',1,'Logic_in']]],
   ['minutes',['Minutes',['../struct_date_time.html#a6f39e0c7fc69f40a9a80247003e4ab91',1,'DateTime']]],

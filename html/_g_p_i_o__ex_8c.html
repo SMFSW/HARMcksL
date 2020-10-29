@@ -61,7 +61,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GPIO_ex.c File Reference</div>  </div>
@@ -78,21 +77,14 @@ Include dependency graph for GPIO_ex.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_g_p_i_o__ex_8c__incl.png" border="0" usemap="#_g_p_i_o__ex_8c" alt=""/></div>
 <map name="_g_p_i_o__ex_8c" id="_g_p_i_o__ex_8c">
-<area shape="rect" id="node3" href="_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="64,155,153,181"/>
+<area shape="rect" id="node3" href="_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="76,229,165,256"/>
 <area shape="rect" id="node5" href="_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="147,80,233,107"/>
+<area shape="rect" id="node6" href="_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="146,155,229,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ac4f37448048ea107bab80b15226cfcf7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8c.html#ac4f37448048ea107bab80b15226cfcf7">MAX_PINS_PORT</a>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:ac4f37448048ea107bab80b15226cfcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a51f8dc48e82cf3ab005707955d596cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8c.html#a51f8dc48e82cf3ab005707955d596cef">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), void(*onReset)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), const bool repeat)</td></tr>
-<tr class="memdesc:a51f8dc48e82cf3ab005707955d596cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#a51f8dc48e82cf3ab005707955d596cef">More...</a><br /></td></tr>
-<tr class="separator:a51f8dc48e82cf3ab005707955d596cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__ex_8c.html#a24a22d2c4d867bf61c9518b3b5d0ec64">write_GPIO</a> (GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)</td></tr>
 <tr class="memdesc:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write GPIO.  <a href="#a24a22d2c4d867bf61c9518b3b5d0ec64">More...</a><br /></td></tr>
 <tr class="separator:a24a22d2c4d867bf61c9518b3b5d0ec64"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,109 +99,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Extensions for GPIOs (R/W) </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2020, SMFSW </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ac4f37448048ea107bab80b15226cfcf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f37448048ea107bab80b15226cfcf7">&#9670;&nbsp;</a></span>MAX_PINS_PORT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_PINS_PORT&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a51f8dc48e82cf3ab005707955d596cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51f8dc48e82cf3ab005707955d596cef">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GPIO_in_init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const&#160;</td>
-          <td class="paramname"><em>in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">GPIO_TypeDef *const&#160;</td>
-          <td class="paramname"><em>GPIOx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>GPIO_Pin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>logic</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>filter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const)&#160;</td>
-          <td class="paramname"><em>onSet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const)&#160;</td>
-          <td class="paramname"><em>onReset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>repeat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- input instance to initialize </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">GPIOx</td><td>- port to read from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">GPIO_Pin</td><td>- pin to read from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logic</td><td>- set to 0 if active state is GND, 1 if Vdd </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>- input filtering time </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">onSet</td><td>- Pointer to callback ON function </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">onReset</td><td>- Pointer to callback OFF function </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">repeat</td><td>- To repeat callback ON as long as input is set </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph" id="_g_p_i_o__ex_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph">
-<area shape="rect" id="node2" href="_logic__ex_8c.html#a038342aba9ff5fa4be8feb4909badfb2" title="Initialize Logic_in instance. " alt="" coords="151,5,249,32"/>
-</map>
-</div>
-
-</div>
-</div>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="af1c26aac07c2e07fbbf6ed016722bc5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1c26aac07c2e07fbbf6ed016722bc5c">&#9670;&nbsp;</a></span>read_GPIO()</h2>
 
@@ -251,14 +141,6 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph" alt=""/></div>
 <map name="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph" id="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_cgraph">
 <area shape="rect" id="node2" href="_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd" title="Get name from Port, Pin. " alt="" coords="143,5,264,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_icgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_icgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_icgraph" id="_g_p_i_o__ex_8c_af1c26aac07c2e07fbbf6ed016722bc5c_icgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="143,5,281,32"/>
 </map>
 </div>
 
@@ -312,8 +194,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="_g_p_i_o__ex_8c_ada385c7d700819240acb2652617819bd_icgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_ada385c7d700819240acb2652617819bd_icgraph" alt=""/></div>
 <map name="_g_p_i_o__ex_8c_ada385c7d700819240acb2652617819bd_icgraph" id="_g_p_i_o__ex_8c_ada385c7d700819240acb2652617819bd_icgraph">
 <area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64" title="Write GPIO. " alt="" coords="175,5,265,32"/>
-<area shape="rect" id="node3" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="313,56,452,83"/>
-<area shape="rect" id="node4" href="_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c" title="Read GPIO. " alt="" coords="175,107,265,133"/>
+<area shape="rect" id="node3" href="_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c" title="Read GPIO. " alt="" coords="175,56,265,83"/>
 </map>
 </div>
 
@@ -366,14 +247,6 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph" alt=""/></div>
 <map name="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph" id="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_cgraph">
 <area shape="rect" id="node2" href="_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd" title="Get name from Port, Pin. " alt="" coords="144,5,265,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_icgraph.png" border="0" usemap="#_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_icgraph" alt=""/></div>
-<map name="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_icgraph" id="_g_p_i_o__ex_8c_a24a22d2c4d867bf61c9518b3b5d0ec64_icgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="144,5,283,32"/>
 </map>
 </div>
 

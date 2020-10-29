@@ -1,5 +1,4 @@
 <map id="str_GPIO_name" name="str_GPIO_name">
 <area shape="rect" id="node2" href="$_g_p_i_o__ex_8h.html#a24a22d2c4d867bf61c9518b3b5d0ec64" title="Write GPIO. " alt="" coords="175,5,265,32"/>
-<area shape="rect" id="node3" href="$_g_p_i_o__ex_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="313,56,452,83"/>
-<area shape="rect" id="node4" href="$_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c" title="Read GPIO. " alt="" coords="175,107,265,133"/>
+<area shape="rect" id="node3" href="$_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c" title="Read GPIO. " alt="" coords="175,56,265,83"/>
 </map>
