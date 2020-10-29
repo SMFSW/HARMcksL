@@ -1,12 +1,12 @@
-/*!\file GPIO_ex_ample.h
+/*!\file Logic_in_example.h
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
-** \brief GPIO_in example
-** \note Simple GPIO_ex.c example to handle different GPIO inputs with callbacks (on STM32F3)
+** \brief Logic_in example
+** \note Simple Logic_ex.c example to handle different variables inputs with callbacks
 **/
 /****************************************************************/
-#ifndef __GPIO_EX_AMPLE_H
-	#define	__GPIO_EX_AMPLE_H
+#ifndef __LOGIC_IN_EXAMPLE_H
+	#define	__LOGIC_IN_EXAMPLE_H
 
 #ifdef __cplusplus
 	extern "C" {
@@ -14,11 +14,11 @@
 /****************************************************************/
 
 
-/*!\brief GPIO_ex_ample handler (handling acquisition of inputs and callbacks)
-** \note Callbacks On declared with same function callback (to demonstrate use of passed argument GPIO_in *)
+/*!\brief Logic_in_example handler (handling acquisition of inputs and callbacks)
+** \note Callbacks On declared with same function callback (to demonstrate use of passed argument Logic_in *)
 ** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
 **/
-void GPIO_ex_ample_handler(void);
+void Logic_in_example_handler(void);
 
 
 /****************************************************************/
@@ -26,6 +26,6 @@ void GPIO_ex_ample_handler(void);
 	}
 #endif
 
-#endif /* __GPIO_EX_AMPLE_H */
+#endif /* __LOGIC_IN_EXAMPLE_H */
 /****************************************************************/
 

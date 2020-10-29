@@ -1,4 +1,4 @@
-/*!\file GPIO_ex_ample.c
+/*!\file GPIO_in_example.c
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief GPIO_in example
@@ -10,17 +10,18 @@
 #include "GPIO_ex.h"
 
 
-#define IN_B0_Pin GPIO_PIN_0
 #define IN_B0_GPIO_Port GPIOB
-#define IN_B1_Pin GPIO_PIN_1
+#define IN_B0_Pin GPIO_PIN_0
 #define IN_B1_GPIO_Port GPIOB
-#define IN_B2_Pin GPIO_PIN_2
+#define IN_B1_Pin GPIO_PIN_1
 #define IN_B2_GPIO_Port GPIOB
+#define IN_B2_Pin GPIO_PIN_2
 
 
-GPIO_in pb_B0;	//!< GPIO_in pb_B0 instance structure declaration
-GPIO_in pb_B1;	//!< GPIO_in pb_B1 instance structure declaration
-GPIO_in pb_B2;	//!< GPIO_in pb_B2 instance structure declaration
+static GPIO_in pb_B0;	//!< GPIO_in pb_B0 instance structure declaration
+static GPIO_in pb_B1;	//!< GPIO_in pb_B1 instance structure declaration
+static GPIO_in pb_B2;	//!< GPIO_in pb_B2 instance structure declaration
+static GPIO_in * const GPIOs[] = { &pb_B0, &pb_B1, &pb_B2 };	//!< GPIO_in pointers array (for handler loop)
 
 
 /*!\brief Callback for inputs when pushing
@@ -75,7 +76,7 @@ static void PB_Callback_OFF_B2(GPIO_in * const in)
 }
 
 
-void GPIO_ex_ample_handler(void)
+void GPIO_in_example_handler(void)
 {
 	static bool init_io = false;
 
@@ -89,8 +90,9 @@ void GPIO_ex_ample_handler(void)
 		init_io = true;
 	}
 
-	GPIO_in_handler(&pb_B0);
-	GPIO_in_handler(&pb_B1);
-	GPIO_in_handler(&pb_B2);
+	for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_in *) ; i++)
+	{
+		GPIO_in_handler(GPIOs[i]);
+	}
 }
 

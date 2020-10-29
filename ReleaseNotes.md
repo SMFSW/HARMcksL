@@ -24,8 +24,8 @@ SOFTWARE.
 
 * std libs includes reviewed in all files
 * strict aliasing types in printf statements
-* templates: Added folder (with adc_cfg example)
-* templates: Added Logic_ex_ample & GPIO_ex_ample examples
+* templates: Added folder (with templates and examples)
+* templates: refactoring of examples
 * Added cpp preprocessor directives in headers
 * Doxyfile update
 * const pointers in functions parameters reviewed (for const pointer, const content or both)
@@ -49,12 +49,14 @@ SOFTWARE.
 * ADC_ex: Some conversion calculations changed for various families
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
+* GPIO_ex: split between GPIO_ex and GPIO_in files (GPIO_in header included in GPIO_ex as a wrapper for all GPIO extensions)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument (with fix to struct typedef instead of void*)
 * GPIO_ex: str_GPIO_name optimized
 * GPIO_ex: refactoring and including stdio.h
 * GPIO_ex: cut code to Logic_ex to make it generic for both GPIO (working same as before) and any variable  
 * Logic_ex: cut from GPIO_ex GPIO_in (and now used by GPIO_in) to have code working to monitor bit in a variable as a logic input signal
 * Logic_ex: set working elements to 0 at instance init (no need of initialized struct)
+* PWM: split between PWM and PWM_GPIO files (PWM_GPIO module function and types names refactored)
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: changed pre-comp test for consistency
 * PWM: set_PWM_Duty_Scaled calulations now only using integers

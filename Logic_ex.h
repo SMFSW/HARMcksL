@@ -42,6 +42,22 @@ typedef struct Logic_in {
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*!\brief Get Logic_in input value
+** \param[in] in - input instance
+** \return Input value
+**/
+__INLINE bool NONNULL_INLINE__ get_Logic_in(const Logic_in * const in) {
+	return in->in; }
+
+
+/*!\brief Get Logic_in input edge
+** \param[in] in - input instance
+** \return Input edge
+**/
+__INLINE bool NONNULL_INLINE__ get_Logic_in_edge(const Logic_in * const in) {
+	return in->edge; }
+
+
 /*!\brief Initialize Logic_in instance
 ** \param[in,out] in - input instance to initialize
 ** \param[in] getter - Pointer to variable getter function
@@ -61,22 +77,6 @@ void NONNULLX__(1, 2) Logic_in_init(Logic_in * const in,
 ** \param[in,out] in - input instance to handle
 **/
 void NONNULL__ Logic_in_handler(Logic_in * const in);
-
-
-/*!\brief Get Logic_in input value
-** \param[in] in - input instance
-** \return Input value
-**/
-__INLINE bool NONNULL_INLINE__ get_Logic_in(const Logic_in * const in) {
-	return in->in; }
-
-
-/*!\brief Get Logic_in input edge
-** \param[in] in - input instance
-** \return Input edge
-**/
-__INLINE bool NONNULL_INLINE__ get_Logic_in_edge(const Logic_in * const in) {
-	return in->edge; }
 
 
 /****************************************************************/

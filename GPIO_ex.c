@@ -11,30 +11,6 @@
 /****************************************************************/
 
 
-#define MAX_PINS_PORT	16
-
-
-/*!\brief Get GPIO port value
-** \param[in,out] in - input instance
-** \return GPIO port value
-**/
-static uint32_t GPIO_getter(GPIO_in * const in) {
-	return HAL_GPIO_ReadPin(in->cfg.GPIOx, in->cfg.GPIO_Pin); }
-
-
-void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
-									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter,
-									void (*onSet)(GPIO_in * const), void (*onReset)(GPIO_in * const), const bool repeat)
-{
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
-	in->cfg.GPIOx = GPIOx;
-	in->cfg.GPIO_Pin = GPIO_Pin;
-	Logic_in_init(&in->logic, (uint32_t (*)(Logic_in *)) GPIO_getter, 0, logic, filter, (void (*)(Logic_in *)) onSet, (void (*)(Logic_in *)) onReset, repeat);
-}
-
-
 void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
 {
 	/* Check the parameters */
@@ -74,8 +50,9 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 
 FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
-	const char	prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
-	char		port;
+	const uint8_t	max_pins = 16;	// Maximum pins on a port
+	const char		prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
+	char			port;
 
 	// Find port comparing address
 	if (GPIOx == GPIOA)			port = prt[0];
@@ -103,7 +80,7 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	else						port = prt[8];
 
 	// Find pin shifting values to get pin index
-	for (int pin = 0 ; pin < MAX_PINS_PORT ; pin++)
+	for (int pin = 0 ; pin < max_pins ; pin++)
 	{
 		if (1 << pin == GPIO_Pin)
 		{

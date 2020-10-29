@@ -1,4 +1,4 @@
-/*!\file Logic_ex_ample.c
+/*!\file Logic_in_example.c
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief Logic_in example
@@ -10,9 +10,10 @@
 #include "Logic_ex.h"
 
 
-Logic_in var_b11;	//!< Logic_in var_b11 instance structure declaration
-Logic_in var_b15;	//!< Logic_in var_b15 instance structure declaration
-Logic_in var_b19;	//!< Logic_in var_b19 instance structure declaration
+static Logic_in var_b11;	//!< Logic_in var_b11 instance structure declaration
+static Logic_in var_b15;	//!< Logic_in var_b15 instance structure declaration
+static Logic_in var_b19;	//!< Logic_in var_b19 instance structure declaration
+static Logic_in * const GPIOs[] = { &var_b11, &var_b15, &var_b19 };	//!< Logic_in pointers array (for handler loop)
 
 
 uint32_t var_test = 0;
@@ -73,7 +74,7 @@ static void Callback_OFF_b19(Logic_in * const in)
 }
 
 
-void Logic_ex_ample_handler(void)
+void Logic_in_example_handler(void)
 {
 	static bool init_io = false;
 	
@@ -88,9 +89,10 @@ void Logic_ex_ample_handler(void)
 		init_io = true;
 	}
 
-	Logic_in_handler(&var_b11);
-	Logic_in_handler(&var_b15);
-	Logic_in_handler(&var_b19);
+	for (unsigned int i = 0 ; i < SZ_OBJ(LOGICs, Logic_in *) ; i++)
+	{
+		Logic_in_handler(LOGICs[i]);
+	}
 
 	var_test++
 }

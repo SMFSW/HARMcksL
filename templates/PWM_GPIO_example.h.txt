@@ -1,0 +1,29 @@
+/*!\file PWM_GPIO_example.h
+** \author SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
+** \brief PWM_GPIO example
+** \note Simple PWM.c example to handle Logic output acting as PWM (requiring a TIM instance with interrupts enabled)
+**/
+/****************************************************************/
+#ifndef __PWM_GPIO_EXAMPLE_H
+	#define	__PWM_GPIO_EXAMPLE_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
+/****************************************************************/
+
+
+/*!\brief PWM_GPIO example handler (handling init of TIM peripheral and Logic pin, then setting duty cycle)
+**/
+void PWM_GPIO_example_handler(void);
+
+
+/****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
+#endif /* __PWM_GPIO_EXAMPLE_H */
+/****************************************************************/
+

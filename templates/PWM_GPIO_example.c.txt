@@ -1,0 +1,68 @@
+/*!\file PWM_GPIO_example.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
+** \brief PWM_GPIO example
+** \note Simple PWM.c example to handle Logic output acting as PWM (requiring a TIM instance with interrupts enabled)
+**/
+
+#include "sarmfsw.h"
+
+#include "PWM.h"
+
+
+#define OUT_B0_GPIO_Port GPIOB
+#define OUT_B0_Pin GPIO_PIN_0
+#define OUT_B0_TIMER &htim6
+
+
+__IO PWM_GPIO logPWM[1];
+
+
+void PWM_GPIO_example_handler(void)
+{
+	static bool init_io = false;
+
+	if (!init_io)
+	{
+		FctERR err;
+
+		// Init GPIO PWM
+		err = PWM_GPIO_setPin(&logPWM[0], GPIO(OUT_B0), true);
+		err = PWM_GPIO_setFreq(&logPWM[0], OUT_B0_TIMER, 50, 100);
+		if (err)	{ return; }
+		
+		init_io = true;
+	}
+	else
+	{
+		// Set PWM output duty cycle
+		PWM_GPIO_setDuty(&logPWM[0], ((uint16_t) -1 / 4));
+	}
+}
+
+
+/*!\brief Period elapsed callback in non blocking mode
+** \note This function is called when TIM interrupt took place, inside HAL_TIM_IRQHandler().
+** If multiple TIM peripheral use period callback interrupt, custom function is needed including code below.
+** Another way is to use callback registration with proper function name.
+** \param[in] htim - TIM handle
+**/
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	// Most generic handler
+	for (unsigned int i = 0 ; i < SZ_OBJ(logPWM, PWM_GPIO) ; i++)
+	{
+		if (htim == logPWM[i].cfg.pTim)
+		{
+			PWM_GPIO_handler(&logPWM[i]);
+		}
+	}
+
+//	if (htim == OUT_B0_TIMER)
+//	{
+//		for (unsigned int i = 0 ; i < SZ_OBJ(logPWM, PWM_GPIO) ; i++)	// Needed if multiple PWM_GPIO instances using always same TIM peripheral
+//		{
+//			PWM_GPIO_handler(&logPWM[i]);
+//		}
+//	}
+}
