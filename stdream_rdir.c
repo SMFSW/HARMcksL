@@ -32,14 +32,6 @@ char dbg_msg_out[SZ_DBG_OUT] = "";	//!< stdream buffer for output
 **/
 int __io_putchar(int ch)
 {
-	static bool init = false;
-
-	if (!init)
-	{
-		setvbuf(stdout, NULL, _IONBF, 0);
-		init = true;
-	}
-
 	#if defined(ITM) && defined(ITM_REDIRECT)
 	ITM_SendChar(ch);
 	#endif
@@ -63,15 +55,6 @@ int __io_putchar(int ch)
 **/
 int _write(int file, char * ptr, int len)
 {
-	static bool init = false;
-
-	if (!init)
-	{
-		setvbuf(stdout, NULL, _IONBF, 0);	// TODO: Is that really needed? (try to send something without ending line character, _write should be called anyways?)
-											// If needed, should probably be set somewhere else, otherwise, it would start to work as expected only when an end of line char is set
-		init = true;
-	}
-
 	#if defined(ITM) && defined(ITM_REDIRECT)
 	ITM_port_send(ptr, len, 0);
 	#endif

@@ -13,6 +13,7 @@
 
 #include "sarmfsw.h"
 #include "GPIO_in.h"
+#include "GPIO_out.h"
 /****************************************************************/
 
 
@@ -22,9 +23,9 @@
 /*!\brief Write GPIO
 ** \param[in] GPIOx - port to write to
 ** \param[in] GPIO_Pin - pin to write to
-** \param[in] Act - type of write
+** \param[in] action - action to perform on output port pin
 **/
-void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act);
+void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState action);
 
 
 /*!\brief Read GPIO

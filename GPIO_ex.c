@@ -6,28 +6,25 @@
 /****************************************************************/
 #include <stdio.h>
 
-#include "Logic_ex.h"
 #include "GPIO_ex.h"
 /****************************************************************/
 
 
-void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState Act)
+void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState action)
 {
 	/* Check the parameters */
 	assert_param(IS_GPIO_PIN(GPIO_Pin));
 
-	if (Act > Toggle)		{ return; }
-	else
-	{
-		if (Act == Reset)	{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
-		if (Act == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
-		if (Act == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
-		#if defined(VERBOSE)
-			char port[10] = "";
-			str_GPIO_name(port, GPIOx, GPIO_Pin);
-			printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
-		#endif
-	}
+	if (action == Reset)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
+	else if (action == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
+	else if (action == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
+	else						{ return; }
+
+	#if defined(VERBOSE)
+		char port[10] = "";
+		str_GPIO_name(port, GPIOx, GPIO_Pin);
+		printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
+	#endif
 }
 
 
@@ -54,7 +51,7 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	const char		prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
 	char			port;
 
-	// Find port comparing address
+	// Find port by testing GPIO instance
 	if (GPIOx == GPIOA)			port = prt[0];
 #if defined(GPIOB)
 	else if (GPIOx == GPIOB)	port = prt[1];
@@ -80,14 +77,15 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	else						port = prt[8];
 
 	// Find pin shifting values to get pin index
-	for (int pin = 0 ; pin < max_pins ; pin++)
+	for (unsigned int pin = 0 ; pin < max_pins ; pin++)
 	{
-		if (1 << pin == GPIO_Pin)
+		if ((1 << pin) == GPIO_Pin)
 		{
-			sprintf(name, "%s%c%i", "GPIO", port, pin);
+			sprintf(name, "GPIO%c%d", port, pin);
 			return ERROR_OK;	// Match
 		}
 	}
-//	sprintf(name, "%s%c%c", "GPIO", port, 'x');
+
+//	sprintf(name, "GPIO%c%c", port, 'x');
 	return ERROR_VALUE;			// No match
 }

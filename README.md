@@ -21,6 +21,7 @@ Use it at your own risk!
 - GPIO_ex: Extensions for GPIOs (R/W) and wrapper for other GPIO extensions modules
 - GPIO_in: GPIO input handling
   - example [GPIO_in_example.c](templates/GPIO_in_example.c.txt)/[GPIO_in_example.h](templates/GPIO_in_example.h.txt): GPIO_in example
+- GPIO_out: GPIO output handling
 - Logic_ex: Extensions for logic variable handling
   - example [Logic_in_example.c](templates/Logic_in_example.c.txt)/[Logic_in_example.h](templates/Logic_in_example.h.txt): Logic_in example
 - PWM_IC: PWM Input Capture handling
