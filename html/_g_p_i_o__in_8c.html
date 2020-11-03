@@ -83,17 +83,17 @@ Include dependency graph for GPIO_in.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a51f8dc48e82cf3ab005707955d596cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8c.html#a51f8dc48e82cf3ab005707955d596cef">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const bool logic, const uint16_t filter, void(*onSet)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), void(*onReset)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), const bool repeat)</td></tr>
-<tr class="memdesc:a51f8dc48e82cf3ab005707955d596cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#a51f8dc48e82cf3ab005707955d596cef">More...</a><br /></td></tr>
-<tr class="separator:a51f8dc48e82cf3ab005707955d596cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f970ef7e3749472e5e77dbea8d09062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8c.html#a7f970ef7e3749472e5e77dbea8d09062">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter, void(*onSet)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), void(*onReset)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), const bool repeat)</td></tr>
+<tr class="memdesc:a7f970ef7e3749472e5e77dbea8d09062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#a7f970ef7e3749472e5e77dbea8d09062">More...</a><br /></td></tr>
+<tr class="separator:a7f970ef7e3749472e5e77dbea8d09062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPIO input handling. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2020, SMFSW </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a51f8dc48e82cf3ab005707955d596cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51f8dc48e82cf3ab005707955d596cef">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
+<a id="a7f970ef7e3749472e5e77dbea8d09062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f970ef7e3749472e5e77dbea8d09062">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -119,8 +119,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>logic</em>, </td>
+          <td class="paramtype">const GPIO_PinState&#160;</td>
+          <td class="paramname"><em>polarity</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -157,10 +157,10 @@ Functions</h2></td></tr>
 <p>Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- input instance to initialize </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance to initialize </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GPIOx</td><td>- port to read from </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GPIO_Pin</td><td>- pin to read from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logic</td><td>- set to 0 if active state is GND, 1 if Vdd </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">polarity</td><td>- set to GPIO_PIN_RESET if active state is GND, GPIO_PIN_SET if Vdd </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>- input filtering time </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">onSet</td><td>- Pointer to callback ON function </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">onReset</td><td>- Pointer to callback OFF function </td></tr>
@@ -171,16 +171,16 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph.png" border="0" usemap="#_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph" alt=""/></div>
-<map name="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph" id="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_cgraph">
+<div class="center"><img src="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_cgraph.png" border="0" usemap="#_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_cgraph" alt=""/></div>
+<map name="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_cgraph" id="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_cgraph">
 <area shape="rect" id="node2" href="_logic__ex_8c.html#a038342aba9ff5fa4be8feb4909badfb2" title="Initialize Logic_in instance. " alt="" coords="151,5,249,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_icgraph.png" border="0" usemap="#_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_icgraph" alt=""/></div>
-<map name="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_icgraph" id="_g_p_i_o__in_8c_a51f8dc48e82cf3ab005707955d596cef_icgraph">
+<div class="center"><img src="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_icgraph.png" border="0" usemap="#_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_icgraph" alt=""/></div>
+<map name="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_icgraph" id="_g_p_i_o__in_8c_a7f970ef7e3749472e5e77dbea8d09062_icgraph">
 <area shape="rect" id="node2" href="_g_p_i_o__in_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="151,5,289,32"/>
 </map>
 </div>

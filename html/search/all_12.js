@@ -10,5 +10,7 @@ var searchData=
   ['time_5ft2datetime',['time_t2DateTime',['../time__utils_8c.html#acf1569c77e083af101da12bd5d90a4ef',1,'time_t2DateTime(const time_t time):&#160;time_utils.c'],['../time__utils_8h.html#acf1569c77e083af101da12bd5d90a4ef',1,'time_t2DateTime(const time_t time):&#160;time_utils.c']]],
   ['time_5futils_2ec',['time_utils.c',['../time__utils_8c.html',1,'']]],
   ['time_5futils_2eh',['time_utils.h',['../time__utils_8h.html',1,'']]],
+  ['timeactive',['timeActive',['../struct_g_p_i_o__out.html#ac4f5d021c72bff9b48a5121f73191ea1',1,'GPIO_out']]],
+  ['timeinactive',['timeInactive',['../struct_g_p_i_o__out.html#a1c453eb40a09a89bda05a7f6afd3b898',1,'GPIO_out']]],
   ['tuesday',['Tuesday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a596327c453efea63ea26096bf041f630',1,'time_utils.h']]]
 ];

@@ -1,4 +1,5 @@
 <map id="GPIO_ex.h" name="GPIO_ex.h">
-<area shape="rect" id="node3" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="47,80,130,107"/>
-<area shape="rect" id="node4" href="$_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="99,155,188,181"/>
+<area shape="rect" id="node3" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="24,80,106,107"/>
+<area shape="rect" id="node5" href="$_g_p_i_o__out_8h.html" title="GPIO output handling. " alt="" coords="166,155,260,181"/>
+<area shape="rect" id="node4" href="$_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="52,155,142,181"/>
 </map>

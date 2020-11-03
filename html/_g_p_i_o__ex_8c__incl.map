@@ -1,5 +1,6 @@
 <map id="GPIO_ex.c" name="GPIO_ex.c">
-<area shape="rect" id="node3" href="$_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="76,229,165,256"/>
-<area shape="rect" id="node5" href="$_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="147,80,233,107"/>
-<area shape="rect" id="node6" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="146,155,229,181"/>
+<area shape="rect" id="node3" href="$_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="95,80,181,107"/>
+<area shape="rect" id="node5" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="97,155,179,181"/>
+<area shape="rect" id="node7" href="$_g_p_i_o__out_8h.html" title="GPIO output handling. " alt="" coords="239,229,333,256"/>
+<area shape="rect" id="node6" href="$_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="125,229,215,256"/>
 </map>

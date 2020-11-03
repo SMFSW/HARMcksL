@@ -15,6 +15,7 @@ var searchData=
   ['stack_5fdump',['stack_dump',['../stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291',1,'stack_utils.h']]],
   ['stack_5futils_2ec',['stack_utils.c',['../stack__utils_8c.html',1,'']]],
   ['stack_5futils_2eh',['stack_utils.h',['../stack__utils_8h.html',1,'']]],
+  ['start',['start',['../struct_g_p_i_o__out.html#a29de8a960545a93df38fea2938e19898',1,'GPIO_out']]],
   ['stdream_5f_5fuart_5ftx_5fit',['STDREAM__UART_TX_IT',['../_u_a_r_t__term_8h.html#a6a94e0fce19020e3f578df717a7106f2',1,'UART_term.h']]],
   ['stdream_5frdir_2ec',['stdream_rdir.c',['../stdream__rdir_8c.html',1,'']]],
   ['stdream_5frdir_2eh',['stdream_rdir.h',['../stdream__rdir_8h.html',1,'']]],

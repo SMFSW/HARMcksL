@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['idle',['idle',['../struct_g_p_i_o__out.html#ac4c163d550f7ba374fd5548dd1a87fc2',1,'GPIO_out']]],
   ['in',['in',['../struct_logic__in.html#adedd70bc22273f4439aadf8b8f5f9798',1,'Logic_in']]],
   ['indirect_5fpin',['Indirect_Pin',['../struct_p_w_m___i_c.html#aa2775e2ac2ad192eab048202f0979f2c',1,'PWM_IC']]],
+  ['infinite',['infinite',['../struct_g_p_i_o__out.html#ad35a3bd8142eb7302edc03c210e52c5b',1,'GPIO_out']]],
   ['init',['init',['../struct_p_w_m___g_p_i_o.html#a209ce3251789f99bc5d8546b739eec1d',1,'PWM_GPIO']]],
   ['init_5fpwm_5fchan',['init_PWM_Chan',['../_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c'],['../_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c']]],
   ['init_5fpwm_5fic',['init_PWM_IC',['../_p_w_m___i_c_8c.html#ae6d9cd006e7379672e6d480487e3445c',1,'init_PWM_IC(PWM_IC *const pPWM_IC, TIM_HandleTypeDef *const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale):&#160;PWM_IC.c'],['../_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c',1,'init_PWM_IC(PWM_IC *const pPWM_IC, TIM_HandleTypeDef *const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale):&#160;PWM_IC.c']]],

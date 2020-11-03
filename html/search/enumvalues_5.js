@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['march',['March',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a6514826513b9cfb1bf828001f1a8f246',1,'time_utils.h']]],
-  ['may',['May',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a56032654a15262d69e8be7d42a7ab381',1,'time_utils.h']]],
-  ['monday',['Monday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a455141191c205fb8f46e2e9da6b0dd47',1,'time_utils.h']]],
-  ['months_5fmax',['Months_Max',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0af2f81e140b8baa6cba927e8d08ecdbeb',1,'time_utils.h']]]
+  ['january',['January',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a281d1802d56d988c72678e156b6ddf86',1,'time_utils.h']]],
+  ['july',['July',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a4d7f4874d317b02a2f96fc0da6310d0f',1,'time_utils.h']]],
+  ['june',['June',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0aa00f035b8f40661118c16e2af3e61176',1,'time_utils.h']]]
 ];
