@@ -21,11 +21,11 @@
 /****************************************************************/
 
 #ifndef STDREAM__UART_TX_IT
-#if STDREAM_RDIR_SND_SYSCALLS && defined(USE_IO_PUTCHAR)
-#define STDREAM__UART_TX_IT		0			//!< Somehow useless if writing char by char using interrupt
+#if STDREAM_RDIR_SND_SYSCALLS
+#define STDREAM__UART_TX_IT		0			//!< Set to send to uart using interrupts
 #else
 //!\note STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
-#define STDREAM__UART_TX_IT		1			//!< To be defined to send to uart using interrupts
+#define STDREAM__UART_TX_IT		1			//!< Set to send to uart using interrupts
 #endif
 #endif
 

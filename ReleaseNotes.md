@@ -85,7 +85,8 @@ SOFTWARE.
 * stdream_rdir & UART_term: total overhaul (using syscalls to write data to stream). Backward compatibility kept, yet discouraged with a warning
 * stdream_rdir & UART_term: code cleanup, preprocessor directives fix and standard lib includes reviewed
 * stdream_rdir: some code added (not activated) & refactoring for syscalls use of input UART stream (only for test, not working, and not that relevant... Maybe removed soon)
-* stdream_rdir: removed init calls to setvbuf in _write (bottleneck in case of UART IT transmit) & __io_put_char
+* stdream_rdir: interrupt driven disabled for UART_TX when using syscalls redirection
+* UART_term: no watchdog refresh while waiting for UART to be ready in UART_Term_Wait_Ready
 
 ## v1.3
 

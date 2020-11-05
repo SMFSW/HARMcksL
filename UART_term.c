@@ -47,12 +47,7 @@ FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
 	#if STDREAM__UART_TX_IT
 		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }
 
-		while (huart->gState != HAL_UART_STATE_READY)
-		{
-			#if defined(HAL_IWDG_MODULE_ENABLED)
-				HAL_IWDG_Refresh(&hiwdg);
-			#endif
-		}
+		while (huart->gState != HAL_UART_STATE_READY);
 	#endif
 	return ERROR_OK;
 }
