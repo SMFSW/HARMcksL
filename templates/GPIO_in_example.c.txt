@@ -2,12 +2,12 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief GPIO_in example
-** \note Simple GPIO_ex.c example to handle different GPIO inputs with callbacks (on STM32F3)
+** \note Simple GPIO_in.c example to handle different GPIO inputs with callbacks
 **/
 
 #include "sarmfsw.h"
 
-#include "GPIO_ex.h"
+#include "GPIO_in.h"
 
 
 #define IN_B0_GPIO_Port GPIOB

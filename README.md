@@ -22,6 +22,7 @@ Use it at your own risk!
 - GPIO_in: GPIO input handling
   - example [GPIO_in_example.c](templates/GPIO_in_example.c.txt)/[GPIO_in_example.h](templates/GPIO_in_example.h.txt): GPIO_in example
 - GPIO_out: GPIO output handling
+  - example [GPIO_out_example.c](templates/GPIO_out_example.c.txt)/[GPIO_out_example.h](templates/GPIO_out_example.h.txt): GPIO_out example
 - Logic_ex: Extensions for logic variable handling
   - example [Logic_in_example.c](templates/Logic_in_example.c.txt)/[Logic_in_example.h](templates/Logic_in_example.h.txt): Logic_in example
 - PWM_IC: PWM Input Capture handling

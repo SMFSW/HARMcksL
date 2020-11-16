@@ -1,0 +1,77 @@
+/*!\file GPIO_in_example.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
+** \brief GPIO_out example
+** \note Simple GPIO_out.c example to handle different GPIO outputs
+**/
+
+#include "sarmfsw.h"
+
+#include "GPIO_out.h"
+
+
+#define OUT_B0_GPIO_Port GPIOB
+#define OUT_B0_Pin GPIO_PIN_0
+#define OUT_B1_GPIO_Port GPIOB
+#define OUT_B1_Pin GPIO_PIN_1
+#define OUT_B2_GPIO_Port GPIOB
+#define OUT_B2_Pin GPIO_PIN_2
+#define OUT_Bx_TIMER &htim6
+
+
+static GPIO_out out_B0;	//!< GPIO_out out_B0 instance structure declaration
+static GPIO_out out_B1;	//!< GPIO_out out_B1 instance structure declaration
+static GPIO_out out_B2;	//!< GPIO_out out_B2 instance structure declaration
+static GPIO_out * const GPIOs[] = { &out_B0, &out_B1, &out_B2 };	//!< GPIO_out pointers array (for handler loop)
+
+
+#ifndef GPIO_OUT_IT
+void GPIO_out_example_handler(void)
+#else
+void GPIO_out_example_init(void)
+#endif
+{
+	static bool init_io = false;
+
+	if (!init_io)
+	{
+		// Init outputs
+		GPIO_out_init(&out_B0, GPIO(OUT_B0), GPIO_PIN_SET);
+		GPIO_out_init(&out_B1, GPIO(OUT_B1), GPIO_PIN_SET);
+		GPIO_out_init(&out_B2, GPIO(OUT_B2), GPIO_PIN_SET);
+
+		// Start logic outputs with different modes
+		GPIO_out_SetStatic(&out_B0, Toggle, 5000);			// Set B0 after 5s
+		GPIO_out_StartBlink(&out_B1, Set, 0, 500, 250, 0);	// Blink B1 500ms On / 250ms Off indefinitely
+		GPIO_out_StartPulse(&out_B2, Set, 3000, 2000);		// Pulse on B2 after 3s, Set for 2s
+
+		init_io = true;
+	}
+
+	#ifndef GPIO_OUT_IT
+	for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_out *) ; i++)
+	{
+		GPIO_out_handler(GPIOs[i]);
+	}
+	#endif
+}
+
+
+#ifdef GPIO_OUT_IT
+/*!\brief Period elapsed callback in non blocking mode
+** \note This function is called when TIM interrupt took place, inside HAL_TIM_IRQHandler().
+** If multiple TIM peripheral use period callback interrupt, custom function is needed including code below.
+** Another way is to use callback registration with proper function name.
+** \param[in] htim - TIM handle
+**/
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim == OUT_Bx_TIMER)
+	{
+		for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_out *) ; i++)	// Needed if multiple PWM_GPIO instances using always same TIM peripheral
+		{
+			GPIO_out_handler(GPIOs[i]);
+		}
+	}
+}
+#endif

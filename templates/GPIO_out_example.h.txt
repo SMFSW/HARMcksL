@@ -1,0 +1,36 @@
+/*!\file GPIO_out_example.h
+** \author SMFSW
+** \copyright MIT (c) 2017-2020, SMFSW
+** \brief GPIO_out example
+** \note Simple GPIO_out.c example to handle different GPIO outputs
+**/
+/****************************************************************/
+#ifndef __GPIO_OUT_EXAMPLE_H
+	#define	__GPIO_OUT_EXAMPLE_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
+/****************************************************************/
+
+
+#ifndef GPIO_OUT_IT
+/*!\brief GPIO_out_example handler (handling of GPIO logic outputs)
+**/
+void GPIO_out_example_handler(void);
+#else
+/*!\brief GPIO_out_example init (handling of GPIO logic outputs)
+** \note Rest is done in TIM interrupts
+**/
+void GPIO_out_example_init(void);
+#endif
+
+
+/****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
+#endif /* __GPIO_OUT_EXAMPLE_H */
+/****************************************************************/
+

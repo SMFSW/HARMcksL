@@ -2,7 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief GPIO_in example
-** \note Simple GPIO_ex.c example to handle different GPIO inputs with callbacks (on STM32F3)
+** \note Simple GPIO_in.c example to handle different GPIO inputs with callbacks
 **/
 /****************************************************************/
 #ifndef __GPIO_IN_EXAMPLE_H
@@ -14,7 +14,7 @@
 /****************************************************************/
 
 
-/*!\brief GPIO_ex_ample handler (handling acquisition of inputs and callbacks)
+/*!\brief GPIO_in_example handler (handling acquisition of inputs and callbacks)
 ** \note Callbacks On declared with same function callback (to demonstrate use of passed argument GPIO_in *)
 ** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
 **/
