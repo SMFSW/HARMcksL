@@ -2,6 +2,8 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief GPIO output handling
+** \note Define GPIO_OUT_IT symbol at project level to use GPIO_out from timer interrupts (for more timing precision if required)
+** \note When using GPIO_out from interrupts, GPIO_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
 **/
 /****************************************************************/
 #ifndef __GPIO_OUT_H
@@ -31,7 +33,7 @@ typedef enum eGPIO_out_mode {
 ** \brief GPIO output structure
 **/
 typedef struct GPIO_out {
-	eGPIOState		currentState;	//!< Current GPIO state (Reset/Set)
+	__IO eGPIOState	currentState;	//!< Current GPIO state (Reset/Set)
 	eGPIOState		memState;		//!< Memorized GPIO state (Reset/Set), used after Pulse or Blink stop
 	eGPIO_out_mode	mode;			//!< Current GPIO mode
 	uint32_t		cnt;			//!< Blinking counter
@@ -43,7 +45,8 @@ typedef struct GPIO_out {
 	bool			infinite	:1;	//!< Infinite blinking (only if count received is 0 when starting Blink action)
 	bool			start		:1;	//!< Action start step
 	bool			active		:1;	//!< Pulse/Blink active phase
-	bool			idle		:1;	//!< Action state (idle / running)
+	bool			init		:1;	//!< Set to 1 when GPIO_out instance properly initialized
+	__IO bool		idle		:1;	//!< Action state (idle / running)
 	struct {
 	GPIO_TypeDef *	GPIOx;			//!< HAL GPIO instance
 	uint16_t		GPIO_Pin;		//!< HAL GPIO pin

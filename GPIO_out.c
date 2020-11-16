@@ -2,10 +2,19 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2020, SMFSW
 ** \brief GPIO output handling
+** \note Define GPIO_OUT_IT symbol at project level to use GPIO_out from timer interrupts (for more timing precision if required)
+** \note When using GPIO_out from interrupts, GPIO_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
 **/
 /****************************************************************/
 #include "GPIO_out.h"
 /****************************************************************/
+
+#ifdef GPIO_OUT_IT
+#ifndef GPIO_OUT_IT_PER
+#define GPIO_OUT_IT_PER		1000	//!< GPIO_OUT_IT_PER can be used to define TIM interrupt period in microseconds
+//!\note Define GPIO_OUT_IT_PER at project level to define custom TIM interrupt period (default set to 1000µs (most likely Systick))
+#endif
+#endif
 
 
 /*!\brief Set GPIO port value
@@ -37,6 +46,7 @@ void NONNULLX__(1, 2) GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const G
 	out->memState = Reset;
 	out->action = Reset;
 	out->idle = true;
+	out->init = true;
 
 	GPIO_setter(out);		// Immediately set to reset value
 }
@@ -46,7 +56,7 @@ FctERR NONNULL__ GPIO_out_Abort(GPIO_out * const out)
 {
 	FctERR err = ERROR_OK;
 
-	if (!out->idle)
+	if ((out->init) && (!out->idle))
 	{
 		err = GPIO_out_SetStatic(out, out->memState, 0);
 	}
@@ -66,9 +76,18 @@ FctERR NONNULL__ GPIO_out_Abort(GPIO_out * const out)
 ** \return Error code
 **/
 static FctERR NONNULL__ GPIO_out_Start(	GPIO_out * const out, const eGPIO_out_mode mode, const eGPIOState action,
-										const uint32_t delay, const uint32_t active, const uint32_t inactive, const uint32_t count)
+										uint32_t delay, uint32_t active, uint32_t inactive, const uint32_t count)
 {
+	if (!out->init)			{ return ERROR_INSTANCE; }
 	if (action > Toggle)	{ return ERROR_VALUE; }
+
+	#ifdef GPIO_OUT_IT
+	delay = (delay * GPIO_OUT_IT_PER) / 1000;
+	active = (active * GPIO_OUT_IT_PER) / 1000;
+	inactive = (inactive * GPIO_OUT_IT_PER) / 1000;
+
+	diInterrupts();
+	#endif
 
 	out->mode = mode;
 	out->action = action;
@@ -78,10 +97,19 @@ static FctERR NONNULL__ GPIO_out_Start(	GPIO_out * const out, const eGPIO_out_mo
 	out->infinite = count ? false : true;
 	out->cnt = count;
 
+	#ifdef GPIO_OUT_IT
+	out->hOut = 0;
+	#else
 	out->hOut = HALTicks();
+	#endif
+
 	out->start = true;
 	out->active = true;
 	out->idle = false;
+
+	#ifdef GPIO_OUT_IT
+	enInterrupts();
+	#endif
 
 	return ERROR_OK;
 }
@@ -99,10 +127,17 @@ FctERR NONNULL__ GPIO_out_StartBlink(	GPIO_out * const out, const eGPIOState act
 
 void NONNULL__ GPIO_out_handler(GPIO_out * const out)
 {
-	if (!out->idle)
+	if ((out->init) && (!out->idle))
 	{
+		#ifdef GPIO_OUT_IT
+		out->hOut++;	// Increment timer count
+
+		if (	(!out->delay)
+			||	(out->delay && (out->hOut > out->delay)))
+		#else
 		if (	(!out->delay)
 			||	(out->delay && (TPSSUP_MS(out->hOut, out->delay))))
+		#endif
 		{
 			out->delay = 0;
 
@@ -114,10 +149,18 @@ void NONNULL__ GPIO_out_handler(GPIO_out * const out)
 					{
 						GPIO_setter(out);
 						out->start = false;
+						#ifdef GPIO_OUT_IT
+						out->hOut = 0;
+						#else
 						out->hOut = HALTicks();
+						#endif
 					}
 
+					#ifdef GPIO_OUT_IT
+					if (out->hOut > out->timeActive)
+					#else
 					if (TPSSUP_MS(out->hOut, out->timeActive))
+					#endif
 					{
 						GPIO_out_Abort(out);
 						goto stop;	// Go back to memorized state in current cycle
@@ -134,14 +177,26 @@ void NONNULL__ GPIO_out_handler(GPIO_out * const out)
 						GPIO_setter(out);
 						out->action = Toggle;	// Force toggle if action set was Reset or Set
 						out->start = false;
+						#ifdef GPIO_OUT_IT
+						out->hOut = 0;
+						#else
 						out->hOut = HALTicks();
+						#endif
 					}
 
+					#ifdef GPIO_OUT_IT
+					if ((out->active) && (out->hOut > out->timeActive))
+					#else
 					if ((out->active) && (TPSSUP_MS(out->hOut, out->timeActive)))
+					#endif
 					{
 						set = true;
 					}
+					#ifdef GPIO_OUT_IT
+					else if ((!out->active) && (out->hOut > out->timeInactive))
+					#else
 					else if ((!out->active) && (TPSSUP_MS(out->hOut, out->timeInactive)))
+					#endif
 					{
 						if (--out->cnt == 0)
 						{
@@ -156,7 +211,11 @@ void NONNULL__ GPIO_out_handler(GPIO_out * const out)
 					{
 						GPIO_setter(out);
 						out->active ^= true;
+						#ifdef GPIO_OUT_IT
+						out->hOut = 0;
+						#else
 						out->hOut = HALTicks();
+						#endif
 					}
 				}
 				break;

@@ -50,6 +50,8 @@ SOFTWARE.
 * CRC_stm32: Added functions to compute and check STM32 CRC using CRC peripheral
 * flash_check: Added to check flash against computed CRC (using FLASH_SIZE defined in sarmfsw)
 * GPIO_out: GPIO_out module added
+* GPIO_out: init variable added in instance to ensure no action before instance properly initialized 
+* GPIO_out: GPIO_OUT_IT can be defined at project level to adapt code for handler called inside TIM interrupt
 * GPIO_ex: split between GPIO_ex and GPIO_in files (GPIO_in header included in GPIO_ex as a wrapper for all GPIO extensions)
 * GPIO_ex: On and Off callbacks have pointer to GPIO_in passed as argument (with fix to struct typedef instead of void*)
 * GPIO_ex: str_GPIO_name optimized
