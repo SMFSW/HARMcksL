@@ -74,9 +74,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a238a6ccdf2f478e47afef8e424a01a59"><td class="memItemLeft" align="right" valign="top">eGPIOState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#a238a6ccdf2f478e47afef8e424a01a59">currentState</a></td></tr>
-<tr class="memdesc:a238a6ccdf2f478e47afef8e424a01a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current GPIO state (Reset/Set)  <a href="#a238a6ccdf2f478e47afef8e424a01a59">More...</a><br /></td></tr>
-<tr class="separator:a238a6ccdf2f478e47afef8e424a01a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e3a0db14a0e06e6acc01ff462fe09e"><td class="memItemLeft" align="right" valign="top">volatile eGPIOState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#a87e3a0db14a0e06e6acc01ff462fe09e">currentState</a></td></tr>
+<tr class="memdesc:a87e3a0db14a0e06e6acc01ff462fe09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current GPIO state (Reset/Set)  <a href="#a87e3a0db14a0e06e6acc01ff462fe09e">More...</a><br /></td></tr>
+<tr class="separator:a87e3a0db14a0e06e6acc01ff462fe09e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81cedc4cb34b3993583bbf70d79ef842"><td class="memItemLeft" align="right" valign="top">eGPIOState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#a81cedc4cb34b3993583bbf70d79ef842">memState</a></td></tr>
 <tr class="memdesc:a81cedc4cb34b3993583bbf70d79ef842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memorized GPIO state (Reset/Set), used after Pulse or Blink stop.  <a href="#a81cedc4cb34b3993583bbf70d79ef842">More...</a><br /></td></tr>
 <tr class="separator:a81cedc4cb34b3993583bbf70d79ef842"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +110,12 @@ Data Fields</h2></td></tr>
 <tr class="memitem:aae9864afef15529f6edb8facf565377a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#aae9864afef15529f6edb8facf565377a">active</a>:1</td></tr>
 <tr class="memdesc:aae9864afef15529f6edb8facf565377a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pulse/Blink active phase.  <a href="#aae9864afef15529f6edb8facf565377a">More...</a><br /></td></tr>
 <tr class="separator:aae9864afef15529f6edb8facf565377a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4c163d550f7ba374fd5548dd1a87fc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#ac4c163d550f7ba374fd5548dd1a87fc2">idle</a>:1</td></tr>
-<tr class="memdesc:ac4c163d550f7ba374fd5548dd1a87fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action state (idle / running)  <a href="#ac4c163d550f7ba374fd5548dd1a87fc2">More...</a><br /></td></tr>
-<tr class="separator:ac4c163d550f7ba374fd5548dd1a87fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16db23d20bc13d015dfef3c3ccf1d3b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#a16db23d20bc13d015dfef3c3ccf1d3b1">init</a>:1</td></tr>
+<tr class="memdesc:a16db23d20bc13d015dfef3c3ccf1d3b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to 1 when <a class="el" href="struct_g_p_i_o__out.html" title="GPIO output structure. ">GPIO_out</a> instance properly initialized.  <a href="#a16db23d20bc13d015dfef3c3ccf1d3b1">More...</a><br /></td></tr>
+<tr class="separator:a16db23d20bc13d015dfef3c3ccf1d3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff45c0222616378659e6ace51182e071"><td class="memItemLeft" align="right" valign="top">volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__out.html#aff45c0222616378659e6ace51182e071">idle</a>:1</td></tr>
+<tr class="memdesc:aff45c0222616378659e6ace51182e071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action state (idle / running)  <a href="#aff45c0222616378659e6ace51182e071">More...</a><br /></td></tr>
+<tr class="separator:aff45c0222616378659e6ace51182e071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28756a71e87f028f0a6bdaddf3554dbd"><td class="memItemLeft" >struct {</td></tr>
 <tr class="memitem:a789ba80be3909e54accda9407ed9b6c6"><td class="memItemLeft" >&#160;&#160;&#160;GPIO_TypeDef *&#160;&#160;&#160;<a class="el" href="struct_g_p_i_o__out.html#ada3254c68dab22cfa7fcd9e3c84c2d00">GPIOx</a></td></tr>
 <tr class="memdesc:a789ba80be3909e54accda9407ed9b6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">HAL GPIO instance.  <a href="#a789ba80be3909e54accda9407ed9b6c6">More...</a><br /></td></tr>
@@ -191,14 +194,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a238a6ccdf2f478e47afef8e424a01a59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a238a6ccdf2f478e47afef8e424a01a59">&#9670;&nbsp;</a></span>currentState</h2>
+<a id="a87e3a0db14a0e06e6acc01ff462fe09e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e3a0db14a0e06e6acc01ff462fe09e">&#9670;&nbsp;</a></span>currentState</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">eGPIOState GPIO_out::currentState</td>
+          <td class="memname">volatile eGPIOState GPIO_out::currentState</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -271,14 +274,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4c163d550f7ba374fd5548dd1a87fc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4c163d550f7ba374fd5548dd1a87fc2">&#9670;&nbsp;</a></span>idle</h2>
+<a id="aff45c0222616378659e6ace51182e071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff45c0222616378659e6ace51182e071">&#9670;&nbsp;</a></span>idle</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool GPIO_out::idle</td>
+          <td class="memname">volatile bool GPIO_out::idle</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -300,6 +303,22 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Infinite blinking (only if count received is 0 when starting Blink action) </p>
+
+</div>
+</div>
+<a id="a16db23d20bc13d015dfef3c3ccf1d3b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16db23d20bc13d015dfef3c3ccf1d3b1">&#9670;&nbsp;</a></span>init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPIO_out::init</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set to 1 when <a class="el" href="struct_g_p_i_o__out.html" title="GPIO output structure. ">GPIO_out</a> instance properly initialized. </p>
 
 </div>
 </div>
