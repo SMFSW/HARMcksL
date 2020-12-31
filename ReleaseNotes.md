@@ -62,7 +62,7 @@ SOFTWARE.
 * PWM: split between PWM and PWM_GPIO files (PWM_GPIO module function and types names refactored)
 * PWM: Set preload configuration bit when initializing PWM channel
 * PWM: changed pre-comp test for consistency
-* PWM: set_PWM_Duty_Scaled calulations now only using integers
+* PWM: set_PWM_Duty_Scaled calculations now only using integers
 * PWM: more precision when trying to set TIM frequency (still 16b max)
 * PMW: logic PWM getters now returns value directly instead of using pointer in function parameters
 * PWM: added start_polarity parameter in init_PWM_Chan (to ensure there is no glitch with wrong polarity at PWM engine start)
@@ -93,7 +93,7 @@ SOFTWARE.
 ## v1.3
 
 * Adding support for doxygen documentation generation with Travis CI
-* added const qualifier to more function paramaters
+* added const qualifier to more function parameters
 * pattern2d: added linearization patterns
 * UART_term & stdream_rdir: use UART_REDIRECT define to enable UART redirection
 * uart_term: SERIAL_DBG_Wait_Ready returns ERROR_NOTAVAIL when UART not initialized

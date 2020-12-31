@@ -78,7 +78,6 @@ int NONNULL__ vprintf_ITM(char * str, va_list args);
 
 
 #if !STDREAM_RDIR_SND_SYSCALLS
-// General printf & vprintf redirection, will flood all enabled ports (at the cost of speed)
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
 ** \param[in] str - pointer to string to send
 ** \param[in] ... - Variadic string arguments
@@ -97,6 +96,7 @@ int	NONNULL__ printf_redir(char * str, ...);
 **/
 int	NONNULL__ vprintf_redir(char * str, va_list args);
 #endif
+
 
 /****************************************************************/
 #ifdef __cplusplus

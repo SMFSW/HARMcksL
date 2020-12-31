@@ -13,12 +13,12 @@
 
 FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size)
 {
-	div_t			len;
-	uint8_t *		dat8 = NULL;
-	uint16_t *		dat16 = NULL;
-	uint32_t *		dat32 = NULL;
+	div_t		len;
+	uint8_t *	dat8 = NULL;
+	uint16_t *	dat16 = NULL;
+	uint32_t *	dat32 = NULL;
 
-	if  (feed_size == CRC_Feed_DWORD)		{ dat32 = (uint32_t *) start_addr; }
+	if (feed_size == CRC_Feed_DWORD)		{ dat32 = (uint32_t *) start_addr; }
 	else if (feed_size == CRC_Feed_WORD)	{ dat16 = (uint16_t *) start_addr; }
 	else if (feed_size == CRC_Feed_BYTE)	{ dat8 = (uint8_t *) start_addr; }
 	else									{ return ERROR_VALUE; }
@@ -26,8 +26,7 @@ FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size,
 	len = div(size, feed_size);
 	if (len.rem)	{ return ERROR_COMMON; }
 
-	// Enable CRC
-	__HAL_RCC_CRC_CLK_ENABLE();
+	__HAL_RCC_CRC_CLK_ENABLE();	// Enable CRC
 
 	CRC->CR |= CRC_CR_RESET;
 
@@ -40,8 +39,7 @@ FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size,
 
 	*crc = CRC->DR;
 
-	// Disable CRC
-	__HAL_RCC_CRC_CLK_DISABLE();
+	__HAL_RCC_CRC_CLK_DISABLE();	// Disable CRC
 
 	return ERROR_OK;
 }

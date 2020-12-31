@@ -86,7 +86,11 @@ static FctERR NONNULL__ GPIO_out_Start(	GPIO_out * const out, const eGPIO_out_mo
 	active = (active * GPIO_OUT_IT_PER) / 1000;
 	inactive = (inactive * GPIO_OUT_IT_PER) / 1000;
 
+	out->hOut = 0;
+
 	diInterrupts();
+	#else
+	out->hOut = HALTicks();
 	#endif
 
 	out->mode = mode;
@@ -96,12 +100,6 @@ static FctERR NONNULL__ GPIO_out_Start(	GPIO_out * const out, const eGPIO_out_mo
 	out->timeInactive = inactive;
 	out->infinite = count ? false : true;
 	out->cnt = count;
-
-	#ifdef GPIO_OUT_IT
-	out->hOut = 0;
-	#else
-	out->hOut = HALTicks();
-	#endif
 
 	out->start = true;
 	out->active = true;

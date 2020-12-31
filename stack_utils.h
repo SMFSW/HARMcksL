@@ -186,7 +186,6 @@ __INLINE void INLINE__ stack_dump(void) {
 	print_stack_address(); }
 
 
-
 /****************************************************************/
 #ifdef __cplusplus
 	}
