@@ -1,6 +1,6 @@
 /*!\file GPIO_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Extensions for GPIOs (R/W)
 **/
 /****************************************************************/

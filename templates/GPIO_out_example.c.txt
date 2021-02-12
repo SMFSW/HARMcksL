@@ -1,6 +1,6 @@
 /*!\file GPIO_in_example.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief GPIO_out example
 ** \note Simple GPIO_out.c example to handle different GPIO outputs
 **/

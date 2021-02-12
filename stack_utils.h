@@ -1,6 +1,6 @@
 /*!\file stack_utils.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Stack utilities
 **/
 /****************************************************************/

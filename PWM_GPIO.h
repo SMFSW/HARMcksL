@@ -1,6 +1,6 @@
 /*!\file PWM_GPIO.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief GPIO PWM emulation handling
 ** \details PWM_GPIO configuration:
 ** TIM with enabled period callback interrupt shall be used (as time base for PWM emulation)

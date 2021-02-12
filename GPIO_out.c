@@ -1,6 +1,6 @@
 /*!\file GPIO_out.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief GPIO output handling
 ** \note Define GPIO_OUT_IT symbol at project level to use GPIO_out from timer interrupts (for more timing precision if required)
 ** \note When using GPIO_out from interrupts, GPIO_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)

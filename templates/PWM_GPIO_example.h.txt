@@ -1,6 +1,6 @@
 /*!\file PWM_GPIO_example.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief PWM_GPIO example
 ** \note Simple PWM.c example to handle Logic output acting as PWM (requiring a TIM instance with interrupts enabled)
 **/

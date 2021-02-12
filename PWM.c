@@ -1,6 +1,6 @@
 /*!\file PWM.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Straightforward PWM handling
 **/
 /****************************************************************/

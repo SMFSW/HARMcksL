@@ -1,6 +1,6 @@
 /*!\file TIM_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2020, SMFSW
+** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
