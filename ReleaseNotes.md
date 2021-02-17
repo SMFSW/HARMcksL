@@ -23,6 +23,10 @@ SOFTWARE.
 ## v1.5
 
 * WDG_ex: added
+* WDG_ex: updated to work with single core families (dual core will have to be implemented later)
+* stdream_rdir & UART_Term: sending without using interrupts by default and comments added
+* stdream_rdir: stdout_no_buffer inline added with comments to explain behaviors
+* stdream_rdir: fix in __io_putchar code
 
 ## v1.4
 

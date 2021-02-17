@@ -4,6 +4,9 @@
 ** \brief Stream redirection
 ** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
 ** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
+** \warning By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when
+**			'\\n' (new line) character is sent to buffer. To override this behavior, \ref stdout_no_buffer has to be called once
+**			in init routine to disable buffering, thus processing characters as they come.
 */
 /****************************************************************/
 #include <stdio.h>
@@ -37,7 +40,8 @@ int __io_putchar(int ch)
 	#endif
 
 	#if defined(HAL_UART_MODULE_ENABLED) && defined(UART_REDIRECT)
-	if (UART_Term_Send(dbg_uart, ptr, len))	{ return -1; }
+	const char snd = ch;
+	if (UART_Term_Send(dbg_uart, &snd, 1))	{ return -1; }
 	#endif
 
 	return ch;

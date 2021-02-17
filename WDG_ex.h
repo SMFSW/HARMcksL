@@ -24,10 +24,19 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*!\brief Check IWDG & WWDG status
+** \warning This function have to be called once at the end of your init routine prior to use \ref WDG_freeze & \ref WDG_unfreeze functions.
+**/
 void WDG_init_check(void);
 
+/*!\brief Freeze IWDG & WWDG
+** \note Watchdogs will be frozen only if enabled by init (checked by \ref WDG_init_check).
+**/
 void WDG_freeze(void);
 
+/*!\brief Unfreeze IWDG & WWDG
+** \note Watchdogs will be unfrozen only if enabled by init (checked by \ref WDG_init_check).
+**/
 void WDG_unfreeze(void);
 
 

@@ -21,12 +21,9 @@
 /****************************************************************/
 
 #ifndef STDREAM__UART_TX_IT
-#if STDREAM_RDIR_SND_SYSCALLS
-#define STDREAM__UART_TX_IT		0			//!< Set to send to uart using interrupts
-#else
 //!\note STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
-#define STDREAM__UART_TX_IT		1			//!< Set to send to uart using interrupts
-#endif
+//!\warning Do not change this if intending to send messages inside interrupts!
+#define STDREAM__UART_TX_IT		0			//!< Set to send to uart not using interrupts
 #endif
 
 #ifndef SZ_DBG_IN

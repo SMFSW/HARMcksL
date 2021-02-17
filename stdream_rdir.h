@@ -4,6 +4,9 @@
 ** \brief Stream redirection
 ** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
 ** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
+** \warning By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when
+**			'\\n' (new line) character is sent to buffer. To override this behavior, \ref stdout_no_buffer has to be called once
+**			in init routine to disable buffering, thus processing characters as they come.
 */
 /****************************************************************/
 #ifndef __STDREAM_RDIR_H
@@ -12,6 +15,8 @@
 #ifdef __cplusplus
 	extern "C" {
 #endif
+
+#include <stdio.h>
 
 #include "sarmfsw.h"
 /****************************************************************/
@@ -42,6 +47,16 @@
 //!\note SZ_DBG_OUT can be defined at project level to define debug transmit buffer size (for ITM and/or if STDREAM_RDIR_SND_SYSCALLS is not used)
 #define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
 #endif
+
+#else
+
+/*!\brief Change stdout buffer state to no buffering, allowing to send any char written to stream on the fly.
+** \note If this inline is not called once, strings will be written to stream only when '\\n' (new line) is written to buffer.
+** \note Please keep in mind that disabling buffering will call _write once for every character vs once for every buffered line when buffering is enabled.
+**/
+__INLINE void INLINE__ stdout_no_buffer(void) {
+	setvbuf(stdout, NULL, _IONBF, 0); }
+
 #endif
 
 
