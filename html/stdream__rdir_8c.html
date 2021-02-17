@@ -78,8 +78,8 @@ Include dependency graph for stdream_rdir.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="stdream__rdir_8c__incl.png" border="0" usemap="#stdream__rdir_8c" alt=""/></div>
 <map name="stdream__rdir_8c" id="stdream__rdir_8c">
-<area shape="rect" id="node4" href="_u_a_r_t__term_8h.html" title="UART terminal header. " alt="" coords="147,80,252,107"/>
-<area shape="rect" id="node5" href="stdream__rdir_8h.html" title="Stream redirection. " alt="" coords="277,80,391,107"/>
+<area shape="rect" id="node4" href="_u_a_r_t__term_8h.html" title="UART terminal header. " alt="" coords="221,80,327,107"/>
+<area shape="rect" id="node5" href="stdream__rdir_8h.html" title="Stream redirection. " alt="" coords="31,80,146,107"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -96,6 +96,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port </dd>
 <dd>
 define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when '\n' (new line) character is sent to buffer. To override this behavior, <a class="el" href="stdream__rdir_8h.html#a4fa5134f5045eb444c36ffa8c7c81f32">stdout_no_buffer</a> has to be called once in init routine to disable buffering, thus processing characters as they come. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa025a12d45f60c7d0eae249e61f0c7f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa025a12d45f60c7d0eae249e61f0c7f9">&#9670;&nbsp;</a></span>_write()</h2>

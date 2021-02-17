@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tim_5fmin_5fgranularity',['TIM_MIN_GRANULARITY',['../_t_i_m__ex_8c.html#a555d281f5132cd6c1e0f325c55471aa1',1,'TIM_ex.c']]]
+  ['reg_5fapb1',['REG_APB1',['../_w_d_g__ex_8c.html#a44d6d1e6db3ff64f66c9c591a5977729',1,'WDG_ex.c']]]
 ];

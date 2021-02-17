@@ -61,7 +61,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">stdream_rdir.h File Reference</div>  </div>
 </div><!--header-->
@@ -69,7 +70,8 @@ $(function() {
 
 <p>Stream redirection.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;sarmfsw.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for stdream_rdir.h:</div>
 <div class="dyncontent">
@@ -97,6 +99,12 @@ Macros</h2></td></tr>
 <tr class="separator:af6d20ae1acc459a1cfe75e05d6172b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc71850e867bb1c62aafa097368ed066"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8h.html#acc71850e867bb1c62aafa097368ed066">STDREAM_RDIR_RCV_SYSCALLS</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:acc71850e867bb1c62aafa097368ed066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4fa5134f5045eb444c36ffa8c7c81f32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdream__rdir_8h.html#a4fa5134f5045eb444c36ffa8c7c81f32">stdout_no_buffer</a> (void)</td></tr>
+<tr class="memdesc:a4fa5134f5045eb444c36ffa8c7c81f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change stdout buffer state to no buffering, allowing to send any char written to stream on the fly.  <a href="#a4fa5134f5045eb444c36ffa8c7c81f32">More...</a><br /></td></tr>
+<tr class="separator:a4fa5134f5045eb444c36ffa8c7c81f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stream redirection. </p>
@@ -105,6 +113,7 @@ Macros</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port </dd>
 <dd>
 define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when '\n' (new line) character is sent to buffer. To override this behavior, <a class="el" href="stdream__rdir_8h.html#a4fa5134f5045eb444c36ffa8c7c81f32">stdout_no_buffer</a> has to be called once in init routine to disable buffering, thus processing characters as they come. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="acc71850e867bb1c62aafa097368ed066"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc71850e867bb1c62aafa097368ed066">&#9670;&nbsp;</a></span>STDREAM_RDIR_RCV_SYSCALLS</h2>
@@ -135,6 +144,38 @@ define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to
 <dl class="section note"><dt>Note</dt><dd>STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscalls implementation preferred, shadowing being deprecated) </dd>
 <dd>
 Define USE_IO_PUTCHAR at project level also for __io_putchar implementation instead of full _write implementation (from syscalls) </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4fa5134f5045eb444c36ffa8c7c81f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa5134f5045eb444c36ffa8c7c81f32">&#9670;&nbsp;</a></span>stdout_no_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stdout_no_buffer </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Change stdout buffer state to no buffering, allowing to send any char written to stream on the fly. </p>
+<dl class="section note"><dt>Note</dt><dd>If this inline is not called once, strings will be written to stream only when '\n' (new line) is written to buffer. </dd>
+<dd>
+Please keep in mind that disabling buffering will call _write once for every character vs once for every buffered line when buffering is enabled. </dd></dl>
 
 </div>
 </div>
