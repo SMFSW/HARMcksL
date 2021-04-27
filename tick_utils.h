@@ -26,7 +26,7 @@
 ** \note Debug Trace peripheral timer only: On some Cortex cores, need to enable access to DWT prior to init and use of delays (automatically done only for M7 core).
 ** \return HAL Status
 **/
-HAL_StatusTypeDef init_Delay(void);
+HAL_StatusTypeDef init_Delay_Generator(void);
 
 /*!\brief Microseconds delay generator (blocking)
 ** \note Please keep in mind Delay_us is blocking code execution for the given amount of time (except interrupts).
