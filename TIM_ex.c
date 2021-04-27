@@ -2,6 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Extensions for TIM peripherals
+** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 ** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
 /****************************************************************/
@@ -186,6 +187,23 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 	pTim->Init.Period = period;
 	pTim->Init.Prescaler = prescaler;
+
+	return HAL_TIM_Base_Init(pTim);
+}
+
+
+HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
+{
+	assert_param(IS_TIM_INSTANCE(pTim->Instance));
+
+	if (	(pTim->Instance == TIM2)
+	#if defined(TIM5)
+		||	(pTim->Instance == TIM5)
+	#endif
+		)	{ pTim->Init.Period = 0xFFFFFFFF; }							// Set to max period for 32b timers
+	else	{ pTim->Init.Period = 0xFFFF; }								// Max to max period for 16b timers
+
+	pTim->Init.Prescaler = (get_TIM_clock(pTim) / freq) - 1;			// Get prescaler value adjusted to desired frequency
 
 	return HAL_TIM_Base_Init(pTim);
 }

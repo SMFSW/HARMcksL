@@ -2,6 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Extensions for TIM peripherals
+** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 ** \warning Shall work for all STM32 F/G families, L/H families not totally covered
 **/
 /****************************************************************/
@@ -74,6 +75,14 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 ** \return HAL Status
 **/
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq);
+
+/*!\brief Set TIM module tick frequency
+** \note This function sets TIM period to maximum value (which is most likely what is needed in such a configuration case)
+** \param[in,out] pTim - pointer to TIM instance for Frequency computation
+** \param[in] freq - Desired TIM tick frequency
+** \return HAL Status
+**/
+HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq);
 
 
 /****************************************************************/

@@ -27,6 +27,10 @@ SOFTWARE.
 * stdream_rdir & UART_Term: sending without using interrupts by default and comments added
 * stdream_rdir: stdout_no_buffer inline added with comments to explain behaviors
 * stdream_rdir: fix in __io_putchar code
+* tick_utils: init function added (for consistency with the use of a TIM instance)
+* tick_utils: possibility added to use a TIM peripheral instance for us delay generation (for M0/M0+ cores, or on purpose for other cores)
+* tick_utils: added Delay_ms function
+* TIM_ex: set_TIM_Tick_Freq added to set a TIM peripheral to get a free running counter with desired tick frequency
 
 ## v1.4
 

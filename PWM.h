@@ -2,6 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2021, SMFSW
 ** \brief Straightforward PWM handling
+** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 **/
 /****************************************************************/
 #ifndef __PWM_H
