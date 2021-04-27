@@ -7,6 +7,7 @@ var searchData=
   ['set_5fpwm_5foutput',['set_PWM_Output',['../_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed',1,'PWM.h']]],
   ['set_5ftim_5ffreq',['set_TIM_Freq',['../_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a',1,'set_TIM_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a',1,'set_TIM_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c']]],
   ['set_5ftim_5finterrupts',['set_TIM_Interrupts',['../_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222',1,'TIM_ex.h']]],
+  ['set_5ftim_5ftick_5ffreq',['set_TIM_Tick_Freq',['../_t_i_m__ex_8c.html#a4c168ead34c92ecee7af12cec4bd91d1',1,'set_TIM_Tick_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1',1,'set_TIM_Tick_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c']]],
   ['setbreakout_5fchar',['setBreakout_char',['../_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a',1,'UART_term.h']]],
   ['stack_5fdump',['stack_dump',['../stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291',1,'stack_utils.h']]],
   ['stdout_5fno_5fbuffer',['stdout_no_buffer',['../stdream__rdir_8h.html#a4fa5134f5045eb444c36ffa8c7c81f32',1,'stdream_rdir.h']]],

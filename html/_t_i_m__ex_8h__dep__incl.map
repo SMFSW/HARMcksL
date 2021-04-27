@@ -2,5 +2,6 @@
 <area shape="rect" id="node2" href="$_p_w_m_8c.html" title="Straightforward PWM handling. " alt="" coords="5,80,68,107"/>
 <area shape="rect" id="node3" href="$_p_w_m___g_p_i_o_8c.html" title="GPIO PWM emulation handling. " alt="" coords="92,80,192,107"/>
 <area shape="rect" id="node4" href="$_p_w_m___i_c_8c.html" title="PWM Input Capture handling. " alt="" coords="215,80,298,107"/>
-<area shape="rect" id="node5" href="$_t_i_m__ex_8c.html" title="Extensions for TIM peripherals. " alt="" coords="323,80,399,107"/>
+<area shape="rect" id="node5" href="$tick__utils_8c.html" title="Core ticks related utilities. " alt="" coords="322,80,410,107"/>
+<area shape="rect" id="node6" href="$_t_i_m__ex_8c.html" title="Extensions for TIM peripherals. " alt="" coords="435,80,511,107"/>
 </map>

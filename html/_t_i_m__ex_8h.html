@@ -85,7 +85,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node2" href="_p_w_m_8c.html" title="Straightforward PWM handling. " alt="" coords="5,80,68,107"/>
 <area shape="rect" id="node3" href="_p_w_m___g_p_i_o_8c.html" title="GPIO PWM emulation handling. " alt="" coords="92,80,192,107"/>
 <area shape="rect" id="node4" href="_p_w_m___i_c_8c.html" title="PWM Input Capture handling. " alt="" coords="215,80,298,107"/>
-<area shape="rect" id="node5" href="_t_i_m__ex_8c.html" title="Extensions for TIM peripherals. " alt="" coords="323,80,399,107"/>
+<area shape="rect" id="node5" href="tick__utils_8c.html" title="Core ticks related utilities. " alt="" coords="322,80,410,107"/>
+<area shape="rect" id="node6" href="_t_i_m__ex_8c.html" title="Extensions for TIM peripherals. " alt="" coords="435,80,511,107"/>
 </map>
 </div>
 </div>
@@ -114,12 +115,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a3126b49c3c05b2111887981d7f11597a"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a">set_TIM_Freq</a> (TIM_HandleTypeDef *const pTim, const uint32_t freq)</td></tr>
 <tr class="memdesc:a3126b49c3c05b2111887981d7f11597a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module frequency.  <a href="#a3126b49c3c05b2111887981d7f11597a">More...</a><br /></td></tr>
 <tr class="separator:a3126b49c3c05b2111887981d7f11597a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c168ead34c92ecee7af12cec4bd91d1"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1">set_TIM_Tick_Freq</a> (TIM_HandleTypeDef *const pTim, const uint32_t freq)</td></tr>
+<tr class="memdesc:a4c168ead34c92ecee7af12cec4bd91d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TIM module tick frequency.  <a href="#a4c168ead34c92ecee7af12cec4bd91d1">More...</a><br /></td></tr>
+<tr class="separator:a4c168ead34c92ecee7af12cec4bd91d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extensions for TIM peripherals. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2021, SMFSW </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Shall work for all STM32 F/G families, L/H families not totally covered </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Init functions assume that TIM peripherals instance were already configured by HAL </dd>
+<dd>
+Shall work for all STM32 F/G families, L/H families not totally covered </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab8dee9f45123fb0407ae75554df0721c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8dee9f45123fb0407ae75554df0721c">&#9670;&nbsp;</a></span>deinit_TIM_Base()</h2>
@@ -158,11 +164,12 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_i_m__ex_8h_ab8dee9f45123fb0407ae75554df0721c_cgraph.png" border="0" usemap="#_t_i_m__ex_8h_ab8dee9f45123fb0407ae75554df0721c_cgraph" alt=""/></div>
 <map name="_t_i_m__ex_8h_ab8dee9f45123fb0407ae75554df0721c_cgraph" id="_t_i_m__ex_8h_ab8dee9f45123fb0407ae75554df0721c_cgraph">
-<area shape="rect" id="node2" href="_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="333,5,472,32"/>
-<area shape="rect" id="node3" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="177,56,285,83"/>
-<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="179,107,283,133"/>
-<area shape="rect" id="node4" href="_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="351,56,455,83"/>
-<area shape="rect" id="node5" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="520,81,631,108"/>
+<area shape="rect" id="node2" href="_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="360,5,499,32"/>
+<area shape="rect" id="node3" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="191,56,299,83"/>
+<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="377,107,481,133"/>
+<area shape="rect" id="node7" href="_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1" title="Set TIM module tick frequency. " alt="" coords="177,157,312,184"/>
+<area shape="rect" id="node4" href="_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="377,56,481,83"/>
+<area shape="rect" id="node5" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="547,107,657,133"/>
 </map>
 </div>
 
@@ -199,12 +206,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_i_m__ex_8h_ad8048c17830084ea0c22bd16af8476d7_icgraph.png" border="0" usemap="#_t_i_m__ex_8h_ad8048c17830084ea0c22bd16af8476d7_icgraph" alt=""/></div>
 <map name="_t_i_m__ex_8h_ad8048c17830084ea0c22bd16af8476d7_icgraph" id="_t_i_m__ex_8h_ad8048c17830084ea0c22bd16af8476d7_icgraph">
-<area shape="rect" id="node2" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="483,5,627,32"/>
-<area shape="rect" id="node3" href="_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c" title="Init PWM Input Capture channel. " alt="" coords="167,31,265,57"/>
-<area shape="rect" id="node4" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="164,81,268,108"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="316,31,435,57"/>
-<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="321,81,429,108"/>
-<area shape="rect" id="node7" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="493,107,617,133"/>
+<area shape="rect" id="node2" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="499,32,643,58"/>
+<area shape="rect" id="node3" href="_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c" title="Init PWM Input Capture channel. " alt="" coords="167,32,265,58"/>
+<area shape="rect" id="node4" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="164,82,268,109"/>
+<area shape="rect" id="node8" href="_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1" title="Set TIM module tick frequency. " alt="" coords="316,184,451,210"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="324,32,443,58"/>
+<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="329,82,437,109"/>
+<area shape="rect" id="node7" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="509,133,633,160"/>
 </map>
 </div>
 
@@ -375,6 +383,61 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="192,5,300,32"/>
 <area shape="rect" id="node4" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="358,56,482,83"/>
 <area shape="rect" id="node3" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="348,5,492,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4c168ead34c92ecee7af12cec4bd91d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c168ead34c92ecee7af12cec4bd91d1">&#9670;&nbsp;</a></span>set_TIM_Tick_Freq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef set_TIM_Tick_Freq </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *const&#160;</td>
+          <td class="paramname"><em>pTim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>freq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set TIM module tick frequency. </p>
+<dl class="section note"><dt>Note</dt><dd>This function sets TIM period to maximum value (which is most likely what is needed in such a configuration case) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pTim</td><td>- pointer to TIM instance for Frequency computation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">freq</td><td>- Desired TIM tick frequency </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_cgraph.png" border="0" usemap="#_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_cgraph" alt=""/></div>
+<map name="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_cgraph" id="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_cgraph">
+<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="188,5,299,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_icgraph.png" border="0" usemap="#_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_icgraph" alt=""/></div>
+<map name="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_icgraph" id="_t_i_m__ex_8h_a4c168ead34c92ecee7af12cec4bd91d1_icgraph">
+<area shape="rect" id="node2" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="188,5,312,32"/>
 </map>
 </div>
 
