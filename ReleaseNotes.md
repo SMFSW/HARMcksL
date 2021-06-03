@@ -22,6 +22,8 @@ SOFTWARE.
 
 ## v1.5
 
+* Logic_ex: Masking read value after shifting, otherwise value can be in set state if higher significant bit is set in monitored variable
+* Logic_ex: Read is done prior to treatment (treatment is executed in the current call of Logic_in_handler without further delay)
 * WDG_ex: added
 * WDG_ex: updated to work with single core families (dual core will have to be implemented later)
 * stdream_rdir & UART_Term: sending without using interrupts by default and comments added

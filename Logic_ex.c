@@ -30,6 +30,17 @@ void NONNULLX__(1, 2) Logic_in_init(Logic_in * const in,
 
 void NONNULL__ Logic_in_handler(Logic_in * const in)
 {
+	const bool val = in->cfg.get ? RSHIFT(in->cfg.get(in), in->cfg.pos) & 1U : false;
+	if (val == in->cfg.logic)
+	{
+		if (TPSSUP_MS(in->hIn, in->cfg.filt))	{ in->in = true; }
+	}
+	else
+	{
+		in->in = false;
+		in->hIn = HALTicks();
+	}
+
 	if (in->in == in->mem)
 	{
 		in->edge = NoEdge;
@@ -50,16 +61,5 @@ void NONNULL__ Logic_in_handler(Logic_in * const in)
 	}
 
 	in->mem = in->in;
-
-	const bool val = in->cfg.get ? (bool) RSHIFT(in->cfg.get(in), in->cfg.pos) : false;
-	if (val == in->cfg.logic)
-	{
-		if (TPSSUP_MS(in->hIn, in->cfg.filt))	{ in->in = true; }
-	}
-	else
-	{
-		in->in = false;
-		in->hIn = HALTicks();
-	}
 }
 
