@@ -26,6 +26,7 @@ SOFTWARE.
 * Logic_ex: Read is done prior to treatment (treatment is executed in the current call of Logic_in_handler without further delay)
 * WDG_ex: added
 * WDG_ex: updated to work with single core families (dual core will have to be implemented later)
+* WDG_ex: fixes for G0 family & WWDG (in general)
 * stdream_rdir & UART_Term: sending without using interrupts by default and comments added
 * stdream_rdir: stdout_no_buffer inline added with comments to explain behaviors
 * stdream_rdir: fix in __io_putchar code

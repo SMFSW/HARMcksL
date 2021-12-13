@@ -17,18 +17,25 @@
 
 #if defined(STM32F1)
 #define REG_APB1	DBGMCU->CR
+#define NAME_DBG	DBGMCU_
 #define NAME_APB1	CR
+#elif defined(STM32G0)
+#define REG_APB1	DBG->APBFZ1
+#define NAME_DBG	DBG_
+#define NAME_APB1	APB_FZ1
 #elif defined(STM32G4) || defined(STM32L4) || defined(STM32L5) || defined(STM32WB)
 #define REG_APB1	DBGMCU->APB1FZR1
+#define NAME_DBG	DBGMCU_
 #define NAME_APB1	APB1FZR1
 #elif defined(STM32H7)
-#warning "STM32H7 Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon..."
+#warning "STM32H7 Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon...Maybe."
 #elif defined(STM32MP1)
-#warning "STM32MP1 Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon..."
+#warning "STM32MP1 Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon...Maybe."
 #elif defined(STM32WL)
-#warning "STM32WL Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon..."
+#warning "STM32WL Family wdgs have to be handled differently because of dual core & dual wdgs! Coming soon...Maybe."
 #elif (!(defined(STM32H7) || defined(STM32MP1) || defined(STM32WL)))
 #define REG_APB1	DBGMCU->APB1FZ
+#define NAME_DBG	DBGMCU_
 #define NAME_APB1	APB1_FZ
 #endif
 
@@ -68,10 +75,10 @@ void WDG_init_check(void)
 #else
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
-	if (!(REG_APB1 & (XCAT(XCAT(DBGMCU_, NAME_APB1), _DBG_IWDG_STOP))))	{ iwdg_en = true; }
+	if (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_IWDG_STOP))))	{ iwdg_en = true; }
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
-	if (!(REG_APB1 & (XCAT(XCAT(DBGMCU_, NAME_APB1), _DBG_WDG_STOP))))	{ wwdg_en = true; }
+	if (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_WWDG_STOP))))	{ wwdg_en = true; }
 #endif
 
 #endif
