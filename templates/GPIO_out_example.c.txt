@@ -1,8 +1,8 @@
-/*!\file GPIO_in_example.c
+/*!\file GPIO_out_example.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief GPIO_out example
-** \note Simple GPIO_out.c example to handle different GPIO outputs
+** \note Simple GPIO_out.c / GPIO_ex.c example to handle different GPIO outputs
 **/
 
 #include "sarmfsw.h"
@@ -22,10 +22,23 @@
 static GPIO_out out_B0;	//!< GPIO_out out_B0 instance structure declaration
 static GPIO_out out_B1;	//!< GPIO_out out_B1 instance structure declaration
 static GPIO_out out_B2;	//!< GPIO_out out_B2 instance structure declaration
-static GPIO_out * const GPIOs[] = { &out_B0, &out_B1, &out_B2 };	//!< GPIO_out pointers array (for handler loop)
+
+static GPIO_out * const GPIOs_out[] = { &out_B0, &out_B1, &out_B2 };	//!< GPIO_out pointers array (for handler loop)
+static const uint8_t GPIOs_out_nb = SZ_ARRAY(GPIOs_out);				//!< Number of GPIOs_out
 
 
-#ifndef GPIO_OUT_IT
+/*!\brief GPIOs_out handler
+**/
+static void GPIOs_out_handler(void)
+{
+	for (unsigned int i = 0 ; i < GPIOs_out_nb ; i++)
+	{
+		GPIO_out_handler(GPIOs_out[i]);
+	}
+}
+
+
+#ifndef LOGIC_OUT_IT
 void GPIO_out_example_handler(void)
 #else
 void GPIO_out_example_init(void)
@@ -48,16 +61,13 @@ void GPIO_out_example_init(void)
 		init_io = true;
 	}
 
-	#ifndef GPIO_OUT_IT
-	for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_out *) ; i++)
-	{
-		GPIO_out_handler(GPIOs[i]);
-	}
+	#ifndef LOGIC_OUT_IT
+	GPIOs_out_handler();
 	#endif
 }
 
 
-#ifdef GPIO_OUT_IT
+#ifdef LOGIC_OUT_IT
 /*!\brief Period elapsed callback in non blocking mode
 ** \note This function is called when TIM interrupt took place, inside HAL_TIM_IRQHandler().
 ** If multiple TIM peripheral use period callback interrupt, custom function is needed including code below.
@@ -68,10 +78,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim == OUT_Bx_TIMER)
 	{
-		for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_out *) ; i++)	// Needed if multiple PWM_GPIO instances using always same TIM peripheral
-		{
-			GPIO_out_handler(GPIOs[i]);
-		}
+		GPIOs_out_handler();
 	}
 }
 #endif

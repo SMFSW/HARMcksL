@@ -1,6 +1,6 @@
 /*!\file RTC_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Basic RTC handling
 **/
 /****************************************************************/

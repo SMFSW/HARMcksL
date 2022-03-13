@@ -1,8 +1,8 @@
 /*!\file adc_cfg.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief ADC configuration
-** \note Simple adc_cfg.c example to handle Vref, temperature & Vbat (on STM32F3)
+** \note Simple adc_ex.c example to handle Vref, temperature & Vbat + 1 channel conversion with declared callback (on STM32F3)
 **/
 /****************************************************************/
 #ifndef __ADC_CFG_H

@@ -1,8 +1,8 @@
 /*!\file GPIO_in_example.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief GPIO_in example
-** \note Simple GPIO_in.c example to handle different GPIO inputs with callbacks
+** \note Simple GPIO_in.c / GPIO_ex.c example to handle different GPIO inputs with callbacks
 **/
 
 #include "sarmfsw.h"
@@ -21,7 +21,9 @@
 static GPIO_in pb_B0;	//!< GPIO_in pb_B0 instance structure declaration
 static GPIO_in pb_B1;	//!< GPIO_in pb_B1 instance structure declaration
 static GPIO_in pb_B2;	//!< GPIO_in pb_B2 instance structure declaration
-static GPIO_in * const GPIOs[] = { &pb_B0, &pb_B1, &pb_B2 };	//!< GPIO_in pointers array (for handler loop)
+
+static GPIO_in * const GPIOs_in[] = { &pb_B0, &pb_B1, &pb_B2 };	//!< GPIO_in pointers array (for handler loop)
+static const uint8_t GPIOs_in_nb = SZ_ARRAY(GPIOs_in);			//!< Number of GPIOs_in
 
 
 /*!\brief Callback for inputs when pushing
@@ -90,9 +92,9 @@ void GPIO_in_example_handler(void)
 		init_io = true;
 	}
 
-	for (unsigned int i = 0 ; i < SZ_OBJ(GPIOs, GPIO_in *) ; i++)
+	for (unsigned int i = 0 ; i < GPIOs_in_nb ; i++)
 	{
-		GPIO_in_handler(GPIOs[i]);
+		GPIO_in_handler(GPIOs_in[i]);
 	}
 }
 

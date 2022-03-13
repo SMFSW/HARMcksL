@@ -1,0 +1,101 @@
+/*!\file Logic_out_example.c
+** \author SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
+** \brief Logic_out example
+** \note Simple Logic_out.c / Logic_ex.c example to handle different variable bits as outputs
+**/
+
+#include "sarmfsw.h"
+
+#include "Logic_out.h"
+
+
+#define OUT_varB0_Pos	0
+#define OUT_varB1_Pos	1
+#define OUT_varB2_Pos	2
+#define OUT_var2_Pos	2
+#define OUT_Bx_TIMER	&htim6
+
+
+static uint32_t LGO_var = 0;	//!< Logic_out test var
+static uint32_t LGO_var2 = 0;	//!< Logic_out test var2
+
+static Logic_out out_varB0;	//!< Logic_out out_varB0 instance structure declaration
+static Logic_out out_varB1;	//!< Logic_out out_varB1 instance structure declaration
+static Logic_out out_varB2;	//!< Logic_out out_varB2 instance structure declaration
+static Logic_out out_var2;	//!< Logic_out out_var2 instance structure declaration
+
+static Logic_out * const LOGICs_out[] = { &out_varB0, &out_varB1, &out_varB2, &out_var2 };	//!< Logic_out pointers array (for handler loop)
+static const uint8_t LOGICs_out_nb = SZ_ARRAY(LOGICs_out);									//!< Number of LOGICs_out
+
+
+/*!\brief Set var2 value
+** \param[in,out] out - Logic_out instance
+** \return GPIO port value
+**/
+__STATIC_INLINE void NONNULL_INLINE__ set_LGO_var2(const Logic_out * const out, const GPIO_PinState state)
+{
+	const uint32_t bit_mask = LSHIFT(1U, OUT_var2_Pos);
+	SET_BITS_VAL(LGO_var2, bit_mask, state ? bit_mask : 0);
+}
+
+
+/*!\brief LOGICs_out handler
+**/
+static void LOGICs_out_handler(void)
+{
+	for (unsigned int i = 0 ; i < LOGICs_out_nb ; i++)
+	{
+		Logic_out_handler(LOGICs_out[i]);
+	}
+}
+
+
+#ifndef LOGIC_OUT_IT
+void Logic_out_example_handler(void)
+#else
+void Logic_out_example_init(void)
+#endif
+{
+	static bool init_io = false;
+
+	if (!init_io)
+	{
+		// Init outputs
+		Logic_out_init(&out_varB0, NULL, &LGO_var, OUT_varB0_Pos, GPIO_PIN_SET);
+		Logic_out_init(&out_varB1, NULL, &LGO_var, OUT_varB1_Pos, GPIO_PIN_SET);
+		Logic_out_init(&out_varB2, NULL, &LGO_var, OUT_varB2_Pos, GPIO_PIN_SET);
+
+		Logic_out_init(&out_var2, set_LGO_var2, NULL, 0, GPIO_PIN_SET);
+
+		// Start logic outputs with different modes
+		Logic_out_SetStatic(&out_varB0, Toggle, 5000);			// Set B0 after 5s
+		Logic_out_StartBlink(&out_varB1, Set, 0, 500, 250, 0);	// Blink B1 500ms On / 250ms Off indefinitely
+		Logic_out_StartPulse(&out_varB2, Set, 3000, 2000);		// Pulse on B2 after 3s, Set for 2s
+
+		Logic_out_StartBlink(&out_var2, Set, 0, 500, 250, 0);	// Blink B3 500ms On / 250ms Off indefinitely
+
+		init_io = true;
+	}
+
+	#ifndef LOGIC_OUT_IT
+	LOGICs_out_handler();
+	#endif
+}
+
+
+#ifdef LOGIC_OUT_IT
+/*!\brief Period elapsed callback in non blocking mode
+** \note This function is called when TIM interrupt took place, inside HAL_TIM_IRQHandler().
+** If multiple TIM peripheral use period callback interrupt, custom function is needed including code below.
+** Another way is to use callback registration with proper function name.
+** \param[in] htim - TIM handle
+**/
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim == OUT_Bx_TIMER)
+	{
+		LOGICs_out_handler();
+	}
+}
+#endif

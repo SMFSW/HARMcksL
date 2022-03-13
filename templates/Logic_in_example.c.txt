@@ -1,49 +1,59 @@
 /*!\file Logic_in_example.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Logic_in example
-** \note Simple Logic_ex.c example to handle different variables inputs with callbacks
+** \note Simple Logic_in.c / Logic_ex.c example to handle different variables inputs with callbacks
 **/
 
 #include "sarmfsw.h"
 
-#include "Logic_ex.h"
+#include "Logic_in.h"
 
 
-static Logic_in var_b11;	//!< Logic_in var_b11 instance structure declaration
-static Logic_in var_b15;	//!< Logic_in var_b15 instance structure declaration
-static Logic_in var_b19;	//!< Logic_in var_b19 instance structure declaration
-static Logic_in * const GPIOs[] = { &var_b11, &var_b15, &var_b19 };	//!< Logic_in pointers array (for handler loop)
+#define IN_var2_Pos		3
+
+static Logic_in in_varB11;	//!< Logic_in in_varB11 instance structure declaration
+static Logic_in in_varB15;	//!< Logic_in in_varB15 instance structure declaration
+static Logic_in in_varB19;	//!< Logic_in in_varB19 instance structure declaration
+static Logic_in in_var2;	//!< Logic_in in_var2 instance structure declaration
+
+static Logic_in * const LOGICs_in[] = { &in_varB11, &in_varB15, &in_varB19, &in_var2 };	//!< Logic_in pointers array (for handler loop)
+static const uint8_t LOGICs_in_nb = SZ_ARRAY(LOGICs_in);								//!< Number of LOGICs_in
 
 
-uint32_t var_test = 0;
+uint32_t LGI_var = 0;	//!< Logic_in test var
+uint32_t LGI_var2 = 0;	//!< Logic_in test var2
 
-uint32_t get_var_test(Logic_in * const in) {
-	return var_test;
-}
+
+/*!\brief LGI_var2 getter
+** \return Bit state
+**/
+GPIO_PinState get_LGI_var2(const Logic_in * const in) {
+	// Catching LGI_var2 bit at position IN_var2_Pos
+	return binEval(LGI_var2 & LSHIFT(1U, IN_var2_Pos)); }
 
 /*!\brief Callback for inputs when on
 ** \note Callbacks On declared with same function callback (to demonstrate use of passed argument Logic_in *)
 **/
-static void Callback_ON(Logic_in * const in)
+static void Callback_ON(const Logic_in * const in)
 {
 	static uint32_t hRepeat_b19 = 0;
 
-	if (in == &var_b11)
+	if (in == &in_varB11)
 	{
-		// On Callback for var_b11
+		// On Callback for in_varB11
 	}
-	else if (in == &var_b15)
+	else if (in == &in_varB15)
 	{
-		// On Callback for var_b15
+		// On Callback for in_varB15
 	}
-	else if (in == &var_b19)
+	else if (in == &in_varB19)
 	{
 		if (TPSSUP_MS(hRepeat_b19, 500))	// Repeat every 500ms
 		{
 			hRepeat_b19 = HALTicks();
 
-			// On Callback for var_b19 (repeat)
+			// On Callback for in_varB19 (repeat)
 		}
 	}
 }
@@ -52,25 +62,25 @@ static void Callback_ON(Logic_in * const in)
 /*!\brief Callback for b11 when getting off
 ** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
 **/
-static void Callback_OFF_b11(Logic_in * const in)
+static void Callback_OFF_b11(const Logic_in * const in)
 {
-	// Off Callback for var_b11
+	// Off Callback for in_varB11
 }
 
 /*!\brief Callback for b15 when getting off
 ** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
 **/
-static void Callback_OFF_b15(Logic_in * const in)
+static void Callback_OFF_b15(const Logic_in * const in)
 {
-	// Off Callback for var_b15
+	// Off Callback for in_varB15
 }
 
 /*!\brief Callback for b19 when getting off
 ** \note Callbacks Off declared with different function callback (to demonstrate both possibilities)
 **/
-static void Callback_OFF_b19(Logic_in * const in)
+static void Callback_OFF_b19(const Logic_in * const in)
 {
-	// Off Callback for var_b19
+	// Off Callback for in_varB19
 }
 
 
@@ -81,19 +91,22 @@ void Logic_in_example_handler(void)
 	if (!init_io)
 	{
 		// Inputs configured logic high active, 75ms debounce, both OFF & ON callbacks (with ON repeat only for B2)
-		// With get_var_test getter, getting bit position 11 (0x800), 15 (0x8000) & 19 (0x80000) respectively
-		Logic_in_init(&var_b11, get_var_test, 11, true, 75, Callback_ON, Callback_OFF_b11, false);
-		Logic_in_init(&var_b15, get_var_test, 15, true, 75, Callback_ON, Callback_OFF_b15, false);
-		Logic_in_init(&var_b19, get_var_test, 19, true, 75, Callback_ON, Callback_OFF_b19, true);
+		// With get_LGI_var getter, getting bit position 11 (0x800), 15 (0x8000) & 19 (0x80000) respectively
+		Logic_in_init(&in_varB11, NULL, &LGI_var, 11, true, 75, Callback_ON, Callback_OFF_b11, false);
+		Logic_in_init(&in_varB15, NULL, &LGI_var, 15, true, 75, Callback_ON, Callback_OFF_b15, false);
+		Logic_in_init(&in_varB19, NULL, &LGI_var, 19, true, 75, Callback_ON, Callback_OFF_b19, true);
+
+		Logic_in_init(&in_var2, get_LGI_var2, NULL, 0, true, 75, Callback_ON, Callback_OFF_b11, false);
 
 		init_io = true;
 	}
 
-	for (unsigned int i = 0 ; i < SZ_OBJ(LOGICs, Logic_in *) ; i++)
+	for (unsigned int i = 0 ; i < LOGICs_in_nb ; i++)
 	{
-		Logic_in_handler(LOGICs[i]);
+		Logic_in_handler(LOGICs_in[i]);
 	}
 
-	var_test++
+	LGI_var++;	// To get different values on variable
+	LGI_var2++;	// To get different values on variable
 }
 

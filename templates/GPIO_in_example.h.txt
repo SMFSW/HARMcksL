@@ -1,8 +1,8 @@
 /*!\file GPIO_in_example.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief GPIO_in example
-** \note Simple GPIO_in.c example to handle different GPIO inputs with callbacks
+** \note Simple GPIO_in.c / GPIO_ex.c example to handle different GPIO inputs with callbacks
 **/
 /****************************************************************/
 #ifndef __GPIO_IN_EXAMPLE_H

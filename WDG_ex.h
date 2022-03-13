@@ -1,6 +1,6 @@
 /*!\file WDG_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Extensions for WDG peripherals
 ** \details This module is mostly meant for debug target purposes,
 **			giving the ability to call freeze/unfreeze watchdogs functions

@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2022 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,11 @@ SOFTWARE.
 
 ## v1.5
 
+* ADC_ex: header comments update (HAL config)
+* GPIO_in & Logic_in: Refactored to be using same structure definition (Logic_in structure extended with data address if needed)
+* Logic_out: added (logical output abstract of physical layer, may be bit in a variable or a dedicated setter function)
+* GPIO_out: Refactored to be using Logic_out module
+* Logic_ex: former code moved to Logic_in, now only wrapping Logic_in & Logic_out (keeping include compatibility with older versions)
 * Logic_ex: Masking read value after shifting, otherwise value can be in set state if higher significant bit is set in monitored variable
 * Logic_ex: Read is done prior to treatment (treatment is executed in the current call of Logic_in_handler without further delay)
 * WDG_ex: added

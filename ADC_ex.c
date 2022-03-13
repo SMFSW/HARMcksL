@@ -1,6 +1,6 @@
 /*!\file ADC_ex.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -8,11 +8,11 @@
 ** 				- Circular Mode
 ** 				- Increment Memory
 ** 				- Data width Word for both peripheral and memory
-** 			- ADC configuration:
+** 			- ADC configuration (no need to active ADC global interrupt, DMA will handle conversion complete callback):
 ** 				- Scan conversion mode across channels enabled
-** 				- Continuous conversion is optional (if disabled, user has to start conversions manually when needed)
-** 				- DMA continuous request when available
-** 				- Interrupt generated at end of conversion
+** 				- Continuous conversion is optional (as DMA continuous request handles the behavior)
+** 				- DMA continuous request when available (if disabled, user has to start conversions manually when needed)
+** 				- Interrupt generated at end of single conversion (to catch every sampled values)
 ** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done calling ADC_cfg.h file
 **/

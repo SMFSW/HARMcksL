@@ -1,12 +1,12 @@
-/*!\file GPIO_out_example.h
+/*!\file Logic_out_example.h
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2022, SMFSW
-** \brief GPIO_out example
-** \note Simple GPIO_out.c / GPIO_ex.c example to handle different GPIO outputs
+** \brief Logic_out example
+** \note Simple Logic_out.c / Logic_ex.c example to handle different variable bits as outputs
 **/
 /****************************************************************/
-#ifndef __GPIO_OUT_EXAMPLE_H
-	#define	__GPIO_OUT_EXAMPLE_H
+#ifndef __LOGIC_OUT_EXAMPLE_H
+	#define	__LOGIC_OUT_EXAMPLE_H
 
 #ifdef __cplusplus
 	extern "C" {
@@ -15,14 +15,14 @@
 
 
 #ifndef LOGIC_OUT_IT
-/*!\brief GPIO_out_example handler (handling of GPIO logic outputs)
+/*!\brief Logic_out_example handler (handling of variable bits logic outputs)
 **/
-void GPIO_out_example_handler(void);
+void Logic_out_example_handler(void);
 #else
-/*!\brief GPIO_out_example init (handling of GPIO logic outputs)
+/*!\brief Logic_out_example init (handling of variable bits logic outputs)
 ** \note Rest is done in TIM interrupts
 **/
-void GPIO_out_example_init(void);
+void Logic_out_example_init(void);
 #endif
 
 
@@ -31,6 +31,6 @@ void GPIO_out_example_init(void);
 	}
 #endif
 
-#endif /* __GPIO_OUT_EXAMPLE_H */
+#endif /* __LOGIC_OUT_EXAMPLE_H */
 /****************************************************************/
 

@@ -1,8 +1,8 @@
 /*!\file Logic_in_example.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Logic_in example
-** \note Simple Logic_ex.c example to handle different variables inputs with callbacks
+** \note Simple Logic_in.c / Logic_ex.c example to handle different variables inputs with callbacks
 **/
 /****************************************************************/
 #ifndef __LOGIC_IN_EXAMPLE_H

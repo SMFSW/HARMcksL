@@ -1,6 +1,6 @@
 /*!\file GPIO_in.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2021, SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief GPIO input handling
 **/
 /****************************************************************/
@@ -12,24 +12,14 @@
 #endif
 
 #include "sarmfsw.h"
-#include "Logic_ex.h"
+#include "Logic_in.h"
 /****************************************************************/
 
 
 // *****************************************************************************
 // Section: Types
 // *****************************************************************************
-/*!\struct GPIO_in
-** \brief GPIO input structure
-**/
-typedef struct GPIO_in {
-	//!\warning Make sure logic member is always first member of the struct, otherwise can't be shared with Logic_in type
-	Logic_in		logic;		//!< Logic_in instance
-	struct {
-	GPIO_TypeDef *	GPIOx;		//!< HAL GPIO instance
-	uint16_t		GPIO_Pin;	//!< HAL GPIO pin
-	} cfg;
-} GPIO_in;
+typedef Logic_in	GPIO_in;	//!< GPIO_in typedef alias of \ref Logic_in
 
 
 // *****************************************************************************
@@ -40,7 +30,7 @@ typedef struct GPIO_in {
 ** \return Input value
 **/
 __INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * const in) {
-	return in->logic.in; }
+	return get_Logic_in(in); }
 
 
 /*!\brief Get GPIO_in input edge
@@ -48,7 +38,7 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * const in) {
 ** \return Input edge
 **/
 __INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
-	return in->logic.edge; }
+	return get_Logic_in_edge(in); }
 
 
 /*!\brief Initialize GPIO_in instance
@@ -63,14 +53,14 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
 **/
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter,
-									void (*onSet)(GPIO_in * const), void (*onReset)(GPIO_in * const), const bool repeat);
+									void (*onSet)(const GPIO_in * const), void (*onReset)(const GPIO_in * const), const bool repeat);
 
 
 /*!\brief Handles GPIO_in read and treatment
 ** \param[in,out] in - GPIO_in instance to handle
 **/
 __INLINE void NONNULL_INLINE__ GPIO_in_handler(GPIO_in * const in) {
-	Logic_in_handler((Logic_in *) in); }
+	Logic_in_handler(in); }
 
 
 /****************************************************************/
