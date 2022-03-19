@@ -76,7 +76,7 @@ FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
 ** \param[in] len - length of string
 ** \return Error code
 **/
-FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len);
+FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const size_t len);
 
 
 /*!\brief Treat fully received message
@@ -85,7 +85,7 @@ FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * s
 ** \param[in] len - received message length
 ** \return Error code
 **/
-FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_t len);
+FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const size_t len);
 
 
 /*!\brief UART Term Rx Transfer completed callback

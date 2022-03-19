@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.5
 
+* stdream_rdir & UART_term: use of size_t typedef for length parameters
 * ADC_ex: header comments update (HAL config)
 * GPIO_in & Logic_in: Refactored to be using same structure definition (Logic_in structure extended with data address if needed)
 * Logic_out: added (logical output abstract of physical layer, may be bit in a variable or a dedicated setter function)

@@ -129,7 +129,7 @@ int __io_getchar(void)
 /*** ITM TRANSMIT ***/
 /********************/
 #if defined(ITM)
-void NONNULL__ ITM_port_send(char * str, const int len, const int port)
+void NONNULL__ ITM_port_send(char * str, const size_t len, const int port)
 {
 	for (char * pStr = str ; pStr < &str[len] ; pStr++)
 	{
@@ -147,7 +147,7 @@ void NONNULL__ ITM_port_send(char * str, const int len, const int port)
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
 **/
-static void NONNULL__ ITM_send(char * str, const int len)
+static void NONNULL__ ITM_send(char * str, const size_t len)
 {
 	for (char * pStr = str ; pStr < &str[len] ; pStr++)
 	{

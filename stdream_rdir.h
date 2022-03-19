@@ -69,7 +69,7 @@ __INLINE void INLINE__ stdout_no_buffer(void) {
 ** \param[in] len - length of message to send
 ** \param[in] port - ITM port number
 **/
-void NONNULL__ ITM_port_send(char * str, const int len, const int port);
+void NONNULL__ ITM_port_send(char * str, const size_t len, const int port);
 
 #if !STDREAM_RDIR_SND_SYSCALLS
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)

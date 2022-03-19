@@ -29,7 +29,7 @@ UART_HandleTypeDef * const dbg_uart = DBG_SERIAL;	//!< Instance of UART debug te
 //! \warning dbg_msg_in buffer for UART_term is limited to \b SZ_DBG_IN
 static char dbg_msg_in[SZ_DBG_IN + 1] = "";			//!< UART_term buffer for input
 
-static uint8_t uart_in_nb = 0;						//!< Number of chars in input buffer of UART debug terminal
+static size_t uart_in_nb = 0;						//!< Number of chars in input buffer of UART debug terminal
 
 
 FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart)
@@ -64,7 +64,7 @@ FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
 }
 
 
-FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const int len)
+FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const size_t len)
 {
 	#if STDREAM__UART_TX_IT
 		#if STDREAM_RDIR_SND_SYSCALLS
@@ -99,7 +99,7 @@ static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
 }
 
 
-__WEAK FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const uint8_t len)
+__WEAK FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const size_t len)
 {
 	if (len)	{ printf("%s\r\n", msg); }	// Parrot
 	return ERROR_OK;
