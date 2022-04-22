@@ -45,7 +45,7 @@ typedef enum eLogic_out_mode {
 ** \brief Logic output structure
 **/
 typedef struct Logic_out {
-	__IO GPIO_PinState	currentState;													//!< Current Logic output state (Reset/Set)
+	__IOM GPIO_PinState	currentState;													//!< Current Logic output state (Reset/Set)
 	GPIO_PinState		memState;														//!< Memorized Logic output state (Reset/Set), used after Pulse or Blink stop
 	eLogic_out_mode		mode;															//!< Current Logic output mode
 	uint32_t			cnt;															//!< Blinking counter
@@ -58,7 +58,7 @@ typedef struct Logic_out {
 	bool				start		:1;													//!< Action start step
 	bool				active		:1;													//!< Pulse/Blink active phase
 	bool				init		:1;													//!< Set to 1 when GPIO_out instance properly initialized
-	__IO bool			idle		:1;													//!< Action state (idle / running)
+	__IOM bool			idle		:1;													//!< Action state (idle / running)
 	struct {
 	void				(*set)(const struct Logic_out * const, const GPIO_PinState);	//!< Setter function
 	void *				LOGx;															//!< Logic output address

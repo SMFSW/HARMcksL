@@ -52,8 +52,8 @@
 ** \brief PWM input capture structure
 **/
 typedef struct PWM_IC {
-	__IO uint32_t			Frequency;		//!< Frequency Value
-	__IO uint32_t			DutyCycle;		//!< Duty Cycle Value
+	__IOM uint32_t			Frequency;		//!< Frequency Value
+	__IOM uint32_t			DutyCycle;		//!< Duty Cycle Value
 	struct {
 		TIM_HandleTypeDef * htim;			//!< PWM capture TIM handler
 		uint32_t			Direct_Pin;		//!< PWM capture Direct mode pin

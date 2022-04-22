@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.5
 
+* __IO changed to __IOM for struct members (conformance to symbols specifications)
 * stdream_rdir & UART_term: use of size_t typedef for length parameters
 * ADC_ex: header comments update (HAL config)
 * GPIO_in & Logic_in: Refactored to be using same structure definition (Logic_in structure extended with data address if needed)
