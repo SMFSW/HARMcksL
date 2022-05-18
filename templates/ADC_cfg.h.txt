@@ -1,0 +1,81 @@
+/*!\file ADC_cfg.h
+** \author SMFSW
+** \copyright MIT (c) 2017-2022, SMFSW
+** \brief ADC configuration
+** \note Simple adc_ex.c example to handle Vref, temperature & Vbat + 1 channel conversion with declared callback (on STM32F3)
+**/
+/****************************************************************/
+#ifndef __ADC_CFG_H
+	#define	__ADC_CFG_H
+
+#ifdef __cplusplus
+	extern "C" {
+#endif
+/****************************************************************/
+
+
+#ifdef ADC_NB
+#undef ADC_NB								//!< Undefine previous declaration of ADC_NB (for backward compatibility with symbol defined in globals.h)
+#endif
+#ifdef ADC_NB_CHAN
+#undef ADC_NB_CHAN							//!< Undefine previous declaration of ADC_NB_CHAN (for backward compatibility with symbol defined in globals.h)
+#endif
+
+
+//#define TEMP_CALC_VTEMP					//!< If defined, use Def_VTemp for temperature calculations, otherwise use calibration values
+#define ADC_COMPENSATION					//!< If defined, use of Vref and Vref calibration value to improve values accuracy
+#define ADC_CALIBRATION						//!< If defined, init will launch ADC peripherals calibration
+
+#define ADC_USE_VREF						//!< ADC has Vref channel enabled (mandatory when using ADC_COMPENSATION)
+#define ADC_USE_TEMP						//!< ADC has Temperature channel enabled
+#define ADC_USE_VBAT						//!< ADC has Vbat channel enabled
+
+
+#define	ADC_NB				2				//!< Number of ADC peripherals used
+#define	ADC_NB_CHAN			3				//!< Number of ADC channels used (per peripheral)
+
+#define Def_VTemp			(1430.0f)		//!< Temperature at 25°c (in mV) -> following given family
+#define Def_AvgSlope		(4.3f)			//!< Average Slope (in mV)
+
+#define VREF_CAL_ADDR		(0x1FFFF7BA)	//!< VRef ADC calibration address
+#define TS_CAL1_ADDR		(0x1FFFF7B8)	//!< Temp sensor ADC raw data TS1 calibration address
+#define TS_CAL2_ADDR		(0x1FFFF7C2)	//!< Temp sensor ADC raw data TS2 calibration address
+
+#define ADC_REFRESH_PERIOD	20				//!< ADC conversions results refreshing period
+
+
+/*!\enum eAnalogInputName
+** \brief Analogic inputs indexes
+**/
+typedef enum eAnalogInput {
+	#if defined(ADC_USE_VREF)
+	Adc_Vref,		//!< Adc VRef (converted value in V)
+	#endif
+	#if defined(ADC_USE_TEMP)
+	Adc_Temp,		//!< Adc Temperature (converted value in �C)
+	#endif
+	#if defined(ADC_USE_VBAT)
+	Adc_Vbat,		//!< Adc VBat (converted value in V)
+	#endif
+	Adc_ChannelWithCallback,
+	Adc_MAX			//!< Adc MAX
+} eAnalogInput;
+
+
+extern float ADCconv[Adc_MAX];		//!< ADC converted values array
+
+
+/*!\brief ADC periodic handler (basic conversion of measures at once)
+** \weak ADC handler may be user implemented to suit custom needs
+**/
+void ADC_handler(void);
+
+
+/****************************************************************/
+#ifdef __cplusplus
+	}
+#endif
+
+#endif /* __ADC_CFG_H */
+/****************************************************************/
+
