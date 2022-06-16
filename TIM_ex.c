@@ -3,7 +3,8 @@
 ** \copyright MIT (c) 2017-2022, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
-** \warning Shall work for all STM32 F/G families, L/H families not totally covered
+** \warning Shall work for all STM32 F/G/L families, H families not totally covered
+** \warning LPTIM peripheral not handled yet
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -21,7 +22,7 @@
 
 uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
 {
-	// TODO: cover Lx families
+	// TODO: handle LPTIMx?
 
 	uint32_t refCLK;
 
@@ -31,29 +32,49 @@ uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
 	#elif defined(STM32F0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
 	#else
-		if (	(pTim->Instance == TIM1)
-		#if defined(TIM8)
-			||	(pTim->Instance == TIM8)
-		#endif
-		#if defined(TIM9)
-			||	(pTim->Instance == TIM9)
-		#endif
-		#if defined(TIM10)
-			||	(pTim->Instance == TIM10)
-		#endif
-		#if defined(TIM11)
-			||	(pTim->Instance == TIM11)
-		#endif
-		#if defined(TIM15)
-			||	(pTim->Instance == TIM15)
-		#endif
-		#if defined(TIM16)
-			||	(pTim->Instance == TIM16)
-		#endif
-		#if defined(TIM17)
-			||	(pTim->Instance == TIM17)
-		#endif
-			)
+		bool notAPB1;
+
+		switch ((uint32_t) pTim->Instance)
+		{
+			default:
+				notAPB1 = false;
+				break;
+
+			#if defined(TIM1)
+			case TIM1_BASE:
+			#endif
+			#if defined(TIM8)
+			case TIM8_BASE:
+			#endif
+			#if defined(TIM9)
+			case TIM9_BASE:
+			#endif
+			#if defined(TIM10)
+			case TIM10_BASE:
+			#endif
+			#if defined(TIM11)
+			case TIM11_BASE:
+			#endif
+			#if defined(TIM15)
+			case TIM15_BASE:
+			#endif
+			#if defined(TIM16)
+			case TIM16_BASE:
+			#endif
+			#if defined(TIM17)
+			case TIM17_BASE:
+			#endif
+			#if defined(TIM21)
+			case TIM21_BASE:		//!< L0 family (TIM on APB2)
+			#endif
+			#if defined(TIM22)
+			case TIM22_BASE:		//!< L0 family (TIM on APB2)
+			#endif
+				notAPB1 = true;
+				break;
+		}
+
+		if (notAPB1)
 		{
 			#if defined(STM32F3)
 				if (	((pTim->Instance == TIM1) && (RCC->CFGR3 & RCC_CFGR3_TIM1SW_PLL))
@@ -201,7 +222,7 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, co
 		||	(pTim->Instance == TIM5)
 	#endif
 		)	{ pTim->Init.Period = 0xFFFFFFFF; }							// Set to max period for 32b timers
-	else	{ pTim->Init.Period = 0xFFFF; }								// Max to max period for 16b timers
+	else	{ pTim->Init.Period = 0xFFFF; }								// Set to max period for 16b timers
 
 	pTim->Init.Prescaler = (get_TIM_clock(pTim) / freq) - 1;			// Get prescaler value adjusted to desired frequency
 

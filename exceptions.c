@@ -39,33 +39,35 @@ void NONNULL__ HardFault_Handler_callback(const uint32_t stack[])
 {
 	printf("Hard Fault handler\t");
 
-	#if !defined(STM32G0)
-		printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
+	#if defined(__CORTEX_M)
+		#if (__CORTEX_M == 4U) || (__CORTEX_M == 7U)
+			printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
 
-		if ((SCB->HFSR & (1 << 30)) != 0)
-		{
-			uint32_t CFSRValue = SCB->CFSR;
-
-			printf("Hard Fault\t");
-			printf("SCB->CFSR = 0x%08lx\r\n", CFSRValue);
-			if ((SCB->CFSR & 0xFFFF0000) != 0)
+			if ((SCB->HFSR & (1 << 30)) != 0)
 			{
-				printf("Usage fault: ");
-				CFSRValue >>= 16;	// right shift to lsb
-				if((CFSRValue & (1 << 9)) != 0) { printf("Zero div\r\n"); }
-			}
+				uint32_t CFSRValue = SCB->CFSR;
 
-			if ((SCB->CFSR & 0xFF00) != 0)
-			{
-				CFSRValue = ((CFSRValue & 0x0000FF00) >> 8); // mask and shift
-				printf("Bus fault: 0x%02lx\r\n", CFSRValue);
-			}
+				printf("Hard Fault\t");
+				printf("SCB->CFSR = 0x%08lx\r\n", CFSRValue);
+				if ((SCB->CFSR & 0xFFFF0000) != 0)
+				{
+					printf("Usage fault: ");
+					CFSRValue >>= 16;	// right shift to lsb
+					if((CFSRValue & (1 << 9)) != 0) { printf("Zero div\r\n"); }
+				}
 
-			if ((SCB->CFSR & 0xFF) != 0) {
-				CFSRValue &= 0x000000FF; // mask other faults
-				printf("Memory Management fault: 0x%02lx\r\n", CFSRValue);
+				if ((SCB->CFSR & 0xFF00) != 0)
+				{
+					CFSRValue = ((CFSRValue & 0x0000FF00) >> 8); // mask and shift
+					printf("Bus fault: 0x%02lx\r\n", CFSRValue);
+				}
+
+				if ((SCB->CFSR & 0xFF) != 0) {
+					CFSRValue &= 0x000000FF; // mask other faults
+					printf("Memory Management fault: 0x%02lx\r\n", CFSRValue);
+				}
 			}
-		}
+		#endif
 	#endif
 
 	print_exception_stack(stack);

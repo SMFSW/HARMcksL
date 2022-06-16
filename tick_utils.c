@@ -23,7 +23,7 @@ HAL_StatusTypeDef init_Delay_Generator(void)
 	CYCCNT_ticks_us = (float) SystemCoreClock / 1000000.0f;
 
 	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;	// CoreDebug trace seems enabled only in debug sessions, enable
-	#if (__CORTEX_M == 0x07U)
+	#if (__CORTEX_M == 7U)
 	DWT->LAR = 0xC5ACCE55;							// Cortex M7, need to enable access to DWT
 	#endif
 	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
