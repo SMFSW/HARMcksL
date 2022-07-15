@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.5
 
+* USB_CDC_IF_ex module added
 * Fix ADC_cfg template name case
 * __IO changed to __IOM for struct members (conformance to symbols specifications)
 * stdream_rdir & UART_term: use of size_t typedef for length parameters

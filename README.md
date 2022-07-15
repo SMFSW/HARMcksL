@@ -23,8 +23,11 @@ Use it at your own risk!
   - example [GPIO_in_example.c](templates/GPIO_in_example.c.txt)/[GPIO_in_example.h](templates/GPIO_in_example.h.txt): GPIO_in example
 - GPIO_out: GPIO output handling
   - example [GPIO_out_example.c](templates/GPIO_out_example.c.txt)/[GPIO_out_example.h](templates/GPIO_out_example.h.txt): GPIO_out example
-- Logic_ex: Extensions for logic variable handling
+- Logic_ex: Extensions for logic variables (R/W) and wrapper for other Logic extensions modules
+- Logic_in: Logic input handling
   - example [Logic_in_example.c](templates/Logic_in_example.c.txt)/[Logic_in_example.h](templates/Logic_in_example.h.txt): Logic_in example
+- Logic_out: Logic output handling
+  - example [Logic_out_example.c](templates/Logic_out_example.c.txt)/[Logic_out_example.h](templates/Logic_out_example.h.txt): Logic_out example
 - PWM_IC: PWM Input Capture handling
 - PWM_GPIO: GPIO PWM emulation handling
   - example [PWM_GPIO_example.c](templates/PWM_GPIO_example.c.txt)/[PWM_GPIO_example.h](templates/PWM_GPIO_example.h.txt): PWM_GPIO example
@@ -37,6 +40,8 @@ Use it at your own risk!
 - TIM_ex: Extensions for TIM peripherals
 - time_utils: Time related utilities
 - UART_term: UART terminal
+- USB_CDC_IF_ex: Extensions for USB VCP
+- WDG_ex: Extensions for WDG peripherals
 
 ## Requires
 
