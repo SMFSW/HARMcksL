@@ -28,7 +28,7 @@
 FctERR CDC_Control_Set_Line_State_Callback(const bool open);
 
 /*!\brief CDC Set Line State message handler
-** \note Call CDC_Control_Set_Line_State in usbd_cdc_if.c \ref CDC_Control_FS function, case CDC_SET_CONTROL_LINE_STATE
+** \note Call CDC_Control_Set_Line_State in usbd_cdc_if.c \ref CDC_Control_FS function, CDC_SET_CONTROL_LINE_STATE case
 ** \note Several disconnection messages can appear on bus, use example code in callback to get only state change
 ** \param[in] pbuf - Pointer to message data
 ** \return Error code
@@ -36,11 +36,13 @@ FctERR CDC_Control_Set_Line_State_Callback(const bool open);
 FctERR CDC_Control_Set_Line_State(const uint8_t * const pbuf);
 
 /*!\brief CDC Set Line Coding message handler
+** \note Call CDC_Control_Set_Line_Coding in usbd_cdc_if.c \ref CDC_Control_FS function, CDC_SET_LINE_CODING case
 ** \param[in] pbuf - Pointer to message data
 **/
 void CDC_Control_Set_Line_Coding(const uint8_t * const pbuf);
 
 /*!\brief CDC Get Line Coding message handler
+** \note Call CDC_Control_Get_Line_Coding in usbd_cdc_if.c \ref CDC_Control_FS function, CDC_GET_LINE_CODING case
 ** \param[in,out] pbuf - Pointer to message data
 **/
 void CDC_Control_Get_Line_Coding(uint8_t * const pbuf);
