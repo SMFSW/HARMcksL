@@ -22,21 +22,38 @@
 #warning "You have to define DBG_SERIAL in usart.h with an UART instance for this to work!"
 #endif
 
-char breakout_char = '!';							//!< breakout char (message complete)
+char breakout_char = '!';		//!< breakout char (message complete)
 
-UART_HandleTypeDef * const dbg_uart = DBG_SERIAL;	//!< Instance of UART debug terminal
+UART_HandleTypeDef * dbg_uart;	//!< Instance of UART debug terminal
 
-//! \warning dbg_msg_in buffer for UART_term is limited to \b SZ_DBG_IN
-static char dbg_msg_in[SZ_DBG_IN + 1] = "";			//!< UART_term buffer for input
+static sUARTbuffer * pUARTrx;	//!< UART reception buffer
 
-static size_t uart_in_nb = 0;						//!< Number of chars in input buffer of UART debug terminal
+
+FctERR NONNULL__ UART_Term_Init(UART_HandleTypeDef * const huart, const size_t len)
+{
+	assert_param(IS_UART_INSTANCE(huart->Instance));
+
+	pUARTrx = malloc(sizeof(*pUARTrx) + ((len + 1) * sizeof(pUARTrx->data[0])));
+
+	if (pUARTrx)
+	{
+		dbg_uart = huart;
+
+		pUARTrx->max_len = len + 1;
+		UART_Term_Flush_RxBuf(huart);
+
+		return UART_Term_Launch_It_Rx(huart);
+	}
+
+	return ERROR_MEMORY;
+}
 
 
 FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
-	HAL_UART_Receive_IT(huart, (uint8_t *) &dbg_msg_in[uart_in_nb], 1);
+	HAL_UART_Receive_IT(huart, (uint8_t *) &pUARTrx->data[pUARTrx->len], 1);
 
 	return ERROR_OK;
 }
@@ -56,9 +73,10 @@ FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
 FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
+	if (!pUARTrx)			{ return ERROR_MEMORY; }
 
-	str_clr(dbg_msg_in);	// Clear input buffer
-	uart_in_nb = 0;			// Empty char number
+	str_clr(pUARTrx->data);	// Clear input buffer
+	pUARTrx->len = 0;		// Empty char number
 
 	return ERROR_OK;
 }
@@ -83,17 +101,19 @@ FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * s
 **/
 static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
 {
-	if (	(dbg_msg_in[uart_in_nb] == '\r')			// Carriage return as default breakout char
-		||	(dbg_msg_in[uart_in_nb] == breakout_char)	// User defined breakout char
-		||	(uart_in_nb >= sizeof(dbg_msg_in) - 1))		// Full buffer
+	if (!pUARTrx)	{ return ERROR_MEMORY; }
+
+	if (	(pUARTrx->data[pUARTrx->len] == '\r')			// Carriage return as default breakout char
+		||	(pUARTrx->data[pUARTrx->len] == breakout_char)	// User defined breakout char
+		||	(pUARTrx->len >= pUARTrx->max_len))				// Full buffer
 	{
-		dbg_msg_in[uart_in_nb] = charNull;
+		pUARTrx->data[pUARTrx->len] = charNull;
 		#if !STDREAM_RDIR_RCV_SYSCALLS
-		UART_Term_Message_Handler(dbg_msg_in, uart_in_nb);
+		UART_Term_Message_Handler(pUARTrx->data, pUARTrx->len);
 		UART_Term_Flush_RxBuf(huart);
 		#endif
 	}
-	else	{ uart_in_nb++; }							// Incrementing only when char received & no full message
+	else	{ pUARTrx->len++; }								// Incrementing only when char received & no full message
 
 	return ERROR_OK;
 }

@@ -40,7 +40,7 @@
 ** 		 use exception_Handler() which prepares pointer to current stack instead
 ** \warning Depending how arm is fucked up, informations may not be printed,
 ** 			at least, you could inspect exception and stack through debug breakpoint
-** \return Never (anyways, arm fubared!)
+** \note Never returns (anyways, arm fubared!)
 **/
 void NONNULL__ HardFault_Handler_callback(const uint32_t stack[]);
 
@@ -51,7 +51,7 @@ void NONNULL__ HardFault_Handler_callback(const uint32_t stack[]);
 ** 		 use exception_Handler() which prepares pointer to current stack instead
 ** \warning Depending how arm is fucked up, informations may not be printed,
 ** 			at least, you could inspect exception and stack through debug breakpoint
-** \return Never (anyways, arm fubared!)
+** \note Never returns (anyways, arm fubared!)
 **/
 void NONNULL__ Error_Handler_callback(const uint32_t stack[]);
 

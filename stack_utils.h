@@ -167,19 +167,16 @@ __INLINE uint32_t INLINE__ get_PSR(void) {
 
 /*!\brief Prints main stack address
 ** \note This function is for debug purposes while running only
-** \return Nothing
 **/
 void print_stack_address(void);
 
 /*!\brief Print contents of ARM registers
 ** \note This function is for debug purposes while running only
-** \return Nothing
 **/
 void print_global_regs(void);
 
 
 /*!\brief prints contents of global registers & stack address
-** \return Nothing
 **/
 __INLINE void INLINE__ stack_dump(void) {
 	print_global_regs();

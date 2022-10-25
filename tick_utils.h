@@ -30,14 +30,14 @@ HAL_StatusTypeDef init_Delay_Generator(void);
 
 /*!\brief Microseconds delay generator (blocking)
 ** \note Please keep in mind Delay_us is blocking code execution for the given amount of time (except interrupts).
-** \param[in] delay - delay (in µs)
+** \param[in] us - delay (in µs)
 ** \warning us is 32b type parameter for consistency, yet only DWT & 32b TIM instances can handle us parameter more than USHRT_MAX (65535)
 **/
 void Delay_us(const uint32_t us);
 
 /*!\brief Milliseconds delay generator (blocking)
 ** \note Please keep in mind Delay_ms is blocking code execution for the given amount of time (except interrupts).
-** \param[in] delay - delay (in ms)
+** \param[in] ms - delay (in ms)
 ** \warning ms is 32b type parameter for consistency, yet if using DWT as delay source, value must be kept below ULONG_MAX / (prescaler * 1000)
 **/
 void Delay_ms(const uint32_t ms);

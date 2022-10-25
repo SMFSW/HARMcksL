@@ -23,18 +23,23 @@
 #ifndef STDREAM__UART_TX_IT
 //!\note STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
 //!\warning Do not change this if intending to send messages inside interrupts!
-#define STDREAM__UART_TX_IT		0			//!< Set to send to uart not using interrupts
-#endif
-
-#ifndef SZ_DBG_IN
-//!\note SZ_DBG_IN can be defined at project level to define debug receive buffer size
-#define	SZ_DBG_IN	32						//!< DEBUG receive buffer size
+#define STDREAM__UART_TX_IT		0		//!< Set to send to uart not using interrupts
 #endif
 
 //! \note Default user breakout char set to '!' and '\\r' is built-in default breakout char
-extern char breakout_char;					//!< breakout char (message complete)
+extern char breakout_char;				//!< breakout char (message complete)
 
-extern UART_HandleTypeDef * const dbg_uart;	//!< UART debug terminal instance
+extern UART_HandleTypeDef * dbg_uart;	//!< UART debug terminal instance
+
+
+/*!\struct sUARTbuffer
+** \brief Buffer structure for UART message reception
+**/
+typedef struct sUARTbuffer {
+	size_t	max_len;			//!< Length of allocated buffer
+	size_t	len;				//!< Length of datas
+	char	data[/*flexible*/];	//!< Flexible data array member
+} sUARTbuffer;
 
 
 // *****************************************************************************
@@ -51,6 +56,13 @@ __INLINE char INLINE__ getBreakout_char(void) {
 **/
 __INLINE void INLINE__ setBreakout_char(const char breakout) {
 	breakout_char = breakout; }
+
+/*!\brief Initialize UART terminal
+** \param[in] huart - UART handle
+** \param[in] len - buffer length
+** \return Error code
+**/
+FctERR NONNULL__ UART_Term_Init(UART_HandleTypeDef * const huart, const size_t len);
 
 /*!\brief Start UART SERIAL DEBUG Rx interruptions
 ** \param[in] huart - UART handle

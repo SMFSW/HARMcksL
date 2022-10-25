@@ -45,6 +45,8 @@ SOFTWARE.
 * tick_utils: possibility added to use a TIM peripheral instance for us delay generation (for M0/M0+ cores, or on purpose for other cores)
 * tick_utils: added Delay_ms function
 * TIM_ex: set_TIM_Tick_Freq added to set a TIM peripheral to get a free running counter with desired tick frequency
+* UART_Term: UART_Term_Init function added to initialize message queue and launch interrupts (internal code updated)
+* Doxyfiles updated to reflect changes in Doxygen v1.9.x
 
 ## v1.4
 
