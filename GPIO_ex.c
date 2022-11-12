@@ -12,9 +12,6 @@
 
 void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const eGPIOState action)
 {
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
 	if (action == Reset)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET); }
 	else if (action == Set)		{ HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET); }
 	else if (action == Toggle)	{ HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); }
@@ -30,9 +27,6 @@ void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, c
 
 GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
 	const GPIO_PinState pin = HAL_GPIO_ReadPin(GPIOx, GPIO_Pin);
 
 	#if defined(VERBOSE)

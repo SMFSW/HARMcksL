@@ -29,6 +29,7 @@
 **/
 void WDG_init_check(void);
 
+
 /*!\brief Freeze IWDG & WWDG
 ** \note Watchdogs will be frozen only if enabled by init (checked by \ref WDG_init_check).
 **/
@@ -38,6 +39,23 @@ void WDG_freeze(void);
 ** \note Watchdogs will be unfrozen only if enabled by init (checked by \ref WDG_init_check).
 **/
 void WDG_unfreeze(void);
+
+
+/*!\brief Set IWDG period (in us)
+** \warning 125us granularity for a 32KHz clock with minimum prescaler of 4 (typical STM32 IWDG architecture)
+** \param[in,out] pIwdg - Pointer to IWDG instance
+** \param[in] per - Period (in us)
+** \return HAL Status
+**/
+HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per);
+
+/*!\brief Set IWDG period (in ms)
+** \param[in,out] pIwdg - Pointer to IWDG instance
+** \param[in] per - Period (in ms)
+** \return HAL Status
+**/
+__INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
+	return set_IWDG_Period_us(pIwdg, per * 1000); }
 
 
 /****************************************************************/

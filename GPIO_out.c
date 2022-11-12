@@ -20,11 +20,8 @@ __STATIC_INLINE void NONNULL_INLINE__ GPIO_setter(const GPIO_out * const out, co
 }
 
 
-FctERR NONNULLX__(1, 2) GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity)
+FctERR NONNULL__ GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity)
 {
-	/* Check the parameters */
-	assert_param(IS_GPIO_PIN(GPIO_Pin));
-
 	return Logic_out_init(out, GPIO_setter, (uint32_t *) GPIOx, GPIO_Pin, polarity);
 }
 

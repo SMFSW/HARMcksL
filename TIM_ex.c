@@ -186,8 +186,6 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 	uint64_t period;						// For 32b timers, period needs to be 64b large for calculations
 	uint32_t prescaler;
 
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-
 	// TODO: init freq tests for 32b timers (init time may take some time)
 	if (	(pTim->Instance == TIM2)
 	#if defined(TIM5)
@@ -215,8 +213,6 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-
 	if (	(pTim->Instance == TIM2)
 	#if defined(TIM5)
 		||	(pTim->Instance == TIM5)

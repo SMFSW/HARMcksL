@@ -163,3 +163,28 @@ void WDG_unfreeze(void)
 
 #endif
 }
+
+
+HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per)
+{
+	const uint32_t refCLK = LSI_VALUE / 1000;	// Clock frequency in KHz (for 32b computations)
+	const uint32_t min_prescaler = 4;			// STM32 IWDG STM32 architecture minimum prescaler
+	const uint32_t max_prescaler = 256;			// STM32 IWDG STM32 architecture maximum prescaler
+	const uint32_t max_reload = 4095;			// STM32 IWDG STM32 architecture maximum reload value
+	uint32_t reload;
+	uint32_t prescaler;
+
+	for (prescaler = min_prescaler ; prescaler <= max_prescaler ; prescaler <<= 1)
+	{
+		reload = (refCLK * per) / (1000 * prescaler);		// Computation using KHz instead of Hz to stay in 32b range
+		if (reload <= max_reload)	{ break; }				// If in range
+	}
+
+	if (reload == 0)				{ return HAL_ERROR; }	// Period is too short
+	if (prescaler > max_prescaler)	{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
+
+	pIwdg->Init.Reload = reload;
+	pIwdg->Init.Prescaler = (prescaler / min_prescaler) - 1;	// Convert to register value (0-7)
+
+	return HAL_IWDG_Init(pIwdg);
+}

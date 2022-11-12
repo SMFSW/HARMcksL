@@ -60,7 +60,7 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_out_Idle(const GPIO_out * const out) {
 ** \param[in] polarity - set to \ref GPIO_PIN_RESET if active state is GND, \ref GPIO_PIN_SET if Vdd
 ** \return Error code
 **/
-FctERR NONNULLX__(1, 2) GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity);
+FctERR NONNULL__ GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity);
 
 
 /*!\brief Stop GPIO_out pulse/blink if running, or abort set if delay not reached

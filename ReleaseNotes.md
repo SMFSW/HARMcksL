@@ -27,6 +27,8 @@ SOFTWARE.
 * __IO changed to __IOM for struct members (conformance to symbols specifications)
 * stdream_rdir & UART_term: use of size_t typedef for length parameters
 * exceptions: HardFault_Handler_callback checks for __CORTEX_M symbol definition and value to add extra informations
+* Some unneeded assert_param macros removed (when already done later by HAL functions)
+* WDG_ex: set_IWDG_Period_xx functions added
 * TIM_ex: get_TIM_clock refactored (check for bus peripheral CLK)
 * ADC_ex: header comments update (HAL config)
 * GPIO_in & Logic_in: Refactored to be using same structure definition (Logic_in structure extended with data address if needed)

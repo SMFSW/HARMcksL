@@ -31,8 +31,6 @@ FctERR NONNULL__ PWM_GPIO_setFreq(PWM_GPIO * const pPWM, TIM_HandleTypeDef * con
 {
 	uint16_t tim_freq;
 
-	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-
 	granularity = max(10, granularity);
 
 	// TODO: set some limits for frequency (regarding granularity?)
@@ -78,8 +76,6 @@ FctERR NONNULL__ PWM_GPIO_setDuty(PWM_GPIO * const pPWM, const uint16_t val)
 
 void NONNULL__ PWM_GPIO_handler(PWM_GPIO * const pPWM)
 {
-	assert_param(IS_GPIO_PIN(pPWM->cfg.GPIO_Pin));
-
 	if (pPWM->init && (pPWM->cfg.GPIOx))
 	{
 		if (!pPWM->cntr)					// period over

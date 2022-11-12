@@ -49,8 +49,6 @@ FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const
 	FctERR err = ERROR_OK;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
-	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, Direct_Channel));
-	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, Indirect_Channel));
 
 	switch (Direct_Channel)
 	{
