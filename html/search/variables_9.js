@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['logic',['logic',['../struct_g_p_i_o__in.html#ad760e65c57bb512def35839602234a3e',1,'GPIO_in::logic()'],['../struct_logic__in.html#a62eaf1db67f55ac485551513a76e072b',1,'Logic_in::logic()']]]
+  ['len',['len',['../structs_u_a_r_tbuffer.html#ab27a612f6a75f813c08d3d137ea51143',1,'sUARTbuffer']]],
+  ['log_5fpos',['LOG_Pos',['../struct_logic__in.html#a20c0fc3dd3897252a7a4a96ae1499165',1,'Logic_in::LOG_Pos()'],['../struct_logic__out.html#a8fe80527f465fc444a93b8ea72d24285',1,'Logic_out::LOG_Pos()']]],
+  ['logx',['LOGx',['../struct_logic__in.html#aaa7597acbf18d98ce310927949f91c6e',1,'Logic_in::LOGx()'],['../struct_logic__out.html#af74a2fe4c30581ce34beff3f549b2628',1,'Logic_out::LOGx()']]]
 ];

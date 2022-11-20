@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['crc_5fcheck',['crc_check',['../_c_r_c__stm32_8c.html#a7bb5f2eca301c014960367e1eb852358',1,'crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c'],['../_c_r_c__stm32_8h.html#a7bb5f2eca301c014960367e1eb852358',1,'crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c']]],
-  ['crc_5fcompute',['crc_compute',['../_c_r_c__stm32_8c.html#a21e941446a703e4e3716ea6e58eca20c',1,'crc_compute(uint32_t *const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c'],['../_c_r_c__stm32_8h.html#a21e941446a703e4e3716ea6e58eca20c',1,'crc_compute(uint32_t *const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size):&#160;CRC_stm32.c']]]
+  ['adc_5fgetconvertedval',['ADC_GetConvertedVal',['../_a_d_c__ex_8c.html#a4e9abd31478ac378215a89f34631c06b',1,'ADC_GetConvertedVal(const eAnalogInput input):&#160;ADC_ex.c'],['../_a_d_c__ex_8h.html#a4e9abd31478ac378215a89f34631c06b',1,'ADC_GetConvertedVal(const eAnalogInput input):&#160;ADC_ex.c']]],
+  ['adc_5fgetrawval',['ADC_GetRawVal',['../_a_d_c__ex_8c.html#a814dfef327eaddafae9bc056d38a335b',1,'ADC_GetRawVal(const eAnalogInput input):&#160;ADC_ex.c'],['../_a_d_c__ex_8h.html#a814dfef327eaddafae9bc056d38a335b',1,'ADC_GetRawVal(const eAnalogInput input):&#160;ADC_ex.c']]],
+  ['adc_5fstart',['ADC_Start',['../_a_d_c__ex_8c.html#a13415d76e03329dd1b4759c7b219a799',1,'ADC_Start(void):&#160;ADC_ex.c'],['../_a_d_c__ex_8h.html#a13415d76e03329dd1b4759c7b219a799',1,'ADC_Start(void):&#160;ADC_ex.c']]],
+  ['adc_5fstop',['ADC_Stop',['../_a_d_c__ex_8c.html#af0253b0c82b0f1f88ab2f3487a470bec',1,'ADC_Stop(void):&#160;ADC_ex.c'],['../_a_d_c__ex_8h.html#af0253b0c82b0f1f88ab2f3487a470bec',1,'ADC_Stop(void):&#160;ADC_ex.c']]]
 ];

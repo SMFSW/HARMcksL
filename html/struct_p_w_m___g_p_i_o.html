@@ -83,36 +83,36 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a209ce3251789f99bc5d8546b739eec1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_w_m___g_p_i_o.html#a209ce3251789f99bc5d8546b739eec1d">init</a></td></tr>
 <tr class="memdesc:a209ce3251789f99bc5d8546b739eec1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM initialized (ready for use)  <a href="#a209ce3251789f99bc5d8546b739eec1d">More...</a><br /></td></tr>
 <tr class="separator:a209ce3251789f99bc5d8546b739eec1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8e31e08c31efa3d711b5551545bd82"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a9dec23f5e37bd87a95134ae407d161a9"><td class="memItemLeft" >&#160;&#160;&#160;TIM_HandleTypeDef *&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a45ce3b6221b791c29a5d38c69c77b17b">pTim</a></td></tr>
-<tr class="memdesc:a9dec23f5e37bd87a95134ae407d161a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer instance (for reference)  <a href="#a9dec23f5e37bd87a95134ae407d161a9">More...</a><br /></td></tr>
-<tr class="separator:a9dec23f5e37bd87a95134ae407d161a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3220d837971164a1a6b8f11c27312071"><td class="memItemLeft" >&#160;&#160;&#160;GPIO_TypeDef *&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#ad74b93df5770678c3c5fdf9af6e46536">GPIOx</a></td></tr>
-<tr class="memdesc:a3220d837971164a1a6b8f11c27312071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port of emulated PWM pin.  <a href="#a3220d837971164a1a6b8f11c27312071">More...</a><br /></td></tr>
-<tr class="separator:a3220d837971164a1a6b8f11c27312071"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4fd31d9865f66b9ed24e60f3b2bd168"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a60baf00ea7504f8e8355980d976d9b3d">GPIO_Pin</a></td></tr>
-<tr class="memdesc:af4fd31d9865f66b9ed24e60f3b2bd168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin mask on port.  <a href="#af4fd31d9865f66b9ed24e60f3b2bd168">More...</a><br /></td></tr>
-<tr class="separator:af4fd31d9865f66b9ed24e60f3b2bd168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f86a515f34096c1eba6b5be92e2835a"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aecfdd962720715a22fb8987586f91fd6">tim_freq</a></td></tr>
-<tr class="memdesc:a3f86a515f34096c1eba6b5be92e2835a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer frequency (for reference)  <a href="#a3f86a515f34096c1eba6b5be92e2835a">More...</a><br /></td></tr>
-<tr class="separator:a3f86a515f34096c1eba6b5be92e2835a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f04f7ad9ad74286467774dc048016b"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aa2b7ecc4c4bfc6b5f05a867658e65e2c">duty</a></td></tr>
-<tr class="memdesc:a84f04f7ad9ad74286467774dc048016b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duty Cycle (effective when new period starts)  <a href="#a84f04f7ad9ad74286467774dc048016b">More...</a><br /></td></tr>
-<tr class="separator:a84f04f7ad9ad74286467774dc048016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac59c9e1effbd541c5477e41001f3a777"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a558eb5e3146f7cbc68f4b5b6f445947f">per</a></td></tr>
-<tr class="memdesc:ac59c9e1effbd541c5477e41001f3a777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overflow threshold (emulated PWM period)  <a href="#ac59c9e1effbd541c5477e41001f3a777">More...</a><br /></td></tr>
-<tr class="separator:ac59c9e1effbd541c5477e41001f3a777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3d9d0210b82e6db87f6bd61630b6880"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aacffba5c78aa07a9a701dfcd91c677b3">polarity</a></td></tr>
-<tr class="memdesc:ad3d9d0210b82e6db87f6bd61630b6880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output polarity.  <a href="#ad3d9d0210b82e6db87f6bd61630b6880">More...</a><br /></td></tr>
-<tr class="separator:ad3d9d0210b82e6db87f6bd61630b6880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8e31e08c31efa3d711b5551545bd82"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_w_m___g_p_i_o.html#a7a8e31e08c31efa3d711b5551545bd82">cfg</a></td></tr>
-<tr class="separator:a7a8e31e08c31efa3d711b5551545bd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed049da8483634ab6ea94051a261a2e"><td class="memItemLeft" >struct {</td></tr>
+<tr class="memitem:ac9cc2dce8ec2a83930cdf7326749ae44"><td class="memItemLeft" >&#160;&#160;&#160;TIM_HandleTypeDef *&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a45ce3b6221b791c29a5d38c69c77b17b">pTim</a></td></tr>
+<tr class="memdesc:ac9cc2dce8ec2a83930cdf7326749ae44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer instance (for reference)  <a href="#ac9cc2dce8ec2a83930cdf7326749ae44">More...</a><br /></td></tr>
+<tr class="separator:ac9cc2dce8ec2a83930cdf7326749ae44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eae909dc4227154157d5ca4897141dd"><td class="memItemLeft" >&#160;&#160;&#160;GPIO_TypeDef *&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#ad74b93df5770678c3c5fdf9af6e46536">GPIOx</a></td></tr>
+<tr class="memdesc:a5eae909dc4227154157d5ca4897141dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port of emulated PWM pin.  <a href="#a5eae909dc4227154157d5ca4897141dd">More...</a><br /></td></tr>
+<tr class="separator:a5eae909dc4227154157d5ca4897141dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51cccdd8b0ec4be6e7e9125ed6954352"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a60baf00ea7504f8e8355980d976d9b3d">GPIO_Pin</a></td></tr>
+<tr class="memdesc:a51cccdd8b0ec4be6e7e9125ed6954352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin mask on port.  <a href="#a51cccdd8b0ec4be6e7e9125ed6954352">More...</a><br /></td></tr>
+<tr class="separator:a51cccdd8b0ec4be6e7e9125ed6954352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2d9e03411d7ea4f373bbe6ce6b813f"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aecfdd962720715a22fb8987586f91fd6">tim_freq</a></td></tr>
+<tr class="memdesc:a5e2d9e03411d7ea4f373bbe6ce6b813f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer frequency (for reference)  <a href="#a5e2d9e03411d7ea4f373bbe6ce6b813f">More...</a><br /></td></tr>
+<tr class="separator:a5e2d9e03411d7ea4f373bbe6ce6b813f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5e2a2fdfcbea45a1812c8cd818aba3"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aa2b7ecc4c4bfc6b5f05a867658e65e2c">duty</a></td></tr>
+<tr class="memdesc:a9f5e2a2fdfcbea45a1812c8cd818aba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duty Cycle (effective when new period starts)  <a href="#a9f5e2a2fdfcbea45a1812c8cd818aba3">More...</a><br /></td></tr>
+<tr class="separator:a9f5e2a2fdfcbea45a1812c8cd818aba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2448b8e9b56237cd8638a2013482b323"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#a558eb5e3146f7cbc68f4b5b6f445947f">per</a></td></tr>
+<tr class="memdesc:a2448b8e9b56237cd8638a2013482b323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overflow threshold (emulated PWM period)  <a href="#a2448b8e9b56237cd8638a2013482b323">More...</a><br /></td></tr>
+<tr class="separator:a2448b8e9b56237cd8638a2013482b323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0494338c5ff22d1bea0b5a9dca6bf70"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_p_w_m___g_p_i_o.html#aacffba5c78aa07a9a701dfcd91c677b3">polarity</a></td></tr>
+<tr class="memdesc:ab0494338c5ff22d1bea0b5a9dca6bf70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output polarity.  <a href="#ab0494338c5ff22d1bea0b5a9dca6bf70">More...</a><br /></td></tr>
+<tr class="separator:ab0494338c5ff22d1bea0b5a9dca6bf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed049da8483634ab6ea94051a261a2e"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_w_m___g_p_i_o.html#a2ed049da8483634ab6ea94051a261a2e">cfg</a></td></tr>
+<tr class="separator:a2ed049da8483634ab6ea94051a261a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Software PWM on GPIO struct. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a7a8e31e08c31efa3d711b5551545bd82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8e31e08c31efa3d711b5551545bd82">&#9670;&nbsp;</a></span>cfg</h2>
+<a id="a2ed049da8483634ab6ea94051a261a2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed049da8483634ab6ea94051a261a2e">&#9670;&nbsp;</a></span>cfg</h2>
 
 <div class="memitem">
 <div class="memproto">

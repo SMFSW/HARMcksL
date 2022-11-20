@@ -1,6 +1,6 @@
 var searchData=
 [
   ['tim_5ffreq',['tim_freq',['../struct_p_w_m___g_p_i_o.html#aecfdd962720715a22fb8987586f91fd6',1,'PWM_GPIO']]],
-  ['timeactive',['timeActive',['../struct_g_p_i_o__out.html#ac4f5d021c72bff9b48a5121f73191ea1',1,'GPIO_out']]],
-  ['timeinactive',['timeInactive',['../struct_g_p_i_o__out.html#a1c453eb40a09a89bda05a7f6afd3b898',1,'GPIO_out']]]
+  ['timeactive',['timeActive',['../struct_logic__out.html#a28a2f1ad46514afc59c4f9f488b940ff',1,'Logic_out']]],
+  ['timeinactive',['timeInactive',['../struct_logic__out.html#ab1970f23943436bfee8eec67c81a8812',1,'Logic_out']]]
 ];

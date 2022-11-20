@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pwm_5fgpio',['PWM_GPIO',['../_p_w_m___g_p_i_o_8h.html#a6df5437874c97c1fde3a40ef78b949fa',1,'PWM_GPIO.h']]],
-  ['pwm_5fic',['PWM_IC',['../_p_w_m___i_c_8h.html#a325403b8952521384e6945b5e55fea6b',1,'PWM_IC.h']]]
+  ['logic_5fin',['Logic_in',['../_logic__in_8h.html#a86e57eb5a095886ed05d74e422f352c5',1,'Logic_in.h']]],
+  ['logic_5fout',['Logic_out',['../_logic__out_8h.html#abcdae5a530fae7e5b661bf0e725978b6',1,'Logic_out.h']]]
 ];

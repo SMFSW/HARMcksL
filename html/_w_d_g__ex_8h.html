@@ -99,13 +99,120 @@ Functions</h2></td></tr>
 <tr class="memitem:ae7a74908674515961a4b4d7a89d9528c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_g__ex_8h.html#ae7a74908674515961a4b4d7a89d9528c">WDG_unfreeze</a> (void)</td></tr>
 <tr class="memdesc:ae7a74908674515961a4b4d7a89d9528c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreeze IWDG &amp; WWDG.  <a href="#ae7a74908674515961a4b4d7a89d9528c">More...</a><br /></td></tr>
 <tr class="separator:ae7a74908674515961a4b4d7a89d9528c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352be82c55d033c40d9d975026616b0e"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_g__ex_8h.html#a352be82c55d033c40d9d975026616b0e">set_IWDG_Period_us</a> (IWDG_HandleTypeDef *const pIwdg, const uint32_t per)</td></tr>
+<tr class="memdesc:a352be82c55d033c40d9d975026616b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set IWDG period (in us)  <a href="#a352be82c55d033c40d9d975026616b0e">More...</a><br /></td></tr>
+<tr class="separator:a352be82c55d033c40d9d975026616b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c96991fafad26e36353afb1ee96b5e9"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_w_d_g__ex_8h.html#a1c96991fafad26e36353afb1ee96b5e9">set_IWDG_Period_ms</a> (IWDG_HandleTypeDef *const pIwdg, const uint32_t per)</td></tr>
+<tr class="memdesc:a1c96991fafad26e36353afb1ee96b5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set IWDG period (in ms)  <a href="#a1c96991fafad26e36353afb1ee96b5e9">More...</a><br /></td></tr>
+<tr class="separator:a1c96991fafad26e36353afb1ee96b5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extensions for WDG peripherals. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2021, SMFSW</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2022, SMFSW</dd></dl>
 <p>This module is mostly meant for debug target purposes, giving the ability to call freeze/unfreeze watchdogs functions no matter the build target, watchdogs being unfrozen only when they were enabled in the first place. </p><dl class="section warning"><dt>Warning</dt><dd>For this module to work properly, WDG_init_check have to be called once at the end of your init routine prior to use freeze/unfreeze functions. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1c96991fafad26e36353afb1ee96b5e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c96991fafad26e36353afb1ee96b5e9">&#9670;&nbsp;</a></span>set_IWDG_Period_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef set_IWDG_Period_ms </td>
+          <td>(</td>
+          <td class="paramtype">IWDG_HandleTypeDef *const&#160;</td>
+          <td class="paramname"><em>pIwdg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>per</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set IWDG period (in ms) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pIwdg</td><td>- Pointer to IWDG instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">per</td><td>- Period (in ms) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_w_d_g__ex_8h_a1c96991fafad26e36353afb1ee96b5e9_cgraph.png" border="0" usemap="#_w_d_g__ex_8h_a1c96991fafad26e36353afb1ee96b5e9_cgraph" alt=""/></div>
+<map name="_w_d_g__ex_8h_a1c96991fafad26e36353afb1ee96b5e9_cgraph" id="_w_d_g__ex_8h_a1c96991fafad26e36353afb1ee96b5e9_cgraph">
+<area shape="rect" id="node2" href="_w_d_g__ex_8h.html#a352be82c55d033c40d9d975026616b0e" title="Set IWDG period (in us) " alt="" coords="211,5,363,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a352be82c55d033c40d9d975026616b0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352be82c55d033c40d9d975026616b0e">&#9670;&nbsp;</a></span>set_IWDG_Period_us()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HAL_StatusTypeDef set_IWDG_Period_us </td>
+          <td>(</td>
+          <td class="paramtype">IWDG_HandleTypeDef *const&#160;</td>
+          <td class="paramname"><em>pIwdg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>per</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set IWDG period (in us) </p>
+<dl class="section warning"><dt>Warning</dt><dd>125us granularity for a 32KHz clock with minimum prescaler of 4 (typical STM32 IWDG architecture) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pIwdg</td><td>- Pointer to IWDG instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">per</td><td>- Period (in us) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>HAL Status </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_w_d_g__ex_8h_a352be82c55d033c40d9d975026616b0e_icgraph.png" border="0" usemap="#_w_d_g__ex_8h_a352be82c55d033c40d9d975026616b0e_icgraph" alt=""/></div>
+<map name="_w_d_g__ex_8h_a352be82c55d033c40d9d975026616b0e_icgraph" id="_w_d_g__ex_8h_a352be82c55d033c40d9d975026616b0e_icgraph">
+<area shape="rect" id="node2" href="_w_d_g__ex_8h.html#a1c96991fafad26e36353afb1ee96b5e9" title="Set IWDG period (in ms) " alt="" coords="205,5,363,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ace6a1662789b18b44eb19f062ddc032a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace6a1662789b18b44eb19f062ddc032a">&#9670;&nbsp;</a></span>WDG_freeze()</h2>
 

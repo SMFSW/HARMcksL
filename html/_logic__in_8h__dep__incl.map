@@ -1,0 +1,9 @@
+<map id="Logic_in.h" name="Logic_in.h">
+<area shape="rect" id="node2" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="115,80,198,107"/>
+<area shape="rect" id="node6" href="$_logic__ex_8h.html" title="Extensions for logic variables (R/W) " alt="" coords="223,80,312,107"/>
+<area shape="rect" id="node8" href="$_logic__in_8c.html" title="Logic input handling. " alt="" coords="336,80,420,107"/>
+<area shape="rect" id="node3" href="$_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,155,92,181"/>
+<area shape="rect" id="node5" href="$_g_p_i_o__in_8c.html" title="GPIO input handling. " alt="" coords="117,155,199,181"/>
+<area shape="rect" id="node4" href="$_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,229,92,256"/>
+<area shape="rect" id="node7" href="$_logic__ex_8c.html" title="Extensions for logic variables (R/W) " alt="" coords="223,155,311,181"/>
+</map>

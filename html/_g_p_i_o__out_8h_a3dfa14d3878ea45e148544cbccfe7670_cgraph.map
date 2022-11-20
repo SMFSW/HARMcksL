@@ -1,6 +1,10 @@
 <map id="get_GPIO_out_Idle" name="get_GPIO_out_Idle">
-<area shape="rect" id="node2" href="$_g_p_i_o__out_8h.html#ab11cc759ff4e305e54291295db541ff6" title="Initialize GPIO_out instance. " alt="" coords="212,5,319,32"/>
-<area shape="rect" id="node3" href="$_g_p_i_o__out_8h.html#a5a6eace32719e38a32b76db8b9e67521" title="Stop GPIO_out pulse/blink if running, or abort set if delay not reached. " alt="" coords="204,56,327,83"/>
-<area shape="rect" id="node5" href="$_g_p_i_o__out_8h.html#ae0cb4ccad76cda3d74bdbc10ef10cba7" title="Set GPIO_out state. " alt="" coords="192,107,339,133"/>
-<area shape="rect" id="node4" href="$_g_p_i_o__out_8c.html#ae0cb4ccad76cda3d74bdbc10ef10cba7" title="Set GPIO_out state. " alt="" coords="387,56,533,83"/>
+<area shape="rect" id="node2" href="$_logic__out_8h.html#a5404ecffaebf2ef9d9504ca110d58044" title="Get Logic_out current status. " alt="" coords="192,95,332,121"/>
+<area shape="rect" id="node8" href="$_g_p_i_o__out_8h.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance. " alt="" coords="209,19,315,45"/>
+<area shape="rect" id="node3" href="$_logic__out_8h.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance. " alt="" coords="400,56,509,83"/>
+<area shape="rect" id="node5" href="$_logic__out_8h.html#a9fbe95574c7a02b97d223027580f4bf9" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached. " alt="" coords="392,107,517,133"/>
+<area shape="rect" id="node7" href="$_logic__out_8h.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="380,157,529,184"/>
+<area shape="rect" id="node4" href="$_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c" title="Set GPIO port value. " alt="" coords="585,31,719,57"/>
+<area shape="rect" id="node6" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="577,107,727,133"/>
+<area shape="rect" id="node9" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance. " alt="" coords="400,5,509,32"/>
 </map>

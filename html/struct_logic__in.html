@@ -70,7 +70,7 @@ $(function() {
 <p>Logic input structure.  
  <a href="struct_logic__in.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_logic__ex_8h_source.html">Logic_ex.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_logic__in_8h_source.html">Logic_in.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -86,36 +86,38 @@ Data Fields</h2></td></tr>
 <tr class="memitem:afcebc085bbc90cf640f244e4a3c087ff"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_logic__in.html#afcebc085bbc90cf640f244e4a3c087ff">hIn</a></td></tr>
 <tr class="memdesc:afcebc085bbc90cf640f244e4a3c087ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter time.  <a href="#afcebc085bbc90cf640f244e4a3c087ff">More...</a><br /></td></tr>
 <tr class="separator:afcebc085bbc90cf640f244e4a3c087ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c92d07c12397823024e58123a82c455"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a52594a6d9db5a5c3b8c67753d6caede9"><td class="memItemLeft" >&#160;&#160;&#160;uint32_t(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a397e0625f419b14a76ed2c987b7c3f90">get</a> )(struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
-<tr class="memdesc:a52594a6d9db5a5c3b8c67753d6caede9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter function.  <a href="#a52594a6d9db5a5c3b8c67753d6caede9">More...</a><br /></td></tr>
-<tr class="separator:a52594a6d9db5a5c3b8c67753d6caede9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030de509030bf035c2eb74bda531d558"><td class="memItemLeft" >&#160;&#160;&#160;uint32_t&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a2baa6924610a4571c6de284981bc9890">pos</a></td></tr>
-<tr class="memdesc:a030de509030bf035c2eb74bda531d558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitored bit position in variable.  <a href="#a030de509030bf035c2eb74bda531d558">More...</a><br /></td></tr>
-<tr class="separator:a030de509030bf035c2eb74bda531d558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc8ffd4ad336861dc7888923b10d73e"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a83048e8b77ec1eab4563fabc176a483c">filt</a></td></tr>
-<tr class="memdesc:afbc8ffd4ad336861dc7888923b10d73e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter time (ms)  <a href="#afbc8ffd4ad336861dc7888923b10d73e">More...</a><br /></td></tr>
-<tr class="separator:afbc8ffd4ad336861dc7888923b10d73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa348272faaaef1bba1791631101f9d0"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a62eaf1db67f55ac485551513a76e072b">logic</a></td></tr>
-<tr class="memdesc:afa348272faaaef1bba1791631101f9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input logic polarity.  <a href="#afa348272faaaef1bba1791631101f9d0">More...</a><br /></td></tr>
-<tr class="separator:afa348272faaaef1bba1791631101f9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fad576053b854092256f6d6efab2295"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de">repeat</a></td></tr>
-<tr class="memdesc:a0fad576053b854092256f6d6efab2295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback ON repeat.  <a href="#a0fad576053b854092256f6d6efab2295">More...</a><br /></td></tr>
-<tr class="separator:a0fad576053b854092256f6d6efab2295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b20483b2693a7b4a78817f0e847a33c"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a173deda1f19945eab2114ebbd7e0eb54">onSet</a> )(struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
-<tr class="memdesc:a6b20483b2693a7b4a78817f0e847a33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback ON function pointer.  <a href="#a6b20483b2693a7b4a78817f0e847a33c">More...</a><br /></td></tr>
-<tr class="separator:a6b20483b2693a7b4a78817f0e847a33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6445f52e16b691522950f00efbe2a299"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#ae9cd5537e56798e3b9d94fbdfd4cb236">onReset</a> )(struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
-<tr class="memdesc:a6445f52e16b691522950f00efbe2a299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback OFF function pointer.  <a href="#a6445f52e16b691522950f00efbe2a299">More...</a><br /></td></tr>
-<tr class="separator:a6445f52e16b691522950f00efbe2a299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c92d07c12397823024e58123a82c455"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_logic__in.html#a2c92d07c12397823024e58123a82c455">cfg</a></td></tr>
-<tr class="separator:a2c92d07c12397823024e58123a82c455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39aae760d41aea7c29141b33674ff85e"><td class="memItemLeft" >struct {</td></tr>
+<tr class="memitem:ac0c5a3b28fc8dd01523676bd9aeb72c2"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a214114fc1c8ca2f7e656f582d7b0fad2">onSet</a> )(const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
+<tr class="memdesc:ac0c5a3b28fc8dd01523676bd9aeb72c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback ON function pointer.  <a href="#ac0c5a3b28fc8dd01523676bd9aeb72c2">More...</a><br /></td></tr>
+<tr class="separator:ac0c5a3b28fc8dd01523676bd9aeb72c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f045ef19e90be0ad33379e7a498296"><td class="memItemLeft" >&#160;&#160;&#160;void(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a3ae0fb7963f5c526d7f2bd2b68210038">onReset</a> )(const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
+<tr class="memdesc:ae2f045ef19e90be0ad33379e7a498296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push callback OFF function pointer.  <a href="#ae2f045ef19e90be0ad33379e7a498296">More...</a><br /></td></tr>
+<tr class="separator:ae2f045ef19e90be0ad33379e7a498296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfae322b5fea525abe200726c9928f07"><td class="memItemLeft" >&#160;&#160;&#160;GPIO_PinState(*&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a64e3dd658d9f3577de0a97a50fd31ff2">get</a> )(const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td></tr>
+<tr class="memdesc:adfae322b5fea525abe200726c9928f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter function.  <a href="#adfae322b5fea525abe200726c9928f07">More...</a><br /></td></tr>
+<tr class="separator:adfae322b5fea525abe200726c9928f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d7327ab7c789be7b21237c03c7e530"><td class="memItemLeft" >&#160;&#160;&#160;void *&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#aaa7597acbf18d98ce310927949f91c6e">LOGx</a></td></tr>
+<tr class="separator:a86d7327ab7c789be7b21237c03c7e530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec576a5f418ca5cb4bf42c127103d124"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a20c0fc3dd3897252a7a4a96ae1499165">LOG_Pos</a></td></tr>
+<tr class="memdesc:aec576a5f418ca5cb4bf42c127103d124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitored bit position in variable.  <a href="#aec576a5f418ca5cb4bf42c127103d124">More...</a><br /></td></tr>
+<tr class="separator:aec576a5f418ca5cb4bf42c127103d124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde6e0e7cadd10ffcfddd4d1995a3dd6"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#a83048e8b77ec1eab4563fabc176a483c">filt</a></td></tr>
+<tr class="memdesc:adde6e0e7cadd10ffcfddd4d1995a3dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter time (ms)  <a href="#adde6e0e7cadd10ffcfddd4d1995a3dd6">More...</a><br /></td></tr>
+<tr class="separator:adde6e0e7cadd10ffcfddd4d1995a3dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf21c1dd0c1233ee6b50e5cd05da0c7"><td class="memItemLeft" >&#160;&#160;&#160;GPIO_PinState&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#adb4e712a7ba80d5fd4129e7351988db8">polarity</a></td></tr>
+<tr class="memdesc:a7bf21c1dd0c1233ee6b50e5cd05da0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input polarity.  <a href="#a7bf21c1dd0c1233ee6b50e5cd05da0c7">More...</a><br /></td></tr>
+<tr class="separator:a7bf21c1dd0c1233ee6b50e5cd05da0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b2b507f0ff5a9eeda25e257e76f2b1"><td class="memItemLeft" >&#160;&#160;&#160;bool&#160;&#160;&#160;<a class="el" href="struct_logic__in.html#ad082421fcae81b3408ca9a9706db13de">repeat</a></td></tr>
+<tr class="memdesc:af7b2b507f0ff5a9eeda25e257e76f2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback ON repeat.  <a href="#af7b2b507f0ff5a9eeda25e257e76f2b1">More...</a><br /></td></tr>
+<tr class="separator:af7b2b507f0ff5a9eeda25e257e76f2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39aae760d41aea7c29141b33674ff85e"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_logic__in.html#a39aae760d41aea7c29141b33674ff85e">cfg</a></td></tr>
+<tr class="separator:a39aae760d41aea7c29141b33674ff85e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Logic input structure. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a2c92d07c12397823024e58123a82c455"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c92d07c12397823024e58123a82c455">&#9670;&nbsp;</a></span>cfg</h2>
+<a id="a39aae760d41aea7c29141b33674ff85e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39aae760d41aea7c29141b33674ff85e">&#9670;&nbsp;</a></span>cfg</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,14 +162,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a397e0625f419b14a76ed2c987b7c3f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397e0625f419b14a76ed2c987b7c3f90">&#9670;&nbsp;</a></span>get</h2>
+<a id="a64e3dd658d9f3577de0a97a50fd31ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64e3dd658d9f3577de0a97a50fd31ff2">&#9670;&nbsp;</a></span>get</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t(* Logic_in::get) (struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
+          <td class="memname">GPIO_PinState(* Logic_in::get) (const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,19 +210,33 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a62eaf1db67f55ac485551513a76e072b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62eaf1db67f55ac485551513a76e072b">&#9670;&nbsp;</a></span>logic</h2>
+<a id="a20c0fc3dd3897252a7a4a96ae1499165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c0fc3dd3897252a7a4a96ae1499165">&#9670;&nbsp;</a></span>LOG_Pos</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Logic_in::logic</td>
+          <td class="memname">uint16_t Logic_in::LOG_Pos</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Input logic polarity. </p>
+<p>Monitored bit position in variable. </p>
+
+</div>
+</div>
+<a id="aaa7597acbf18d98ce310927949f91c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa7597acbf18d98ce310927949f91c6e">&#9670;&nbsp;</a></span>LOGx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* Logic_in::LOGx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -240,14 +256,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9cd5537e56798e3b9d94fbdfd4cb236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9cd5537e56798e3b9d94fbdfd4cb236">&#9670;&nbsp;</a></span>onReset</h2>
+<a id="a3ae0fb7963f5c526d7f2bd2b68210038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae0fb7963f5c526d7f2bd2b68210038">&#9670;&nbsp;</a></span>onReset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* Logic_in::onReset) (struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
+          <td class="memname">void(* Logic_in::onReset) (const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -256,14 +272,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a173deda1f19945eab2114ebbd7e0eb54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a173deda1f19945eab2114ebbd7e0eb54">&#9670;&nbsp;</a></span>onSet</h2>
+<a id="a214114fc1c8ca2f7e656f582d7b0fad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a214114fc1c8ca2f7e656f582d7b0fad2">&#9670;&nbsp;</a></span>onSet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* Logic_in::onSet) (struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
+          <td class="memname">void(* Logic_in::onSet) (const struct <a class="el" href="struct_logic__in.html">Logic_in</a> *const)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -272,19 +288,19 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a2baa6924610a4571c6de284981bc9890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2baa6924610a4571c6de284981bc9890">&#9670;&nbsp;</a></span>pos</h2>
+<a id="adb4e712a7ba80d5fd4129e7351988db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb4e712a7ba80d5fd4129e7351988db8">&#9670;&nbsp;</a></span>polarity</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Logic_in::pos</td>
+          <td class="memname">GPIO_PinState Logic_in::polarity</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Monitored bit position in variable. </p>
+<p>Input polarity. </p>
 
 </div>
 </div>
@@ -305,7 +321,7 @@ Data Fields</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="_logic__ex_8h_source.html">Logic_ex.h</a></li>
+<li><a class="el" href="_logic__in_8h_source.html">Logic_in.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,3 +1,4 @@
 <map id="UART_Term_Flush_RxBuf" name="UART_Term_Flush_RxBuf">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a" title="Set a new breakout character. " alt="" coords="229,5,364,32"/>
+<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a1e612438d9107bb0e97badf5a1672c72" title="Initialize UART terminal. " alt="" coords="229,5,348,32"/>
+<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a" title="Set a new breakout character. " alt="" coords="396,31,531,57"/>
 </map>

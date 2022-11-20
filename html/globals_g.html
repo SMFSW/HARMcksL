@@ -63,6 +63,10 @@ $(function() {
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>get_CDC_Line_State()
+: <a class="el" href="_u_s_b___c_d_c___i_f__ex_8c.html#ad6ee1d18cf6a1726c9bcd410d0e9b829">USB_CDC_IF_ex.c</a>
+, <a class="el" href="_u_s_b___c_d_c___i_f__ex_8h.html#ad6ee1d18cf6a1726c9bcd410d0e9b829">USB_CDC_IF_ex.h</a>
+</li>
 <li>get_GPIO_in()
 : <a class="el" href="_g_p_i_o__in_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3">GPIO_in.h</a>
 </li>
@@ -79,10 +83,19 @@ $(function() {
 : <a class="el" href="_g_p_i_o__out_8h.html#a9d2911a14208a67ce7f4bc3996bd45d1">GPIO_out.h</a>
 </li>
 <li>get_Logic_in()
-: <a class="el" href="_logic__ex_8h.html#a750fb62cfba1735f56eb7f869516ba76">Logic_ex.h</a>
+: <a class="el" href="_logic__in_8h.html#a750fb62cfba1735f56eb7f869516ba76">Logic_in.h</a>
 </li>
 <li>get_Logic_in_edge()
-: <a class="el" href="_logic__ex_8h.html#af1567fbea6886f442b0d499f23c168d9">Logic_ex.h</a>
+: <a class="el" href="_logic__in_8h.html#af1567fbea6886f442b0d499f23c168d9">Logic_in.h</a>
+</li>
+<li>get_Logic_out_Idle()
+: <a class="el" href="_logic__out_8h.html#a5404ecffaebf2ef9d9504ca110d58044">Logic_out.h</a>
+</li>
+<li>get_Logic_out_Mode()
+: <a class="el" href="_logic__out_8h.html#a62ff08dbbbdd530a66dea76fdfb0b9e6">Logic_out.h</a>
+</li>
+<li>get_Logic_out_State()
+: <a class="el" href="_logic__out_8h.html#ad1cf1e2f045836ba6f793c1ca023748b">Logic_out.h</a>
 </li>
 <li>get_LR()
 : <a class="el" href="stack__utils_8h.html#a20bf375774584947dc7f4919ccaef0b1">stack_utils.h</a>
@@ -152,8 +165,8 @@ $(function() {
 : <a class="el" href="stack__utils_8h.html#ace45d0a547b7c05d1c86439afde3bf8f">stack_utils.h</a>
 </li>
 <li>get_TIM_clock()
-: <a class="el" href="_t_i_m__ex_8h.html#ad8048c17830084ea0c22bd16af8476d7">TIM_ex.h</a>
-, <a class="el" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7">TIM_ex.c</a>
+: <a class="el" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7">TIM_ex.c</a>
+, <a class="el" href="_t_i_m__ex_8h.html#ad8048c17830084ea0c22bd16af8476d7">TIM_ex.h</a>
 </li>
 <li>Get_Weekday()
 : <a class="el" href="time__utils_8c.html#a224e8ef533edb58211b87fdbb94bedd7">time_utils.c</a>
@@ -163,35 +176,27 @@ $(function() {
 : <a class="el" href="_u_a_r_t__term_8h.html#aef999196a3d4e1b9f4889671a1b2df76">UART_term.h</a>
 </li>
 <li>GPIO_in
-: <a class="el" href="_g_p_i_o__in_8h.html#abc6d15410add51566ee624311e59ed2e">GPIO_in.h</a>
+: <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in.h</a>
 </li>
 <li>GPIO_in_handler()
 : <a class="el" href="_g_p_i_o__in_8h.html#a2ecb5cf22efb7d5f2ee37216d524a870">GPIO_in.h</a>
 </li>
 <li>GPIO_in_init()
-: <a class="el" href="_g_p_i_o__in_8c.html#a7f970ef7e3749472e5e77dbea8d09062">GPIO_in.c</a>
-, <a class="el" href="_g_p_i_o__in_8h.html#a7f970ef7e3749472e5e77dbea8d09062">GPIO_in.h</a>
+: <a class="el" href="_g_p_i_o__in_8h.html#a013f4fc67d04cdb3fb59159631f76aa3">GPIO_in.h</a>
+, <a class="el" href="_g_p_i_o__in_8c.html#a013f4fc67d04cdb3fb59159631f76aa3">GPIO_in.c</a>
 </li>
 <li>GPIO_out
-: <a class="el" href="_g_p_i_o__out_8h.html#ab76e0d5bef4bd7486f75fd8975987dac">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8h.html#a922063a87ffb67f6d2aa1bfe3e2c6008">GPIO_out.h</a>
 </li>
 <li>GPIO_out_Abort()
-: <a class="el" href="_g_p_i_o__out_8c.html#a5a6eace32719e38a32b76db8b9e67521">GPIO_out.c</a>
-, <a class="el" href="_g_p_i_o__out_8h.html#a5a6eace32719e38a32b76db8b9e67521">GPIO_out.h</a>
-</li>
-<li>GPIO_out_Blink
-: <a class="el" href="_g_p_i_o__out_8h.html#a50f0dd721d432265f8c521971f6613a1aa370ca6e6f6bf0b7fc0fd63dfc3f3e12">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8h.html#a5a6eace32719e38a32b76db8b9e67521">GPIO_out.h</a>
 </li>
 <li>GPIO_out_handler()
-: <a class="el" href="_g_p_i_o__out_8c.html#a85ce0e4e3988d3a446f454ad3e213c54">GPIO_out.c</a>
-, <a class="el" href="_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54">GPIO_out.h</a>
 </li>
 <li>GPIO_out_init()
-: <a class="el" href="_g_p_i_o__out_8c.html#ab11cc759ff4e305e54291295db541ff6">GPIO_out.c</a>
-, <a class="el" href="_g_p_i_o__out_8h.html#ab11cc759ff4e305e54291295db541ff6">GPIO_out.h</a>
-</li>
-<li>GPIO_out_Pulse
-: <a class="el" href="_g_p_i_o__out_8h.html#a50f0dd721d432265f8c521971f6613a1a78755a9b15c507892f53c94e6fa5ab45">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8c.html#afaae8bf33bc5e66720c1aaffd26d2813">GPIO_out.c</a>
+, <a class="el" href="_g_p_i_o__out_8h.html#afaae8bf33bc5e66720c1aaffd26d2813">GPIO_out.h</a>
 </li>
 <li>GPIO_out_Reset()
 : <a class="el" href="_g_p_i_o__out_8h.html#a5177828a6fc250be261fbf18d1e3226f">GPIO_out.h</a>
@@ -207,18 +212,12 @@ $(function() {
 </li>
 <li>GPIO_out_SetStatic()
 : <a class="el" href="_g_p_i_o__out_8h.html#ae0cb4ccad76cda3d74bdbc10ef10cba7">GPIO_out.h</a>
-, <a class="el" href="_g_p_i_o__out_8c.html#ae0cb4ccad76cda3d74bdbc10ef10cba7">GPIO_out.c</a>
 </li>
 <li>GPIO_out_StartBlink()
-: <a class="el" href="_g_p_i_o__out_8c.html#acf705c85f895277f17ec97c4b91c9575">GPIO_out.c</a>
-, <a class="el" href="_g_p_i_o__out_8h.html#acf705c85f895277f17ec97c4b91c9575">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8h.html#acf705c85f895277f17ec97c4b91c9575">GPIO_out.h</a>
 </li>
 <li>GPIO_out_StartPulse()
-: <a class="el" href="_g_p_i_o__out_8c.html#aa032287dc10c8c9c2c73de811b15a0fc">GPIO_out.c</a>
-, <a class="el" href="_g_p_i_o__out_8h.html#aa032287dc10c8c9c2c73de811b15a0fc">GPIO_out.h</a>
-</li>
-<li>GPIO_out_Static
-: <a class="el" href="_g_p_i_o__out_8h.html#a50f0dd721d432265f8c521971f6613a1ae4cd21a7e24ecdda54f2cc9d6244b3b5">GPIO_out.h</a>
+: <a class="el" href="_g_p_i_o__out_8h.html#aa032287dc10c8c9c2c73de811b15a0fc">GPIO_out.h</a>
 </li>
 </ul>
 </div><!-- contents -->

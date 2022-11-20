@@ -1,15 +1,7 @@
 var searchData=
 [
-  ['set_5fpwm_5fduty_5fbyte',['set_PWM_Duty_Byte',['../_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53',1,'PWM.h']]],
-  ['set_5fpwm_5fduty_5fperc',['set_PWM_Duty_Perc',['../_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21',1,'PWM.h']]],
-  ['set_5fpwm_5fduty_5fscaled',['set_PWM_Duty_Scaled',['../_p_w_m_8c.html#a3eb48710efe5bc9fd3579fc69fe71374',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint32_t duty, const uint32_t scale):&#160;PWM.c'],['../_p_w_m_8h.html#a3eb48710efe5bc9fd3579fc69fe71374',1,'set_PWM_Duty_Scaled(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint32_t duty, const uint32_t scale):&#160;PWM.c']]],
-  ['set_5fpwm_5fduty_5fword',['set_PWM_Duty_Word',['../_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe',1,'PWM.h']]],
-  ['set_5fpwm_5foutput',['set_PWM_Output',['../_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed',1,'PWM.h']]],
-  ['set_5ftim_5ffreq',['set_TIM_Freq',['../_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a',1,'set_TIM_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a',1,'set_TIM_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c']]],
-  ['set_5ftim_5finterrupts',['set_TIM_Interrupts',['../_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222',1,'TIM_ex.h']]],
-  ['set_5ftim_5ftick_5ffreq',['set_TIM_Tick_Freq',['../_t_i_m__ex_8c.html#a4c168ead34c92ecee7af12cec4bd91d1',1,'set_TIM_Tick_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1',1,'set_TIM_Tick_Freq(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c']]],
-  ['setbreakout_5fchar',['setBreakout_char',['../_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a',1,'UART_term.h']]],
-  ['stack_5fdump',['stack_dump',['../stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291',1,'stack_utils.h']]],
-  ['stdout_5fno_5fbuffer',['stdout_no_buffer',['../stdream__rdir_8h.html#a4fa5134f5045eb444c36ffa8c7c81f32',1,'stdream_rdir.h']]],
-  ['str_5fgpio_5fname',['str_GPIO_name',['../_g_p_i_o__ex_8c.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#ada385c7d700819240acb2652617819bd',1,'str_GPIO_name(char *name, const GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]]
+  ['random_5fget',['random_Get',['../random__utils_8c.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c'],['../random__utils_8h.html#ae7f2232ba39936d7ebe30a73568aaecf',1,'random_Get(const uint32_t start):&#160;random_utils.c']]],
+  ['read_5fgpio',['read_GPIO',['../_g_p_i_o__ex_8c.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c'],['../_g_p_i_o__ex_8h.html#af1c26aac07c2e07fbbf6ed016722bc5c',1,'read_GPIO(GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin):&#160;GPIO_ex.c']]],
+  ['rtc_5fgettime',['RTC_GetTime',['../_r_t_c__ex_8c.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a138fec57aab466b06eddc6dbeab87ef7',1,'RTC_GetTime(DateTime *const time_now):&#160;RTC_ex.c']]],
+  ['rtc_5fsettime',['RTC_SetTime',['../_r_t_c__ex_8c.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c'],['../_r_t_c__ex_8h.html#a74c4760b34e3c4d256e085c6e5b5cf1b',1,'RTC_SetTime(const DateTime *const time_new):&#160;RTC_ex.c']]]
 ];

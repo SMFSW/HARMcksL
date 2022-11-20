@@ -60,6 +60,12 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ADC_ex.h File Reference</div>  </div>
 </div><!--header-->
@@ -68,6 +74,7 @@ $(function() {
 <p>Simple extension for ADCs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
+<code>#include &quot;ADC_cfg.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ADC_ex.h:</div>
 <div class="dyncontent">
@@ -85,10 +92,61 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 </div>
 <p><a href="_a_d_c__ex_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_d_c___cfg.html">ADC_Cfg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC channel declaration config structure.  <a href="struct_a_d_c___cfg.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa80c887de587343fc3ac3e67bf8e589f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#aa80c887de587343fc3ac3e67bf8e589f">TEMP_CALC_V25</a>&#160;&#160;&#160;TEMP_CALC_VTEMP</td></tr>
+<tr class="memdesc:aa80c887de587343fc3ac3e67bf8e589f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for legacy code using TEMP_CALC_V25 (not accurate following families, leading to name change)  <a href="#aa80c887de587343fc3ac3e67bf8e589f">More...</a><br /></td></tr>
+<tr class="separator:aa80c887de587343fc3ac3e67bf8e589f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a366ca22e9249dbefb1238fb0ea79b1c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a366ca22e9249dbefb1238fb0ea79b1c0">TEMP_CALC_V30</a>&#160;&#160;&#160;TEMP_CALC_VTEMP</td></tr>
+<tr class="memdesc:a366ca22e9249dbefb1238fb0ea79b1c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for legacy code using TEMP_CALC_V30 (not accurate following families, leading to name change)  <a href="#a366ca22e9249dbefb1238fb0ea79b1c0">More...</a><br /></td></tr>
+<tr class="separator:a366ca22e9249dbefb1238fb0ea79b1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb57f6cfa5f4032ef0da8f19dfa9b966"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#aeb57f6cfa5f4032ef0da8f19dfa9b966">Def_VIn</a>&#160;&#160;&#160;((float) VDD_VALUE / 1000.0f)</td></tr>
+<tr class="memdesc:aeb57f6cfa5f4032ef0da8f19dfa9b966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vin voltage (in V)  <a href="#aeb57f6cfa5f4032ef0da8f19dfa9b966">More...</a><br /></td></tr>
+<tr class="separator:aeb57f6cfa5f4032ef0da8f19dfa9b966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3112628efae815a01dd8a77f852044"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a7c3112628efae815a01dd8a77f852044">Def_Step</a>&#160;&#160;&#160;(<a class="el" href="_a_d_c__ex_8h.html#aeb57f6cfa5f4032ef0da8f19dfa9b966">Def_VIn</a> / 4095.0f)</td></tr>
+<tr class="memdesc:a7c3112628efae815a01dd8a77f852044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step value (in V)  <a href="#a7c3112628efae815a01dd8a77f852044">More...</a><br /></td></tr>
+<tr class="separator:a7c3112628efae815a01dd8a77f852044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a849199494db3d52e8c18baa90356390d"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">eADCidx</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a849199494db3d52e8c18baa90356390d">eADCidx</a></td></tr>
+<tr class="separator:a849199494db3d52e8c18baa90356390d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b034fa15fc00a3917db082d7bea1d8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_a_d_c___cfg.html">ADC_Cfg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a57b034fa15fc00a3917db082d7bea1d8">ADC_Cfg</a></td></tr>
+<tr class="separator:a57b034fa15fc00a3917db082d7bea1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a41143f8d54eea269e28eb72a567f3025"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">eADCidx</a> { <a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025a2caf3ec827224fca2fe75224519064e5">ADC_MAX</a>
+ }<tr class="memdesc:a41143f8d54eea269e28eb72a567f3025"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC peripheral instance indexes.  <a href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:a41143f8d54eea269e28eb72a567f3025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a814dfef327eaddafae9bc056d38a335b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a814dfef327eaddafae9bc056d38a335b">ADC_GetRawVal</a> (const eAnalogInput input)</td></tr>
+<tr class="memdesc:a814dfef327eaddafae9bc056d38a335b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ADC channel raw value.  <a href="#a814dfef327eaddafae9bc056d38a335b">More...</a><br /></td></tr>
+<tr class="separator:a814dfef327eaddafae9bc056d38a335b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9abd31478ac378215a89f34631c06b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a4e9abd31478ac378215a89f34631c06b">ADC_GetConvertedVal</a> (const eAnalogInput input)</td></tr>
+<tr class="memdesc:a4e9abd31478ac378215a89f34631c06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ADC channel converted value.  <a href="#a4e9abd31478ac378215a89f34631c06b">More...</a><br /></td></tr>
+<tr class="separator:a4e9abd31478ac378215a89f34631c06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13415d76e03329dd1b4759c7b219a799"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#a13415d76e03329dd1b4759c7b219a799">ADC_Start</a> (void)</td></tr>
+<tr class="memdesc:a13415d76e03329dd1b4759c7b219a799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start ADC conversions.  <a href="#a13415d76e03329dd1b4759c7b219a799">More...</a><br /></td></tr>
+<tr class="separator:a13415d76e03329dd1b4759c7b219a799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0253b0c82b0f1f88ab2f3487a470bec"><td class="memItemLeft" align="right" valign="top">FctERR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_d_c__ex_8h.html#af0253b0c82b0f1f88ab2f3487a470bec">ADC_Stop</a> (void)</td></tr>
+<tr class="memdesc:af0253b0c82b0f1f88ab2f3487a470bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop ADC conversions.  <a href="#af0253b0c82b0f1f88ab2f3487a470bec">More...</a><br /></td></tr>
+<tr class="separator:af0253b0c82b0f1f88ab2f3487a470bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple extension for ADCs. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2021, SMFSW</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2022, SMFSW</dd></dl>
 <p>ADC_ex is meant to automate ADC conversions using DMA.</p><ul>
 <li>DMA must be configured for ADC peripherals:<ul>
 <li>Peripheral to Memory</li>
@@ -108,7 +166,235 @@ Configuration done calling ADC_cfg.h file </dd></dl>
 </ul>
 </li>
 </ul>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7c3112628efae815a01dd8a77f852044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3112628efae815a01dd8a77f852044">&#9670;&nbsp;</a></span>Def_Step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Def_Step&#160;&#160;&#160;(<a class="el" href="_a_d_c__ex_8h.html#aeb57f6cfa5f4032ef0da8f19dfa9b966">Def_VIn</a> / 4095.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Step value (in V) </p>
+
+</div>
+</div>
+<a id="aeb57f6cfa5f4032ef0da8f19dfa9b966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb57f6cfa5f4032ef0da8f19dfa9b966">&#9670;&nbsp;</a></span>Def_VIn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Def_VIn&#160;&#160;&#160;((float) VDD_VALUE / 1000.0f)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vin voltage (in V) </p>
+
+</div>
+</div>
+<a id="aa80c887de587343fc3ac3e67bf8e589f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa80c887de587343fc3ac3e67bf8e589f">&#9670;&nbsp;</a></span>TEMP_CALC_V25</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMP_CALC_V25&#160;&#160;&#160;TEMP_CALC_VTEMP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for legacy code using TEMP_CALC_V25 (not accurate following families, leading to name change) </p>
+
+</div>
+</div>
+<a id="a366ca22e9249dbefb1238fb0ea79b1c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366ca22e9249dbefb1238fb0ea79b1c0">&#9670;&nbsp;</a></span>TEMP_CALC_V30</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMP_CALC_V30&#160;&#160;&#160;TEMP_CALC_VTEMP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for legacy code using TEMP_CALC_V30 (not accurate following families, leading to name change) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a57b034fa15fc00a3917db082d7bea1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b034fa15fc00a3917db082d7bea1d8">&#9670;&nbsp;</a></span>ADC_Cfg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_a_d_c___cfg.html">ADC_Cfg</a>  <a class="el" href="struct_a_d_c___cfg.html">ADC_Cfg</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a849199494db3d52e8c18baa90356390d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a849199494db3d52e8c18baa90356390d">&#9670;&nbsp;</a></span>eADCidx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">eADCidx</a>  <a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">eADCidx</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a41143f8d54eea269e28eb72a567f3025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41143f8d54eea269e28eb72a567f3025">&#9670;&nbsp;</a></span>eADCidx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025">eADCidx</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ADC peripheral instance indexes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a41143f8d54eea269e28eb72a567f3025a2caf3ec827224fca2fe75224519064e5"></a>ADC_MAX&#160;</td><td class="fielddoc"><p>Adc MAX index. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4e9abd31478ac378215a89f34631c06b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9abd31478ac378215a89f34631c06b">&#9670;&nbsp;</a></span>ADC_GetConvertedVal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ADC_GetConvertedVal </td>
+          <td>(</td>
+          <td class="paramtype">const eAnalogInput&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get ADC channel converted value. </p>
+<p>! </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>- Input index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Channel converted value </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_a_d_c__ex_8h_a4e9abd31478ac378215a89f34631c06b_cgraph.png" border="0" usemap="#_a_d_c__ex_8h_a4e9abd31478ac378215a89f34631c06b_cgraph" alt=""/></div>
+<map name="_a_d_c__ex_8h_a4e9abd31478ac378215a89f34631c06b_cgraph" id="_a_d_c__ex_8h_a4e9abd31478ac378215a89f34631c06b_cgraph">
+<area shape="rect" id="node2" href="_a_d_c__ex_8c.html#a814dfef327eaddafae9bc056d38a335b" title="Get ADC channel raw value. " alt="" coords="219,5,343,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a814dfef327eaddafae9bc056d38a335b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814dfef327eaddafae9bc056d38a335b">&#9670;&nbsp;</a></span>ADC_GetRawVal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t ADC_GetRawVal </td>
+          <td>(</td>
+          <td class="paramtype">const eAnalogInput&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get ADC channel raw value. </p>
+<p>! </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input</td><td>- Input index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Channel raw value </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_a_d_c__ex_8h_a814dfef327eaddafae9bc056d38a335b_icgraph.png" border="0" usemap="#_a_d_c__ex_8h_a814dfef327eaddafae9bc056d38a335b_icgraph" alt=""/></div>
+<map name="_a_d_c__ex_8h_a814dfef327eaddafae9bc056d38a335b_icgraph" id="_a_d_c__ex_8h_a814dfef327eaddafae9bc056d38a335b_icgraph">
+<area shape="rect" id="node2" href="_a_d_c__ex_8h.html#a4e9abd31478ac378215a89f34631c06b" title="Get ADC channel converted value. " alt="" coords="177,5,343,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a13415d76e03329dd1b4759c7b219a799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13415d76e03329dd1b4759c7b219a799">&#9670;&nbsp;</a></span>ADC_Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FctERR ADC_Start </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start ADC conversions. </p>
+<p>! </p><dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+
+</div>
+</div>
+<a id="af0253b0c82b0f1f88ab2f3487a470bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0253b0c82b0f1f88ab2f3487a470bec">&#9670;&nbsp;</a></span>ADC_Stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FctERR ADC_Stop </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop ADC conversions. </p>
+<p>! </p><dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

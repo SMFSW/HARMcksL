@@ -1,8 +1,7 @@
 var searchData=
 [
   ['per',['per',['../struct_p_w_m___g_p_i_o.html#a558eb5e3146f7cbc68f4b5b6f445947f',1,'PWM_GPIO']]],
-  ['polarity',['polarity',['../struct_g_p_i_o__out.html#a0c9c5742344ba907c0773ea3e88e6b62',1,'GPIO_out::polarity()'],['../struct_p_w_m___g_p_i_o.html#aacffba5c78aa07a9a701dfcd91c677b3',1,'PWM_GPIO::polarity()']]],
-  ['pos',['pos',['../struct_logic__in.html#a2baa6924610a4571c6de284981bc9890',1,'Logic_in']]],
+  ['polarity',['polarity',['../struct_logic__in.html#adb4e712a7ba80d5fd4129e7351988db8',1,'Logic_in::polarity()'],['../struct_logic__out.html#a991533cdd5947ff42452b785e40c06e7',1,'Logic_out::polarity()'],['../struct_p_w_m___g_p_i_o.html#aacffba5c78aa07a9a701dfcd91c677b3',1,'PWM_GPIO::polarity()']]],
   ['print_5fglobal_5fregs',['print_global_regs',['../stack__utils_8c.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721',1,'print_global_regs(void):&#160;stack_utils.c']]],
   ['print_5fstack_5faddress',['print_stack_address',['../stack__utils_8c.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c'],['../stack__utils_8h.html#a0e45c6ac6ab6d3ff6815112f634d441c',1,'print_stack_address(void):&#160;stack_utils.c']]],
   ['ptim',['pTim',['../struct_p_w_m___g_p_i_o.html#a45ce3b6221b791c29a5d38c69c77b17b',1,'PWM_GPIO']]],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['datetime',['DateTime',['../struct_date_time.html',1,'']]]
+  ['adc_5fcfg',['ADC_Cfg',['../struct_a_d_c___cfg.html',1,'']]],
+  ['analogtab',['AnalogTab',['../struct_analog_tab.html',1,'']]]
 ];

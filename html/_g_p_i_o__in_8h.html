@@ -61,7 +61,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -72,13 +71,13 @@ $(function() {
 <p>GPIO input handling.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_logic__ex_8h_source.html">Logic_ex.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logic__in_8h_source.html">Logic_in.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for GPIO_in.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_g_p_i_o__in_8h__incl.png" border="0" usemap="#_g_p_i_o__in_8h" alt=""/></div>
 <map name="_g_p_i_o__in_8h" id="_g_p_i_o__in_8h">
-<area shape="rect" id="node3" href="_logic__ex_8h.html" title="Extensions for logic variable handling. " alt="" coords="45,80,135,107"/>
+<area shape="rect" id="node3" href="_logic__in_8h.html" title="Logic input handling. " alt="" coords="46,80,131,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -94,48 +93,45 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="_g_p_i_o__in_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO input structure.  <a href="struct_g_p_i_o__in.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:abc6d15410add51566ee624311e59ed2e"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#abc6d15410add51566ee624311e59ed2e">GPIO_in</a></td></tr>
-<tr class="separator:abc6d15410add51566ee624311e59ed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57b753c8617e238fb51cd0c61c9b762"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="struct_logic__in.html">Logic_in</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a></td></tr>
+<tr class="memdesc:af57b753c8617e238fb51cd0c61c9b762"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO_in typedef alias of <a class="el" href="struct_logic__in.html">Logic_in</a>.  <a href="#af57b753c8617e238fb51cd0c61c9b762">More...</a><br /></td></tr>
+<tr class="separator:af57b753c8617e238fb51cd0c61c9b762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3">get_GPIO_in</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
-<tr class="memdesc:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input value.  <a href="#a5f2a1a1d03e692f8131c99563cfa0af3">More...</a><br /></td></tr>
+<tr class="memitem:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a5f2a1a1d03e692f8131c99563cfa0af3">get_GPIO_in</a> (const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const in)</td></tr>
+<tr class="memdesc:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get GPIO_in input value.  <a href="#a5f2a1a1d03e692f8131c99563cfa0af3">More...</a><br /></td></tr>
 <tr class="separator:a5f2a1a1d03e692f8131c99563cfa0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a01979653245fb3c41842eb287ba6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a93a01979653245fb3c41842eb287ba6e">get_GPIO_in_edge</a> (const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
-<tr class="memdesc:a93a01979653245fb3c41842eb287ba6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input edge.  <a href="#a93a01979653245fb3c41842eb287ba6e">More...</a><br /></td></tr>
+<tr class="memitem:a93a01979653245fb3c41842eb287ba6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a93a01979653245fb3c41842eb287ba6e">get_GPIO_in_edge</a> (const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const in)</td></tr>
+<tr class="memdesc:a93a01979653245fb3c41842eb287ba6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get GPIO_in input edge.  <a href="#a93a01979653245fb3c41842eb287ba6e">More...</a><br /></td></tr>
 <tr class="separator:a93a01979653245fb3c41842eb287ba6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f970ef7e3749472e5e77dbea8d09062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a7f970ef7e3749472e5e77dbea8d09062">GPIO_in_init</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter, void(*onSet)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), void(*onReset)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const), const bool repeat)</td></tr>
-<tr class="memdesc:a7f970ef7e3749472e5e77dbea8d09062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance.  <a href="#a7f970ef7e3749472e5e77dbea8d09062">More...</a><br /></td></tr>
-<tr class="separator:a7f970ef7e3749472e5e77dbea8d09062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a2ecb5cf22efb7d5f2ee37216d524a870">GPIO_in_handler</a> (<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const in)</td></tr>
-<tr class="memdesc:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> read and treatment.  <a href="#a2ecb5cf22efb7d5f2ee37216d524a870">More...</a><br /></td></tr>
+<tr class="memitem:a013f4fc67d04cdb3fb59159631f76aa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a013f4fc67d04cdb3fb59159631f76aa3">GPIO_in_init</a> (<a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const in, GPIO_TypeDef *const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter, void(*onSet)(const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const), void(*onReset)(const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const), const bool repeat)</td></tr>
+<tr class="memdesc:a013f4fc67d04cdb3fb59159631f76aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize GPIO_in instance.  <a href="#a013f4fc67d04cdb3fb59159631f76aa3">More...</a><br /></td></tr>
+<tr class="separator:a013f4fc67d04cdb3fb59159631f76aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o__in_8h.html#a2ecb5cf22efb7d5f2ee37216d524a870">GPIO_in_handler</a> (<a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const in)</td></tr>
+<tr class="memdesc:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles GPIO_in read and treatment.  <a href="#a2ecb5cf22efb7d5f2ee37216d524a870">More...</a><br /></td></tr>
 <tr class="separator:a2ecb5cf22efb7d5f2ee37216d524a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPIO input handling. </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2021, SMFSW </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2022, SMFSW </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="abc6d15410add51566ee624311e59ed2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc6d15410add51566ee624311e59ed2e">&#9670;&nbsp;</a></span>GPIO_in</h2>
+<a id="af57b753c8617e238fb51cd0c61c9b762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57b753c8617e238fb51cd0c61c9b762">&#9670;&nbsp;</a></span>GPIO_in</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a>  <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a></td>
+          <td class="memname">typedef <a class="el" href="struct_logic__in.html">Logic_in</a> <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>GPIO_in typedef alias of <a class="el" href="struct_logic__in.html">Logic_in</a>. </p>
 
 </div>
 </div>
@@ -152,7 +148,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool get_GPIO_in </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const&#160;</td>
+          <td class="paramtype">const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -164,14 +160,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input value. </p>
+<p>Get GPIO_in input value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- GPIO_in instance </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Input value </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_g_p_i_o__in_8h_a5f2a1a1d03e692f8131c99563cfa0af3_cgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a5f2a1a1d03e692f8131c99563cfa0af3_cgraph" alt=""/></div>
+<map name="_g_p_i_o__in_8h_a5f2a1a1d03e692f8131c99563cfa0af3_cgraph" id="_g_p_i_o__in_8h_a5f2a1a1d03e692f8131c99563cfa0af3_cgraph">
+<area shape="rect" id="node2" href="_logic__in_8h.html#a750fb62cfba1735f56eb7f869516ba76" title="Get Logic_in input value. " alt="" coords="152,5,253,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -187,7 +191,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool get_GPIO_in_edge </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const&#160;</td>
+          <td class="paramtype">const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -199,10 +203,10 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> input edge. </p>
+<p>Get GPIO_in input edge. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- GPIO_in instance </td></tr>
   </table>
   </dd>
 </dl>
@@ -212,8 +216,11 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_g_p_i_o__in_8h_a93a01979653245fb3c41842eb287ba6e_cgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a93a01979653245fb3c41842eb287ba6e_cgraph" alt=""/></div>
 <map name="_g_p_i_o__in_8h_a93a01979653245fb3c41842eb287ba6e_cgraph" id="_g_p_i_o__in_8h_a93a01979653245fb3c41842eb287ba6e_cgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__in_8h.html#a7f970ef7e3749472e5e77dbea8d09062" title="Initialize GPIO_in instance. " alt="" coords="192,5,289,32"/>
-<area shape="rect" id="node3" href="_logic__ex_8c.html#a038342aba9ff5fa4be8feb4909badfb2" title="Initialize Logic_in instance. " alt="" coords="337,5,436,32"/>
+<area shape="rect" id="node2" href="_logic__in_8h.html#af1567fbea6886f442b0d499f23c168d9" title="Get Logic_in input edge. " alt="" coords="192,56,332,83"/>
+<area shape="rect" id="node5" href="_g_p_i_o__in_8h.html#a013f4fc67d04cdb3fb59159631f76aa3" title="Initialize GPIO_in instance. " alt="" coords="213,107,311,133"/>
+<area shape="rect" id="node3" href="_logic__in_8h.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance. " alt="" coords="395,5,493,32"/>
+<area shape="rect" id="node4" href="_logic__in_8h.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment. " alt="" coords="380,56,508,83"/>
+<area shape="rect" id="node6" href="_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance. " alt="" coords="395,107,493,133"/>
 </map>
 </div>
 
@@ -231,7 +238,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void GPIO_in_handler </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const&#160;</td>
+          <td class="paramtype"><a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -243,10 +250,10 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Handles <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> read and treatment. </p>
+<p>Handles GPIO_in read and treatment. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance to handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- GPIO_in instance to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -255,14 +262,14 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_g_p_i_o__in_8h_a2ecb5cf22efb7d5f2ee37216d524a870_cgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a2ecb5cf22efb7d5f2ee37216d524a870_cgraph" alt=""/></div>
 <map name="_g_p_i_o__in_8h_a2ecb5cf22efb7d5f2ee37216d524a870_cgraph" id="_g_p_i_o__in_8h_a2ecb5cf22efb7d5f2ee37216d524a870_cgraph">
-<area shape="rect" id="node2" href="_logic__ex_8c.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment. " alt="" coords="180,5,308,32"/>
+<area shape="rect" id="node2" href="_logic__in_8c.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment. " alt="" coords="180,5,308,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a7f970ef7e3749472e5e77dbea8d09062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f970ef7e3749472e5e77dbea8d09062">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
+<a id="a013f4fc67d04cdb3fb59159631f76aa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013f4fc67d04cdb3fb59159631f76aa3">&#9670;&nbsp;</a></span>GPIO_in_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,7 +277,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void GPIO_in_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const&#160;</td>
+          <td class="paramtype"><a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const&#160;</td>
           <td class="paramname"><em>in</em>, </td>
         </tr>
         <tr>
@@ -300,13 +307,13 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const)&#160;</td>
+          <td class="paramtype">void(*)(const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const)&#160;</td>
           <td class="paramname"><em>onSet</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_g_p_i_o__in.html">GPIO_in</a> *const)&#160;</td>
+          <td class="paramtype">void(*)(const <a class="el" href="_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762">GPIO_in</a> *const)&#160;</td>
           <td class="paramname"><em>onReset</em>, </td>
         </tr>
         <tr>
@@ -323,10 +330,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance. </p>
+<p>Initialize GPIO_in instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- <a class="el" href="struct_g_p_i_o__in.html" title="GPIO input structure. ">GPIO_in</a> instance to initialize </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- GPIO_in instance to initialize </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GPIOx</td><td>- port to read from </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">GPIO_Pin</td><td>- pin to read from </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">polarity</td><td>- set to GPIO_PIN_RESET if active state is GND, GPIO_PIN_SET if Vdd </td></tr>
@@ -340,16 +347,16 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_cgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_cgraph" alt=""/></div>
-<map name="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_cgraph" id="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_cgraph">
-<area shape="rect" id="node2" href="_logic__ex_8c.html#a038342aba9ff5fa4be8feb4909badfb2" title="Initialize Logic_in instance. " alt="" coords="151,5,249,32"/>
+<div class="center"><img src="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_cgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_cgraph" alt=""/></div>
+<map name="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_cgraph" id="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_cgraph">
+<area shape="rect" id="node2" href="_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance. " alt="" coords="151,5,249,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_icgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_icgraph" alt=""/></div>
-<map name="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_icgraph" id="_g_p_i_o__in_8h_a7f970ef7e3749472e5e77dbea8d09062_icgraph">
+<div class="center"><img src="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_icgraph.png" border="0" usemap="#_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_icgraph" alt=""/></div>
+<map name="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_icgraph" id="_g_p_i_o__in_8h_a013f4fc67d04cdb3fb59159631f76aa3_icgraph">
 <area shape="rect" id="node2" href="_g_p_i_o__in_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="151,5,289,32"/>
 </map>
 </div>

@@ -60,23 +60,23 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Logic_ex.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Extensions for logic variable handling.  
+<p>Extensions for logic variables (R/W)  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;sarmfsw.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logic__in_8h_source.html">Logic_in.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logic__out_8h_source.html">Logic_out.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Logic_ex.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_logic__ex_8h__incl.png" border="0" usemap="#_logic__ex_8h" alt=""/></div>
 <map name="_logic__ex_8h" id="_logic__ex_8h">
+<area shape="rect" id="node3" href="_logic__in_8h.html" title="Logic input handling. " alt="" coords="20,80,106,107"/>
+<area shape="rect" id="node4" href="_logic__out_8h.html" title="Logic output handling. " alt="" coords="130,80,225,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -84,266 +84,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_logic__ex_8h__dep__incl.png" border="0" usemap="#_logic__ex_8hdep" alt=""/></div>
 <map name="_logic__ex_8hdep" id="_logic__ex_8hdep">
-<area shape="rect" id="node2" href="_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="38,80,121,107"/>
-<area shape="rect" id="node5" href="_g_p_i_o__in_8c.html" title="GPIO input handling. " alt="" coords="117,155,199,181"/>
-<area shape="rect" id="node6" href="_logic__ex_8c.html" title="Extensions for logic variable handling. " alt="" coords="195,80,283,107"/>
-<area shape="rect" id="node3" href="_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node4" href="_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,229,92,256"/>
+<area shape="rect" id="node2" href="_logic__ex_8c.html" title="Extensions for logic variables (R/W) " alt="" coords="6,80,94,107"/>
 </map>
 </div>
 </div>
 <p><a href="_logic__ex_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_logic__in.html">Logic_in</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logic input structure.  <a href="struct_logic__in.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a86e57eb5a095886ed05d74e422f352c5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_logic__in.html">Logic_in</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logic__ex_8h.html#a86e57eb5a095886ed05d74e422f352c5">Logic_in</a></td></tr>
-<tr class="separator:a86e57eb5a095886ed05d74e422f352c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a750fb62cfba1735f56eb7f869516ba76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logic__ex_8h.html#a750fb62cfba1735f56eb7f869516ba76">get_Logic_in</a> (const <a class="el" href="struct_logic__in.html">Logic_in</a> *const in)</td></tr>
-<tr class="memdesc:a750fb62cfba1735f56eb7f869516ba76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> input value.  <a href="#a750fb62cfba1735f56eb7f869516ba76">More...</a><br /></td></tr>
-<tr class="separator:a750fb62cfba1735f56eb7f869516ba76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1567fbea6886f442b0d499f23c168d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logic__ex_8h.html#af1567fbea6886f442b0d499f23c168d9">get_Logic_in_edge</a> (const <a class="el" href="struct_logic__in.html">Logic_in</a> *const in)</td></tr>
-<tr class="memdesc:af1567fbea6886f442b0d499f23c168d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> input edge.  <a href="#af1567fbea6886f442b0d499f23c168d9">More...</a><br /></td></tr>
-<tr class="separator:af1567fbea6886f442b0d499f23c168d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a038342aba9ff5fa4be8feb4909badfb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logic__ex_8h.html#a038342aba9ff5fa4be8feb4909badfb2">Logic_in_init</a> (<a class="el" href="struct_logic__in.html">Logic_in</a> *const in, uint32_t(*getter)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const), const uint32_t pos, const bool logic, const uint16_t filter, void(*onSet)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const), void(*onReset)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const), const bool repeat)</td></tr>
-<tr class="memdesc:a038342aba9ff5fa4be8feb4909badfb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> instance.  <a href="#a038342aba9ff5fa4be8feb4909badfb2">More...</a><br /></td></tr>
-<tr class="separator:a038342aba9ff5fa4be8feb4909badfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c379f4058315150094f2c6c5685888"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_logic__ex_8h.html#ac7c379f4058315150094f2c6c5685888">Logic_in_handler</a> (<a class="el" href="struct_logic__in.html">Logic_in</a> *const in)</td></tr>
-<tr class="memdesc:ac7c379f4058315150094f2c6c5685888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> read and treatment.  <a href="#ac7c379f4058315150094f2c6c5685888">More...</a><br /></td></tr>
-<tr class="separator:ac7c379f4058315150094f2c6c5685888"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Extensions for logic variable handling. </p>
+<div class="textblock"><p>Extensions for logic variables (R/W) </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2021, SMFSW </dd></dl>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a86e57eb5a095886ed05d74e422f352c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86e57eb5a095886ed05d74e422f352c5">&#9670;&nbsp;</a></span>Logic_in</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="struct_logic__in.html">Logic_in</a>  <a class="el" href="struct_logic__in.html">Logic_in</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a750fb62cfba1735f56eb7f869516ba76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a750fb62cfba1735f56eb7f869516ba76">&#9670;&nbsp;</a></span>get_Logic_in()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool get_Logic_in </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_logic__in.html">Logic_in</a> *const&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> input value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- input instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Input value </dd></dl>
-
-</div>
-</div>
-<a id="af1567fbea6886f442b0d499f23c168d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1567fbea6886f442b0d499f23c168d9">&#9670;&nbsp;</a></span>get_Logic_in_edge()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool get_Logic_in_edge </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_logic__in.html">Logic_in</a> *const&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> input edge. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- input instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Input edge </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_logic__ex_8h_af1567fbea6886f442b0d499f23c168d9_cgraph.png" border="0" usemap="#_logic__ex_8h_af1567fbea6886f442b0d499f23c168d9_cgraph" alt=""/></div>
-<map name="_logic__ex_8h_af1567fbea6886f442b0d499f23c168d9_cgraph" id="_logic__ex_8h_af1567fbea6886f442b0d499f23c168d9_cgraph">
-<area shape="rect" id="node2" href="_logic__ex_8h.html#a038342aba9ff5fa4be8feb4909badfb2" title="Initialize Logic_in instance. " alt="" coords="208,5,307,32"/>
-<area shape="rect" id="node3" href="_logic__ex_8h.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment. " alt="" coords="193,56,321,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac7c379f4058315150094f2c6c5685888"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c379f4058315150094f2c6c5685888">&#9670;&nbsp;</a></span>Logic_in_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Logic_in_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_logic__in.html">Logic_in</a> *const&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handles <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> read and treatment. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- input instance to handle </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_logic__ex_8h_ac7c379f4058315150094f2c6c5685888_icgraph.png" border="0" usemap="#_logic__ex_8h_ac7c379f4058315150094f2c6c5685888_icgraph" alt=""/></div>
-<map name="_logic__ex_8h_ac7c379f4058315150094f2c6c5685888_icgraph" id="_logic__ex_8h_ac7c379f4058315150094f2c6c5685888_icgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__in_8h.html#a2ecb5cf22efb7d5f2ee37216d524a870" title="Handles GPIO_in read and treatment. " alt="" coords="188,5,315,32"/>
-<area shape="rect" id="node3" href="_logic__ex_8h.html#af1567fbea6886f442b0d499f23c168d9" title="Get Logic_in input edge. " alt="" coords="181,56,321,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a038342aba9ff5fa4be8feb4909badfb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a038342aba9ff5fa4be8feb4909badfb2">&#9670;&nbsp;</a></span>Logic_in_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Logic_in_init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_logic__in.html">Logic_in</a> *const&#160;</td>
-          <td class="paramname"><em>in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t(*)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const)&#160;</td>
-          <td class="paramname"><em>getter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>logic</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>filter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const)&#160;</td>
-          <td class="paramname"><em>onSet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*)(<a class="el" href="struct_logic__in.html">Logic_in</a> *const)&#160;</td>
-          <td class="paramname"><em>onReset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>repeat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize <a class="el" href="struct_logic__in.html" title="Logic input structure. ">Logic_in</a> instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>- input instance to initialize </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">getter</td><td>- Pointer to variable getter function </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>- monitored bit position </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logic</td><td>- active state </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>- input filtering time </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">onSet</td><td>- Pointer to callback ON function </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">onReset</td><td>- Pointer to callback OFF function </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">repeat</td><td>- To repeat callback ON as long as input is set </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_logic__ex_8h_a038342aba9ff5fa4be8feb4909badfb2_icgraph.png" border="0" usemap="#_logic__ex_8h_a038342aba9ff5fa4be8feb4909badfb2_icgraph" alt=""/></div>
-<map name="_logic__ex_8h_a038342aba9ff5fa4be8feb4909badfb2_icgraph" id="_logic__ex_8h_a038342aba9ff5fa4be8feb4909badfb2_icgraph">
-<area shape="rect" id="node2" href="_g_p_i_o__in_8h.html#a7f970ef7e3749472e5e77dbea8d09062" title="Initialize GPIO_in instance. " alt="" coords="173,5,271,32"/>
-<area shape="rect" id="node4" href="_logic__ex_8h.html#af1567fbea6886f442b0d499f23c168d9" title="Get Logic_in input edge. " alt="" coords="152,56,292,83"/>
-<area shape="rect" id="node3" href="_g_p_i_o__in_8h.html#a93a01979653245fb3c41842eb287ba6e" title="Get GPIO_in input edge. " alt="" coords="340,5,479,32"/>
-</map>
-</div>
-
-</div>
-</div>
-</div><!-- contents -->
+<dl class="section copyright"><dt>Copyright</dt><dd>MIT (c) 2017-2022, SMFSW </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
