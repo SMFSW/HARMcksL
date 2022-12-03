@@ -88,9 +88,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad8048c17830084ea0c22bd16af8476d7"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7">get_TIM_clock</a> (const TIM_HandleTypeDef *const pTim)</td></tr>
-<tr class="memdesc:ad8048c17830084ea0c22bd16af8476d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get TIM module clock.  <a href="#ad8048c17830084ea0c22bd16af8476d7">More...</a><br /></td></tr>
-<tr class="separator:ad8048c17830084ea0c22bd16af8476d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3011789748a76acb799229ad093ac58"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58">RCC_TIMCLKFreq</a> (const TIM_HandleTypeDef *const pTim)</td></tr>
+<tr class="memdesc:af3011789748a76acb799229ad093ac58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get TIM peripheral clock frequency.  <a href="#af3011789748a76acb799229ad093ac58">More...</a><br /></td></tr>
+<tr class="separator:af3011789748a76acb799229ad093ac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24890afe1db08ba685fc655aaf97f14c"><td class="memItemLeft" align="right" valign="top">HAL_StatusTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_t_i_m__ex_8c.html#a24890afe1db08ba685fc655aaf97f14c">write_TIM_Preload</a> (TIM_HandleTypeDef *const pTim, const uint32_t chan)</td></tr>
 <tr class="memdesc:a24890afe1db08ba685fc655aaf97f14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write preload bit in TIM module for desired channel.  <a href="#a24890afe1db08ba685fc655aaf97f14c">More...</a><br /></td></tr>
 <tr class="separator:a24890afe1db08ba685fc655aaf97f14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,41 +133,6 @@ LPTIM peripheral not handled yet </dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ad8048c17830084ea0c22bd16af8476d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8048c17830084ea0c22bd16af8476d7">&#9670;&nbsp;</a></span>get_TIM_clock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t get_TIM_clock </td>
-          <td>(</td>
-          <td class="paramtype">const TIM_HandleTypeDef *const&#160;</td>
-          <td class="paramname"><em>pTim</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get TIM module clock. </p>
-<dl class="section note"><dt>Note</dt><dd>TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_t_i_m__ex_8c_ad8048c17830084ea0c22bd16af8476d7_icgraph.png" border="0" usemap="#_t_i_m__ex_8c_ad8048c17830084ea0c22bd16af8476d7_icgraph" alt=""/></div>
-<map name="_t_i_m__ex_8c_ad8048c17830084ea0c22bd16af8476d7_icgraph" id="_t_i_m__ex_8c_ad8048c17830084ea0c22bd16af8476d7_icgraph">
-<area shape="rect" id="node2" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="499,32,643,58"/>
-<area shape="rect" id="node3" href="_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c" title="Init PWM Input Capture channel. " alt="" coords="167,32,265,58"/>
-<area shape="rect" id="node4" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="164,82,268,109"/>
-<area shape="rect" id="node8" href="_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1" title="Set TIM module tick frequency. " alt="" coords="316,184,451,210"/>
-<area shape="rect" id="node5" href="_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="324,32,443,58"/>
-<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="329,82,437,109"/>
-<area shape="rect" id="node7" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="509,133,633,160"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a6697828e26b4f3a2f8a5a987b13f5cae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6697828e26b4f3a2f8a5a987b13f5cae">&#9670;&nbsp;</a></span>init_TIM_Base()</h2>
 
@@ -210,7 +175,7 @@ Here is the call graph for this function:</div>
 <map name="_t_i_m__ex_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph" id="_t_i_m__ex_8c_a6697828e26b4f3a2f8a5a987b13f5cae_cgraph">
 <area shape="rect" id="node2" href="_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="161,5,300,32"/>
 <area shape="rect" id="node3" href="_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="179,56,283,83"/>
-<area shape="rect" id="node4" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="348,56,459,83"/>
+<area shape="rect" id="node4" href="_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="348,56,475,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -220,6 +185,41 @@ Here is the caller graph for this function:</div>
 <map name="_t_i_m__ex_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph" id="_t_i_m__ex_8c_a6697828e26b4f3a2f8a5a987b13f5cae_icgraph">
 <area shape="rect" id="node2" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="161,5,305,32"/>
 <area shape="rect" id="node3" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="171,56,295,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af3011789748a76acb799229ad093ac58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3011789748a76acb799229ad093ac58">&#9670;&nbsp;</a></span>RCC_TIMCLKFreq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RCC_TIMCLKFreq </td>
+          <td>(</td>
+          <td class="paramtype">const TIM_HandleTypeDef *const&#160;</td>
+          <td class="paramname"><em>pTim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get TIM peripheral clock frequency. </p>
+<dl class="section note"><dt>Note</dt><dd>TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_t_i_m__ex_8c_af3011789748a76acb799229ad093ac58_icgraph.png" border="0" usemap="#_t_i_m__ex_8c_af3011789748a76acb799229ad093ac58_icgraph" alt=""/></div>
+<map name="_t_i_m__ex_8c_af3011789748a76acb799229ad093ac58_icgraph" id="_t_i_m__ex_8c_af3011789748a76acb799229ad093ac58_icgraph">
+<area shape="rect" id="node2" href="_p_w_m___g_p_i_o_8h.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel. " alt="" coords="515,33,659,60"/>
+<area shape="rect" id="node3" href="_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c" title="Init PWM Input Capture channel. " alt="" coords="183,33,281,60"/>
+<area shape="rect" id="node4" href="_t_i_m__ex_8h.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="180,84,284,111"/>
+<area shape="rect" id="node8" href="_t_i_m__ex_8h.html#a4c168ead34c92ecee7af12cec4bd91d1" title="Set TIM module tick frequency. " alt="" coords="332,185,467,212"/>
+<area shape="rect" id="node5" href="_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="340,33,459,60"/>
+<area shape="rect" id="node6" href="_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions. " alt="" coords="345,84,453,111"/>
+<area shape="rect" id="node7" href="_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions) " alt="" coords="525,135,649,161"/>
 </map>
 </div>
 
@@ -265,7 +265,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_i_m__ex_8c_a3126b49c3c05b2111887981d7f11597a_cgraph.png" border="0" usemap="#_t_i_m__ex_8c_a3126b49c3c05b2111887981d7f11597a_cgraph" alt=""/></div>
 <map name="_t_i_m__ex_8c_a3126b49c3c05b2111887981d7f11597a_cgraph" id="_t_i_m__ex_8c_a3126b49c3c05b2111887981d7f11597a_cgraph">
-<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="157,5,268,32"/>
+<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="157,5,284,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -323,7 +323,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_i_m__ex_8c_a4c168ead34c92ecee7af12cec4bd91d1_cgraph.png" border="0" usemap="#_t_i_m__ex_8c_a4c168ead34c92ecee7af12cec4bd91d1_cgraph" alt=""/></div>
 <map name="_t_i_m__ex_8c_a4c168ead34c92ecee7af12cec4bd91d1_cgraph" id="_t_i_m__ex_8c_a4c168ead34c92ecee7af12cec4bd91d1_cgraph">
-<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#ad8048c17830084ea0c22bd16af8476d7" title="Get TIM module clock. " alt="" coords="188,5,299,32"/>
+<area shape="rect" id="node2" href="_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="188,5,315,32"/>
 </map>
 </div>
 <div class="dynheader">
