@@ -20,7 +20,7 @@
 #endif
 
 
-uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim)
+uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 {
 	// TODO: handle LPTIMx?
 
@@ -193,7 +193,7 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 	#endif
 		)	{ max_period = 0xFFFFFFFF; }								// Max period for 32b timers
 
-	const uint32_t refCLK = get_TIM_clock(pTim);
+	const uint32_t refCLK = RCC_TIMCLKFreq(pTim);
 	if (freq > refCLK / TIM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee minimum step range
 
 	for (prescaler = 0 ; prescaler <= max_prescaler ; prescaler++)
@@ -220,7 +220,7 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, co
 		)	{ pTim->Init.Period = 0xFFFFFFFF; }							// Set to max period for 32b timers
 	else	{ pTim->Init.Period = 0xFFFF; }								// Set to max period for 16b timers
 
-	pTim->Init.Prescaler = (get_TIM_clock(pTim) / freq) - 1;			// Get prescaler value adjusted to desired frequency
+	pTim->Init.Prescaler = (RCC_TIMCLKFreq(pTim) / freq) - 1;			// Get prescaler value adjusted to desired frequency
 
 	return HAL_TIM_Base_Init(pTim);
 }

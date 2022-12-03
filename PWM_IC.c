@@ -77,7 +77,7 @@ FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const
 	pPWM_IC->cfg.Direct_Pin = Direct_Channel;
 	pPWM_IC->cfg.Indirect_Pin = Indirect_Channel;
 
-	pPWM_IC->cfg.refCLK = get_TIM_clock(pTim);	// Get TIM reference clock
+	pPWM_IC->cfg.refCLK = RCC_TIMCLKFreq(pTim);	// Get TIM reference clock
 	pPWM_IC->cfg.Scale = Scale;
 
 	// Start PWM pin input capture interrupts

@@ -37,7 +37,7 @@ FctERR NONNULL__ PWM_GPIO_setFreq(PWM_GPIO * const pPWM, TIM_HandleTypeDef * con
 
 	if ((pTim->Instance->DIER & TIM_IT_UPDATE) && (pTim->Instance->CR1 & TIM_CR1_CEN))
 	{	// Timer already started (try to set period according to already configured timer module)
-		tim_freq = get_TIM_clock(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
+		tim_freq = RCC_TIMCLKFreq(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
 		if ((tim_freq / granularity) < freq)	{ return ERROR_VALUE; }
 		granularity = tim_freq / freq;
 	}

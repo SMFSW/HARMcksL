@@ -22,12 +22,12 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
-/*!\brief Get TIM module clock
+/*!\brief Get TIM peripheral clock frequency
 ** \warning Shall work for all STM32 F/G families, L families not totally covered
 ** \param[in,out] pTim - pointer to TIM instance
-** \return TIM Clock frequency
+** \return TIM peripheral clock frequency (Hz)
 **/
-uint32_t NONNULL__ get_TIM_clock(const TIM_HandleTypeDef * const pTim);
+uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim);
 
 
 /*!\brief Write preload bit in TIM module for desired channel

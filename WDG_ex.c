@@ -165,6 +165,7 @@ void WDG_unfreeze(void)
 }
 
 
+#if defined(HAL_IWDG_MODULE_ENABLED)
 HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per)
 {
 	const uint32_t refCLK = LSI_VALUE / 1000;	// Clock frequency in KHz (for 32b computations)
@@ -188,3 +189,4 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 
 	return HAL_IWDG_Init(pIwdg);
 }
+#endif

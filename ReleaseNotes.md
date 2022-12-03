@@ -28,8 +28,8 @@ SOFTWARE.
 * stdream_rdir & UART_term: use of size_t typedef for length parameters
 * exceptions: HardFault_Handler_callback checks for __CORTEX_M symbol definition and value to add extra informations
 * Some unneeded assert_param macros removed (when already done later by HAL functions)
-* WDG_ex: set_IWDG_Period_xx functions added
 * TIM_ex: get_TIM_clock refactored (check for bus peripheral CLK)
+* TIM_ex: get_TIM_clock renamed to RCC_GetTIMCLKFreq
 * ADC_ex: header comments update (HAL config)
 * GPIO_in & Logic_in: Refactored to be using same structure definition (Logic_in structure extended with data address if needed)
 * Logic_out: added (logical output abstract of physical layer, may be bit in a variable or a dedicated setter function)
@@ -40,6 +40,8 @@ SOFTWARE.
 * WDG_ex: added
 * WDG_ex: updated to work with single core families (dual core will have to be implemented later)
 * WDG_ex: fixes for G0 family & WWDG (in general)
+* WDG_ex: set_IWDG_Period_xx functions added
+* WDG_ex: added missing peripherals testing in preprocessing
 * stdream_rdir & UART_Term: sending without using interrupts by default and comments added
 * stdream_rdir: stdout_no_buffer inline added with comments to explain behaviors
 * stdream_rdir: fix in __io_putchar code

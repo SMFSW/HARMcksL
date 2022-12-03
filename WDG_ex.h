@@ -41,6 +41,7 @@ void WDG_freeze(void);
 void WDG_unfreeze(void);
 
 
+#if defined(HAL_IWDG_MODULE_ENABLED)
 /*!\brief Set IWDG period (in us)
 ** \warning 125us granularity for a 32KHz clock with minimum prescaler of 4 (typical STM32 IWDG architecture)
 ** \param[in,out] pIwdg - Pointer to IWDG instance
@@ -56,6 +57,7 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 **/
 __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
 	return set_IWDG_Period_us(pIwdg, per * 1000); }
+#endif
 
 
 /****************************************************************/
