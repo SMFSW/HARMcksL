@@ -1,6 +1,6 @@
 /*!\file GPIO_in.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2022, SMFSW
+** \copyright MIT (c) 2017-2023, SMFSW
 ** \brief GPIO input handling
 **/
 /****************************************************************/

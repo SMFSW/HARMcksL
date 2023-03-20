@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2023 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,9 @@ SOFTWARE.
 
 ## v1.5
 
+* ADC_ex: Fixes for compensation when calibrated values differ from VDD_VALUE
+* ADC_ex: Added customizable pre-processing symbols to allow better ADC configuration when needed (ADC_RESOLUTION, Def_VAlim, Def_VCal, Def_VBatFactor)
+* ADC_ex: Few more families addressed (whole F G L ranges, H7, U5, WB, WL / missing C0, MP1, H5, WBA)
 * USB_CDC_IF_ex module added
 * Fix ADC_cfg template name case
 * __IO changed to __IOM for struct members (conformance to symbols specifications)

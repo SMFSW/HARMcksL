@@ -1,6 +1,6 @@
 /*!\file ADC_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2022, SMFSW
+** \copyright MIT (c) 2017-2023, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -32,19 +32,35 @@
 /****************************************************************/
 
 
-#define TEMP_CALC_V25	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V25 (not accurate following families, leading to name change)
-#define TEMP_CALC_V30	TEMP_CALC_VTEMP		//!< Alias for legacy code using TEMP_CALC_V30 (not accurate following families, leading to name change)
+#if !defined(TEMP_CALC_VTEMP)
+#if defined(TEMP_CALC_V25) || defined(TEMP_CALC_V30)	//!< Alias for legacy code using TEMP_CALC_V25 or TEMP_CALC_V30
+#define TEMP_CALC_VTEMP
+#endif
+#endif
 
+
+#if !defined(Def_VTemp)
 #if defined(Def_V25)
-#define Def_VTemp		Def_V25				//!< Alias for legacy code using Def_V25 (not accurate following families, leading to name change)
+#define Def_VTemp		Def_V25		//!< Alias for legacy code using Def_V25 (not accurate following families, leading to name change)
 #endif
 #if defined(Def_V30)
-#define Def_VTemp		Def_V30				//!< Alias for legacy code using Def_V30 (not accurate following families, leading to name change)
+#define Def_VTemp		Def_V30		//!< Alias for legacy code using Def_V30 (not accurate following families, leading to name change)
+#endif
 #endif
 
 
-#define Def_VIn			((float) VDD_VALUE / 1000.0f)	//!< Vin voltage (in V)
-#define Def_Step		(Def_VIn / 4095.0f)				//!< Step value (in V)
+#if !defined(Def_VAlim)
+#define Def_VAlim		VDD_VALUE	//!< Def_VAlim needs to be defined (in mV) if special power supply voltage used (eg. U5 variable power supply range)
+#endif
+
+
+#if !defined(ADC_RESOLUTION)
+#define ADC_RESOLUTION	12			//!< ADC resolution in bits (defaults to 12 if not set)
+#endif
+
+#define	DefRangeADC		(LSHIFT(1U, ADC_RESOLUTION) - 1)		//!< ADC digital range
+
+#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000))	//!< Step value (in mV) following given \b v
 
 
 /*!\enum eADCidx

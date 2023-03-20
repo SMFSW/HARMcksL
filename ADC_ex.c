@@ -1,6 +1,6 @@
 /*!\file ADC_ex.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2022, SMFSW
+** \copyright MIT (c) 2017-2023, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -22,6 +22,10 @@
 
 #if defined(HAL_ADC_MODULE_ENABLED) && defined(USE_ADC_EX)
 /****************************************************************/
+
+#if defined(STM32C0) || defined(STM32H5) || defined(STM32MP1) || defined(STM32WBA)
+#warning "Current STM32 family (C0/H5/MP11/WBA) is probably not fully compliant! Some symbols may need to be defined manually."
+#endif
 
 
 #if (	(	defined(STM32F0)		\
@@ -49,6 +53,45 @@
 #endif
 
 
+#if !defined(Def_VCal)
+	#if defined(STM32F0)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32F1)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32F2)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32F3)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32F4)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32F7)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32G0)
+		#define Def_VCal			(3000)	//!< Calibration values performed at 3V
+	#elif defined(STM32G4)
+		#define Def_VCal			(3000)	//!< Calibration values performed at 3V
+	#elif defined(STM32H7)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#elif defined(STM32L0)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32L1)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32L4)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32L5)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32U5)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32WB)
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
+	#elif defined(STM32WL)
+		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
+	#else
+	#error "You shall define Def_VCal with parameters given in datasheet!"
+	#endif
+#endif
+
+
 #if !defined(Def_AvgSlope)
 	#warning "You should define Def_AvgSlope with parameters given in datasheet, using STM32 family common default values instead!"
 
@@ -66,6 +109,8 @@
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32G0)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
+	#elif defined(STM32G4)
+		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#elif defined(STM32H7)
 		#define Def_AvgSlope		(2.0f)		//!< Average Slope (in mV)
 	#elif defined(STM32L0)
@@ -73,6 +118,14 @@
 	#elif defined(STM32L1)
 		#define Def_AvgSlope		(1.61f)		//!< Average Slope (in mV)
 	#elif defined(STM32L4)
+		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
+	#elif defined(STM32L5)
+		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
+	#elif defined(STM32U5)
+		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
+	#elif defined(STM32WB)
+		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
+	#elif defined(STM32WL)
 		#define Def_AvgSlope		(2.5f)		//!< Average Slope (in mV)
 	#endif
 #endif
@@ -95,6 +148,8 @@
 		#define Def_VTemp			(760.0f)	//!< Temperature at 25°C (in mV)
 	#elif defined(STM32G0)
 		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
+	#elif defined(STM32G4)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
 	#elif defined(STM32H7)
 		#define Def_VTemp			(620.0f)	//!< Temperature at 30°C (in mV)
 	#elif defined(STM32L0)
@@ -105,6 +160,25 @@
 		#define Def_VTemp			(628.8f)	//!< Temperature at 110°C (in mV)
 	#elif defined(STM32L4)
 		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
+	#elif defined(STM32L5)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
+	#elif defined(STM32U5)
+		#define Def_VTemp			(752.0f)	//!< Temperature at 30°C (in mV)
+	#elif defined(STM32WB)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
+	#elif defined(STM32WL)
+		#define Def_VTemp			(760.0f)	//!< Temperature at 30°C (in mV)
+	#endif
+#endif
+
+#if !defined(Def_VBatFactor)
+	#if		defined(STM32F4) || defined(STM32F7) || defined(STM32H5) || defined(STM32H7) || defined(STM32U5)
+		#define Def_VBatFactor	(4.0f)			//!< 4x factor (\warning *2.0f for STM32F40xx and STM32F41xx devices)
+	#elif	defined(STM32G0) || defined(STM32G4) || defined(STM32L4) || defined(STM32L5) || \
+			defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
+		#define Def_VBatFactor	(3.0f)			//!< 3x factor
+	#else
+		#define Def_VBatFactor	(2.0f)			//!< 2x factor
 	#endif
 #endif
 
@@ -212,10 +286,11 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
 		if (!vrefint_dat)	{ return 0.0f; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
+		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
 	#else
 		const int16_t	in_raw = ADC_GetRawVal(input);									// read input value
+		const float		in_v = in_raw * Def_ADCStep(Def_VAlim);							// Convert input value in Volts (in regard of power supply voltage)
 	#endif
-	const float			in_v = in_raw * Def_Step;										// Convert input value in Volts
 	float				val = 0.0f;
 
 	if (input < Adc_MAX)
@@ -226,50 +301,45 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 			switch (input)
 			{
 				#if defined(ADC_USE_VREF)
-					case Adc_Vref:
-						#if defined(ADC_COMPENSATION)
-							val = vrefint_dat * Def_Step;
-						#else
-							val = in_v;
-						#endif
-						break;
+				case Adc_Vref:
+					#if defined(ADC_COMPENSATION)
+						val = vrefint_dat * Def_ADCStep(Def_VAlim);		// Always using full scale power supply voltage
+					#else
+						val = in_v;
+					#endif
+					break;
 				#endif
 
 				#if defined(ADC_USE_TEMP)
-					case Adc_Temp:
-						#ifdef TEMP_CALC_VTEMP
-							// With raw converted value to mV
-							#if defined(STM32F0) || defined(STM32G0) || defined(STM32H7) || defined(STM32L4)
-								val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
-							#elif defined(STM32F1) || defined(STM32F3)
-								val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
-							#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
-								val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + (float) 25;
-							#endif
-						#else
-							// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
-							#if defined(STM32G0) || defined(STM32L0)
-								// Temp = 100 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
-								val = ((100 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
-							#else
-								// Temp = 80 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
-								val = ((80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
-							#endif
+				case Adc_Temp:
+					#ifdef TEMP_CALC_VTEMP
+						// With raw converted value to mV
+						#if defined(STM32F0) || defined(STM32G0) || defined(STM32G4) || defined(STM32H5) || defined(STM32H7) || \
+							defined(STM32L4) || defined(STM32L5) || \efined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
+							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
+						#elif defined(STM32F1) || defined(STM32F3)
+							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
+						#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
+							val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + (float) 25;
 						#endif
-						break;
+					#else
+						// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
+						#if defined(STM32G0) || defined(STM32G4) || defined(STM32L0) || defined(STM32L5) || \
+							defined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
+							// Temp = 100 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
+							val = ((100 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+						#else
+							// Temp = 80 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
+							val = ((80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+						#endif
+					#endif
+					break;
 				#endif
 
 				#if defined(ADC_USE_VBAT)
-					case Adc_Vbat:
-						#if defined(STM32F4) || defined(STM32F7) || defined(STM32H7)
-							val = in_v * 4.0f;
-							//!\warning *2.0f for STM32F40xx and STM32F41xx devices
-						#elif defined(STM32G0) || defined(STM32L4)
-							val = in_v * 3.0f;
-						#else
-							val = in_v * 2.0f;
-						#endif
-						break;
+				case Adc_Vbat:
+					val = in_v * Def_VBatFactor;
+					break;
 				#endif
 
 				default:
