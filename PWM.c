@@ -17,7 +17,7 @@ HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const 
 {
 	uint32_t tmp;
 
-	if (!scale)			{ return HAL_ERROR; }	// Division by 0
+	if (!scale)			{ return HAL_ERROR; }	// Avoid div by 0
 
 	if (duty >= scale)	{ tmp = pTim->Instance->ARR + 1; }	// +1 To achieve real 100% duty cycle
 	else if (duty == 0)	{ tmp = 0; }

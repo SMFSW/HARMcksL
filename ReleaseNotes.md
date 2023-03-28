@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.5
 
+* TIM_ex: fix possible div by 0
 * ADC_ex: Fixes for compensation when calibrated values differ from VDD_VALUE
 * ADC_ex: Added customizable pre-processing symbols to allow better ADC configuration when needed (ADC_RESOLUTION, Def_VAlim, Def_VCal, Def_VBatFactor)
 * ADC_ex: Few more families addressed (whole F G L ranges, H7, U5, WB, WL / missing C0, MP1, H5, WBA)

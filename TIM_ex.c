@@ -181,6 +181,8 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
+	if (!freq)	{ return HAL_ERROR; }		// Avoid div by 0
+
 	const uint32_t max_prescaler = 0xFFFF;	// Prescaler is 16b no redeeming timer instance
 	uint32_t max_period = 0xFFFF;			// Max period for 16b timers (most common)
 	uint64_t period;						// For 32b timers, period needs to be 64b large for calculations
@@ -213,6 +215,8 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
+	if (!freq)	{ return HAL_ERROR; }		// Avoid div by 0
+
 	if (	(pTim->Instance == TIM2)
 	#if defined(TIM5)
 		||	(pTim->Instance == TIM5)
