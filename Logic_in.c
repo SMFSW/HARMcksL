@@ -12,20 +12,16 @@ void NONNULLX__(1) Logic_in_init(	Logic_in * const in, GPIO_PinState (*getter)(c
 									uint32_t * const addr, const uint32_t pos, const GPIO_PinState polarity, const uint16_t filter,
 									void (*onSet)(const Logic_in * const), void (*onReset)(const Logic_in * const), const bool repeat)
 {
-	/* Check the parameters */
-	//assert_param(pos < 32);	// Would raise an assert error in case of GPIO pin
-
 	in->cfg.get = getter;
 	in->cfg.LOGx = addr;
 	in->cfg.LOG_Pos = pos;
-	in->cfg.polarity = polarity;
+	in->cfg.polarity = polarity & 1U;	// Ensuring polarity is boolean value
 	in->cfg.filt = filter;
 	in->cfg.onSet = onSet;
 	in->cfg.onReset = onReset;
 	in->cfg.repeat = repeat;
-
-	in->in = polarity;
-	in->mem = polarity;
+	in->in = false;
+	in->mem = false;
 	in->edge = NoEdge;
 	in->hIn = 0;
 }
