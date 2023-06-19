@@ -4,8 +4,29 @@
 ** \brief Extensions for USB VCP
 **
 ** \code
+**	static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
+**	{
+**		switch(cmd)
+**		{
+**			...
 **
+**			case CDC_SET_LINE_CODING:
+**				CDC_Control_Set_Line_Coding(pbuf);
+**			break;
+**
+**			case CDC_GET_LINE_CODING:
+**				CDC_Control_Get_Line_Coding(pbuf);
+**			break;
+**
+**			case CDC_SET_CONTROL_LINE_STATE:
+**				CDC_Control_Set_Line_State(pbuf);
+**			break;
+**
+**			...
+**		}
+**	}
 ** \endcode
+** \note Define USE_USB_CDC_IF_EX symbol at project level to use CDC_IF_ex functionalities
 **/
 /****************************************************************/
 #ifndef __USB_CDC_IF_EX_H
@@ -16,6 +37,8 @@
 #endif
 
 #include "sarmfsw.h"
+
+#if defined(USE_USB_CDC_IF_EX)
 /****************************************************************/
 
 /*!\brief Callback for CDC port connection/disconnection
@@ -58,5 +81,6 @@ bool get_CDC_Line_State(void);
 	}
 #endif
 
+#endif	/* defined(USE_USB_CDC_IF_EX) */
 #endif	/* __USB_CDC_IF_EX_H */
 /****************************************************************/

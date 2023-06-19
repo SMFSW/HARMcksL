@@ -20,6 +20,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+## v1.6
+
+* More HAL_ENABLED checks
+* USB_CDC_IF_ex: USE_USB_CDC_IF_EX symbol check to enable features
+* TIM_ex: H7 family TIM peripherals handled
+
 ## v1.5
 
 * GPIO_in & Logic_in: Internal init fix to be in release state (no spurious callback triggered after init)

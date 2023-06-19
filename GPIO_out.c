@@ -7,7 +7,10 @@
 ** \warning Logic_out & GPIO_out shares interrupt behavior, thus needs to be implemented the same way (it or loop) if both are used at the same time
 **/
 /****************************************************************/
+#include "sarmfsw.h"
 #include "GPIO_out.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -25,3 +28,7 @@ FctERR NONNULL__ GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx,
 	return Logic_out_init(out, GPIO_setter, (uint32_t *) GPIOx, GPIO_Pin, polarity);
 }
 
+
+/********************************************/
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
+/********************************************/

@@ -5,8 +5,10 @@
 **/
 /****************************************************************/
 #include <stdio.h>
-
+#include "sarmfsw.h"
 #include "GPIO_ex.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -83,3 +85,8 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 //	sprintf(name, "GPIO%c%c", port, 'x');
 	return ERROR_VALUE;			// No match
 }
+
+
+/********************************************/
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
+/********************************************/

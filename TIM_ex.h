@@ -3,7 +3,8 @@
 ** \copyright MIT (c) 2017-2023, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
-** \warning Shall work for all STM32 F/G families, L/H families not totally covered
+** \warning Shall work for all STM32 F/G/H/L families only (yet)
+** \note TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 **/
 /****************************************************************/
 #ifndef __TIM_EX_H

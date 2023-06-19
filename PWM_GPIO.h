@@ -15,7 +15,7 @@
 
 #include "sarmfsw.h"
 
-#if defined(HAL_TIM_MODULE_ENABLED)
+#if defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -97,6 +97,6 @@ void NONNULL__ PWM_GPIO_handler(PWM_GPIO * const pPWM);
 	}
 #endif
 
-#endif	/* defined(HAL_TIM_MODULE_ENABLED) */
+#endif	/* defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) */
 #endif	/* __PWM_GPIO_H */
 /****************************************************************/

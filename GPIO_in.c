@@ -4,7 +4,10 @@
 ** \brief GPIO input handling
 **/
 /****************************************************************/
+#include "sarmfsw.h"
 #include "GPIO_in.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -25,3 +28,8 @@ void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
 	Logic_in_init(	in, (GPIO_PinState (*)(const Logic_in * const)) GPIO_getter, (uint32_t *) GPIOx, GPIO_Pin, polarity, filter,
 					(void (*)(const Logic_in * const)) onSet, (void (*)(const Logic_in * const)) onReset, repeat);
 }
+
+
+/********************************************/
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
+/********************************************/

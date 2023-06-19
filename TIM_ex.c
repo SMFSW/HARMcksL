@@ -3,8 +3,8 @@
 ** \copyright MIT (c) 2017-2023, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
-** \warning Shall work for all STM32 F/G/L families, H families not totally covered
-** \warning LPTIM peripheral not handled yet
+** \warning Shall work for all STM32 F/G/H/L families only (yet)
+** \note TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -22,8 +22,6 @@
 
 uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 {
-	// TODO: handle LPTIMx?
-
 	uint32_t refCLK;
 
 	#if defined(STM32G0)
@@ -93,15 +91,33 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 				}
 				else
 			#endif
-			{	// Get APB2 (PCLK2) frequency
+			{
+				// Get APB2 (PCLK2) frequency
 				refCLK = HAL_RCC_GetPCLK2Freq();
-				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)	{ refCLK *= 2; }
+
+				#if defined(STM32H7)
+				if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE2) != 0)
+				#else
+				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)
+				#endif
+				{
+					refCLK *= 2;
+				}
 			}
 		}
 		else
-		{	// Get APB1 (PCLK1) frequency
+		{
+			// Get APB1 (PCLK1) frequency
 			refCLK = HAL_RCC_GetPCLK1Freq();
-			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)	{ refCLK *= 2; }
+
+			#if defined(STM32H7)
+			if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE1) != 0)
+			#else
+			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)
+			#endif
+			{
+				refCLK *= 2;
+			}
 		}
 	#endif
 

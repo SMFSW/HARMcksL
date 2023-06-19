@@ -16,6 +16,8 @@
 
 #include "sarmfsw.h"
 #include "Logic_out.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -146,5 +148,6 @@ __INLINE void NONNULL_INLINE__ GPIO_out_handler(GPIO_out * const out) {
 	}
 #endif
 
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
 #endif	/* __GPIO_OUT_H */
 /****************************************************************/

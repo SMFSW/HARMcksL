@@ -13,6 +13,8 @@
 
 #include "sarmfsw.h"
 #include "Logic_in.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -68,5 +70,6 @@ __INLINE void NONNULL_INLINE__ GPIO_in_handler(GPIO_in * const in) {
 	}
 #endif
 
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
 #endif	/* __GPIO_IN_H */
 /****************************************************************/

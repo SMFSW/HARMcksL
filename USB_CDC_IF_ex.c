@@ -26,6 +26,7 @@
 **		}
 **	}
 ** \endcode
+** \note Define USE_USB_CDC_IF_EX symbol at project level to use CDC_IF_ex functionalities
 **/
 /****************************************************************/
 #include <string.h>
@@ -35,6 +36,7 @@
 #include "USB_CDC_IF_ex.h"
 
 #if defined(HAL_PCD_MODULE_ENABLED)
+#if defined(USE_USB_CDC_IF_EX)
 
 #include "usbd_cdc_if.h"
 /****************************************************************/
@@ -95,5 +97,6 @@ bool get_CDC_Line_State(void) {
 
 
 /****************************************************************/
+#endif	/* defined(USE_USB_CDC_IF_EX) */
 #endif	/* defined(HAL_PCD_MODULE_ENABLED) */
 /****************************************************************/

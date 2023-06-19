@@ -18,6 +18,8 @@
 #endif
 
 #include "sarmfsw.h"
+
+#if defined(HAL_IWDG_MODULE_ENABLED) || defined(HAL_WWDG_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -65,5 +67,6 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDe
 	}
 #endif
 
+#endif	/* defined(HAL_IWDG_MODULE_ENABLED) || defined(HAL_WWDG_MODULE_ENABLED) */
 #endif	/* __WDG_EX_H */
 /****************************************************************/

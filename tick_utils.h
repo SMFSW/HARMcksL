@@ -16,10 +16,10 @@
 #endif
 
 #include "sarmfsw.h"
+
+#if defined(DWT) || (defined(DELAY_TIM_INST) && defined(HAL_TIM_MODULE_ENABLED))
 /****************************************************************/
 
-
-#if defined(DWT) || defined(DELAY_TIM_INST)
 
 /*!\brief Delay generator initialization function
 ** \note In case of system core clock frequency change during execution (calls to SystemCoreClockUpdate, HAL_RCC_ClockConfig), init_Delay_us shall be called to update tick ratio.
@@ -42,13 +42,12 @@ void Delay_us(const uint32_t us);
 **/
 void Delay_ms(const uint32_t ms);
 
-#endif
-
 
 /****************************************************************/
 #ifdef __cplusplus
 	}
 #endif
 
+#endif	/* defined(DWT) || (defined(DELAY_TIM_INST) && defined(HAL_TIM_MODULE_ENABLED)) */
 #endif	/* __TICK_UTILS_H */
 /****************************************************************/

@@ -48,7 +48,7 @@ PROJECT_NAME           = "HARMcksL: ARM HAL toolbox (yet STM32 oriented)"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = 1.5
+PROJECT_NUMBER         = 1.6
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -2324,6 +2324,7 @@ PREDEFINED             = DOXY=1 \
                          HAL_WWDG_MODULE_ENABLED \
                          DWT \
                          USE_ADC_EX \
+                         USE_USB_CDC_IF_EX \
                          NB_PWM_IC=1 \
                          UART_REDIRECT \
                          DBG_SERIAL \

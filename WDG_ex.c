@@ -12,6 +12,8 @@
 /****************************************************************/
 #include "sarmfsw.h"
 #include "WDG_ex.h"
+
+#if defined(HAL_IWDG_MODULE_ENABLED) || defined(HAL_WWDG_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -190,3 +192,8 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 	return HAL_IWDG_Init(pIwdg);
 }
 #endif
+
+
+/********************************************************************************/
+#endif	/* defined(HAL_IWDG_MODULE_ENABLED) || defined(HAL_WWDG_MODULE_ENABLED) */
+/********************************************************************************/

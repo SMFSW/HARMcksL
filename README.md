@@ -13,7 +13,7 @@ Use it at your own risk!
 
 ## Modules
 
-- ADC_ex: extensions for ADC peripherals (convenient way to acquire and convert ADC channels AIO)
+- ADC_ex: Extensions for ADC peripherals (convenient way to acquire and convert ADC channels AIO)
   - template [adc_cfg.c](templates/adc_cfg.c.txt)/[adc_cfg.h](templates/adc_cfg.h.txt): ADC configuration to use with ADC_EX
 - CRC_stm32: Function dealing with STM32 CRC peripheral
 - exceptions: Exceptions debug tool helpers

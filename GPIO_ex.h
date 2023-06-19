@@ -14,6 +14,8 @@
 #include "sarmfsw.h"
 #include "GPIO_in.h"
 #include "GPIO_out.h"
+
+#if defined(HAL_GPIO_MODULE_ENABLED)
 /****************************************************************/
 
 
@@ -50,5 +52,6 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	}
 #endif
 
+#endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
 #endif	/* __GPIO_EX_H */
 /****************************************************************/

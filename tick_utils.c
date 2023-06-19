@@ -47,7 +47,7 @@ void Delay_ms(const uint32_t ms)
 	while (DWT->CYCCNT < delay);
 }
 
-#elif defined(DELAY_TIM_INST)
+#elif defined(DELAY_TIM_INST) && defined(HAL_TIM_MODULE_ENABLED)
 
 HAL_StatusTypeDef init_Delay_Generator(void)
 {
