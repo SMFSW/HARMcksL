@@ -113,6 +113,8 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)
 				{
 					pIC->DutyCycle = pIC->Frequency = 0;
 				}
+
+				pIC->CallbackTick = HALTicks();	// Update tick
 			}
 		}
 	}

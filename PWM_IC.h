@@ -54,6 +54,7 @@
 typedef struct PWM_IC {
 	__IOM uint32_t			Frequency;		//!< Frequency Value
 	__IOM uint32_t			DutyCycle;		//!< Duty Cycle Value
+	__IOM uint32_t			CallbackTick;	//!< Last callback Tick (useful to ensure Freq & DutyCycle are still valid)
 	struct {
 		TIM_HandleTypeDef * htim;			//!< PWM capture TIM handler
 		uint32_t			Direct_Pin;		//!< PWM capture Direct mode pin
@@ -79,6 +80,15 @@ extern PWM_IC PWMin[NB_PWM_IC];
 ** \return HAL Status
 **/
 FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale);
+
+
+/*!\brief Get PWM Input Capture last update (in ms)
+** \note Can be useful to ensure IC is still ongoing and results aren't outdated
+** \param[in] pPWM_IC - pointer to PWM_IC instance
+** \return Last PWM_IC Update (in ms)
+**/
+__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_LastUpdate(const PWM_IC * const pPWM_IC) {
+	return OVF_DIFF(HALTicks(), pPWM_IC->CallbackTick); }
 
 
 /*!\brief Get current PWM Input Capture frequency

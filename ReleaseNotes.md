@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.6
 
+* PWM_IC: get_PWM_IC_LastUpdate added (useful to evaluate if IC is ongoing and resulting values aren't outdated)
 * More HAL_ENABLED checks
 * USB_CDC_IF_ex: USE_USB_CDC_IF_EX symbol check to enable features
 * TIM_ex: H7 family TIM peripherals handled
