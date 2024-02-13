@@ -1,6 +1,6 @@
 /*!\file USB_CDC_IF_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Extensions for USB VCP
 **
 ** \code
@@ -46,7 +46,7 @@
 ** \note Several disconnection messages can appear on bus, use example code to get only state change
 ** \note \ref get_CDC_Line_State can be used instead (if not willing to use callback) to check port current status
 ** \param[in] open - port state
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR CDC_Control_Set_Line_State_Callback(const bool open);
 
@@ -54,7 +54,7 @@ FctERR CDC_Control_Set_Line_State_Callback(const bool open);
 ** \note Call CDC_Control_Set_Line_State in usbd_cdc_if.c \ref CDC_Control_FS function, CDC_SET_CONTROL_LINE_STATE case
 ** \note Several disconnection messages can appear on bus, use example code in callback to get only state change
 ** \param[in] pbuf - Pointer to message data
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR CDC_Control_Set_Line_State(const uint8_t * const pbuf);
 

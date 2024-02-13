@@ -42,6 +42,7 @@ Use it at your own risk!
 - UART_term: UART terminal
 - USB_CDC_IF_ex: Extensions for USB VCP
 - WDG_ex: Extensions for WDG peripherals
+- workload: Workload estimation utilities
 
 ## Requires
 

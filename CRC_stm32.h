@@ -1,6 +1,6 @@
 /*!\file CRC_stm32.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Function dealing with STM32 CRC peripheral
 */
 /****************************************************************/

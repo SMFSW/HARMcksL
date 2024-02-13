@@ -1,6 +1,6 @@
 /*!\file ADC_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -104,26 +104,26 @@ typedef struct ADC_Cfg {
 } ADC_Cfg;
 
 
-/**!\brief Get ADC channel raw value
-**	\param[in] input - Input index
-**	\return Channel raw value
+/*!\brief Get ADC channel raw value
+** \param[in] input - Input index
+** \return Channel raw value
 **/
 uint16_t ADC_GetRawVal(const eAnalogInput input);
 
-/**!\brief Get ADC channel converted value
-**	\param[in] input - Input index
-**	\return Channel converted value
+/*!\brief Get ADC channel converted value
+** \param[in] input - Input index
+** \return Channel converted value
 **/
 float ADC_GetConvertedVal(const eAnalogInput input);
 
 
-/**!\brief Start ADC conversions
-**	\return Error code
+/*!\brief Start ADC conversions
+** \return FctERR - Error code
 **/
 FctERR ADC_Start(void);
 
-/**!\brief Stop ADC conversions
-**	\return Error code
+/*!\brief Stop ADC conversions
+** \return FctERR - Error code
 **/
 FctERR ADC_Stop(void);
 

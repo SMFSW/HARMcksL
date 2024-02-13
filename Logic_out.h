@@ -1,6 +1,6 @@
 /*!\file Logic_out.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Logic output handling
 ** \note Define LOGIC_OUT_IT symbol at project level to use Logic_out from timer interrupts (for more timing precision if required)
 ** \note When using Logic_out from interrupts, LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
@@ -101,7 +101,7 @@ __INLINE bool NONNULL_INLINE__ get_Logic_out_Idle(const Logic_out * const out) {
 ** \param[in] addr - Variable address to write to (pointer to unsigned 32b, may be NULL if setter handles everything)
 ** \param[in] pos - Bit position in variable (may be unused if setter function is used)
 ** \param[in] polarity - set to \ref GPIO_PIN_RESET if active state is low, \ref GPIO_PIN_SET if high
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out, void (*setter)(const Logic_out * const, const GPIO_PinState),
 									uint32_t * const addr, const uint16_t pos, const GPIO_PinState polarity);
@@ -109,7 +109,7 @@ FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out, void (*setter)(const 
 
 /*!\brief Stop Logic_out pulse/blink if running, or abort set if delay not reached
 ** \param[in,out] out - Logic_out instance
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ Logic_out_Abort(Logic_out * const out);
 
@@ -118,13 +118,13 @@ FctERR NONNULL__ Logic_out_Abort(Logic_out * const out);
 ** \param[in,out] out - Logic_out instance
 ** \param[in] action - action to perform on output port pin (Reset/Set/Toggle)
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ Logic_out_SetStatic(Logic_out * const out, const eGPIOState action, const uint32_t delay);
 
 /*!\brief Set Logic_out
 ** \param[in,out] out - Logic_out instance
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ Logic_out_Set(Logic_out * const out) {
 	return Logic_out_SetStatic(out, Set, 0); }
@@ -132,14 +132,14 @@ __INLINE FctERR NONNULL_INLINE__ Logic_out_Set(Logic_out * const out) {
 /*!\brief Set Logic_out
 ** \param[in,out] out - Logic_out instance
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ Logic_out_Set_Delayed(Logic_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Set, delay); }
 
 /*!\brief Reset Logic_out
 ** \param[in,out] out - Logic_out instance
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset(Logic_out * const out) {
 	return Logic_out_SetStatic(out, Reset, 0); }
@@ -147,7 +147,7 @@ __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset(Logic_out * const out) {
 /*!\brief Reset Logic_out
 ** \param[in,out] out - Logic_out instance
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset_Delayed(Logic_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Reset, delay); }
@@ -157,7 +157,7 @@ __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset_Delayed(Logic_out * const out, 
 ** \param[in] action - action to perform on output port pin for active state (Reset/Set/Toggle)
 ** \param[in] delay - delay before pulse (in ms)
 ** \param[in] active - pulse time (in ms)
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active);
 
@@ -168,7 +168,7 @@ FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState ac
 ** \param[in] active - blink active time (in ms)
 ** \param[in] inactive - blink inactive time (in ms)
 ** \param[in] count - blink count (0 for infinite)
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ Logic_out_StartBlink(	Logic_out * const out, const eGPIOState action, const uint32_t delay,
 										const uint32_t active, const uint32_t inactive, const uint32_t count);

@@ -1,6 +1,6 @@
 /*!\file PWM_IC.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief PWM Input Capture handling
 ** \details PWM_In configuration:
 ** TIM with multiple channels with slave mode capability shall be used
@@ -77,7 +77,7 @@ extern PWM_IC PWMin[NB_PWM_IC];
 ** \param[in] Direct_Channel - Direct Channel used for PWM input capture
 ** \param[in] Indirect_Channel - Indirect Channel used for PWM input capture
 ** \param[in] Scale - PWM input capture duty cycle output scale
-** \return HAL Status
+** \return FctERR - Error code
 **/
 FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale);
 

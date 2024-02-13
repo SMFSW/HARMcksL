@@ -1,6 +1,6 @@
 /*!\file GPIO_out.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief GPIO output handling
 ** \note Define LOGIC_OUT_IT shared symbol at project level to use GPIO_out from timer interrupts (for more timing precision if required)
 ** \note When using GPIO_out from interrupts, shared LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
@@ -60,14 +60,14 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_out_Idle(const GPIO_out * const out) {
 ** \param[in] GPIOx - port to write to
 ** \param[in] GPIO_Pin - pin to write to
 ** \param[in] polarity - set to \ref GPIO_PIN_RESET if active state is GND, \ref GPIO_PIN_SET if Vdd
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ GPIO_out_init(GPIO_out * const out, GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity);
 
 
 /*!\brief Stop GPIO_out pulse/blink if running, or abort set if delay not reached
 ** \param[in,out] out - GPIO_out instance
-** \return Error code
+** \return FctERR - Error code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Abort(GPIO_out * const out) {
 	return Logic_out_Abort(out); }
@@ -77,14 +77,14 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Abort(GPIO_out * const out) {
 ** \param[in,out] out - GPIO_out instance
 ** \param[in] action - action to perform on output port pin (Reset/Set/Toggle)
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error code
+** \return FctERR - Error code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_SetStatic(GPIO_out * const out, const eGPIOState action, const uint32_t delay) {
 	return Logic_out_SetStatic(out, action, delay); }
 
 /*!\brief Set GPIO_out
 ** \param[in,out] out - GPIO_out instance
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Set(GPIO_out * const out) {
 	return Logic_out_SetStatic(out, Set, 0); }
@@ -92,14 +92,14 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Set(GPIO_out * const out) {
 /*!\brief Set GPIO_out
 ** \param[in,out] out - GPIO_out instance
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Set_Delayed(GPIO_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Set, delay); }
 
 /*!\brief Reset GPIO_out
 ** \param[in,out] out - GPIO_out instance
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset(GPIO_out * const out) {
 	return Logic_out_SetStatic(out, Reset, 0); }
@@ -107,7 +107,7 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset(GPIO_out * const out) {
 /*!\brief Reset GPIO_out
 ** \param[in,out] out - GPIO_out instance
 ** \param[in] delay - delay before writing to port (in ms)
-** \return Error Code
+** \return FctERR - Error Code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset_Delayed(GPIO_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Reset, delay); }
@@ -117,7 +117,7 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset_Delayed(GPIO_out * const out, co
 ** \param[in] action - action to perform on output port pin for active state (Reset/Set/Toggle)
 ** \param[in] delay - delay before pulse (in ms)
 ** \param[in] active - pulse time (in ms)
-** \return Error code
+** \return FctERR - Error code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_StartPulse(GPIO_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active) {
 	return Logic_out_StartPulse(out, action, delay, active); }
@@ -129,7 +129,7 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_StartPulse(GPIO_out * const out, const
 ** \param[in] active - blink active time (in ms)
 ** \param[in] inactive - blink inactive time (in ms)
 ** \param[in] count - blink count (0 for infinite)
-** \return Error code
+** \return FctERR - Error code
 **/
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_StartBlink(	GPIO_out * const out, const eGPIOState action, const uint32_t delay,
 														const uint32_t active, const uint32_t inactive, const uint32_t count) {

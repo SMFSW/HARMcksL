@@ -1,6 +1,6 @@
 /*!\file tick_utils.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Core ticks related utilities
 ** \warning Of course, these blocking delays are not designed to be used in an RTOS environment where they wouldn't work properly.
 ** \warning M0/M0+ cores doesn't have core debug trace peripheral, delay shall be generated using a dedicated TIM peripheral.
@@ -14,13 +14,17 @@
 /****************************************************************/
 
 
+static float ticks_per_us;	//!< Counter ticks for a microsecond
+
+float get_TicksPerMicrosecond(void) {
+	return ticks_per_us; }
+
+
 #if defined(DWT) && !defined(DELAY_TIM_INST)
 
-static float CYCCNT_ticks_us;	//!< Counter ticks for a microsecond
-
-HAL_StatusTypeDef init_Delay_Generator(void)
+FctERR init_Delay_Generator(void)
 {
-	CYCCNT_ticks_us = (float) SystemCoreClock / 1000000.0f;
+	ticks_per_us = (float) SystemCoreClock / 1000000.0f;
 
 	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;	// CoreDebug trace seems enabled only in debug sessions, enable
 	#if (__CORTEX_M == 7U)
@@ -28,14 +32,15 @@ HAL_StatusTypeDef init_Delay_Generator(void)
 	#endif
 	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-	return HAL_OK;
+	return ERROR_OK;
 }
+
 
 void Delay_us(const uint32_t us)
 {
 	DWT->CYCCNT = 0;
 
-	const uint32_t delay = us * CYCCNT_ticks_us;
+	const uint32_t delay = us * ticks_per_us;
 	while (DWT->CYCCNT < delay);
 }
 
@@ -43,20 +48,27 @@ void Delay_ms(const uint32_t ms)
 {
 	DWT->CYCCNT = 0;
 
-	const uint32_t delay = ms * CYCCNT_ticks_us * 1000;
+	const uint32_t delay = ms * ticks_per_us * 1000;
 	while (DWT->CYCCNT < delay);
 }
 
+
 #elif defined(DELAY_TIM_INST) && defined(HAL_TIM_MODULE_ENABLED)
 
-HAL_StatusTypeDef init_Delay_Generator(void)
+FctERR init_Delay_Generator(void)
 {
 	HAL_StatusTypeDef err;
 
 	err = set_TIM_Tick_Freq(DELAY_TIM_INST, 1000000);
-	if (err)	{ return err; }
-	return HAL_TIM_Base_Start(DELAY_TIM_INST);
+	if (err)	{ goto ret; }
+	err = HAL_TIM_Base_Start(DELAY_TIM_INST);
+
+	ticks_per_us = 1.0f;
+
+	ret:
+	return HALERRtoFCTERR(err);
 }
+
 
 void Delay_us(const uint32_t us)
 {
@@ -72,5 +84,6 @@ void Delay_ms(const uint32_t ms)
 		while (__HAL_TIM_GET_COUNTER(DELAY_TIM_INST) < 1000);	// wait for the counter to reach the us input in the parameter
 	}
 }
+
 
 #endif

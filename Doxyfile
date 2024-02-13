@@ -2328,6 +2328,7 @@ PREDEFINED             = DOXY=1 \
                          NB_PWM_IC=1 \
                          UART_REDIRECT \
                          DBG_SERIAL \
+                         IT_WORKLOAD \
                          __INLINE=inline \
                          "__STATIC_INLINE=static inline" \
                          __WEAK= \

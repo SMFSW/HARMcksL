@@ -1,6 +1,6 @@
 /*!\file UART_term.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief UART terminal header
 ** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
 ** \note define DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
@@ -60,25 +60,25 @@ __INLINE void INLINE__ setBreakout_char(const char breakout) {
 /*!\brief Initialize UART terminal
 ** \param[in] huart - UART handle
 ** \param[in] len - buffer length
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Init(UART_HandleTypeDef * const huart, const size_t len);
 
 /*!\brief Start UART SERIAL DEBUG Rx interruptions
 ** \param[in] huart - UART handle
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart);
 
 /*!\brief Waiting for UART global state to be ready for next transmission
 ** \param[in] huart - UART handle
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart);
 
 /*!\brief Clear buffer in used for SERIAL DEBUG
 ** \param[in] huart - UART handle
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
 
@@ -86,7 +86,7 @@ FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
 ** \param[in] huart - UART handle
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * str, const size_t len);
 
@@ -95,7 +95,7 @@ FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * s
 ** \weak This function is implemented as weak to be implemented in projects (weak one only prints & flushes the buffer)
 ** \param[in] msg - pointer to received message
 ** \param[in] len - received message length
-** \return Error code
+** \return FctERR - Error code
 **/
 FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const size_t len);
 

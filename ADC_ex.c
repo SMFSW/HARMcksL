@@ -1,6 +1,6 @@
 /*!\file ADC_ex.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2023, SMFSW
+** \copyright MIT (c) 2017-2024, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
