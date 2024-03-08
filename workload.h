@@ -41,7 +41,7 @@ extern volatile bool		it_counts_ongoing;
 
 #else
 
-#define WORLOAD_IT_IN()		//!< Dummy macro for standard targets
+#define WORKLOAD_IT_IN()	//!< Dummy macro for standard targets
 #define WORKLOAD_IT_OUT()	//!< Dummy macro for standard targets
 
 #endif
