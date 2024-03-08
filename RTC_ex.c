@@ -28,7 +28,7 @@ FctERR NONNULL__ RTC_SetTime(const DateTime * const time_new)
 	RTCDate.Year = time_new->Year;
 	RTCDate.Month = time_new->Month;
 	RTCDate.Date = time_new->Day;
-	RTCDate.WeekDay = time_new->Weekday;
+	RTCDate.WeekDay = Get_Weekday(time_new->Year + 2000, time_new->Month, time_new->Day);
 
 	st = HAL_RTC_SetTime(&hrtc, &RTCTime, RTC_FORMAT_BIN);
 	st |= HAL_RTC_SetDate(&hrtc, &RTCDate, RTC_FORMAT_BIN);

@@ -51,6 +51,17 @@ static bool wwdg_en = false;
 #endif
 
 
+bool WDG_get_state_IWDG(void)
+{
+	return (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_IWDG_STOP))));
+}
+
+bool WDG_get_state_WWDG(void)
+{
+	return (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_WWDG_STOP))));
+}
+
+
 void WDG_init_check(void)
 {
 #if defined(STM32H7)
@@ -77,10 +88,10 @@ void WDG_init_check(void)
 #else
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
-	if (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_IWDG_STOP))))	{ iwdg_en = true; }
+	if (WDG_get_state_IWDG())	{ iwdg_en = true; }
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
-	if (!(REG_APB1 & (XCAT(XCAT(NAME_DBG, NAME_APB1), _DBG_WWDG_STOP))))	{ wwdg_en = true; }
+	if (WDG_get_state_WWDG())	{ wwdg_en = true; }
 #endif
 
 #endif

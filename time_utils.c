@@ -10,8 +10,24 @@
 #include "time_utils.h"
 /****************************************************************/
 
-const char Weekdays[Weekdays_Max][10] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-const char Months[Months_Max][10] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+const char * Get_Day_str(const eWeekdays day)
+{
+	static const char Weekdays[Weekdays_Max][10] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
+	if (day >= Weekdays_Max)	{ return ""; }
+
+	return Weekdays[day];
+}
+
+const char * Get_Month_str(const eMonths month)
+{
+	static const char Months[Months_Max][10] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+	if ((!month) || (month >= Months_Max))	{ return ""; }
+
+	return Months[month];
+}
 
 
 eWeekdays Get_Weekday(uint16_t year, uint8_t month, uint8_t day)

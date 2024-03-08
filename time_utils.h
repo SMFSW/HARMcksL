@@ -20,7 +20,7 @@
 ** \brief Months enumeration
 **/
 typedef enum eMonths {
-	January = 0U,	//!< January
+	January = 1U,	//!< January
 	February,		//!< February
 	March,			//!< March
 	April,			//!< April
@@ -50,10 +50,6 @@ typedef enum eWeekdays {
 } eWeekdays;
 
 
-extern const char Weekdays[Weekdays_Max][10];	//!< Weekday names strings (English)
-extern const char Months[Months_Max][10];		//!< Month names strings (English)
-
-
 /*!\struct DateTime
 ** \brief Basic Date & Time struct
 **/
@@ -66,6 +62,19 @@ typedef struct DateTime {
 	uint8_t		Minutes;	//!< Minutes
 	uint8_t		Seconds;	//!< Seconds
 } DateTime;
+
+
+/*!\brief Get weekday name string
+** \param[in] day - Weekday from \ref eWeekdays enum
+** \return Weekday string pointer
+**/
+const char * Get_Day_str(const eWeekdays day);
+
+/*!\brief Get month name string
+** \param[in] month - Month from \ref eMonths enum
+** \return Month string pointer
+**/
+const char * Get_Month_str(const eMonths month);
 
 
 /*!\brief Determine weekday for a given date

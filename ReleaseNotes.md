@@ -23,6 +23,10 @@ SOFTWARE.
 ## v1.6
 
 * Doxygen comments review and fixes
+* RTC_ex: Setting date automatically computes corresponding weekday
+* time_utils: Functions added to get strings of Day and Month
+* time_utils: Months starts from 1 from now on
+* WDG_ex: Functions added to check watchdogs current enabled status
 * tick_utils: init function returns FctERR instead of HAL_StatusTypeDef
 * workload: Module added
 * PWM_IC: get_PWM_IC_LastUpdate added (useful to evaluate if IC is ongoing and resulting values aren't outdated)

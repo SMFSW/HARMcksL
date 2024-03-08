@@ -26,6 +26,17 @@
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*!\brief Get IWDG status
+** \return IWDG enabled state
+**/
+bool WDG_get_state_IWDG(void);
+
+/*!\brief Get IWDG status
+** \return WWDG enabled state
+**/
+bool WDG_get_state_WWDG(void);
+
+
 /*!\brief Check IWDG & WWDG status
 ** \warning This function have to be called once at the end of your init routine prior to use \ref WDG_freeze & \ref WDG_unfreeze functions.
 **/
