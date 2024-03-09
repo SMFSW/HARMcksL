@@ -55,7 +55,7 @@ FctERR NONNULL__ RTC_GetTime(DateTime * const time_now)
 	time_now->Year = RTCDate.Year;
 	time_now->Month = RTCDate.Month;
 	time_now->Day = RTCDate.Date;
-	time_now->Weekday = (RTCDate.WeekDay + 1) % 7;
+	time_now->Weekday = RTCDate.WeekDay;
 	if (time_now->Weekday == 7)	{ time_now->Weekday = Sunday; }	// To match with STM32 RTC weekdays definitions
 
 	return ERROR_OK;
