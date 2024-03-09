@@ -55,8 +55,8 @@ typedef enum eWeekdays {
 **/
 typedef struct DateTime {
 	uint16_t	Year;		//!< Year
-	uint8_t		Month;		//!< Month
-	uint8_t		Day;		//!< Day
+	eMonths		Month;		//!< Month
+	eWeekdays	Day;		//!< Day
 	uint8_t		Weekday;	//!< Weekday
 	uint8_t		Hours;		//!< Hours
 	uint8_t		Minutes;	//!< Minutes

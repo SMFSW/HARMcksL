@@ -26,7 +26,7 @@ const char * Get_Month_str(const eMonths month)
 
 	if ((!month) || (month >= Months_Max))	{ return ""; }
 
-	return Months[month];
+	return Months[month - 1];
 }
 
 

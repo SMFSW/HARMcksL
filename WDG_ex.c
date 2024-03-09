@@ -6,6 +6,10 @@
 **			giving the ability to call freeze/unfreeze watchdogs functions
 **			no matter the build target, watchdogs being unfrozen only when
 **			they were enabled in the first place.
+** \warning Watchdogs cannot be frozen while code is running, freeze will on be relevant
+** 			when execution is paused, thus no freezing possible for a time consuming operation.
+** 			Workaround is to save the watchdogs configurations, modify temporarily confiruation,
+** 			then restore the configuration back, using \ref WDG_save_cfg & \ref WDG_restore_cfg.
 ** \warning For this module to work properly, WDG_init_check have to be called once
 **			at the end of your init routine prior to use freeze/unfreeze functions.
 **/
@@ -44,10 +48,12 @@
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
 static bool iwdg_en = false;
+static IWDG_InitTypeDef IWDG_cfg = { 0 };
 #endif
 
 #if defined(HAL_WWDG_MODULE_ENABLED)
 static bool wwdg_en = false;
+static WWDG_InitTypeDef WWDG_cfg = { 0 };
 #endif
 
 
@@ -94,6 +100,19 @@ void WDG_init_check(void)
 	if (WDG_get_state_WWDG())	{ wwdg_en = true; }
 #endif
 
+	WDG_save_cfg();
+
+#endif
+}
+
+
+void WDG_refresh(void)
+{
+#if defined(HAL_IWDG_MODULE_ENABLED)
+	HAL_IWDG_Refresh(&hiwdg);
+#endif
+#if defined(HAL_WWDG_MODULE_ENABLED)
+	HAL_WWDG_Refresh(&hwwdg);
 #endif
 }
 
@@ -175,6 +194,33 @@ void WDG_unfreeze(void)
 #endif
 
 #endif
+}
+
+
+void WDG_save_cfg(void)
+{
+#if defined(HAL_IWDG_MODULE_ENABLED)
+	memcpy(&IWDG_cfg, &hiwdg.Init, sizeof(IWDG_InitTypeDef));
+#endif
+#if defined(HAL_WWDG_MODULE_ENABLED)
+	memcpy(&WWDG_cfg, &hwwdg.Init, sizeof(WWDG_InitTypeDef));
+#endif
+}
+
+HAL_StatusTypeDef WDG_restore_cfg(void)
+{
+	HAL_StatusTypeDef status = HAL_OK;
+
+#if defined(HAL_IWDG_MODULE_ENABLED)
+	memcpy(&hiwdg.Init, &IWDG_cfg, sizeof(IWDG_InitTypeDef));
+	status |= HAL_IWDG_Init(&hiwdg);
+#endif
+#if defined(HAL_WWDG_MODULE_ENABLED)
+	memcpy(&hwwdg.Init, &WWDG_cfg, sizeof(WWDG_InitTypeDef));
+	status |= HAL_WWDG_Init(&hwwdg);
+#endif
+
+	return status;
 }
 
 
