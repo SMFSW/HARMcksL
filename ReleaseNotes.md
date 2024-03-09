@@ -27,6 +27,7 @@ SOFTWARE.
 * RTC_ex: Sets weekday according to STM32 RTC definitions
 * time_utils: Functions added to get strings of Day and Month
 * time_utils: Months starts from 1 from now on
+* WDG_ex: Functions added to get current period of IWDG 
 * WDG_ex: Functions added to save/restore watchdogs configurations
 * tick_utils: init function returns FctERR instead of HAL_StatusTypeDef
 * workload: Module added

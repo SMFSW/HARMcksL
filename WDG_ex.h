@@ -88,6 +88,19 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 **/
 __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
 	return set_IWDG_Period_us(pIwdg, per * 1000); }
+
+/*!\brief Get IWDG period (in us)
+** \param[in] pIwdg - Pointer to IWDG instance
+** \return Period (in us)
+**/
+uint32_t NONNULL__ get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg);
+
+/*!\brief Get IWDG period (in ms)
+** \param[in] pIwdg - Pointer to IWDG instance
+** \return Period (in ms)
+**/
+__INLINE uint32_t NONNULL__ get_IWDG_Period_ms(const IWDG_HandleTypeDef * const pIwdg) {
+	return (get_IWDG_Period_us(pIwdg) / 1000); }
 #endif
 
 
