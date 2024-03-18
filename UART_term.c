@@ -113,6 +113,10 @@ static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
 		UART_Term_Flush_RxBuf(huart);
 		#endif
 	}
+	else if	(pUARTrx->data[pUARTrx->len] == '\b')			// Backspace char handling
+	{
+		if (pUARTrx->len)	{ pUARTrx->len--; }
+	}
 	else	{ pUARTrx->len++; }								// Incrementing only when char received & no full message
 
 	return ERROR_OK;

@@ -23,6 +23,7 @@ SOFTWARE.
 ## v1.6
 
 * Doxygen comments review and fixes
+* UART_term: handling reception of backspace char
 * RTC_ex: Setting date automatically computes corresponding weekday
 * RTC_ex: Sets weekday according to STM32 RTC definitions
 * time_utils: Functions added to get strings of Day and Month
