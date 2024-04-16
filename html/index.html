@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): Main Page</title>
+<title>HARMcksL: ARM HAL toolbox (yet STM32 oriented): HARMcksL &lt;a href=&quot;https://travis-ci.com/SMFSW/HARMcksL&quot; &gt;&lt;img src=&quot;https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,10 +71,77 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">HARMcksL: ARM HAL toolbox (yet STM32 oriented) Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">HARMcksL <a href="https://travis-ci.com/SMFSW/HARMcksL"><img src="https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master" alt="Build Status" style="pointer-events: none;" class="inline"/></a> </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> ARM HAL toolbox (STM32 HAL based)</p>
+<p>HARMcksL stands for:</p><ul>
+<li>ARM</li>
+<li>Hacks</li>
+<li>HAL</li>
+<li>Harm: what do you expect running with scissors?</li>
+</ul>
+<p>... coming to you bundled in one library. Use it at your own risk!</p>
+<h1>Modules</h1>
+<ul>
+<li>ADC_ex: Extensions for ADC peripherals (convenient way to acquire and convert ADC channels AIO)<ul>
+<li>template <a href="templates/adc_cfg.c.txt">adc_cfg.c</a>/<a href="templates/adc_cfg.h.txt">adc_cfg.h</a>: ADC configuration to use with ADC_EX</li>
+</ul>
+</li>
+<li>CRC_stm32: Function dealing with STM32 CRC peripheral</li>
+<li>exceptions: Exceptions debug tool helpers</li>
+<li>flash_check: Function to check flash CRC</li>
+<li>GPIO_ex: Extensions for GPIOs (R/W) and wrapper for other GPIO extensions modules</li>
+<li>GPIO_in: GPIO input handling<ul>
+<li>example <a href="templates/GPIO_in_example.c.txt">GPIO_in_example.c</a>/<a href="templates/GPIO_in_example.h.txt">GPIO_in_example.h</a>: GPIO_in example</li>
+</ul>
+</li>
+<li>GPIO_out: GPIO output handling<ul>
+<li>example <a href="templates/GPIO_out_example.c.txt">GPIO_out_example.c</a>/<a href="templates/GPIO_out_example.h.txt">GPIO_out_example.h</a>: GPIO_out example</li>
+</ul>
+</li>
+<li>Logic_ex: Extensions for logic variables (R/W) and wrapper for other Logic extensions modules</li>
+<li><a class="el" href="struct_logic__in.html" title="Logic input structure.">Logic_in</a>: Logic input handling<ul>
+<li>example <a href="templates/Logic_in_example.c.txt">Logic_in_example.c</a>/<a href="templates/Logic_in_example.h.txt">Logic_in_example.h</a>: <a class="el" href="struct_logic__in.html" title="Logic input structure.">Logic_in</a> example</li>
+</ul>
+</li>
+<li><a class="el" href="struct_logic__out.html" title="Logic output structure.">Logic_out</a>: Logic output handling<ul>
+<li>example <a href="templates/Logic_out_example.c.txt">Logic_out_example.c</a>/<a href="templates/Logic_out_example.h.txt">Logic_out_example.h</a>: <a class="el" href="struct_logic__out.html" title="Logic output structure.">Logic_out</a> example</li>
+</ul>
+</li>
+<li><a class="el" href="struct_p_w_m___i_c.html" title="PWM input capture structure.">PWM_IC</a>: PWM Input Capture handling</li>
+<li>PWM_GPIO: GPIO PWM emulation handling<ul>
+<li>example <a href="templates/PWM_GPIO_example.c.txt">PWM_GPIO_example.c</a>/<a href="templates/PWM_GPIO_example.h.txt">PWM_GPIO_example.h</a>: PWM_GPIO example</li>
+</ul>
+</li>
+<li>PWM: Straightforward PWM handling</li>
+<li>random_utils: (A little less pseudo) random numbers generation utilities</li>
+<li>RTC_ex: Basic RTC handling</li>
+<li>stack_utils: Stack utilities</li>
+<li>stdream_rdir: Stream redirection (workaround without using syscalls redirections for console, somehow deprecated)</li>
+<li>tick_utils: Core ticks related utilities</li>
+<li>TIM_ex: Extensions for TIM peripherals</li>
+<li>time_utils: Time related utilities</li>
+<li>UART_term: UART terminal</li>
+<li>USB_CDC_IF_ex: Extensions for USB VCP</li>
+<li>WDG_ex: Extensions for WDG peripherals</li>
+<li>workload: Workload estimation utilities</li>
+</ul>
+<h1>Requires</h1>
+<p>The toolbox uses sarmfsw headers library</p>
+<ul>
+<li>sarmfsw<ul>
+<li><a href="https://github.com/SMFSW/sarmfsw">sarmfsw</a></li>
+</ul>
+</li>
+</ul>
+<h1>Documentation</h1>
+<p>Doxygen doc can be generated using "Doxyfile"</p>
+<p>See <a href="https://smfsw.github.io/HARMcksL/">generated documentation</a></p>
+<h1>Release Notes</h1>
+<p>See <a class="el" href="md__release_notes.html">release notes</a> </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
 <!-- start footer part -->

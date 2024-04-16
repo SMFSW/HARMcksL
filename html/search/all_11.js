@@ -12,5 +12,6 @@ var searchData=
   ['timeactive_9',['timeActive',['../struct_logic__out.html#a28a2f1ad46514afc59c4f9f488b940ff',1,'Logic_out']]],
   ['timeinactive_10',['timeInactive',['../struct_logic__out.html#ab1970f23943436bfee8eec67c81a8812',1,'Logic_out']]],
   ['total_5fadc_5fchans_11',['TOTAL_ADC_CHANS',['../_a_d_c__ex_8c.html#ae1507310fff7a1dac921fa87bcf30692',1,'ADC_ex.c']]],
-  ['tuesday_12',['Tuesday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a596327c453efea63ea26096bf041f630',1,'time_utils.h']]]
+  ['travis_20ci_20com_20smfsw_20harmcksl_20img_20src_20https_3a_20travis_20ci_20com_20smfsw_20harmcksl_20svg_20branch_20master_20alt_20build_20status_20a_12',['HARMcksL &lt;a href=&quot;https://travis-ci.com/SMFSW/HARMcksL&quot; &gt;&lt;img src=&quot;https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
+  ['tuesday_13',['Tuesday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a596327c453efea63ea26096bf041f630',1,'time_utils.h']]]
 ];
