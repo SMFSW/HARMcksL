@@ -58,7 +58,7 @@ typedef enum eWorkload_val {
 
 
 /*!\brief Get interrupts load percentage
-** \param[in] Type - Type to get
+** \param[in] type - Type to get
 ** \return Interrupts load percentage
 **/
 float get_Workload_load_perc(const eWorkload_val type);
@@ -66,7 +66,7 @@ float get_Workload_load_perc(const eWorkload_val type);
 
 /*!\brief Get main loop period
 ** \note Loop period values will only be relevant in case of sequential code (you will get task period for RTOS based code)
-** \param[in] Type - Type to get
+** \param[in] type - Type to get
 ** \return Loop period
 **/
 uint32_t get_Workload_loop_period(const eWorkload_val type);
@@ -81,7 +81,7 @@ FctERR Workload_init(void);
 /*!\brief Set number of timer ticks in a µs
 ** \weak Function declared as weak, can be customly implemented in project if special timer is required
 ** \note Useful in case of \ref Workload_init custom implementation
-** \return FctERR - Error code
+** \param[in] ticks - Ticks in a µs
 **/
 void set_Workload_ticks_us(const float ticks);
 
