@@ -1,9 +1,7 @@
 <map id="Logic_out_update" name="Logic_out_update">
-<area shape="rect" id="node2" href="$_logic__out_8h.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance. " alt="" coords="203,56,312,83"/>
-<area shape="rect" id="node6" href="$_logic__out_8h.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment. " alt="" coords="188,107,327,133"/>
-<area shape="rect" id="node3" href="$_g_p_i_o__out_8h.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance. " alt="" coords="413,5,520,32"/>
-<area shape="rect" id="node5" href="$_logic__out_8h.html#a5404ecffaebf2ef9d9504ca110d58044" title="Get Logic_out current status. " alt="" coords="397,56,537,83"/>
-<area shape="rect" id="node4" href="$_g_p_i_o__out_8h.html#a3dfa14d3878ea45e148544cbccfe7670" title="Get GPIO_out current status. " alt="" coords="607,31,745,57"/>
-<area shape="rect" id="node7" href="$_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54" title="Handles GPIO_out treatment. " alt="" coords="399,107,535,133"/>
-<area shape="rect" id="node8" href="$_logic__out_8h.html#a90b84c9a9ac61d618db022a34123ed0d" title="Reset Logic_out. " alt="" coords="375,157,559,184"/>
+<area shape="rect" id="Node000001" title="Set GPIO port value." alt="" coords="180,31,303,57"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="5,5,132,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,35,132,31,132,25,165,30"/>
+<area shape="rect" id="Node000003" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance." alt="" coords="18,56,119,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,58,120,65,119,59,164,53"/>
 </map>

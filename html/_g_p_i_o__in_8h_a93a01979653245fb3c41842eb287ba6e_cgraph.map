@@ -1,7 +1,0 @@
-<map id="get_GPIO_in_edge" name="get_GPIO_in_edge">
-<area shape="rect" id="node2" href="$_logic__in_8h.html#af1567fbea6886f442b0d499f23c168d9" title="Get Logic_in input edge. " alt="" coords="192,56,332,83"/>
-<area shape="rect" id="node5" href="$_g_p_i_o__in_8h.html#a013f4fc67d04cdb3fb59159631f76aa3" title="Initialize GPIO_in instance. " alt="" coords="213,107,311,133"/>
-<area shape="rect" id="node3" href="$_logic__in_8h.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance. " alt="" coords="395,5,493,32"/>
-<area shape="rect" id="node4" href="$_logic__in_8h.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment. " alt="" coords="380,56,508,83"/>
-<area shape="rect" id="node6" href="$_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance. " alt="" coords="395,107,493,133"/>
-</map>

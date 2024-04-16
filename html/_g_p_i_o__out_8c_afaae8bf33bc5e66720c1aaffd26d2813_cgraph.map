@@ -1,4 +1,0 @@
-<map id="GPIO_out_init" name="GPIO_out_init">
-<area shape="rect" id="node2" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance. " alt="" coords="160,5,269,32"/>
-<area shape="rect" id="node3" href="$_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c" title="Set GPIO port value. " alt="" coords="317,5,452,32"/>
-</map>

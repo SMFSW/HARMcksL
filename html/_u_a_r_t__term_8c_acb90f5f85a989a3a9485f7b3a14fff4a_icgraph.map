@@ -1,5 +1,11 @@
 <map id="UART_Term_Wait_Ready" name="UART_Term_Wait_Ready">
-<area shape="rect" id="node2" href="$stdream__rdir_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9" title="syscalls implementation of _write " alt="" coords="443,5,502,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#a87a2a278f31dd7112aa8eb923a9ffa67" title="Sends string to UART. " alt="" coords="224,31,357,57"/>
-<area shape="rect" id="node4" href="$_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a" title="Set a new breakout character. " alt="" coords="405,68,540,95"/>
+<area shape="rect" id="Node000001" title="Waiting for UART global state to be ready for next transmission." alt="" coords="321,31,492,57"/>
+<area shape="rect" id="Node000002" href="$stdream__rdir_8c.html#a15058a905e08fff45da7bca6c7350b9e" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0" alt="" coords="9,5,91,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,30,273,21,175,17,92,19,91,14,175,12,273,16,332,25"/>
+<area shape="rect" id="Node000003" href="$_u_a_r_t__term_8c.html#a87a2a278f31dd7112aa8eb923a9ffa67" title="Sends string to UART." alt="" coords="143,31,273,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="306,47,273,47,273,41,306,41"/>
+<area shape="rect" id="Node000004" href="$stdream__rdir_8c.html#a514a6e8ac45c0f14008a32bea883b749" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0" alt="" coords="5,68,95,95"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="328,63,273,72,178,80,95,83,95,78,178,75,273,67,327,58"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="127,34,91,28,92,23,128,29"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="135,64,96,73,94,68,134,59"/>
 </map>

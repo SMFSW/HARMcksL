@@ -1,7 +1,9 @@
 <map id="set_PWM_Duty_Scaled" name="set_PWM_Duty_Scaled">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#a8996305976cc0d86fc92d7b8869695ed" title="Set PWM channel output on/off. " alt="" coords="232,5,363,32"/>
-<area shape="rect" id="node4" href="$_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16 value) " alt="" coords="220,56,375,83"/>
-<area shape="rect" id="node5" href="$_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8 value) " alt="" coords="221,107,373,133"/>
-<area shape="rect" id="node6" href="$_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents) " alt="" coords="222,157,373,184"/>
-<area shape="rect" id="node3" href="$_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="423,5,541,32"/>
+<area shape="rect" id="Node000001" title="Set TIM module PWM duty cycle (scaled)" alt="" coords="205,56,366,83"/>
+<area shape="rect" id="Node000002" href="$_p_w_m_8h.html#aa22e71f1af1239aa1993df275d9aba53" title="Set TIM module PWM duty cycle (u8 value)" alt="" coords="7,5,155,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,54,137,35,138,30,215,49"/>
+<area shape="rect" id="Node000003" href="$_p_w_m_8h.html#adb915345f905e4b8cd6e3b3549effb21" title="Set TIM module PWM duty cycle (percents)" alt="" coords="7,56,155,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,72,156,72,156,67,190,67"/>
+<area shape="rect" id="Node000004" href="$_p_w_m_8h.html#ae497207eb1812c635b23a2c65e3eeafe" title="Set TIM module PWM duty cycle (u16 value)" alt="" coords="5,107,157,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,89,138,109,137,103,214,84"/>
 </map>

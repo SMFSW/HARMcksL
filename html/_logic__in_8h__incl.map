@@ -1,2 +1,5 @@
 <map id="Logic_in.h" name="Logic_in.h">
+<area shape="rect" id="Node000001" title="Logic input handling." alt="" coords="6,5,86,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,87,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,33,49,65,43,65,43,33"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="init_Delay_Generator" name="init_Delay_Generator">
+<area shape="rect" id="Node000001" title="Delay generator initialization function." alt="" coords="153,5,296,32"/>
+<area shape="rect" id="Node000002" href="$workload_8c.html#a06fee1fa967d0ee611289044240ae4e5" title="Init Workload functionalities." alt="" coords="5,5,105,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,21,105,21,105,16,138,16"/>
+</map>

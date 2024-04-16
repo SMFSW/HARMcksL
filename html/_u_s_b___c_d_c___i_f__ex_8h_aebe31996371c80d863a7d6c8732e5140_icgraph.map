@@ -1,0 +1,5 @@
+<map id="CDC_Control_Set_Line_State_Callback" name="CDC_Control_Set_Line_State_Callback">
+<area shape="rect" id="Node000001" title="Callback for CDC port connection/disconnection." alt="" coords="212,5,370,48"/>
+<area shape="rect" id="Node000002" href="$_u_s_b___c_d_c___i_f__ex_8c.html#a5dd5f8cc69ea78434a44e115cbb13a2e" title="CDC Set Line State message handler." alt="" coords="5,5,164,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,29,164,29,164,24,197,24"/>
+</map>

@@ -1,4 +1,14 @@
 <map id="RTC_ex.c" name="RTC_ex.c">
-<area shape="rect" id="node3" href="$time__utils_8h.html" title="Time related utilities. " alt="" coords="93,155,189,181"/>
-<area shape="rect" id="node5" href="$_r_t_c__ex_8h.html" title="Basic RTC handling. " alt="" coords="31,80,109,107"/>
+<area shape="rect" id="Node000001" title="Basic RTC handling." alt="" coords="26,5,106,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,229,87,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,34,32,55,16,81,10,116,14,153,23,187,35,215,30,217,18,188,8,154,5,116,12,79,28,51,48,31"/>
+<area shape="rect" id="Node000003" href="$time__utils_8h.html" title="Time related utilities." alt="" coords="93,155,181,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="82,31,102,52,120,79,131,110,137,139,132,140,126,111,116,81,98,55,78,34"/>
+<area shape="rect" id="Node000005" href="$_r_t_c__ex_8h.html" title="Basic RTC handling." alt="" coords="26,80,106,107"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="69,33,69,65,63,65,63,33"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="123,184,74,222,71,218,119,180"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="111,229,168,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="140,182,141,214,136,215,134,182"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="67,108,52,215,47,214,62,107"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="80,105,116,142,112,146,76,109"/>
 </map>

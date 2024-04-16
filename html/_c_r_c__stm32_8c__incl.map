@@ -1,3 +1,10 @@
 <map id="CRC_stm32.c" name="CRC_stm32.c">
-<area shape="rect" id="node4" href="$_c_r_c__stm32_8h.html" title="Function dealing with STM32 CRC peripheral. " alt="" coords="149,80,255,107"/>
+<area shape="rect" id="Node000001" title="Function dealing with STM32 CRC peripheral." alt="" coords="54,5,159,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,69,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,34,61,71,57,67,92,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,155,192,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,32,136,106,146,140,141,141,130,107,108,33"/>
+<area shape="rect" id="Node000004" href="$_c_r_c__stm32_8h.html" title="Function dealing with STM32 CRC peripheral." alt="" coords="144,80,250,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="124,30,172,69,169,73,120,35"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="191,109,169,144,165,141,187,106"/>
 </map>

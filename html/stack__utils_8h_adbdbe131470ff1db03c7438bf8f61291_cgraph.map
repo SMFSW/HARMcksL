@@ -1,19 +1,37 @@
 <map id="stack_dump" name="stack_dump">
-<area shape="rect" id="node2" href="$stack__utils_8h.html#a68feeae83b4a7e12e43eece75ce7d721" title="Print contents of ARM registers. " alt="" coords="163,335,294,361"/>
-<area shape="rect" id="node16" href="$stack__utils_8h.html#a0e45c6ac6ab6d3ff6815112f634d441c" title="Prints main stack address. " alt="" coords="153,588,304,615"/>
-<area shape="rect" id="node3" href="$stack__utils_8h.html#a20d3ba3587930937fc24c952e74b8f83" title="Get content of R0 register. " alt="" coords="362,5,429,32"/>
-<area shape="rect" id="node4" href="$stack__utils_8h.html#a370e5288152100dcef91f0ecb8dabfa7" title="Get content of R1 register. " alt="" coords="362,56,429,83"/>
-<area shape="rect" id="node5" href="$stack__utils_8h.html#ad15860e1d34dcd0ef2ef5b8ce5a51340" title="Get content of R2 register. " alt="" coords="362,107,429,133"/>
-<area shape="rect" id="node6" href="$stack__utils_8h.html#a31f8779ac2d811b8aa8780f3238a1f60" title="Get content of R3 register. " alt="" coords="362,157,429,184"/>
-<area shape="rect" id="node7" href="$stack__utils_8h.html#a7c884895c0ff33185e2c7dd649906a83" title="Get content of R4 register. " alt="" coords="362,208,429,235"/>
-<area shape="rect" id="node8" href="$stack__utils_8h.html#afbd9c2b2857ea95e7b620a8291f1021b" title="Get content of R5 register. " alt="" coords="362,259,429,285"/>
-<area shape="rect" id="node9" href="$stack__utils_8h.html#a42b8e98bbc5c45f14a75e848d5626ac8" title="Get content of R6 register. " alt="" coords="362,309,429,336"/>
-<area shape="rect" id="node10" href="$stack__utils_8h.html#a56ab78ab3001064c44cfa0b5143129a9" title="Get content of R7 register. " alt="" coords="362,360,429,387"/>
-<area shape="rect" id="node11" href="$stack__utils_8h.html#a3874f2ff72665d35c9ad12c9a8038280" title="Get content of R8 register. " alt="" coords="362,411,429,437"/>
-<area shape="rect" id="node12" href="$stack__utils_8h.html#acf58b5c325bcf469795185ed38b63b25" title="Get content of R9 register. " alt="" coords="362,461,429,488"/>
-<area shape="rect" id="node13" href="$stack__utils_8h.html#ae3253ecd39492d85ffe125c281447723" title="Get content of R10 register. " alt="" coords="358,512,433,539"/>
-<area shape="rect" id="node14" href="$stack__utils_8h.html#ad94c7aa8d4d8b0f2f32c65e499a1ab3c" title="Get content of R11 register. " alt="" coords="358,563,433,589"/>
-<area shape="rect" id="node15" href="$stack__utils_8h.html#aca3a75eaa50e3e1d90b34139c2b0d3be" title="Get content of R12 register. " alt="" coords="358,613,433,640"/>
-<area shape="rect" id="node17" href="$stack__utils_8h.html#ae7df401c0eaa0cc65077ff14eb68c402" title="Get pointer to the main stack. " alt="" coords="352,664,439,691"/>
-<area shape="rect" id="node18" href="$stack__utils_8h.html#a23206b15d779e87859a2b75e471ccacb" title="Get Main Stack Pointer value. " alt="" coords="487,664,565,691"/>
+<area shape="rect" id="Node000001" title="prints contents of global registers &amp; stack address" alt="" coords="5,487,98,513"/>
+<area shape="rect" id="Node000002" href="$stack__utils_8c.html#a68feeae83b4a7e12e43eece75ce7d721" title="Print contents of ARM registers." alt="" coords="155,335,275,361"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,485,187,370,190,374,69,488"/>
+<area shape="rect" id="Node000016" href="$stack__utils_8c.html#a0e45c6ac6ab6d3ff6815112f634d441c" title="Prints main stack address." alt="" coords="146,512,284,539"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="98,504,131,510,131,515,98,510"/>
+<area shape="rect" id="Node000003" href="$stack__utils_8h.html#a20d3ba3587930937fc24c952e74b8f83" title="Get content of R0 register." alt="" coords="342,5,405,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="216,334,226,282,247,206,280,121,303,80,330,42,332,40,336,44,334,46,308,83,285,124,252,208,231,284,221,335"/>
+<area shape="rect" id="Node000004" href="$stack__utils_8h.html#a370e5288152100dcef91f0ecb8dabfa7" title="Get content of R1 register." alt="" coords="342,56,405,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="217,334,229,290,252,227,285,158,306,124,330,93,332,90,336,94,334,96,311,127,290,160,257,229,234,291,222,335"/>
+<area shape="rect" id="Node000005" href="$stack__utils_8h.html#ae3253ecd39492d85ffe125c281447723" title="Get content of R10 register." alt="" coords="338,107,408,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="219,333,258,248,290,194,330,144,333,141,337,144,334,147,295,197,263,250,224,335"/>
+<area shape="rect" id="Node000006" href="$stack__utils_8h.html#ad94c7aa8d4d8b0f2f32c65e499a1ab3c" title="Get content of R11 register." alt="" coords="339,157,408,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="222,333,265,269,295,230,330,194,333,191,337,195,334,198,299,234,269,272,227,336"/>
+<area shape="rect" id="Node000007" href="$stack__utils_8h.html#aca3a75eaa50e3e1d90b34139c2b0d3be" title="Get content of R12 register." alt="" coords="338,208,408,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="229,332,273,292,330,245,335,241,338,246,334,249,277,296,232,336"/>
+<area shape="rect" id="Node000008" href="$stack__utils_8h.html#ad15860e1d34dcd0ef2ef5b8ce5a51340" title="Get content of R2 register." alt="" coords="342,259,405,285"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="244,332,329,290,332,295,246,336"/>
+<area shape="rect" id="Node000009" href="$stack__utils_8h.html#a31f8779ac2d811b8aa8780f3238a1f60" title="Get content of R3 register." alt="" coords="342,309,405,336"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="275,336,327,327,328,333,275,341"/>
+<area shape="rect" id="Node000010" href="$stack__utils_8h.html#a7c884895c0ff33185e2c7dd649906a83" title="Get content of R4 register." alt="" coords="342,360,405,387"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="275,355,328,363,327,369,275,360"/>
+<area shape="rect" id="Node000011" href="$stack__utils_8h.html#afbd9c2b2857ea95e7b620a8291f1021b" title="Get content of R5 register." alt="" coords="342,411,405,437"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="246,360,332,401,329,406,244,364"/>
+<area shape="rect" id="Node000012" href="$stack__utils_8h.html#a42b8e98bbc5c45f14a75e848d5626ac8" title="Get content of R6 register." alt="" coords="342,461,405,488"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="232,360,277,400,334,447,338,450,335,455,330,451,273,404,229,364"/>
+<area shape="rect" id="Node000013" href="$stack__utils_8h.html#a56ab78ab3001064c44cfa0b5143129a9" title="Get content of R7 register." alt="" coords="342,512,405,539"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="227,360,269,424,299,462,334,498,337,501,333,505,330,502,295,466,265,427,222,363"/>
+<area shape="rect" id="Node000014" href="$stack__utils_8h.html#a3874f2ff72665d35c9ad12c9a8038280" title="Get content of R8 register." alt="" coords="342,563,405,589"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="224,361,263,446,295,499,334,549,337,552,333,555,330,552,290,502,258,448,219,363"/>
+<area shape="rect" id="Node000015" href="$stack__utils_8h.html#acf58b5c325bcf469795185ed38b63b25" title="Get content of R9 register." alt="" coords="342,613,405,640"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="225,361,334,600,336,602,332,606,330,603,220,363"/>
+<area shape="rect" id="Node000017" href="$stack__utils_8h.html#a9dd60d54d291e619c38250f46b061f8b" title="Get pointer to the main stack." alt="" coords="332,664,414,691"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="229,537,272,589,334,650,338,653,335,658,330,654,268,593,225,541"/>
+<area shape="rect" id="Node000018" href="$stack__utils_8h.html#a23206b15d779e87859a2b75e471ccacb" title="Get Main Stack Pointer value." alt="" coords="462,664,538,691"/>
+<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="415,675,447,675,447,680,415,680"/>
 </map>

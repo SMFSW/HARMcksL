@@ -1,3 +1,5 @@
 <map id="set_IWDG_Period_ms" name="set_IWDG_Period_ms">
-<area shape="rect" id="node2" href="$_w_d_g__ex_8h.html#a352be82c55d033c40d9d975026616b0e" title="Set IWDG period (in us) " alt="" coords="211,5,363,32"/>
+<area shape="rect" id="Node000001" title="Set IWDG period (in ms)" alt="" coords="5,5,158,32"/>
+<area shape="rect" id="Node000002" href="$_w_d_g__ex_8c.html#a352be82c55d033c40d9d975026616b0e" title="Set IWDG period (in us)" alt="" coords="206,5,354,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,16,191,16,191,21,158,21"/>
 </map>

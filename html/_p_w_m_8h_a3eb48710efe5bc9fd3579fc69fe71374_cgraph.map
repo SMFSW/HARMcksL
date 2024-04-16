@@ -1,3 +1,5 @@
 <map id="set_PWM_Duty_Scaled" name="set_PWM_Duty_Scaled">
-<area shape="rect" id="node2" href="$_t_i_m__ex_8c.html#a935ad6f645ae2953ab82a8c3720d4cac" title="Low level TIM module CCR write. " alt="" coords="220,5,333,32"/>
+<area shape="rect" id="Node000001" title="Set TIM module PWM duty cycle (scaled)" alt="" coords="5,5,167,32"/>
+<area shape="rect" id="Node000002" href="$_t_i_m__ex_8c.html#a935ad6f645ae2953ab82a8c3720d4cac" title="Low level TIM module CCR write." alt="" coords="215,5,331,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,16,200,16,200,21,167,21"/>
 </map>

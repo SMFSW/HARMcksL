@@ -1,4 +1,9 @@
 <map id="UART_Term_Launch_It_Rx" name="UART_Term_Launch_It_Rx">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8h.html#a1e612438d9107bb0e97badf5a1672c72" title="Initialize UART terminal. " alt="" coords="236,5,355,32"/>
-<area shape="rect" id="node3" href="$_u_a_r_t__term_8h.html#ab7732fd599b5ccf4f739cc274874f81a" title="Set a new breakout character. " alt="" coords="403,31,537,57"/>
+<area shape="rect" id="Node000001" title="Start UART SERIAL DEBUG Rx interruptions." alt="" coords="483,31,664,57"/>
+<area shape="rect" id="Node000002" href="$_u_a_r_t__term_8c.html#a1e612438d9107bb0e97badf5a1672c72" title="Initialize UART terminal." alt="" coords="280,5,398,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,35,398,28,399,22,468,30"/>
+<area shape="rect" id="Node000003" href="$_u_a_r_t__term_8c.html#a287d38952d9697aa83509ed96b24786e" title="UART Term Rx Transfer completed callback." alt="" coords="243,56,435,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="469,58,436,62,435,56,468,53"/>
+<area shape="rect" id="Node000004" href="$_u_a_r_t__term_8c.html#ae494a9643f29b87d6d81e5264e60e57b" title="Rx Transfer completed callback." alt="" coords="5,56,195,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="227,72,195,72,195,67,227,67"/>
 </map>

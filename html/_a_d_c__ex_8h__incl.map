@@ -1,2 +1,7 @@
 <map id="ADC_ex.h" name="ADC_ex.h">
+<area shape="rect" id="Node000001" title="Simple extension for ADCs." alt="" coords="58,5,141,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,87,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,34,66,70,62,67,88,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,80,197,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,31,138,67,134,70,107,34"/>
 </map>

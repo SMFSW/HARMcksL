@@ -1,3 +1,12 @@
 <map id="USB_CDC_IF_ex.c" name="USB_CDC_IF_ex.c">
-<area shape="rect" id="node4" href="$_u_s_b___c_d_c___i_f__ex_8h.html" title="Extensions for USB VCP. " alt="" coords="151,80,287,107"/>
+<area shape="rect" id="Node000001" title="Extensions for USB VCP." alt="" coords="92,5,229,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,70,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,35,73,74,70,70,137,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="120,155,201,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,33,140,66,135,86,136,106,149,141,144,142,131,107,130,86,135,65,150,31"/>
+<area shape="rect" id="Node000004" href="$_u_s_b___c_d_c___i_f__ex_8h.html" title="Extensions for USB VCP." alt="" coords="145,80,282,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,31,198,67,194,70,167,34"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="306,80,409,107"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="195,30,310,72,308,77,194,35"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="206,109,180,144,176,141,202,106"/>
 </map>

@@ -1,3 +1,11 @@
 <map id="time_utils.c" name="time_utils.c">
-<area shape="rect" id="node4" href="$time__utils_8h.html" title="Time related utilities. " alt="" coords="57,80,153,107"/>
+<area shape="rect" id="Node000001" title="Time related utilities." alt="" coords="54,5,142,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,155,63,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,34,62,55,44,81,36,111,35,140,29,140,31,110,40,79,58,51,80,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,155,203,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,30,138,51,156,79,165,110,167,140,161,140,160,111,152,81,134,55,113,34"/>
+<area shape="rect" id="Node000004" href="$time__utils_8h.html" title="Time related utilities." alt="" coords="54,80,142,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,33,101,65,95,65,95,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="89,109,57,145,53,142,85,105"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="111,105,143,142,139,145,107,109"/>
 </map>

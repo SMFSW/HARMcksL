@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['logic_5fin',['Logic_in',['../_logic__in_8h.html#a86e57eb5a095886ed05d74e422f352c5',1,'Logic_in.h']]],
-  ['logic_5fout',['Logic_out',['../_logic__out_8h.html#abcdae5a530fae7e5b661bf0e725978b6',1,'Logic_out.h']]]
+  ['pwm_5fic_0',['PWM_IC',['../_p_w_m___i_c_8h.html#a1b6f496aa3809bf8b1cea5bf9b45d6f6',1,'PWM_IC.h']]]
 ];

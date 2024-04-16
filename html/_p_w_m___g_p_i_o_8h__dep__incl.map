@@ -1,3 +1,5 @@
 <map id="PWM_GPIO.h" name="PWM_GPIO.h">
-<area shape="rect" id="node2" href="$_p_w_m___g_p_i_o_8c.html" title="GPIO PWM emulation handling. " alt="" coords="6,80,106,107"/>
+<area shape="rect" id="Node000001" title="GPIO PWM emulation handling." alt="" coords="5,5,111,32"/>
+<area shape="rect" id="Node000002" href="$_p_w_m___g_p_i_o_8c.html" title="GPIO PWM emulation handling." alt="" coords="5,80,111,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,47,61,80,55,80,55,47"/>
 </map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gpio_5fin',['GPIO_in',['../_g_p_i_o__in_8h.html#af57b753c8617e238fb51cd0c61c9b762',1,'GPIO_in.h']]],
-  ['gpio_5fout',['GPIO_out',['../_g_p_i_o__out_8h.html#a922063a87ffb67f6d2aa1bfe3e2c6008',1,'GPIO_out.h']]]
+  ['logic_5fin_0',['Logic_in',['../_logic__in_8h.html#ad0d3d5dfbf2e2a2244ba4e2f2c5a5d17',1,'Logic_in.h']]],
+  ['logic_5fout_1',['Logic_out',['../_logic__out_8h.html#ac9f99b5d17ec6252dadfe89bc34b64a5',1,'Logic_out.h']]]
 ];

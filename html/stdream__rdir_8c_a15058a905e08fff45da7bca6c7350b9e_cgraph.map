@@ -1,0 +1,8 @@
+<map id="printf_redir" name="printf_redir">
+<area shape="rect" id="Node000001" title="printf like redirected to DBG_SERIAL UART and/or ITM port 0" alt="" coords="5,31,88,57"/>
+<area shape="rect" id="Node000002" href="$_u_a_r_t__term_8c.html#a87a2a278f31dd7112aa8eb923a9ffa67" title="Sends string to UART." alt="" coords="136,5,266,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,35,121,29,122,34,89,40"/>
+<area shape="rect" id="Node000003" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission." alt="" coords="314,31,485,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="88,41,299,41,299,47,88,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="267,24,300,29,299,34,266,30"/>
+</map>

@@ -1,4 +1,0 @@
-<map id="GPIO_out_Abort" name="GPIO_out_Abort">
-<area shape="rect" id="node2" href="$_logic__out_8c.html#a9fbe95574c7a02b97d223027580f4bf9" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached. " alt="" coords="176,5,301,32"/>
-<area shape="rect" id="node3" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="349,5,499,32"/>
-</map>

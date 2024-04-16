@@ -1,0 +1,16 @@
+<map id="workload.c" name="workload.c">
+<area shape="rect" id="Node000001" title="Workload estimation utilities." alt="" coords="137,5,222,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,66,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,35,75,75,73,70,153,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="191,155,272,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,35,149,49,135,67,128,87,131,105,152,129,179,146,176,150,148,133,126,108,122,86,130,65,145,46,161,31"/>
+<area shape="rect" id="Node000004" href="$_t_i_m__ex_8h.html" title="Extensions for TIM peripherals." alt="" coords="141,80,218,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,33,182,65,177,65,177,33"/>
+<area shape="rect" id="Node000005" href="$tick__utils_8h.html" title="Core ticks related utilities." alt="" coords="241,80,326,107"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="199,30,255,69,252,73,196,35"/>
+<area shape="rect" id="Node000006" href="$workload_8h.html" title="Workload estimation utilities." alt="" coords="349,80,434,107"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="217,30,342,72,340,77,216,35"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="191,106,216,141,212,144,186,109"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="277,109,251,144,247,141,272,106"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="365,110,274,151,272,146,363,105"/>
+</map>

@@ -1,4 +1,11 @@
 <map id="Logic_ex.h" name="Logic_ex.h">
-<area shape="rect" id="node3" href="$_logic__in_8h.html" title="Logic input handling. " alt="" coords="20,80,106,107"/>
-<area shape="rect" id="node4" href="$_logic__out_8h.html" title="Logic output handling. " alt="" coords="130,80,225,107"/>
+<area shape="rect" id="Node000001" title="Extensions for logic variables (R/W)" alt="" coords="18,5,102,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="19,155,101,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="46,34,26,55,11,81,9,98,14,114,36,143,32,147,9,116,3,98,6,79,22,51,43,31"/>
+<area shape="rect" id="Node000003" href="$_logic__in_8h.html" title="Logic input handling." alt="" coords="20,80,100,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="63,33,63,65,57,65,57,33"/>
+<area shape="rect" id="Node000004" href="$_logic__out_8h.html" title="Logic output handling." alt="" coords="124,80,212,107"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="80,30,138,69,136,73,77,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="63,107,63,140,57,140,57,107"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="151,109,93,148,90,144,148,105"/>
 </map>

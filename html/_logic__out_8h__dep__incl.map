@@ -1,9 +1,17 @@
 <map id="Logic_out.h" name="Logic_out.h">
-<area shape="rect" id="node2" href="$_g_p_i_o__out_8h.html" title="GPIO output handling. " alt="" coords="114,80,207,107"/>
-<area shape="rect" id="node6" href="$_logic__ex_8h.html" title="Extensions for logic variables (R/W) " alt="" coords="232,80,321,107"/>
-<area shape="rect" id="node8" href="$_logic__out_8c.html" title="Logic output handling. " alt="" coords="345,80,440,107"/>
-<area shape="rect" id="node3" href="$_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node5" href="$_g_p_i_o__out_8c.html" title="GPIO output handling. " alt="" coords="116,155,208,181"/>
-<area shape="rect" id="node4" href="$_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,229,92,256"/>
-<area shape="rect" id="node7" href="$_logic__ex_8c.html" title="Extensions for logic variables (R/W) " alt="" coords="233,155,321,181"/>
+<area shape="rect" id="Node000001" title="Logic output handling." alt="" coords="228,5,317,32"/>
+<area shape="rect" id="Node000002" href="$_g_p_i_o__out_8h.html" title="GPIO output handling." alt="" coords="115,80,206,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,42,182,82,179,77,240,38"/>
+<area shape="rect" id="Node000006" href="$_logic__ex_8h.html" title="Extensions for logic variables (R/W)" alt="" coords="230,80,315,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="275,47,275,80,270,80,270,47"/>
+<area shape="rect" id="Node000008" href="$_logic__out_8c.html" title="Logic output handling." alt="" coords="339,80,427,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="305,38,365,77,362,82,302,42"/>
+<area shape="rect" id="Node000003" href="$_g_p_i_o__ex_8h.html" title="Extensions for GPIOs (R/W)" alt="" coords="5,155,92,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,117,70,156,67,152,128,113"/>
+<area shape="rect" id="Node000005" href="$_g_p_i_o__out_8c.html" title="GPIO output handling." alt="" coords="115,155,206,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="163,122,163,154,158,154,158,122"/>
+<area shape="rect" id="Node000004" href="$_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W)" alt="" coords="5,229,92,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="51,196,51,229,46,229,46,196"/>
+<area shape="rect" id="Node000007" href="$_logic__ex_8c.html" title="Extensions for logic variables (R/W)" alt="" coords="230,155,315,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="275,122,275,154,270,154,270,122"/>
 </map>

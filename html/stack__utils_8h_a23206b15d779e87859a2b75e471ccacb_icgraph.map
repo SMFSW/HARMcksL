@@ -1,6 +1,9 @@
 <map id="get_MSP" name="get_MSP">
-<area shape="rect" id="node2" href="$stack__utils_8h.html#ae7df401c0eaa0cc65077ff14eb68c402" title="Get pointer to the main stack. " alt="" coords="132,31,219,57"/>
-<area shape="rect" id="node3" href="$stack__utils_8h.html#a0e45c6ac6ab6d3ff6815112f634d441c" title="Prints main stack address. " alt="" coords="267,31,417,57"/>
-<area shape="rect" id="node4" href="$stack__utils_8h.html#a6c28637c0a207615017cbb7d73da2748" title="Get content of xPSR. " alt="" coords="478,5,553,32"/>
-<area shape="rect" id="node5" href="$stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291" title="prints contents of global registers &amp; stack address " alt="" coords="465,56,565,83"/>
+<area shape="rect" id="Node000001" title="Get Main Stack Pointer value." alt="" coords="462,5,538,32"/>
+<area shape="rect" id="Node000002" href="$stack__utils_8h.html#a9dd60d54d291e619c38250f46b061f8b" title="Get pointer to the main stack." alt="" coords="332,5,414,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,21,415,21,415,16,447,16"/>
+<area shape="rect" id="Node000003" href="$stack__utils_8c.html#a0e45c6ac6ab6d3ff6815112f634d441c" title="Prints main stack address." alt="" coords="146,5,284,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,21,284,21,284,16,317,16"/>
+<area shape="rect" id="Node000004" href="$stack__utils_8h.html#adbdbe131470ff1db03c7438bf8f61291" title="prints contents of global registers &amp; stack address" alt="" coords="5,5,98,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="131,21,98,21,98,16,131,16"/>
 </map>

@@ -1,4 +1,16 @@
 <map id="UART_term.c" name="UART_term.c">
-<area shape="rect" id="node4" href="$stdream__rdir_8h.html" title="Stream redirection. " alt="" coords="31,80,146,107"/>
-<area shape="rect" id="node5" href="$_u_a_r_t__term_8h.html" title="UART terminal header. " alt="" coords="221,80,327,107"/>
+<area shape="rect" id="Node000001" title="UART terminal." alt="" coords="118,5,220,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,155,66,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,35,95,54,63,82,48,110,41,140,35,139,43,108,59,78,92,49,130,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="182,155,263,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,32,215,140,210,141,171,33"/>
+<area shape="rect" id="Node000004" href="$stdream__rdir_8h.html" title="Stream redirection." alt="" coords="73,80,177,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,34,142,69,138,66,159,31"/>
+<area shape="rect" id="Node000006" href="$_u_a_r_t__term_8h.html" title="UART terminal header." alt="" coords="252,80,353,107"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="193,30,268,70,265,75,191,35"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="111,109,64,147,61,143,108,105"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="143,105,196,144,192,148,140,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="89,155,158,181"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="127,107,127,140,121,140,122,107"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="290,109,248,147,245,143,286,105"/>
 </map>

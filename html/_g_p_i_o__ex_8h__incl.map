@@ -1,6 +1,17 @@
 <map id="GPIO_ex.h" name="GPIO_ex.h">
-<area shape="rect" id="node3" href="$_g_p_i_o__in_8h.html" title="GPIO input handling. " alt="" coords="20,80,103,107"/>
-<area shape="rect" id="node5" href="$_g_p_i_o__out_8h.html" title="GPIO output handling. " alt="" coords="137,80,231,107"/>
-<area shape="rect" id="node4" href="$_logic__in_8h.html" title="Logic input handling. " alt="" coords="61,155,147,181"/>
-<area shape="rect" id="node6" href="$_logic__out_8h.html" title="Logic output handling. " alt="" coords="222,155,317,181"/>
+<area shape="rect" id="Node000001" title="Extensions for GPIOs (R/W)" alt="" coords="18,5,105,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,229,143,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,34,27,55,11,81,8,93,11,106,22,145,44,180,78,217,74,221,39,183,17,147,5,107,3,93,6,79,23,51,43,30"/>
+<area shape="rect" id="Node000003" href="$_g_p_i_o__in_8h.html" title="GPIO input handling." alt="" coords="20,80,103,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,33,64,65,59,65,59,33"/>
+<area shape="rect" id="Node000005" href="$_g_p_i_o__out_8h.html" title="GPIO output handling." alt="" coords="135,80,225,107"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="83,30,148,70,146,74,81,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="59,108,50,141,49,161,53,180,64,200,79,217,74,221,60,203,48,182,44,162,45,141,54,106"/>
+<area shape="rect" id="Node000004" href="$_logic__in_8h.html" title="Logic input handling." alt="" coords="63,155,143,181"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="71,106,91,140,86,143,66,109"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="105,182,105,214,100,214,100,182"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="181,108,173,142,157,183,129,220,125,217,152,180,168,141,176,106"/>
+<area shape="rect" id="Node000006" href="$_logic__out_8h.html" title="Logic output handling." alt="" coords="217,155,306,181"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="196,105,238,143,235,147,192,109"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="235,184,145,225,143,220,233,179"/>
 </map>

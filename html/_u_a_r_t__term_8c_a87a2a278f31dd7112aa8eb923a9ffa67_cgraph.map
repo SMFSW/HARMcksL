@@ -1,3 +1,5 @@
 <map id="UART_Term_Send" name="UART_Term_Send">
-<area shape="rect" id="node2" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission. " alt="" coords="187,5,357,32"/>
+<area shape="rect" id="Node000001" title="Sends string to UART." alt="" coords="5,5,136,32"/>
+<area shape="rect" id="Node000002" href="$_u_a_r_t__term_8c.html#acb90f5f85a989a3a9485f7b3a14fff4a" title="Waiting for UART global state to be ready for next transmission." alt="" coords="184,5,355,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,16,169,16,169,21,136,21"/>
 </map>

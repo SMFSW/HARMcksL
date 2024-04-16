@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['hal_5fadc_5fconvcpltcallback',['HAL_ADC_ConvCpltCallback',['../_a_d_c__ex_8c.html#af20a88180db1113be1e89266917d148b',1,'ADC_ex.c']]],
-  ['hal_5ftim_5fic_5fcapturecallback',['HAL_TIM_IC_CaptureCallback',['../_p_w_m___i_c_8c.html#a77a2401a35ddd9bd0b8fc28331b81381',1,'PWM_IC.c']]],
-  ['hal_5fuart_5frxcpltcallback',['HAL_UART_RxCpltCallback',['../_u_a_r_t__term_8c.html#ae494a9643f29b87d6d81e5264e60e57b',1,'UART_term.c']]],
-  ['hardfault_5fhandler_5fcallback',['HardFault_Handler_callback',['../exceptions_8c.html#a8c1d442731656ba2f863def48642446e',1,'HardFault_Handler_callback(const uint32_t stack[]):&#160;exceptions.c'],['../exceptions_8h.html#a8c1d442731656ba2f863def48642446e',1,'HardFault_Handler_callback(const uint32_t stack[]):&#160;exceptions.c']]]
+  ['init_5fdelay_5fgenerator_0',['init_Delay_Generator',['../tick__utils_8c.html#a774a8eac8f64c3ad3b903bd434a33d93',1,'init_Delay_Generator(void):&#160;tick_utils.c'],['../tick__utils_8h.html#a774a8eac8f64c3ad3b903bd434a33d93',1,'init_Delay_Generator(void):&#160;tick_utils.c']]],
+  ['init_5fpwm_5fchan_1',['init_PWM_Chan',['../_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c'],['../_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9',1,'init_PWM_Chan(TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity):&#160;PWM.c']]],
+  ['init_5fpwm_5fic_2',['init_PWM_IC',['../_p_w_m___i_c_8c.html#ae6d9cd006e7379672e6d480487e3445c',1,'init_PWM_IC(PWM_IC *const pPWM_IC, TIM_HandleTypeDef *const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale):&#160;PWM_IC.c'],['../_p_w_m___i_c_8h.html#ae6d9cd006e7379672e6d480487e3445c',1,'init_PWM_IC(PWM_IC *const pPWM_IC, TIM_HandleTypeDef *const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale):&#160;PWM_IC.c']]],
+  ['init_5ftim_5fbase_3',['init_TIM_Base',['../_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae',1,'init_TIM_Base(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a6697828e26b4f3a2f8a5a987b13f5cae',1,'init_TIM_Base(TIM_HandleTypeDef *const pTim, const uint32_t freq):&#160;TIM_ex.c']]],
+  ['is_5fleapyear_4',['is_LeapYear',['../time__utils_8h.html#a0201956a657cced2952c9b841ddb97de',1,'time_utils.h']]]
 ];

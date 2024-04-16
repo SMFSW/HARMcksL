@@ -1,0 +1,9 @@
+<map id="WDG_init_check" name="WDG_init_check">
+<area shape="rect" id="Node000001" title="Check IWDG &amp; WWDG status." alt="" coords="5,56,126,83"/>
+<area shape="rect" id="Node000002" href="$_w_d_g__ex_8c.html#a08cbc45a03500cea6a936ba8ac8c024e" title="Get IWDG status." alt="" coords="178,5,338,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,53,190,34,191,39,120,58"/>
+<area shape="rect" id="Node000003" href="$_w_d_g__ex_8c.html#a12b5e7bee23afd5f6916f10ba992b2b2" title="Get IWDG status." alt="" coords="174,56,342,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,67,159,67,159,72,126,72"/>
+<area shape="rect" id="Node000004" href="$_w_d_g__ex_8c.html#a4614451a000b17a6ee09633b546dc296" title="Save IWDG &amp; WWDG configuration." alt="" coords="201,107,315,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,81,191,100,190,105,118,86"/>
+</map>

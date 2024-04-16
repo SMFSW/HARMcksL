@@ -1,5 +1,9 @@
 <map id="init_TIM_Base" name="init_TIM_Base">
-<area shape="rect" id="node2" href="$_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts. " alt="" coords="161,5,300,32"/>
-<area shape="rect" id="node3" href="$_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency. " alt="" coords="179,56,283,83"/>
-<area shape="rect" id="node4" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="348,56,475,83"/>
+<area shape="rect" id="Node000001" title="Init TIM module and start interruptions." alt="" coords="5,31,111,57"/>
+<area shape="rect" id="Node000002" href="$_t_i_m__ex_8c.html#a3126b49c3c05b2111887981d7f11597a" title="Set TIM module frequency." alt="" coords="173,5,276,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,33,158,26,159,31,112,39"/>
+<area shape="rect" id="Node000004" href="$_t_i_m__ex_8h.html#ae0737ecd6e8ba1c6a93286a5e8a31222" title="Start TIM module interrupts." alt="" coords="159,56,290,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="112,49,145,54,144,60,111,55"/>
+<area shape="rect" id="Node000003" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency." alt="" coords="338,5,471,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="276,16,323,16,323,21,276,21"/>
 </map>

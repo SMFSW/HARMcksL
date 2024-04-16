@@ -1,4 +1,7 @@
 <map id="diffDateTime" name="diffDateTime">
-<area shape="rect" id="node2" href="$time__utils_8c.html#aa6fccbff0e13e88285511d0b4c63121f" title="Convert DateTime to time_t. " alt="" coords="156,5,289,32"/>
-<area shape="rect" id="node3" href="$time__utils_8c.html#acf1569c77e083af101da12bd5d90a4ef" title="Convert time_t to DateTime. " alt="" coords="156,56,289,83"/>
+<area shape="rect" id="Node000001" title="Calculate DateTime difference." alt="" coords="5,31,101,57"/>
+<area shape="rect" id="Node000002" href="$time__utils_8c.html#aa6fccbff0e13e88285511d0b4c63121f" title="Convert DateTime to time_t." alt="" coords="149,5,270,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,34,133,28,134,34,102,39"/>
+<area shape="rect" id="Node000003" href="$time__utils_8c.html#acf1569c77e083af101da12bd5d90a4ef" title="Convert time_t to DateTime." alt="" coords="149,56,270,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,49,134,54,133,60,101,54"/>
 </map>

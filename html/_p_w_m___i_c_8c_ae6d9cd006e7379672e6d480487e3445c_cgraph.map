@@ -1,3 +1,5 @@
 <map id="init_PWM_IC" name="init_PWM_IC">
-<area shape="rect" id="node2" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="151,5,277,32"/>
+<area shape="rect" id="Node000001" title="Init PWM Input Capture channel." alt="" coords="5,5,105,32"/>
+<area shape="rect" id="Node000002" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency." alt="" coords="153,5,286,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,16,138,16,138,21,105,21"/>
 </map>

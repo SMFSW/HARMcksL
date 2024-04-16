@@ -1,3 +1,5 @@
 <map id="Logic_out_Set_Delayed" name="Logic_out_Set_Delayed">
-<area shape="rect" id="node2" href="$_logic__out_8h.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="224,5,373,32"/>
+<area shape="rect" id="Node000001" title="Set Logic_out." alt="" coords="5,5,165,32"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="213,5,351,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,198,16,198,21,165,21"/>
 </map>

@@ -1,4 +1,11 @@
 <map id="GPIO_out.c" name="GPIO_out.c">
-<area shape="rect" id="node2" href="$_g_p_i_o__out_8h.html" title="GPIO output handling. " alt="" coords="5,80,99,107"/>
-<area shape="rect" id="node4" href="$_logic__out_8h.html" title="Logic output handling. " alt="" coords="47,155,142,181"/>
+<area shape="rect" id="Node000001" title="GPIO output handling." alt="" coords="5,5,96,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="19,229,101,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,33,37,80,36,117,39,153,54,215,48,216,34,154,30,117,32,80,44,32"/>
+<area shape="rect" id="Node000003" href="$_g_p_i_o__out_8h.html" title="GPIO output handling." alt="" coords="47,80,137,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,31,80,66,75,68,55,34"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="92,108,68,215,63,214,86,107"/>
+<area shape="rect" id="Node000004" href="$_logic__out_8h.html" title="Logic output handling." alt="" coords="97,155,185,181"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="103,106,127,141,122,144,98,109"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="129,184,86,221,83,217,125,180"/>
 </map>

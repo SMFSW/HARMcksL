@@ -1,3 +1,5 @@
 <map id="Logic_out_Abort" name="Logic_out_Abort">
-<area shape="rect" id="node2" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="179,5,328,32"/>
+<area shape="rect" id="Node000001" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached." alt="" coords="5,5,121,32"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="169,5,307,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,16,154,16,154,21,121,21"/>
 </map>

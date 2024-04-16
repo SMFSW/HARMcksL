@@ -1,5 +1,0 @@
-<map id="Logic_out_init" name="Logic_out_init">
-<area shape="rect" id="node2" href="$_g_p_i_o__out_8h.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance. " alt="" coords="179,5,286,32"/>
-<area shape="rect" id="node4" href="$_logic__out_8h.html#a5404ecffaebf2ef9d9504ca110d58044" title="Get Logic_out current status. " alt="" coords="163,56,303,83"/>
-<area shape="rect" id="node3" href="$_g_p_i_o__out_8h.html#a3dfa14d3878ea45e148544cbccfe7670" title="Get GPIO_out current status. " alt="" coords="351,31,489,57"/>
-</map>

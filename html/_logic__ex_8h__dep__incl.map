@@ -1,3 +1,5 @@
 <map id="Logic_ex.h" name="Logic_ex.h">
-<area shape="rect" id="node2" href="$_logic__ex_8c.html" title="Extensions for logic variables (R/W) " alt="" coords="6,80,94,107"/>
+<area shape="rect" id="Node000001" title="Extensions for logic variables (R/W)" alt="" coords="5,5,90,32"/>
+<area shape="rect" id="Node000002" href="$_logic__ex_8c.html" title="Extensions for logic variables (R/W)" alt="" coords="5,80,90,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,47,50,80,45,80,45,47"/>
 </map>

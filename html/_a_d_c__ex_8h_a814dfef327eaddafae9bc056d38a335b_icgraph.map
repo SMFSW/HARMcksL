@@ -1,3 +1,5 @@
 <map id="ADC_GetRawVal" name="ADC_GetRawVal">
-<area shape="rect" id="node2" href="$_a_d_c__ex_8h.html#a4e9abd31478ac378215a89f34631c06b" title="Get ADC channel converted value. " alt="" coords="177,5,343,32"/>
+<area shape="rect" id="Node000001" title="Get ADC channel raw value." alt="" coords="210,5,333,32"/>
+<area shape="rect" id="Node000002" href="$_a_d_c__ex_8c.html#a4e9abd31478ac378215a89f34631c06b" title="Get ADC channel converted value." alt="" coords="5,5,162,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,21,162,21,162,16,195,16"/>
 </map>

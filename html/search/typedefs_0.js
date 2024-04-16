@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['adc_5fcfg',['ADC_Cfg',['../_a_d_c__ex_8h.html#a57b034fa15fc00a3917db082d7bea1d8',1,'ADC_ex.h']]],
-  ['analogtab',['AnalogTab',['../_a_d_c__ex_8c.html#a6c0921d99205de731b9f94321e2e927f',1,'ADC_ex.c']]]
+  ['adc_5fcfg_0',['ADC_Cfg',['../_a_d_c__ex_8h.html#a2323b35f7e21cad5a70e7ad7d207b15a',1,'ADC_ex.h']]],
+  ['analogtab_1',['AnalogTab',['../_a_d_c__ex_8c.html#a75a979189f5c05a4d96abf0eef0ef585',1,'ADC_ex.c']]]
 ];

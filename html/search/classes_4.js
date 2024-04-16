@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['suartbuffer',['sUARTbuffer',['../structs_u_a_r_tbuffer.html',1,'']]]
+  ['suartbuffer_0',['sUARTbuffer',['../structs_u_a_r_tbuffer.html',1,'']]]
 ];

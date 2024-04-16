@@ -1,4 +1,14 @@
 <map id="random_utils.c" name="random_utils.c">
-<area shape="rect" id="node4" href="$random__utils_8h.html" title="(A little less pseudo) random numbers generation utilities " alt="" coords="191,80,309,107"/>
-<area shape="rect" id="node6" href="$exceptions_8h.html" title="Debug tool and helpers. " alt="" coords="333,80,436,107"/>
+<area shape="rect" id="Node000001" title="(A little less pseudo) random numbers generation utilities" alt="" coords="127,5,233,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,69,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,35,76,75,74,71,154,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,80,157,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,34,145,70,141,67,168,31"/>
+<area shape="rect" id="Node000004" href="$random__utils_8h.html" title="(A little less pseudo) random numbers generation utilities" alt="" coords="181,80,288,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,31,218,67,214,70,187,34"/>
+<area shape="rect" id="Node000006" href="$exceptions_8h.html" title="Debug tool and helpers." alt="" coords="312,80,407,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="212,30,315,71,314,76,210,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="256,155,338,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="247,105,279,141,275,145,243,109"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="351,109,319,145,315,141,347,105"/>
 </map>

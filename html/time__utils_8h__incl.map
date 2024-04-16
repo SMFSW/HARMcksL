@@ -1,2 +1,7 @@
 <map id="time_utils.h" name="time_utils.h">
+<area shape="rect" id="Node000001" title="Time related utilities." alt="" coords="37,5,125,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,63,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,34,52,69,48,66,70,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,80,168,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,31,114,66,109,69,87,34"/>
 </map>

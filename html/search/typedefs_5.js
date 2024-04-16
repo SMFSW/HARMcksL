@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pwm_5fgpio',['PWM_GPIO',['../_p_w_m___g_p_i_o_8h.html#a6df5437874c97c1fde3a40ef78b949fa',1,'PWM_GPIO.h']]],
-  ['pwm_5fic',['PWM_IC',['../_p_w_m___i_c_8h.html#a325403b8952521384e6945b5e55fea6b',1,'PWM_IC.h']]]
+  ['suartbuffer_0',['sUARTbuffer',['../_u_a_r_t__term_8h.html#aef90a247085e9ed18f375c114c02e78e',1,'UART_term.h']]]
 ];

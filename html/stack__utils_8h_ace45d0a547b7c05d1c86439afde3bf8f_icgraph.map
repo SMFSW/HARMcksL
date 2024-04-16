@@ -1,3 +1,5 @@
 <map id="get_SP" name="get_SP">
-<area shape="rect" id="node2" href="$stack__utils_8h.html#a32f5bc09af8d45f3177ee9b818d37c21" title="Get pointer to the current stack. " alt="" coords="120,5,195,32"/>
+<area shape="rect" id="Node000001" title="Get Current Stack Pointer value." alt="" coords="125,5,189,32"/>
+<area shape="rect" id="Node000002" href="$stack__utils_8h.html#ab01b5fd2d89967699ffcfaafdc46f5cc" title="Get pointer to the current stack." alt="" coords="5,5,77,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,21,77,21,77,16,110,16"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="set_PWM_Output" name="set_PWM_Output">
-<area shape="rect" id="node2" href="$_p_w_m_8h.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel. " alt="" coords="184,5,303,32"/>
+<area shape="rect" id="Node000001" title="Set PWM channel output on/off." alt="" coords="170,5,295,32"/>
+<area shape="rect" id="Node000002" href="$_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel." alt="" coords="5,5,122,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,21,122,21,122,16,155,16"/>
 </map>

@@ -1,20 +1,14 @@
 var searchData=
 [
-  ['data',['data',['../structs_u_a_r_tbuffer.html#a4c12850f68a1dfc34b71a3f3318d49f8',1,'sUARTbuffer']]],
-  ['datetime',['DateTime',['../struct_date_time.html',1,'DateTime'],['../time__utils_8h.html#a337e90c806c812c6b07ae5be30546f54',1,'DateTime():&#160;time_utils.h']]],
-  ['datetime2time_5ft',['DateTime2time_t',['../time__utils_8c.html#aa6fccbff0e13e88285511d0b4c63121f',1,'DateTime2time_t(const DateTime *const time):&#160;time_utils.c'],['../time__utils_8h.html#aa6fccbff0e13e88285511d0b4c63121f',1,'DateTime2time_t(const DateTime *const time):&#160;time_utils.c']]],
-  ['day',['Day',['../struct_date_time.html#afc1a4fb7e060c4e20001a41c29f9b045',1,'DateTime']]],
-  ['dbg_5fuart',['dbg_uart',['../_u_a_r_t__term_8c.html#ae4328d58bcdc00e56f77a78c1674e8af',1,'dbg_uart():&#160;UART_term.c'],['../_u_a_r_t__term_8h.html#ae4328d58bcdc00e56f77a78c1674e8af',1,'dbg_uart():&#160;UART_term.c']]],
-  ['december',['December',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a052079db4e9ba50ce30643ff650486a2',1,'time_utils.h']]],
-  ['def_5fstep',['Def_Step',['../_a_d_c__ex_8h.html#a7c3112628efae815a01dd8a77f852044',1,'ADC_ex.h']]],
-  ['def_5fvin',['Def_VIn',['../_a_d_c__ex_8h.html#aeb57f6cfa5f4032ef0da8f19dfa9b966',1,'ADC_ex.h']]],
-  ['deinit_5ftim_5fbase',['deinit_TIM_Base',['../_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c',1,'TIM_ex.h']]],
-  ['delay',['delay',['../struct_logic__out.html#a1656443037f6ccc0f515913aaea6a428',1,'Logic_out']]],
-  ['delay_5fms',['Delay_ms',['../tick__utils_8c.html#ac03ef89ce6eac3b04cf76c8184b8be08',1,'Delay_ms(const uint32_t ms):&#160;tick_utils.c'],['../tick__utils_8h.html#ac03ef89ce6eac3b04cf76c8184b8be08',1,'Delay_ms(const uint32_t ms):&#160;tick_utils.c']]],
-  ['delay_5fus',['Delay_us',['../tick__utils_8c.html#af9dfe7ae2fdc14569aea2f3e22f85e99',1,'Delay_us(const uint32_t us):&#160;tick_utils.c'],['../tick__utils_8h.html#af9dfe7ae2fdc14569aea2f3e22f85e99',1,'Delay_us(const uint32_t us):&#160;tick_utils.c']]],
-  ['diffdatetime',['diffDateTime',['../time__utils_8c.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c'],['../time__utils_8h.html#add92b553f649e9cf394cbbb73f23f907',1,'diffDateTime(const DateTime *const time2, const DateTime *const time1):&#160;time_utils.c']]],
-  ['direct_5fpin',['Direct_Pin',['../struct_p_w_m___i_c.html#ae0d8fde4b2be8b34574e8a94f02b4e29',1,'PWM_IC']]],
-  ['dma_5fsz_5ft',['DMA_sz_t',['../_a_d_c__ex_8c.html#a19549e8aa7c86b3b6e1ab106bf742f66',1,'ADC_ex.c']]],
-  ['duty',['duty',['../struct_p_w_m___g_p_i_o.html#aa2b7ecc4c4bfc6b5f05a867658e65e2c',1,'PWM_GPIO']]],
-  ['dutycycle',['DutyCycle',['../struct_p_w_m___i_c.html#ab1b6d7d3fbb5de08ad7a52be25a03051',1,'PWM_IC']]]
+  ['eadcidx_0',['eADCidx',['../_a_d_c__ex_8h.html#a41143f8d54eea269e28eb72a567f3025',1,'eADCidx:&#160;ADC_ex.h'],['../_a_d_c__ex_8h.html#aa0ae3bd21b7913cf7850f7355b8e5d08',1,'eADCidx:&#160;ADC_ex.h']]],
+  ['ecrcfeedsize_1',['eCRCFeedSize',['../_c_r_c__stm32_8h.html#abedc84bb459f7c4722fbc7ee878b9048',1,'eCRCFeedSize:&#160;CRC_stm32.h'],['../_c_r_c__stm32_8h.html#af54649038142d71a1039db61e3235486',1,'eCRCFeedSize:&#160;CRC_stm32.h']]],
+  ['edge_2',['edge',['../struct_logic__in.html#a246f9178b6aef1fe151b3fdf1e394047',1,'Logic_in']]],
+  ['elogic_5fout_5fmode_3',['eLogic_out_mode',['../_logic__out_8h.html#ad7d47fd2ef1dff7acce9fa43fca5cb96',1,'eLogic_out_mode:&#160;Logic_out.h'],['../_logic__out_8h.html#acecf3fa02e12ad2dab0758fb0e4fb7ce',1,'eLogic_out_mode:&#160;Logic_out.h']]],
+  ['emonths_4',['eMonths',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0',1,'eMonths:&#160;time_utils.h'],['../time__utils_8h.html#ae625ff1e3789ec030b2b354927258980',1,'eMonths:&#160;time_utils.h']]],
+  ['error_5fhandler_5fcallback_5',['Error_Handler_callback',['../exceptions_8c.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c'],['../exceptions_8h.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c']]],
+  ['eweekdays_6',['eWeekdays',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4',1,'eWeekdays:&#160;time_utils.h'],['../time__utils_8h.html#a2eedd41ab53ac556fbdd925acdd37b97',1,'eWeekdays:&#160;time_utils.h']]],
+  ['eworkload_5fval_7',['eWorkload_val',['../workload_8h.html#a3eba51e6e43334a4c74b370bc169740e',1,'eWorkload_val:&#160;workload.h'],['../workload_8h.html#a8777a712b4686b5cda8f9d8cae7f79f9',1,'eWorkload_val:&#160;workload.h']]],
+  ['exception_5fhandler_8',['exception_Handler',['../exceptions_8h.html#abb24885c7b9423e972f770f696ea2115',1,'exceptions.h']]],
+  ['exceptions_2ec_9',['exceptions.c',['../exceptions_8c.html',1,'']]],
+  ['exceptions_2eh_10',['exceptions.h',['../exceptions_8h.html',1,'']]]
 ];

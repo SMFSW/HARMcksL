@@ -1,3 +1,5 @@
 <map id="Logic_out_Reset" name="Logic_out_Reset">
-<area shape="rect" id="node2" href="$_logic__out_8h.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state. " alt="" coords="179,5,328,32"/>
+<area shape="rect" id="Node000001" title="Reset Logic_out." alt="" coords="5,5,125,32"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="173,5,311,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,16,158,16,158,21,125,21"/>
 </map>

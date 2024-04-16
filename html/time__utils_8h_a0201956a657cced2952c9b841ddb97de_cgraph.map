@@ -1,7 +1,0 @@
-<map id="is_LeapYear" name="is_LeapYear">
-<area shape="rect" id="node2" href="$time__utils_8h.html#acf1569c77e083af101da12bd5d90a4ef" title="Convert time_t to DateTime. " alt="" coords="149,5,283,32"/>
-<area shape="rect" id="node3" href="$time__utils_8h.html#aa6fccbff0e13e88285511d0b4c63121f" title="Convert DateTime to time_t. " alt="" coords="149,56,283,83"/>
-<area shape="rect" id="node4" href="$time__utils_8h.html#add92b553f649e9cf394cbbb73f23f907" title="Calculate DateTime difference. " alt="" coords="165,107,267,133"/>
-<area shape="rect" id="node5" href="$time__utils_8c.html#aa6fccbff0e13e88285511d0b4c63121f" title="Convert DateTime to time_t. " alt="" coords="331,81,464,108"/>
-<area shape="rect" id="node6" href="$time__utils_8c.html#acf1569c77e083af101da12bd5d90a4ef" title="Convert time_t to DateTime. " alt="" coords="331,132,464,159"/>
-</map>

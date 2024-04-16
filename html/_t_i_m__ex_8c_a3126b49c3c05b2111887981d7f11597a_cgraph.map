@@ -1,3 +1,5 @@
 <map id="set_TIM_Freq" name="set_TIM_Freq">
-<area shape="rect" id="node2" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency. " alt="" coords="157,5,284,32"/>
+<area shape="rect" id="Node000001" title="Set TIM module frequency." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="Node000002" href="$_t_i_m__ex_8c.html#af3011789748a76acb799229ad093ac58" title="Get TIM peripheral clock frequency." alt="" coords="156,5,289,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,16,141,16,141,21,108,21"/>
 </map>

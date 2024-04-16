@@ -1,3 +1,5 @@
 <map id="GPIO_ex.h" name="GPIO_ex.h">
-<area shape="rect" id="node2" href="$_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W) " alt="" coords="5,80,92,107"/>
+<area shape="rect" id="Node000001" title="Extensions for GPIOs (R/W)" alt="" coords="5,5,92,32"/>
+<area shape="rect" id="Node000002" href="$_g_p_i_o__ex_8c.html" title="Extensions for GPIOs (R/W)" alt="" coords="5,80,92,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,47,51,80,46,80,46,47"/>
 </map>
