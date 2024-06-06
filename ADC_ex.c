@@ -315,7 +315,7 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 					#ifdef TEMP_CALC_VTEMP
 						// With raw converted value to mV
 						#if defined(STM32F0) || defined(STM32G0) || defined(STM32G4) || defined(STM32H5) || defined(STM32H7) || \
-							defined(STM32L4) || defined(STM32L5) || \efined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
+							defined(STM32L4) || defined(STM32L5) || defined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
 							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
 						#elif defined(STM32F1) || defined(STM32F3)
 							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
