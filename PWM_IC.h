@@ -6,28 +6,33 @@
 ** TIM with multiple channels with slave mode capability shall be used
 **
 ** Slave Mode: Reset Mode
-** Trigger: TI2FP2 (?? depending channels ??)
-** Channel1: Input Capture indirect mode
-** Channel2: Input Capture direct mode
+** Trigger: TI1FP1/TI2FP2 (depending physical MCU pin used tied to channel 1 or 2)
+** Channel tied to pin: Input Capture direct mode
+** Channel (2nd one): Input Capture indirect mode
 **
 ** Prescaler & CLK div: 0, No CLK div
 ** Counter Period: max possible value
 ** Counter Mode: Up
 ** Auto-Reload Preload: Disabled
 ** Trigger Output parameters: Disabled
-** Input Capture Channel1: Falling Edge, Indirect, No CLK div
-** Input Capture Channel2: Rising Edge, Direct, No CLK div
+** Input Capture Channel tied to pin: Rising Edge, Direct, No CLK div
+** Input Capture Channel (2nd one): Falling Edge, Indirect, No CLK div
 **
-** GPIO configuration: Alternate Function Push Pull ; Pull Up ; High Speed
+** Instead, CubeMX Combined channels capture may be configured to PWM input capture, avoiding manual timer configuration
 **
-** NVIC configuration: Enable interrupt(s)
+** GPIO configuration: Alternate Function Push Pull ; Pull Up (if needed) ; High Speed may be recommended
 **
+** NVIC configuration: Enable interrupt(s) if PWM_IC_NO_IT is not defined at project level
+**
+** \note Define NB_PWM_IC symbol with number of inputs at project level to use PWM_IC functionalities
+** \note Define PWM_IC_NO_IT symbol at project level to disable TIM interrupts driven capture
 ** \warning Input Capture limitation:
 ** 			- Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.
-** 			- As capture is based on interrupts, if signal becomes continuous (pin held low or high), last PWM value with edges will remain as current measure
-** 				- It may not be an issue if PWM duty cycle is always changing gradually, but will be in case of erratic changes (when becoming continuous signal)
-** 				- Thus, to overcome this issue, PWM signal shall always have edges to keep measures working and consistent
-** \note Define NB_PWM_IC symbol with number of inputs at project level to use PWM_IC functionalities
+** 			- Continuous signal (pin held low or high) is detected automatically after timeout:
+** 				- automatically when using interrupts driven PWM input capture
+** 				- by calling \ref PWM_IC_get_Pin_State_Callback without interrupts
+** 			- !!Please note there can be up to 1 second with startup timeout during which low to high continuous signal may be misinterpreted before retrieving values!!
+** 			- If PWM signal to capture can never become continuous, it may save some time of servicing interrupts to disable them (with PWM_IC_NO_IT symbol)
 **/
 /****************************************************************/
 #ifndef __PWM_IC_H
@@ -42,6 +47,7 @@
 #if defined(HAL_TIM_MODULE_ENABLED)
 /****************************************************************/
 
+
 #ifndef NB_PWM_IC
 #define	NB_PWM_IC	0		//!< Number of PWM input capture instances
 //! \note NB_PWM_IC can defined at project level to set number of PWM input capture instances
@@ -52,9 +58,14 @@
 ** \brief PWM input capture structure
 **/
 typedef struct PWM_IC {
-	__IOM uint32_t			Frequency;		//!< Frequency Value
-	__IOM uint32_t			DutyCycle;		//!< Duty Cycle Value
+	uint32_t				Frequency;		//!< Frequency Value
+	uint32_t				DutyCycle;		//!< Duty Cycle Value
+	uint32_t				Timeout;		//!< No sample timeout
 	__IOM uint32_t			CallbackTick;	//!< Last callback Tick (useful to ensure Freq & DutyCycle are still valid)
+	__IOM uint32_t			Direct_cnt;		//!< Direct channel sampled counter value
+	__IOM uint32_t			Indirect_cnt;	//!< Indirect channel sample counter value
+	__IOM eEdge				Last_Edge;		//!< Last captured edge (caught through ITs, or deduced from callback)
+	__IOM bool				New_Sample;		//!< New samples available
 	struct {
 		TIM_HandleTypeDef * htim;			//!< PWM capture TIM handler
 		uint32_t			Direct_Pin;		//!< PWM capture Direct mode pin
@@ -71,6 +82,15 @@ extern PWM_IC PWMin[NB_PWM_IC];
 // *****************************************************************************
 // Section: Interface Routines
 // *****************************************************************************
+/*!\brief PWM Input Capture get Pin state (in case of timeout, or at startup)
+** \weak Function declared as weak, needs to be customly implemented in user code, otherwise returns RESET state
+** \param[in] idx - PWM_IC instance index
+** \return Pin state
+**/
+GPIO_PinState PWM_IC_get_Pin_State_Callback(const uint8_t idx);
+
+
+
 /*!\brief Init PWM Input Capture channel
 ** \param[in,out] pPWM_IC - pointer to PWM input capture instance
 ** \param[in,out] pTim - pointer to TIM instance
@@ -79,32 +99,28 @@ extern PWM_IC PWMin[NB_PWM_IC];
 ** \param[in] Scale - PWM input capture duty cycle output scale
 ** \return FctERR - Error code
 **/
-FctERR init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale);
-
-
-/*!\brief Get PWM Input Capture last update (in ms)
-** \note Can be useful to ensure IC is still ongoing and results aren't outdated
-** \param[in] pPWM_IC - pointer to PWM_IC instance
-** \return Last PWM_IC Update (in ms)
-**/
-__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_LastUpdate(const PWM_IC * const pPWM_IC) {
-	return OVF_DIFF(HALTicks(), pPWM_IC->CallbackTick); }
+FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale);
 
 
 /*!\brief Get current PWM Input Capture frequency
 ** \param[in] pPWM_IC - pointer to PWM_IC instance
 ** \return Measured frequency
 **/
-__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_Freq(const PWM_IC * const pPWM_IC) {
-	return pPWM_IC->Frequency; }
+uint32_t NONNULL__ get_PWM_IC_Freq(PWM_IC * const pPWM_IC);
 
 
 /*!\brief Get current PWM Input Capture duty cycle
 ** \param[in] pPWM_IC - pointer to PWM_IC instance
 ** \return Measured duty cycle
 **/
-__INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_DutyCycle(const PWM_IC * const pPWM_IC) {
-	return pPWM_IC->DutyCycle; }
+uint32_t NONNULL__ get_PWM_IC_DutyCycle(PWM_IC * const pPWM_IC);
+
+
+/*!\brief PWM Input Capture handler
+** \note Shall to be called periodically if PWM_IC_NO_IT is defined
+** \note When interrupts are used, handler can be called periodically (but not required), results getters will perform the conversion when required
+**/
+void PWM_IC_handler(void);
 
 
 /****************************************************************/

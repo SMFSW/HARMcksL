@@ -23,6 +23,7 @@ SOFTWARE.
 ## v1.6
 
 * Doxygen comments review and fixes
+* PWM_IC: refactoring to catch continous signals (after some timeout) + enabling possibility to use without interrupts
 * UART_term: handling reception of backspace char
 * RTC_ex: Setting date automatically computes corresponding weekday
 * RTC_ex: Sets weekday according to STM32 RTC definitions
@@ -32,7 +33,6 @@ SOFTWARE.
 * WDG_ex: Functions added to save/restore watchdogs configurations
 * tick_utils: init function returns FctERR instead of HAL_StatusTypeDef
 * workload: Module added
-* PWM_IC: get_PWM_IC_LastUpdate added (useful to evaluate if IC is ongoing and resulting values aren't outdated)
 * More HAL_ENABLED checks
 * USB_CDC_IF_ex: USE_USB_CDC_IF_EX symbol check to enable features
 * TIM_ex: H7 family TIM peripherals handled
