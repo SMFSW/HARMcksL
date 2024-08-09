@@ -1,0 +1,11 @@
+<map id="GPIO_out_handler" name="GPIO_out_handler">
+<area shape="rect" id="Node000001" title="Handles GPIO_out treatment." alt="" coords="5,31,134,57"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="182,31,308,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,41,167,41,167,47,134,47"/>
+<area shape="rect" id="Node000003" href="$_logic__out_8c.html#a9fbe95574c7a02b97d223027580f4bf9" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached." alt="" coords="360,5,475,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,32,345,27,346,32,309,37"/>
+<area shape="rect" id="Node000005" href="$_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c" title="Set GPIO port value." alt="" coords="356,56,479,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="309,51,342,56,341,61,308,56"/>
+<area shape="rect" id="Node000004" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="527,5,666,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="476,16,512,16,512,21,476,21"/>
+</map>

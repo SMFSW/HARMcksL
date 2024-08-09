@@ -1,0 +1,5 @@
+<map id="get_GPIO_out_State" name="get_GPIO_out_State">
+<area shape="rect" id="Node000001" title="Get GPIO_out current output value." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8h.html#ad1cf1e2f045836ba6f793c1ca023748b" title="Get Logic_out current output value." alt="" coords="196,5,336,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,16,181,16,181,21,148,21"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flash_5fcrc_5fcheck_0',['flash_crc_check',['../flash__check_8c.html#aaf11be85677bd5d169e06171fe723188',1,'flash_crc_check(void):&#160;flash_check.c'],['../flash__check_8h.html#aaf11be85677bd5d169e06171fe723188',1,'flash_crc_check(void):&#160;flash_check.c']]]
+  ['error_5fhandler_5fcallback_0',['Error_Handler_callback',['../exceptions_8c.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c'],['../exceptions_8h.html#a1abcf572ddd68c698e9fb80fbfdb9bad',1,'Error_Handler_callback(const uint32_t stack[]):&#160;exceptions.c']]]
 ];

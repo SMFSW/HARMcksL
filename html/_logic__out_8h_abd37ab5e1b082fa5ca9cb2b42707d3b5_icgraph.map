@@ -1,0 +1,5 @@
+<map id="Logic_out_handler" name="Logic_out_handler">
+<area shape="rect" id="Node000001" title="Handles Logic_out treatment." alt="" coords="182,5,308,32"/>
+<area shape="rect" id="Node000002" href="$_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54" title="Handles GPIO_out treatment." alt="" coords="5,5,134,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,21,134,21,134,16,167,16"/>
+</map>

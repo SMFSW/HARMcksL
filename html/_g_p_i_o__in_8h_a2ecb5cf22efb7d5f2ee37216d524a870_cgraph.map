@@ -1,0 +1,5 @@
+<map id="GPIO_in_handler" name="GPIO_in_handler">
+<area shape="rect" id="Node000001" title="Handles GPIO_in read and treatment." alt="" coords="5,5,126,32"/>
+<area shape="rect" id="Node000002" href="$_logic__in_8c.html#ac7c379f4058315150094f2c6c5685888" title="Handles Logic_in read and treatment." alt="" coords="174,5,292,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,16,159,16,159,21,126,21"/>
+</map>

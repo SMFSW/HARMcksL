@@ -1,7 +1,9 @@
 <map id="set_TIM_Interrupts" name="set_TIM_Interrupts">
-<area shape="rect" id="Node000001" title="Start TIM module interrupts." alt="" coords="173,31,304,57"/>
-<area shape="rect" id="Node000002" href="$_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions)" alt="" coords="5,5,125,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,35,125,30,126,25,159,30"/>
-<area shape="rect" id="Node000003" href="$_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions." alt="" coords="12,56,118,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,58,119,64,118,59,158,53"/>
+<area shape="rect" id="Node000001" title="Start TIM module interrupts." alt="" coords="366,31,497,57"/>
+<area shape="rect" id="Node000002" href="$_t_i_m__ex_8h.html#ab8dee9f45123fb0407ae75554df0721c" title="De&#45;Init TIM base module (stop interruptions)" alt="" coords="199,5,318,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="351,35,318,30,319,25,352,30"/>
+<area shape="rect" id="Node000003" href="$_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions." alt="" coords="206,56,311,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="352,58,312,64,311,59,351,53"/>
+<area shape="rect" id="Node000004" href="$_p_w_m___g_p_i_o_8c.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel." alt="" coords="5,56,151,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="191,72,151,72,151,67,191,67"/>
 </map>

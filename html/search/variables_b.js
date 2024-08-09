@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['onreset_0',['onReset',['../struct_logic__in.html#a3ae0fb7963f5c526d7f2bd2b68210038',1,'Logic_in']]],
-  ['onset_1',['onSet',['../struct_logic__in.html#a214114fc1c8ca2f7e656f582d7b0fad2',1,'Logic_in']]]
+  ['new_5fsample_0',['New_Sample',['../struct_p_w_m___i_c.html#ab128f6f9684c2d76b018fda34515617a',1,'PWM_IC']]]
 ];

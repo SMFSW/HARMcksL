@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['year_0',['Year',['../struct_date_time.html#adbed12413e18157f6a2a3e5cce7be138',1,'DateTime']]]
+  ['weekday_0',['Weekday',['../struct_date_time.html#a0ccfd0a3969b5729a34f23dfa62e4488',1,'DateTime']]]
 ];

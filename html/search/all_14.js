@@ -1,29 +1,4 @@
 var searchData=
 [
-  ['wdg_5fex_2ec_0',['WDG_ex.c',['../_w_d_g__ex_8c.html',1,'']]],
-  ['wdg_5fex_2eh_1',['WDG_ex.h',['../_w_d_g__ex_8h.html',1,'']]],
-  ['wdg_5ffreeze_2',['WDG_freeze',['../_w_d_g__ex_8c.html#ace6a1662789b18b44eb19f062ddc032a',1,'WDG_freeze(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#ace6a1662789b18b44eb19f062ddc032a',1,'WDG_freeze(void):&#160;WDG_ex.c']]],
-  ['wdg_5fget_5fstate_5fiwdg_3',['WDG_get_state_IWDG',['../_w_d_g__ex_8c.html#a08cbc45a03500cea6a936ba8ac8c024e',1,'WDG_get_state_IWDG(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a08cbc45a03500cea6a936ba8ac8c024e',1,'WDG_get_state_IWDG(void):&#160;WDG_ex.c']]],
-  ['wdg_5fget_5fstate_5fwwdg_4',['WDG_get_state_WWDG',['../_w_d_g__ex_8c.html#a12b5e7bee23afd5f6916f10ba992b2b2',1,'WDG_get_state_WWDG(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a12b5e7bee23afd5f6916f10ba992b2b2',1,'WDG_get_state_WWDG(void):&#160;WDG_ex.c']]],
-  ['wdg_5finit_5fcheck_5',['WDG_init_check',['../_w_d_g__ex_8c.html#a546737209a8e6dd4aeca5794bcccf283',1,'WDG_init_check(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a546737209a8e6dd4aeca5794bcccf283',1,'WDG_init_check(void):&#160;WDG_ex.c']]],
-  ['wdg_5frefresh_6',['WDG_refresh',['../_w_d_g__ex_8c.html#a2f68936b1ca334676117a9c0ae93c4e0',1,'WDG_refresh(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a2f68936b1ca334676117a9c0ae93c4e0',1,'WDG_refresh(void):&#160;WDG_ex.c']]],
-  ['wdg_5frestore_5fcfg_7',['WDG_restore_cfg',['../_w_d_g__ex_8c.html#a8e1c9fc8d4a72d03070194a90069a1af',1,'WDG_restore_cfg(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a8e1c9fc8d4a72d03070194a90069a1af',1,'WDG_restore_cfg(void):&#160;WDG_ex.c']]],
-  ['wdg_5fsave_5fcfg_8',['WDG_save_cfg',['../_w_d_g__ex_8c.html#a4614451a000b17a6ee09633b546dc296',1,'WDG_save_cfg(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#a4614451a000b17a6ee09633b546dc296',1,'WDG_save_cfg(void):&#160;WDG_ex.c']]],
-  ['wdg_5funfreeze_9',['WDG_unfreeze',['../_w_d_g__ex_8c.html#ae7a74908674515961a4b4d7a89d9528c',1,'WDG_unfreeze(void):&#160;WDG_ex.c'],['../_w_d_g__ex_8h.html#ae7a74908674515961a4b4d7a89d9528c',1,'WDG_unfreeze(void):&#160;WDG_ex.c']]],
-  ['weak_20functions_20list_10',['Weak Functions List',['../weak.html',1,'']]],
-  ['wednesday_11',['Wednesday',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4a0ae230de6136f0671e2f13a0332a620c',1,'time_utils.h']]],
-  ['weekday_12',['Weekday',['../struct_date_time.html#a0ccfd0a3969b5729a34f23dfa62e4488',1,'DateTime']]],
-  ['weekdays_5fmax_13',['Weekdays_Max',['../time__utils_8h.html#af3e10c79b2fe29e0e418bf1665e3bdc4ac7cc98b2d3ced72bc377520ab1a7b2c0',1,'time_utils.h']]],
-  ['workload_2ec_14',['workload.c',['../workload_8c.html',1,'']]],
-  ['workload_2eh_15',['workload.h',['../workload_8h.html',1,'']]],
-  ['workload_5faverage_16',['Workload_average',['../workload_8h.html#a3eba51e6e43334a4c74b370bc169740ea90e983cd550705971629cb60ea4945f7',1,'workload.h']]],
-  ['workload_5fbest_17',['Workload_best',['../workload_8h.html#a3eba51e6e43334a4c74b370bc169740eab04bda6398f5e631924f35ad6f5ac4b7',1,'workload.h']]],
-  ['workload_5fhandler_18',['Workload_handler',['../workload_8c.html#ad758c1dd5eccb67f8359dc046d23b86e',1,'Workload_handler(void):&#160;workload.c'],['../workload_8h.html#ad758c1dd5eccb67f8359dc046d23b86e',1,'Workload_handler(void):&#160;workload.c']]],
-  ['workload_5finit_19',['Workload_init',['../workload_8c.html#a06fee1fa967d0ee611289044240ae4e5',1,'Workload_init(void):&#160;workload.c'],['../workload_8h.html#a06fee1fa967d0ee611289044240ae4e5',1,'Workload_init(void):&#160;workload.c']]],
-  ['workload_5fit_5fin_20',['WORKLOAD_IT_IN',['../workload_8h.html#ae1f8331f509d6b19b040c146f6b501f8',1,'workload.h']]],
-  ['workload_5fit_5fout_21',['WORKLOAD_IT_OUT',['../workload_8h.html#ab231a785bbf158a9d2c7b41274ec863b',1,'workload.h']]],
-  ['workload_5fshow_5fresults_22',['Workload_show_results',['../workload_8c.html#a09fdc2cbe2f65ea6aa85596b5ffb2963',1,'Workload_show_results(void):&#160;workload.c'],['../workload_8h.html#a09fdc2cbe2f65ea6aa85596b5ffb2963',1,'Workload_show_results(void):&#160;workload.c']]],
-  ['workload_5fworst_23',['Workload_worst',['../workload_8h.html#a3eba51e6e43334a4c74b370bc169740eaff5982e42c65ba83a018a792dfb37e84',1,'workload.h']]],
-  ['write_5ftim_5fccr_24',['write_TIM_CCR',['../_t_i_m__ex_8c.html#a935ad6f645ae2953ab82a8c3720d4cac',1,'write_TIM_CCR(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint32_t CCR_val):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a935ad6f645ae2953ab82a8c3720d4cac',1,'write_TIM_CCR(const TIM_HandleTypeDef *const pTim, const uint32_t chan, const uint32_t CCR_val):&#160;TIM_ex.c']]],
-  ['write_5ftim_5fpreload_25',['write_TIM_Preload',['../_t_i_m__ex_8c.html#a24890afe1db08ba685fc655aaf97f14c',1,'write_TIM_Preload(TIM_HandleTypeDef *const pTim, const uint32_t chan):&#160;TIM_ex.c'],['../_t_i_m__ex_8h.html#a24890afe1db08ba685fc655aaf97f14c',1,'write_TIM_Preload(TIM_HandleTypeDef *const pTim, const uint32_t chan):&#160;TIM_ex.c']]]
+  ['vcp_5fdefault_5fspeed_0',['VCP_DEFAULT_SPEED',['../_u_s_b___c_d_c___i_f__ex_8c.html#af7dedaa5633469ea138d7a356cda0f7c',1,'USB_CDC_IF_ex.c']]]
 ];

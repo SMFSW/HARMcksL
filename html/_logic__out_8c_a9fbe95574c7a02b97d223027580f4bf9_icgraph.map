@@ -1,5 +1,9 @@
 <map id="Logic_out_Abort" name="Logic_out_Abort">
-<area shape="rect" id="Node000001" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached." alt="" coords="180,5,295,32"/>
-<area shape="rect" id="Node000002" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="5,5,132,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,21,132,21,132,16,165,16"/>
+<area shape="rect" id="Node000001" title="Stop Logic_out pulse/blink if running, or abort set if delay not reached." alt="" coords="356,31,471,57"/>
+<area shape="rect" id="Node000002" href="$_g_p_i_o__out_8h.html#a5a6eace32719e38a32b76db8b9e67521" title="Stop GPIO_out pulse/blink if running, or abort set if delay not reached." alt="" coords="186,5,304,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,36,303,30,304,25,342,31"/>
+<area shape="rect" id="Node000003" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="182,56,308,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="342,57,309,62,308,57,341,52"/>
+<area shape="rect" id="Node000004" href="$_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54" title="Handles GPIO_out treatment." alt="" coords="5,56,134,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="167,72,134,72,134,67,167,67"/>
 </map>

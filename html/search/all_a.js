@@ -1,28 +1,6 @@
 var searchData=
 [
-  ['len_0',['len',['../structs_u_a_r_tbuffer.html#ab27a612f6a75f813c08d3d137ea51143',1,'sUARTbuffer']]],
-  ['list_1',['List',['../strong.html',1,'Strong Functions List'],['../weak.html',1,'Weak Functions List']]],
-  ['log_5fpos_2',['LOG_Pos',['../struct_logic__in.html#a20c0fc3dd3897252a7a4a96ae1499165',1,'Logic_in::LOG_Pos'],['../struct_logic__out.html#a8fe80527f465fc444a93b8ea72d24285',1,'Logic_out::LOG_Pos']]],
-  ['logic_5fex_2ec_3',['Logic_ex.c',['../_logic__ex_8c.html',1,'']]],
-  ['logic_5fex_2eh_4',['Logic_ex.h',['../_logic__ex_8h.html',1,'']]],
-  ['logic_5fin_5',['Logic_in',['../struct_logic__in.html',1,'Logic_in'],['../_logic__in_8h.html#ad0d3d5dfbf2e2a2244ba4e2f2c5a5d17',1,'Logic_in:&#160;Logic_in.h']]],
-  ['logic_5fin_2ec_6',['Logic_in.c',['../_logic__in_8c.html',1,'']]],
-  ['logic_5fin_2eh_7',['Logic_in.h',['../_logic__in_8h.html',1,'']]],
-  ['logic_5fin_5fhandler_8',['Logic_in_handler',['../_logic__in_8c.html#ac7c379f4058315150094f2c6c5685888',1,'Logic_in_handler(Logic_in *const in):&#160;Logic_in.c'],['../_logic__in_8h.html#ac7c379f4058315150094f2c6c5685888',1,'Logic_in_handler(Logic_in *const in):&#160;Logic_in.c']]],
-  ['logic_5fin_5finit_9',['Logic_in_init',['../_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d',1,'Logic_in_init(Logic_in *const in, GPIO_PinState(*getter)(const Logic_in *const), uint32_t *const addr, const uint32_t pos, const GPIO_PinState polarity, const uint16_t filter, void(*onSet)(const Logic_in *const), void(*onReset)(const Logic_in *const), const bool repeat):&#160;Logic_in.c'],['../_logic__in_8h.html#aa9361fd26f67632d6ad32a1bddc2544d',1,'Logic_in_init(Logic_in *const in, GPIO_PinState(*getter)(const Logic_in *const), uint32_t *const addr, const uint32_t pos, const GPIO_PinState polarity, const uint16_t filter, void(*onSet)(const Logic_in *const), void(*onReset)(const Logic_in *const), const bool repeat):&#160;Logic_in.c']]],
-  ['logic_5fout_10',['Logic_out',['../struct_logic__out.html',1,'Logic_out'],['../_logic__out_8h.html#ac9f99b5d17ec6252dadfe89bc34b64a5',1,'Logic_out:&#160;Logic_out.h']]],
-  ['logic_5fout_2ec_11',['Logic_out.c',['../_logic__out_8c.html',1,'']]],
-  ['logic_5fout_2eh_12',['Logic_out.h',['../_logic__out_8h.html',1,'']]],
-  ['logic_5fout_5fabort_13',['Logic_out_Abort',['../_logic__out_8c.html#a9fbe95574c7a02b97d223027580f4bf9',1,'Logic_out_Abort(Logic_out *const out):&#160;Logic_out.c'],['../_logic__out_8h.html#a9fbe95574c7a02b97d223027580f4bf9',1,'Logic_out_Abort(Logic_out *const out):&#160;Logic_out.c']]],
-  ['logic_5fout_5fhandler_14',['Logic_out_handler',['../_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5',1,'Logic_out_handler(Logic_out *const out):&#160;Logic_out.c'],['../_logic__out_8h.html#abd37ab5e1b082fa5ca9cb2b42707d3b5',1,'Logic_out_handler(Logic_out *const out):&#160;Logic_out.c']]],
-  ['logic_5fout_5finit_15',['Logic_out_init',['../_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8',1,'Logic_out_init(Logic_out *const out, void(*setter)(const Logic_out *const, const GPIO_PinState), uint32_t *const addr, const uint16_t pos, const GPIO_PinState polarity):&#160;Logic_out.c'],['../_logic__out_8h.html#a2fc81911cd89c25b58ea306d9443e6e8',1,'Logic_out_init(Logic_out *const out, void(*setter)(const Logic_out *const, const GPIO_PinState), uint32_t *const addr, const uint16_t pos, const GPIO_PinState polarity):&#160;Logic_out.c']]],
-  ['logic_5fout_5freset_16',['Logic_out_Reset',['../_logic__out_8h.html#a6911d14d17c077e075aeb47999a3b643',1,'Logic_out.h']]],
-  ['logic_5fout_5freset_5fdelayed_17',['Logic_out_Reset_Delayed',['../_logic__out_8h.html#a90b84c9a9ac61d618db022a34123ed0d',1,'Logic_out.h']]],
-  ['logic_5fout_5fset_18',['Logic_out_Set',['../_logic__out_8h.html#a01d3ec472cc68f0113f7cb84144693ea',1,'Logic_out.h']]],
-  ['logic_5fout_5fset_5fdelayed_19',['Logic_out_Set_Delayed',['../_logic__out_8h.html#a361a23f3d56cefe64adade1a8f7a6312',1,'Logic_out.h']]],
-  ['logic_5fout_5fsetstatic_20',['Logic_out_SetStatic',['../_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6',1,'Logic_out_SetStatic(Logic_out *const out, const eGPIOState action, const uint32_t delay):&#160;Logic_out.c'],['../_logic__out_8h.html#afe428e7a33045f1cb12aa3d183547ed6',1,'Logic_out_SetStatic(Logic_out *const out, const eGPIOState action, const uint32_t delay):&#160;Logic_out.c']]],
-  ['logic_5fout_5fstartblink_21',['Logic_out_StartBlink',['../_logic__out_8c.html#ac5e0959fb0aeaa7ef435f7a6392ba3fb',1,'Logic_out_StartBlink(Logic_out *const out, const eGPIOState action, const uint32_t delay, const uint32_t active, const uint32_t inactive, const uint32_t count):&#160;Logic_out.c'],['../_logic__out_8h.html#ac5e0959fb0aeaa7ef435f7a6392ba3fb',1,'Logic_out_StartBlink(Logic_out *const out, const eGPIOState action, const uint32_t delay, const uint32_t active, const uint32_t inactive, const uint32_t count):&#160;Logic_out.c']]],
-  ['logic_5fout_5fstartpulse_22',['Logic_out_StartPulse',['../_logic__out_8c.html#aa19110a0400de5ead3ba6b556dc2e02d',1,'Logic_out_StartPulse(Logic_out *const out, const eGPIOState action, const uint32_t delay, const uint32_t active):&#160;Logic_out.c'],['../_logic__out_8h.html#aa19110a0400de5ead3ba6b556dc2e02d',1,'Logic_out_StartPulse(Logic_out *const out, const eGPIOState action, const uint32_t delay, const uint32_t active):&#160;Logic_out.c']]],
-  ['logic_5fout_5fupdate_23',['Logic_out_update',['../_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c',1,'Logic_out.c']]],
-  ['logx_24',['LOGx',['../struct_logic__in.html#aaa7597acbf18d98ce310927949f91c6e',1,'Logic_in::LOGx'],['../struct_logic__out.html#af74a2fe4c30581ce34beff3f549b2628',1,'Logic_out::LOGx']]]
+  ['january_0',['January',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a281d1802d56d988c72678e156b6ddf86',1,'time_utils.h']]],
+  ['july_1',['July',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0a4d7f4874d317b02a2f96fc0da6310d0f',1,'time_utils.h']]],
+  ['june_2',['June',['../time__utils_8h.html#a6371e59fd259c68987cfe13d0eb3bbb0aa00f035b8f40661118c16e2af3e61176',1,'time_utils.h']]]
 ];

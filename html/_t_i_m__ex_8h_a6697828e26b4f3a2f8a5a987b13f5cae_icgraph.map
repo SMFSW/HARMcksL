@@ -1,0 +1,5 @@
+<map id="init_TIM_Base" name="init_TIM_Base">
+<area shape="rect" id="Node000001" title="Init TIM module and start interruptions." alt="" coords="199,5,304,32"/>
+<area shape="rect" id="Node000002" href="$_p_w_m___g_p_i_o_8c.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel." alt="" coords="5,5,151,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,21,151,21,151,16,184,16"/>
+</map>

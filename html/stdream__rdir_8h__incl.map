@@ -1,9 +1,7 @@
 <map id="stdream_rdir.h" name="stdream_rdir.h">
-<area shape="rect" id="Node000001" title="Stream redirection." alt="" coords="78,5,182,32"/>
+<area shape="rect" id="Node000001" title="Stream redirection." alt="" coords="30,5,134,32"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,80,66,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,35,65,73,62,69,112,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,34,54,69,49,66,72,31"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="90,80,171,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,33,133,65,128,65,128,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="195,80,263,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,30,202,69,199,73,146,35"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,31,116,66,112,69,88,34"/>
 </map>

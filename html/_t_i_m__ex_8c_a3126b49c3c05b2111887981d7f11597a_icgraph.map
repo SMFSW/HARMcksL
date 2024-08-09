@@ -1,7 +1,9 @@
 <map id="set_TIM_Freq" name="set_TIM_Freq">
-<area shape="rect" id="Node000001" title="Set TIM module frequency." alt="" coords="170,31,272,57"/>
-<area shape="rect" id="Node000002" href="$_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel." alt="" coords="5,5,122,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,36,122,31,123,25,155,31"/>
-<area shape="rect" id="Node000003" href="$_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions." alt="" coords="11,56,116,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,57,117,64,116,58,155,52"/>
+<area shape="rect" id="Node000001" title="Set TIM module frequency." alt="" coords="363,31,465,57"/>
+<area shape="rect" id="Node000002" href="$_p_w_m_8c.html#ab5545850898ae5b86b195301082640a9" title="Init TIM PWM module channel with frequency and starts the channel." alt="" coords="199,5,315,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="348,36,315,31,316,25,349,31"/>
+<area shape="rect" id="Node000003" href="$_t_i_m__ex_8c.html#a6697828e26b4f3a2f8a5a987b13f5cae" title="Init TIM module and start interruptions." alt="" coords="204,56,310,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="349,57,310,64,309,58,348,52"/>
+<area shape="rect" id="Node000004" href="$_p_w_m___g_p_i_o_8c.html#a8de3f18d028bb97e6bf4fef65c8131b4" title="Set channel frequency for emulated PWM channel." alt="" coords="5,56,151,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="189,72,151,72,151,67,189,67"/>
 </map>

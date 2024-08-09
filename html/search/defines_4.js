@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['name_5fapb1_0',['NAME_APB1',['../_w_d_g__ex_8c.html#a49bda65eadcc0fc71843049992c4c3fe',1,'WDG_ex.c']]],
-  ['name_5fdbg_1',['NAME_DBG',['../_w_d_g__ex_8c.html#a689c4bb0c0cc06ce2508190a785a8c6a',1,'WDG_ex.c']]]
+  ['hal_5ftim_5fic_5fstarter_0',['HAL_TIM_IC_Starter',['../_p_w_m___i_c_8c.html#a4f9f4acb1fe67d52bc96053e38fdae15',1,'PWM_IC.c']]]
 ];
