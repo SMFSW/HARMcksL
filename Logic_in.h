@@ -55,7 +55,7 @@ __INLINE bool NONNULL_INLINE__ get_Logic_in(const Logic_in * const in) {
 ** \param[in] in - input instance
 ** \return Input edge
 **/
-__INLINE bool NONNULL_INLINE__ get_Logic_in_edge(const Logic_in * const in) {
+__INLINE eEdge NONNULL_INLINE__ get_Logic_in_edge(const Logic_in * const in) {
 	return in->edge; }
 
 

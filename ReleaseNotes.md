@@ -23,6 +23,7 @@ SOFTWARE.
 ## v1.6
 
 * Doxygen comments review and fixes
+* Logic_in & GPIO_in: edge getters return type fix
 * PWM_IC: refactoring to catch continous signals (after some timeout) + enabling possibility to use without interrupts
 * UART_term: handling reception of backspace char
 * RTC_ex: Setting date automatically computes corresponding weekday

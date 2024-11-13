@@ -39,7 +39,7 @@ __INLINE bool NONNULL_INLINE__ get_GPIO_in(const GPIO_in * const in) {
 ** \param[in] in - GPIO_in instance
 ** \return Input edge
 **/
-__INLINE bool NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
+__INLINE eEdge NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
 	return get_Logic_in_edge(in); }
 
 
