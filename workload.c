@@ -1,6 +1,6 @@
 /*!\file workload.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Workload estimation utilities
 ** \note Define IT_WORKLOAD symbol at project level to use workload estimation module functionalities
 ** \note Loop period values will only be relevant in case of sequential code (you will get task period for RTOS based code)

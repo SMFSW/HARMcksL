@@ -1,6 +1,6 @@
 /*!\file PWM.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Straightforward PWM handling
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 **/

@@ -1,6 +1,6 @@
 /*!\file TIM_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 ** \warning Shall work for all STM32 F/G/H/L families only (yet)

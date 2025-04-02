@@ -1,6 +1,6 @@
 /*!\file ADC_ex.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -67,9 +67,9 @@
 	#elif defined(STM32F7)
 		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
 	#elif defined(STM32G0)
-		#define Def_VCal			(3000)	//!< Calibration values performed at 3V
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
 	#elif defined(STM32G4)
-		#define Def_VCal			(3000)	//!< Calibration values performed at 3V
+		#define Def_VCal			(3000)		//!< Calibration values performed at 3V
 	#elif defined(STM32H7)
 		#define Def_VCal			(3300)		//!< Calibration values performed at 3.3V
 	#elif defined(STM32L0)

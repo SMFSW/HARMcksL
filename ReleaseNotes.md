@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2024 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2025 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,7 @@ SOFTWARE.
 ## v1.6
 
 * Doxygen comments review and fixes
+* UART_term: fix call to str_clr (now strclr)
 * Logic_in & GPIO_in: edge getters return type fix
 * PWM_IC: refactoring to catch continous signals (after some timeout) + enabling possibility to use without interrupts
 * UART_term: handling reception of backspace char

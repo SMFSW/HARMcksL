@@ -1,6 +1,6 @@
 /*!\file exceptions.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Debug tool and helpers
 **/
 /****************************************************************/

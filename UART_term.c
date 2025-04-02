@@ -1,6 +1,6 @@
 /*!\file UART_term.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief UART terminal
 ** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
 ** \note define DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
@@ -75,7 +75,7 @@ FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 	if (!pUARTrx)			{ return ERROR_MEMORY; }
 
-	str_clr(pUARTrx->data);	// Clear input buffer
+	strclr(pUARTrx->data);	// Clear input buffer
 	pUARTrx->len = 0;		// Empty char number
 
 	return ERROR_OK;

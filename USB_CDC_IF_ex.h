@@ -1,6 +1,6 @@
 /*!\file USB_CDC_IF_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Extensions for USB VCP
 **
 ** \code

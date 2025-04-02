@@ -1,6 +1,6 @@
 /*!\file GPIO_out.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief GPIO output handling
 ** \note Define LOGIC_OUT_IT shared symbol at project level to use GPIO_out from timer interrupts (for more timing precision if required)
 ** \note When using GPIO_out from interrupts, shared LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)

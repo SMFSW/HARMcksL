@@ -1,6 +1,6 @@
 /*!\file random_utils.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief (A little less pseudo) random numbers generation utilities
 ** \note Randomness is enhanced between MCUs (using UID), through calls and time
 ** \warning Unfortunately, after reset, assuming call will happen at same clock tick,

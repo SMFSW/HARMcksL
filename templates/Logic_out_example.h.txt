@@ -1,6 +1,6 @@
 /*!\file Logic_out_example.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2024, SMFSW
+** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Logic_out example
 ** \note Simple Logic_out.c / Logic_ex.c example to handle different variable bits as outputs
 **/
