@@ -74,9 +74,9 @@ __WEAK FctERR Workload_init(void)
 
 	set_Workload_ticks_us(get_TicksPerMicrosecond());
 #else
-	err = set_TIM_Tick_Freq(WORKLOAD_TIM_INST, 1000000UL);
+	st = set_TIM_Tick_Freq(WORKLOAD_TIM_INST, 1000000UL);
 	if (st != HAL_OK)	{ goto ret; }
-	err = HAL_TIM_Base_Start(WORKLOAD_TIM_INST);
+	st = HAL_TIM_Base_Start(WORKLOAD_TIM_INST);
 	if (st != HAL_OK)	{ goto ret; }
 
 	set_Workload_ticks_us(1.0f);
