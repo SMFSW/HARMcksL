@@ -4,8 +4,8 @@
 ** \brief Extensions for GPIOs (R/W)
 **/
 /****************************************************************/
-#ifndef __GPIO_EX_H
-	#define __GPIO_EX_H
+#ifndef GPIO_EX_H__
+	#define GPIO_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -53,5 +53,5 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 #endif
 
 #endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
-#endif	/* __GPIO_EX_H */
+#endif	/* GPIO_EX_H__ */
 /****************************************************************/

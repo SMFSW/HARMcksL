@@ -13,8 +13,8 @@
 ** 				- Continuous conversion is optional (as DMA continuous request handles the behavior)
 ** 				- DMA continuous request when available (if disabled, user has to start conversions manually when needed)
 ** 				- Interrupt generated at end of single conversion (to catch every sampled values)
-** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
-** \note Configuration done calling ADC_cfg.h file
+** \note Define \c USE_ADC_EX symbol at project level to use ADC_ex functionalities
+** \note Configuration done including ADC_cfg.h file
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -245,7 +245,8 @@ typedef struct AnalogTab {
 
 extern const ADC_Cfg	ADCConfig[Adc_MAX];
 
-static __IO uint32_t	ADCChan = 0, ADCMeasureIdx = 0;
+static __IO uint32_t	ADCChan = 0;
+static __IO uint32_t	ADCMeasureIdx = 0;
 static __IO DMA_sz_t	ADCbuffer_DMA[TOTAL_ADC_CHANS];	//!< DMA ADC buffer
 static __IO AnalogTab	ADCbuffer[TOTAL_ADC_CHANS];		//!< ADC buffer
 
@@ -268,7 +269,8 @@ static FctERR NONNULL__ ADC_GetChan(uint8_t * const adc, uint8_t * const chan, c
 
 uint16_t ADC_GetRawVal(const eAnalogInput input)
 {
-	uint8_t adc_num, chan;
+	uint8_t adc_num;
+	uint8_t chan;
 
 	if (ADC_GetChan(&adc_num, &chan, input) != ERROR_OK)	{ return 0; }
 
@@ -279,19 +281,17 @@ uint16_t ADC_GetRawVal(const eAnalogInput input)
 
 float ADC_GetConvertedVal(const eAnalogInput input)
 {
-	if (input >= Adc_MAX)	{ return 0.0f; }
-
+	float				val = 0.0f;
 	#if defined(ADC_COMPENSATION)
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
-		if (!vrefint_dat)	{ return 0.0f; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
+		if (!vrefint_dat)	{ goto ret; }												// Preventing HW faults when MCU starts with slow configured ADC acquisition
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
 		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
 	#else
 		const int16_t	in_raw = ADC_GetRawVal(input);									// read input value
 		const float		in_v = in_raw * Def_ADCStep(Def_VAlim);							// Convert input value in Volts (in regard of power supply voltage)
 	#endif
-	float				val = 0.0f;
 
 	if (input < Adc_MAX)
 	{
@@ -316,21 +316,21 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 						// With raw converted value to mV
 						#if defined(STM32F0) || defined(STM32G0) || defined(STM32G4) || defined(STM32H5) || defined(STM32H7) || \
 							defined(STM32L4) || defined(STM32L5) || defined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
-							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 30;
+							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + 30.0f;
 						#elif defined(STM32F1) || defined(STM32F3)
-							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + (float) 25;
+							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + 25.0f;
 						#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
-							val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + (float) 25;
+							val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + 25.0f;
 						#endif
 					#else
 						// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
 						#if defined(STM32G0) || defined(STM32G4) || defined(STM32L0) || defined(STM32L5) || \
 							defined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
 							// Temp = 100 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
-							val = ((100 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+							val = ((float) (100 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + 30.0f;
 						#else
 							// Temp = 80 / (TS_CAL2 - TS_CAL1) * (ValTS - TS_CAL1) + 30
-							val = ((80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + (float) 30;
+							val = ((float) (80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + 30.0f;
 						#endif
 					#endif
 					break;
@@ -349,6 +349,7 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 		}
 	}
 
+	ret:
 	return val;
 }
 
@@ -428,6 +429,8 @@ FctERR ADC_Stop(void)
 **/
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc)
 {
+	UNUSED(hadc);
+
 	// Store value in buffers
 	ADCbuffer[ADCChan].Array[ADCMeasureIdx] = (uint16_t) ADCbuffer_DMA[ADCChan];
 

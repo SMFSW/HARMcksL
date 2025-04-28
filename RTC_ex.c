@@ -19,8 +19,8 @@ FctERR NONNULL__ RTC_SetTime(const DateTime * const time_new)
 	RTC_DateTypeDef		RTCDate;
 
 	#if defined(STM32F2) || defined(STM32F3) || defined(STM32F4) || defined(STM32F7) || defined(STM32H7) || defined(STM32L0) || defined(STM32L1) || defined(STM32L4)
-		RTCTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-		RTCTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	RTCTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	RTCTime.StoreOperation = RTC_STOREOPERATION_RESET;
 	#endif
 	RTCTime.Hours = time_new->Hours;
 	RTCTime.Minutes = time_new->Minutes;
@@ -28,12 +28,12 @@ FctERR NONNULL__ RTC_SetTime(const DateTime * const time_new)
 	RTCDate.Year = time_new->Year;
 	RTCDate.Month = time_new->Month;
 	RTCDate.Date = time_new->Day;
-	RTCDate.WeekDay = Get_Weekday(time_new->Year + 2000, time_new->Month, time_new->Day);
-	if (RTCDate.WeekDay == Sunday)	{ RTCDate.WeekDay = 7; }	// To match with STM32 RTC weekdays definitions
+	RTCDate.WeekDay = Get_Weekday(time_new->Year + 2000U, time_new->Month, time_new->Day);
+	if (RTCDate.WeekDay == Sunday)	{ RTCDate.WeekDay = 7U; }	// To match with STM32 RTC weekdays definitions
 
 	st = HAL_RTC_SetTime(&hrtc, &RTCTime, RTC_FORMAT_BIN);
 	st |= HAL_RTC_SetDate(&hrtc, &RTCDate, RTC_FORMAT_BIN);
-	if (st)	{ return ERROR_FAULT; }
+	if (st != HAL_OK)	{ return ERROR_FAULT; }
 
 	return ERROR_OK;
 }
@@ -47,7 +47,7 @@ FctERR NONNULL__ RTC_GetTime(DateTime * const time_now)
 
 	st = HAL_RTC_GetTime(&hrtc, &RTCTime, RTC_FORMAT_BIN);
 	st |= HAL_RTC_GetDate(&hrtc, &RTCDate, RTC_FORMAT_BIN);
-	if (st)	{ return ERROR_FAULT; }
+	if (st != HAL_OK)	{ return ERROR_FAULT; }
 
 	time_now->Hours = RTCTime.Hours;
 	time_now->Minutes = RTCTime.Minutes;
@@ -56,7 +56,7 @@ FctERR NONNULL__ RTC_GetTime(DateTime * const time_now)
 	time_now->Month = RTCDate.Month;
 	time_now->Day = RTCDate.Date;
 	time_now->Weekday = RTCDate.WeekDay;
-	if (time_now->Weekday == 7)	{ time_now->Weekday = Sunday; }	// To match with STM32 RTC weekdays definitions
+	if (time_now->Weekday == 7U)	{ time_now->Weekday = Sunday; }	// To match with STM32 RTC weekdays definitions
 
 	return ERROR_OK;
 }

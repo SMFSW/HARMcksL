@@ -2,8 +2,8 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief UART terminal
-** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
-** \note define DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
+** \note UART redirection is enabled when \c UART_REDIRECT symbol is defined at project level
+** \note define \c DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
 ** \note It is recommended to have interrupts enabled for UART instance (and is required when reception is needed)
 */
 /****************************************************************/
@@ -31,21 +31,23 @@ static sUARTbuffer * pUARTrx;	//!< UART reception buffer
 
 FctERR NONNULL__ UART_Term_Init(UART_HandleTypeDef * const huart, const size_t len)
 {
+	FctERR err = ERROR_MEMORY;
+
 	assert_param(IS_UART_INSTANCE(huart->Instance));
 
-	pUARTrx = malloc(sizeof(*pUARTrx) + ((len + 1) * sizeof(pUARTrx->data[0])));
+	pUARTrx = (sUARTbuffer *) malloc(sizeof(*pUARTrx) + ((len + 1U) * sizeof(pUARTrx->data[0])));
 
-	if (pUARTrx)
+	if (pUARTrx != NULL)
 	{
 		dbg_uart = huart;
 
-		pUARTrx->max_len = len + 1;
-		UART_Term_Flush_RxBuf(huart);
+		pUARTrx->max_len = len + 1U;
+		UNUSED_RET UART_Term_Flush_RxBuf(huart);
 
-		return UART_Term_Launch_It_Rx(huart);
+		err = UART_Term_Launch_It_Rx(huart);
 	}
 
-	return ERROR_MEMORY;
+	return err;
 }
 
 
@@ -53,7 +55,7 @@ FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 
-	HAL_UART_Receive_IT(huart, (uint8_t *) &pUARTrx->data[pUARTrx->len], 1);
+	UNUSED_RET HAL_UART_Receive_IT(huart, (uint8_t *) &pUARTrx->data[pUARTrx->len], 1U);
 
 	return ERROR_OK;
 }
@@ -65,18 +67,20 @@ FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
 		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }
 
 		while (huart->gState != HAL_UART_STATE_READY);
+	#else
+		UNUSED(huart);
 	#endif
 	return ERROR_OK;
 }
 
 
-FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart)
+FctERR NONNULL__ UART_Term_Flush_RxBuf(const UART_HandleTypeDef * const huart)
 {
 	if (huart != dbg_uart)	{ return ERROR_INSTANCE; }
 	if (!pUARTrx)			{ return ERROR_MEMORY; }
 
 	strclr(pUARTrx->data);	// Clear input buffer
-	pUARTrx->len = 0;		// Empty char number
+	pUARTrx->len = 0U;		// Empty char number
 
 	return ERROR_OK;
 }
@@ -90,7 +94,7 @@ FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * s
 		#endif
 		return HALERRtoFCTERR(HAL_UART_Transmit_IT(huart, (uint8_t *) str, len));
 	#else
-		return HALERRtoFCTERR(HAL_UART_Transmit(huart, (uint8_t *) str, len, 30));
+		return HALERRtoFCTERR(HAL_UART_Transmit(huart, (const uint8_t *) str, len, 30U));
 	#endif
 }
 
@@ -99,7 +103,7 @@ FctERR NONNULL__ UART_Term_Send(UART_HandleTypeDef * const huart, const char * s
 ** \param[in] huart - UART handle
 ** \return Error code
 **/
-static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
+static FctERR NONNULL__ UART_Term_Char_Handler(const UART_HandleTypeDef * const huart)
 {
 	if (!pUARTrx)	{ return ERROR_MEMORY; }
 
@@ -109,15 +113,15 @@ static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
 	{
 		pUARTrx->data[pUARTrx->len] = charNull;
 		#if !STDREAM_RDIR_RCV_SYSCALLS
-		UART_Term_Message_Handler(pUARTrx->data, pUARTrx->len);
-		UART_Term_Flush_RxBuf(huart);
+		UNUSED_RET UART_Term_Message_Handler(pUARTrx->data, pUARTrx->len);
+		UNUSED_RET UART_Term_Flush_RxBuf(huart);
 		#endif
 	}
 	else if	(pUARTrx->data[pUARTrx->len] == '\b')			// Backspace char handling
 	{
-		if (pUARTrx->len)	{ pUARTrx->len--; }
+		if (pUARTrx->len != 0U)		{ pUARTrx->len--; }
 	}
-	else	{ pUARTrx->len++; }								// Incrementing only when char received & no full message
+	else							{ pUARTrx->len++; }		// Incrementing only when char received & no full message
 
 	return ERROR_OK;
 }
@@ -125,7 +129,7 @@ static FctERR NONNULL__ UART_Term_Char_Handler(UART_HandleTypeDef * const huart)
 
 __WEAK FctERR NONNULL__ UART_Term_Message_Handler(const char * msg, const size_t len)
 {
-	if (len)	{ printf("%s\r\n", msg); }	// Parrot
+	if (len != 0U)	{ UNUSED_RET printf("%s\r\n", msg); }	// Parrot
 	return ERROR_OK;
 }
 
@@ -159,8 +163,8 @@ __WEAK void HAL_UART_TxCpltCallback(UART_HandleTypeDef * huart)
 
 void UART_Term_RxCpltCallback(UART_HandleTypeDef * const huart)
 {
-	UART_Term_Char_Handler(huart);
-	UART_Term_Launch_It_Rx(huart);					// Waiting for next char to receive
+	UNUSED_RET UART_Term_Char_Handler(huart);
+	UNUSED_RET UART_Term_Launch_It_Rx(huart);			// Waiting for next char to receive
 }
 
 /*!\brief Rx Transfer completed callback

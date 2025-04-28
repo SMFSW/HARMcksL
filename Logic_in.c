@@ -15,7 +15,7 @@ void NONNULLX__(1) Logic_in_init(	Logic_in * const in, GPIO_PinState (*getter)(c
 	in->cfg.get = getter;
 	in->cfg.LOGx = addr;
 	in->cfg.LOG_Pos = pos;
-	in->cfg.polarity = polarity & 1U;	// Ensuring polarity is boolean value
+	in->cfg.polarity = polarity & GPIO_PIN_SET;	// Ensuring polarity is boolean like value
 	in->cfg.filt = filter;
 	in->cfg.onSet = onSet;
 	in->cfg.onReset = onReset;
@@ -29,10 +29,11 @@ void NONNULLX__(1) Logic_in_init(	Logic_in * const in, GPIO_PinState (*getter)(c
 
 void NONNULL__ Logic_in_handler(Logic_in * const in)
 {
-	GPIO_PinState val = in->cfg.polarity;
+	GPIO_PinState val;
 
-	if (in->cfg.get)		{ val = in->cfg.get(in); }
-	else if (in->cfg.LOGx)	{ val = RSHIFT(*((uint32_t *) in->cfg.LOGx), in->cfg.LOG_Pos) & 1U; }
+	if (in->cfg.get)				{ val = in->cfg.get(in); }
+	else if (in->cfg.LOGx != NULL)	{ val = RSHIFT(*((uint32_t *) in->cfg.LOGx), in->cfg.LOG_Pos) & 1U; }
+	else							{ val = in->cfg.polarity; }
 
 	if (val == in->cfg.polarity)
 	{
@@ -49,18 +50,18 @@ void NONNULL__ Logic_in_handler(Logic_in * const in)
 		in->edge = NoEdge;
 		if ((in->in) && (in->cfg.repeat))
 		{
-			if (in->cfg.onSet)	{ in->cfg.onSet(in); }
+			if (in->cfg.onSet != NULL)	{ in->cfg.onSet(in); }
 		}
 	}
 	else if (in->in > in->mem)
 	{
 		in->edge = Rising;
-		if (in->cfg.onSet)		{ in->cfg.onSet(in); }
+		if (in->cfg.onSet != NULL)		{ in->cfg.onSet(in); }
 	}
 	else
 	{
 		in->edge = Falling;
-		if (in->cfg.onReset)	{ in->cfg.onReset(in); }
+		if (in->cfg.onReset != NULL)	{ in->cfg.onReset(in); }
 	}
 
 	in->mem = in->in;

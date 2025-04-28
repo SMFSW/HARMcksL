@@ -5,8 +5,8 @@
 ** \note Simple GPIO_in.c / GPIO_ex.c example to handle different GPIO inputs with callbacks
 **/
 /****************************************************************/
-#ifndef __GPIO_IN_EXAMPLE_H
-	#define	__GPIO_IN_EXAMPLE_H
+#ifndef GPIO_IN_EXAMPLE_H__
+	#define	GPIO_IN_EXAMPLE_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -26,6 +26,6 @@ void GPIO_in_example_handler(void);
 	}
 #endif
 
-#endif /* __GPIO_IN_EXAMPLE_H */
+#endif /* GPIO_IN_EXAMPLE_H__ */
 /****************************************************************/
 

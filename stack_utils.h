@@ -4,8 +4,8 @@
 ** \brief Stack utilities
 **/
 /****************************************************************/
-#ifndef __STACK_UTILS_H
-	#define __STACK_UTILS_H
+#ifndef STACK_UTILS_H__
+	#define STACK_UTILS_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -188,5 +188,5 @@ __INLINE void INLINE__ stack_dump(void) {
 	}
 #endif
 
-#endif	/* __STACK_UTILS_H */
+#endif	/* STACK_UTILS_H__ */
 /****************************************************************/

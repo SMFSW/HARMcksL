@@ -2,9 +2,9 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Logic output handling
-** \note Define LOGIC_OUT_IT symbol at project level to use Logic_out from timer interrupts (for more timing precision if required)
-** \note When using Logic_out from interrupts, LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
-** \warning Logic_out & GPIO_out shares interrupt behavior, thus needs to be implemented the same way (it or loop) if both are used at the same time
+** \note Define \c LOGIC_OUT_IT symbol at project level to use \ref Logic_out from timer interrupts (for more timing precision if required)
+** \note When using \ref Logic_out from interrupts, \c LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
+** \warning \ref Logic_out & \ref GPIO_out shares interrupt behavior, thus needs to be implemented the same way (it or loop) if both are used at the same time
 **/
 /****************************************************************/
 #include "Logic_out.h"
@@ -17,8 +17,8 @@
 **/
 __STATIC_INLINE void NONNULL_INLINE__ Logic_out_setter(const Logic_out * const out, const GPIO_PinState state)
 {
-	const uint32_t bit_mask = LSHIFT(1U, out->cfg.LOG_Pos);
-	if (out->cfg.LOGx)	{ SET_BITS_VAL(*((uint32_t *) out->cfg.LOGx), bit_mask, state ? bit_mask : 0); }
+	const uint32_t bit_mask = LSHIFT(1UL, out->cfg.LOG_Pos);
+	if (out->cfg.LOGx != NULL)	{ SET_BITS_VAL(*((uint32_t *) out->cfg.LOGx), bit_mask, state ? bit_mask : 0UL); }
 }
 
 
@@ -30,13 +30,13 @@ FctERR NONNULL__ Logic_out_update(Logic_out * const out)
 {
 	if (out->action == Reset)		{ out->currentState = GPIO_PIN_RESET; }
 	else if (out->action == Set)	{ out->currentState = GPIO_PIN_SET; }
-	else if (out->action == Toggle)	{ out->currentState ^= 1; }
+	else if (out->action == Toggle)	{ out->currentState ^= GPIO_PIN_SET; }
 	else							{ return ERROR_VALUE; }
 
-	const GPIO_PinState val = out->currentState ^ (out->cfg.polarity ? 0 : 1);
+	const GPIO_PinState val = out->currentState ^ (out->cfg.polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);
 
-	if (out->cfg.set)	{ out->cfg.set(out, val); }
-	else				{ Logic_out_setter(out, val); }
+	if (out->cfg.set != NULL)	{ out->cfg.set(out, val); }
+	else						{ Logic_out_setter(out, val); }
 
 	return ERROR_OK;
 }
@@ -69,7 +69,7 @@ FctERR NONNULL__ Logic_out_Abort(Logic_out * const out)
 
 	if ((out->init) && (!out->idle))
 	{
-		err = Logic_out_SetStatic(out, out->memState, 0);
+		err = Logic_out_SetStatic(out, (eGPIOState) out->memState, 0);
 	}
 
 	return err;
@@ -93,11 +93,11 @@ static FctERR NONNULL__ Logic_out_Start(Logic_out * const out, const eLogic_out_
 	if (action > Toggle)	{ return ERROR_VALUE; }
 
 	#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-	delay = (delay * LOGIC_OUT_IT_PER) / 1000;
-	active = (active * LOGIC_OUT_IT_PER) / 1000;
-	inactive = (inactive * LOGIC_OUT_IT_PER) / 1000;
+	delay = (delay * LOGIC_OUT_IT_PER) / 1000UL;
+	active = (active * LOGIC_OUT_IT_PER) / 1000UL;
+	inactive = (inactive * LOGIC_OUT_IT_PER) / 1000UL;
 
-	out->hOut = 0;
+	out->hOut = 0U;
 
 	diInterrupts();
 	#else
@@ -148,7 +148,7 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 			||	(out->delay && (TPSSUP_MS(out->hOut, out->delay))))
 		#endif
 		{
-			out->delay = 0;
+			out->delay = 0U;
 
 			switch (out->mode)
 			{
@@ -156,10 +156,10 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 				{
 					if (out->start)
 					{
-						Logic_out_update(out);
+						UNUSED_RET Logic_out_update(out);
 						out->start = false;
 						#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-						out->hOut = 0;
+						out->hOut = 0U;
 						#else
 						out->hOut = HALTicks();
 						#endif
@@ -171,7 +171,7 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 					if (TPSSUP_MS(out->hOut, out->timeActive))
 					#endif
 					{
-						Logic_out_Abort(out);
+						UNUSED_RET Logic_out_Abort(out);
 						goto stop;	// Go back to memorized state in current cycle
 					}
 				}
@@ -183,11 +183,11 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 
 					if (out->start)
 					{
-						Logic_out_update(out);
+						UNUSED_RET Logic_out_update(out);
 						out->action = Toggle;	// Force toggle if action set was Reset or Set
 						out->start = false;
 						#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-						out->hOut = 0;
+						out->hOut = 0U;
 						#else
 						out->hOut = HALTicks();
 						#endif
@@ -207,9 +207,9 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 					else if ((!out->active) && (TPSSUP_MS(out->hOut, out->timeInactive)))
 					#endif
 					{
-						if (--out->cnt == 0)
+						if (--out->cnt == 0U)
 						{
-							Logic_out_Abort(out);
+							UNUSED_RET Logic_out_Abort(out);
 							goto stop;	// Go back to memorized state in current cycle
 						}
 
@@ -218,10 +218,10 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 
 					if (set)
 					{
-						Logic_out_update(out);
+						UNUSED_RET Logic_out_update(out);
 						out->active ^= true;
 						#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-						out->hOut = 0;
+						out->hOut = 0U;
 						#else
 						out->hOut = HALTicks();
 						#endif
@@ -232,7 +232,7 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 				case outStatic:
 				{
 					stop:		// label used only by Pulse and Blink cases when finished to revert to memorized state in current cycle
-					Logic_out_update(out);
+					UNUSED_RET Logic_out_update(out);
 					out->memState = out->currentState;
 					out->idle = true;
 				}

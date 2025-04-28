@@ -21,8 +21,8 @@ void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, c
 
 	#if defined(VERBOSE)
 		char port[10] = "";
-		str_GPIO_name(port, GPIOx, GPIO_Pin);
-		printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
+		UNUSED_RET str_GPIO_name(port, GPIOx, GPIO_Pin);
+		UNUSED_RET printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
 	#endif
 }
 
@@ -33,8 +33,8 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 
 	#if defined(VERBOSE)
 		char port[10] = "";
-		str_GPIO_name(port, GPIOx, GPIO_Pin);
-		printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
+		UNUSED_RET str_GPIO_name(port, GPIOx, GPIO_Pin);
+		UNUSED_RET printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
 	#endif
 
 	return pin;
@@ -43,47 +43,52 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 
 FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
-	const uint8_t	max_pins = 16;	// Maximum pins on a port
+	FctERR			err = ERROR_VALUE;
+	const uintCPU_t	max_pins = 16U;	// Maximum pins on a port
 	const char		prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
 	char			port;
 
 	// Find port by testing GPIO instance
-	if (GPIOx == GPIOA)			port = prt[0];
+	if (GPIOx == GPIOA)			{ port = prt[0]; }
 #if defined(GPIOB)
-	else if (GPIOx == GPIOB)	port = prt[1];
+	else if (GPIOx == GPIOB)	{ port = prt[1]; }
 #endif
 #if defined(GPIOC)
-	else if (GPIOx == GPIOC)	port = prt[2];
+	else if (GPIOx == GPIOC)	{ port = prt[2]; }
 #endif
 #if defined(GPIOD)
-	else if (GPIOx == GPIOD)	port = prt[3];
+	else if (GPIOx == GPIOD)	{ port = prt[3]; }
 #endif
 #if defined(GPIOE)
-	else if (GPIOx == GPIOE)	port = prt[4];
+	else if (GPIOx == GPIOE)	{ port = prt[4]; }
 #endif
 #if defined(GPIOF)
-	else if (GPIOx == GPIOF)	port = prt[5];
+	else if (GPIOx == GPIOF)	{ port = prt[5]; }
 #endif
 #if defined(GPIOG)
-	else if (GPIOx == GPIOG)	port = prt[6];
+	else if (GPIOx == GPIOG)	{ port = prt[6]; }
 #endif
 #if defined(GPIOH)
-	else if (GPIOx == GPIOH)	port = prt[7];
+	else if (GPIOx == GPIOH)	{ port = prt[7]; }
 #endif
-	else						port = prt[8];
+	else						{ port = prt[8]; }
 
 	// Find pin shifting values to get pin index
-	for (unsigned int pin = 0 ; pin < max_pins ; pin++)
+	for (uintCPU_t pin = 0U ; pin < max_pins ; pin++)
 	{
-		if ((1 << pin) == GPIO_Pin)
+		if ((1U << pin) == GPIO_Pin)
 		{
-			sprintf(name, "GPIO%c%d", port, pin);
-			return ERROR_OK;	// Match
+			UNUSED_RET sprintf(name, "GPIO%c%u", port, pin);
+			err = ERROR_OK;
+			goto ret;
 		}
 	}
 
-//	sprintf(name, "GPIO%c%c", port, 'x');
-	return ERROR_VALUE;			// No match
+	// Not found
+	UNUSED_RET sprintf(name, "GPIO%c%c", port, 'x');
+
+	ret:
+	return err;
 }
 
 

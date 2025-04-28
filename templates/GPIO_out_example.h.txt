@@ -5,8 +5,8 @@
 ** \note Simple GPIO_out.c / GPIO_ex.c example to handle different GPIO outputs
 **/
 /****************************************************************/
-#ifndef __GPIO_OUT_EXAMPLE_H
-	#define	__GPIO_OUT_EXAMPLE_H
+#ifndef GPIO_OUT_EXAMPLE_H__
+	#define	GPIO_OUT_EXAMPLE_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -31,6 +31,6 @@ void GPIO_out_example_init(void);
 	}
 #endif
 
-#endif /* __GPIO_OUT_EXAMPLE_H */
+#endif /* GPIO_OUT_EXAMPLE_H__ */
 /****************************************************************/
 

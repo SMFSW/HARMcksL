@@ -4,13 +4,13 @@
 ** \brief Extensions for WDG peripherals
 ** \details This module is mostly meant for debug target purposes,
 **			giving the ability to call freeze/unfreeze watchdogs functions
-**			no matter the build target, watchdogs being unfrozen only when
+**			no matter the build target, watchdogs being un-frozen only when
 **			they were enabled in the first place.
 ** \warning Watchdogs cannot be frozen while code is running, freeze will on be relevant
 ** 			when execution is paused, thus no freezing possible for a time consuming operation.
-** 			Workaround is to save the watchdogs configurations, modify temporarily confiruation,
+** 			Workaround is to save the watchdogs configurations, modify temporarily configuration,
 ** 			then restore the configuration back, using \ref WDG_save_cfg & \ref WDG_restore_cfg.
-** \warning For this module to work properly, WDG_init_check have to be called once
+** \warning For this module to work properly, \ref WDG_init_check have to be called once
 **			at the end of your init routine prior to use freeze/unfreeze functions.
 **/
 /****************************************************************/
@@ -46,8 +46,8 @@
 #endif
 
 
-static const uint32_t refCLK = LSI_VALUE / 1000;	// Watchdog clock frequency in KHz (for 32b computations)
-static const uint32_t prescaler_mult = 4;			// STM32 IWDG STM32 architecture prescaler multiplier
+static const uint32_t refCLK = LSI_VALUE / 1000U;	// Watchdog clock frequency in KHz (for 32b computations)
+static const uint32_t prescaler_mult = 4U;			// STM32 IWDG STM32 architecture prescaler multiplier
 
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
@@ -113,10 +113,10 @@ void WDG_init_check(void)
 void WDG_refresh(void)
 {
 #if defined(HAL_IWDG_MODULE_ENABLED)
-	HAL_IWDG_Refresh(&hiwdg);
+	UNUSED_RET HAL_IWDG_Refresh(&hiwdg);
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
-	HAL_WWDG_Refresh(&hwwdg);
+	UNUSED_RET HAL_WWDG_Refresh(&hwwdg);
 #endif
 }
 
@@ -185,14 +185,14 @@ void WDG_unfreeze(void)
 #if defined(HAL_IWDG_MODULE_ENABLED)
 	if (iwdg_en)
 	{
-		HAL_IWDG_Refresh(&hiwdg);
+		UNUSED_RET HAL_IWDG_Refresh(&hiwdg);
 		__HAL_DBGMCU_UNFREEZE_IWDG();
 	}
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
 	if (wwdg_en)
 	{
-		HAL_WWDG_Refresh(&hwwdg);
+		UNUSED_RET HAL_WWDG_Refresh(&hwwdg);
 		__HAL_DBGMCU_UNFREEZE_WWDG();
 	}
 #endif
@@ -204,10 +204,10 @@ void WDG_unfreeze(void)
 void WDG_save_cfg(void)
 {
 #if defined(HAL_IWDG_MODULE_ENABLED)
-	memcpy(&IWDG_cfg, &hiwdg.Init, sizeof(IWDG_InitTypeDef));
+	UNUSED_RET memcpy(&IWDG_cfg, &hiwdg.Init, sizeof(IWDG_InitTypeDef));
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
-	memcpy(&WWDG_cfg, &hwwdg.Init, sizeof(WWDG_InitTypeDef));
+	UNUSED_RET memcpy(&WWDG_cfg, &hwwdg.Init, sizeof(WWDG_InitTypeDef));
 #endif
 }
 
@@ -216,7 +216,7 @@ HAL_StatusTypeDef WDG_restore_cfg(void)
 	HAL_StatusTypeDef status = HAL_OK;
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
-	memcpy(&hiwdg.Init, &IWDG_cfg, sizeof(IWDG_InitTypeDef));
+	UNUSED_RET memcpy(&hiwdg.Init, &IWDG_cfg, sizeof(IWDG_InitTypeDef));
 	status |= HAL_IWDG_Init(&hiwdg);
 #endif
 #if defined(HAL_WWDG_MODULE_ENABLED)
@@ -231,22 +231,22 @@ HAL_StatusTypeDef WDG_restore_cfg(void)
 #if defined(HAL_IWDG_MODULE_ENABLED)
 HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per)
 {
-	const uint32_t max_prescaler = 256;			// STM32 IWDG STM32 architecture maximum prescaler
-	const uint32_t max_reload = 4095;			// STM32 IWDG STM32 architecture maximum reload value
+	const uint32_t max_prescaler = 256U;		// STM32 IWDG STM32 architecture maximum prescaler
+	const uint32_t max_reload = 4095U;			// STM32 IWDG STM32 architecture maximum reload value
 	uint32_t reload;
 	uint32_t prescaler;
 
-	for (prescaler = prescaler_mult ; prescaler <= max_prescaler ; prescaler <<= 1)
+	for (prescaler = prescaler_mult ; prescaler <= max_prescaler ; prescaler <<= 1U)
 	{
-		reload = (refCLK * per) / (1000 * prescaler);		// Computation using KHz instead of Hz to stay in 32b range
+		reload = (refCLK * per) / (1000U * prescaler);		// Computation using KHz instead of Hz to stay in 32b range
 		if (reload <= max_reload)	{ break; }				// If in range
 	}
 
-	if (reload == 0)				{ return HAL_ERROR; }	// Period is too short
+	if (reload == 0U)				{ return HAL_ERROR; }	// Period is too short
 	if (prescaler > max_prescaler)	{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
 
 	pIwdg->Init.Reload = reload;
-	pIwdg->Init.Prescaler = (prescaler / prescaler_mult) - 1;	// Convert to register value (0-7)
+	pIwdg->Init.Prescaler = (prescaler / prescaler_mult) - 1U;	// Convert to register value (0-7)
 
 	return HAL_IWDG_Init(pIwdg);
 }
@@ -254,9 +254,9 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 uint32_t NONNULL__ get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg)
 {
 	const uint32_t reload = pIwdg->Init.Reload;
-	const uint32_t prescaler = (pIwdg->Init.Prescaler + 1) * prescaler_mult;
+	const uint32_t prescaler = (pIwdg->Init.Prescaler + 1U) * prescaler_mult;
 
-	return ((reload * prescaler * 1000) / refCLK);
+	return ((reload * prescaler * 1000U) / refCLK);
 }
 #endif
 

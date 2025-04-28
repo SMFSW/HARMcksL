@@ -2,15 +2,18 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Workload estimation utilities
-** \note Define IT_WORKLOAD symbol at project level to use workload estimation module functionalities
+** \note Define \c IT_WORKLOAD symbol at project level to use workload estimation module functionalities
 ** \note Loop period values will only be relevant in case of sequential code (you will get task period for RTOS based code)
 ** \details Handler has to be called in the main sequential loop (or in a periodic task).
 ** 			Init function has to be called prior to main loop.
-** 			WORLOAD_IT_IN macro has to be put at the start of every interrupt, WORLOAD_IT_OUT macro before return of every interrupt
+** 			\c WORLOAD_IT_IN macro has to be put at the start of every interrupt, \c WORLOAD_IT_OUT macro before return of every interrupt
+** \warning M0/M0+ cores doesn't have core debug trace peripheral, time count shall be generated using a dedicated TIM peripheral.
+** \note With cores other than M0/M0+, core debug trace timer is used by default.
+** \note In case of M0/M0+ core or willing to use a TIM peripheral on purpose, \c WORKLOAD_TIM_INST symbol has to be defined with proper TIM instance at project level.
 **/
 /****************************************************************/
-#ifndef __WORKLOAD_H
-	#define __WORKLOAD_H
+#ifndef WORKLOAD_H__
+	#define WORKLOAD_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -28,7 +31,8 @@
 #define GET_COUNT()			__HAL_TIM_GET_COUNTER(WORKLOAD_TIM_INST)
 #endif
 
-extern volatile uint32_t	it_ticks_accumulator, it_ticks_start;
+extern volatile uint32_t	it_ticks_accumulator;
+extern volatile uint32_t	it_ticks_start;
 extern volatile bool		it_counts_ongoing;
 
 #define WORKLOAD_IT_IN()	bool already_counting = it_counts_ongoing ? true : false;			\
@@ -108,5 +112,5 @@ void Workload_show_results(void);
 	}
 #endif
 
-#endif	/* __TICK_UTILS_H */
+#endif /* WORKLOAD_H__ */
 /****************************************************************/

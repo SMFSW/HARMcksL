@@ -4,8 +4,8 @@
 ** \brief Function dealing with STM32 CRC peripheral
 */
 /****************************************************************/
-#ifndef __CRC_STM32_H
-	#define __CRC_STM32_H
+#ifndef CRC_STM32_H__
+	#define CRC_STM32_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -34,7 +34,7 @@ typedef enum eCRCFeedSize {
 ** \retval ERROR_VALUE - feed_size is not a value of enum eCRCFeedSize
 ** \retval ERROR_COMMON - size is not int division with feed_size
 **/
-FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size);
+FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const size_t size);
 
 
 /*!\brief CRC check
@@ -47,7 +47,7 @@ FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size,
 ** \retval ERROR_VALUE - feed_size is not a value of enum eCRCFeedSize
 ** \retval ERROR_COMMON - size is not int division with feed_size
 **/
-FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size);
+FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const size_t size);
 
 
 /****************************************************************/
@@ -55,5 +55,5 @@ FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uin
 	}
 #endif
 
-#endif /* __CRC_STM32_H */
+#endif /* CRC_STM32_H__ */
 /****************************************************************/

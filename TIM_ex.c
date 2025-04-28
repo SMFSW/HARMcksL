@@ -4,7 +4,7 @@
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 ** \warning Shall work for all STM32 F/G/H/L families only (yet)
-** \note TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
+** \note \c TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -15,8 +15,8 @@
 
 
 #ifndef TIM_MIN_GRANULARITY
-#define	TIM_MIN_GRANULARITY	255		//!< Minimum granularity for TIM channel
-//! \note TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
+#define	TIM_MIN_GRANULARITY	255UL	//!< Minimum granularity for TIM channel
+//!\note \c TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 #endif
 
 
@@ -26,7 +26,7 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 
 	#if defined(STM32G0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
-		if ((RCC->CFGR & RCC_CFGR_PPRE) != 0)	{ refCLK *= 2; }
+		if ((RCC->CFGR & RCC_CFGR_PPRE) != 0U)	{ refCLK *= 2UL; }
 	#elif defined(STM32F0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
 	#else
@@ -35,8 +35,10 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 		switch ((uint32_t) pTim->Instance)
 		{
 			default:
+			{
 				notAPB1 = false;
-				break;
+			}
+			break;
 
 			#if defined(TIM1)
 			case TIM1_BASE:
@@ -68,8 +70,10 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 			#if defined(TIM22)
 			case TIM22_BASE:		//!< L0 family (TIM on APB2)
 			#endif
+			{
 				notAPB1 = true;
-				break;
+			}
+			break;
 		}
 
 		if (notAPB1)
@@ -87,7 +91,7 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 				#endif
 					)
 				{	// Get SYCLK (HCLK) frequency
-					refCLK = HAL_RCC_GetHCLKFreq() * 2;
+					refCLK = HAL_RCC_GetHCLKFreq() * 2UL;
 				}
 				else
 			#endif
@@ -96,12 +100,12 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 				refCLK = HAL_RCC_GetPCLK2Freq();
 
 				#if defined(STM32H7)
-				if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE2) != 0)
+				if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE2) != 0U)
 				#else
-				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0)
+				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0U)
 				#endif
 				{
-					refCLK *= 2;
+					refCLK *= 2UL;
 				}
 			}
 		}
@@ -111,12 +115,12 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 			refCLK = HAL_RCC_GetPCLK1Freq();
 
 			#if defined(STM32H7)
-			if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE1) != 0)
+			if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE1) != 0U)
 			#else
-			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)
+			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0U)
 			#endif
 			{
-				refCLK *= 2;
+				refCLK *= 2UL;
 			}
 		}
 	#endif
@@ -127,10 +131,13 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 
 HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, const uint32_t chan)
 {
+	HAL_StatusTypeDef st = HAL_OK;
+
 	switch (chan)	/* Set the Preload enable bit for channel */
 	{
 		default:
-			return HAL_ERROR;
+			st = HAL_ERROR;
+			break;
 
 		case TIM_CHANNEL_1:
 			pTim->Instance->CCMR1 |= TIM_CCMR1_OC1PE;
@@ -161,7 +168,7 @@ HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, co
 		#endif
 	}
 
-	return HAL_OK;
+	return st;
 }
 
 
@@ -172,9 +179,9 @@ HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
 
-	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4); }
+	if (chan <= TIM_CHANNEL_4)			{ pCCR = &pTim->Instance->CCR1 + (chan / 4UL); }
 	#if defined(TIM_CHANNEL_6)
-		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4) - 4; }
+		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4UL) - 4UL; }
 	#endif
 	else 								{ return HAL_ERROR; }
 
@@ -189,7 +196,7 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 	HAL_StatusTypeDef err;
 
 	err = set_TIM_Interrupts(pTim, Off);	// Stop interrupts if they were already started
-	err = set_TIM_Freq(pTim, freq);			// Configure TIM frequency
+	err |= set_TIM_Freq(pTim, freq);		// Configure TIM frequency
 	if (err)	{ return err; }
 	return set_TIM_Interrupts(pTim, On);	// Start interrupts
 }
@@ -197,35 +204,42 @@ HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const 
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	if (!freq)	{ return HAL_ERROR; }		// Avoid div by 0
+	HAL_StatusTypeDef st = HAL_ERROR;
 
-	const uint32_t max_prescaler = 0xFFFF;	// Prescaler is 16b no redeeming timer instance
-	uint32_t max_period = 0xFFFF;			// Max period for 16b timers (most common)
-	uint64_t period;						// For 32b timers, period needs to be 64b large for calculations
-	uint32_t prescaler;
-
-	// TODO: init freq tests for 32b timers (init time may take some time)
-	if (	(pTim->Instance == TIM2)
-	#if defined(TIM5)
-		||	(pTim->Instance == TIM5)
-	#endif
-		)	{ max_period = 0xFFFFFFFF; }								// Max period for 32b timers
-
-	const uint32_t refCLK = RCC_TIMCLKFreq(pTim);
-	if (freq > refCLK / TIM_MIN_GRANULARITY)	{ return HAL_ERROR; }	// To guarantee minimum step range
-
-	for (prescaler = 0 ; prescaler <= max_prescaler ; prescaler++)
+	if (freq != 0UL)	// Avoid div by 0
 	{
-		period = (refCLK / (freq * (prescaler + 1))) - 1;
-		if (period <= max_period)				{ break; }				// If in range
+		const uint32_t max_prescaler = 0xFFFFU;		// Prescaler is 16b no redeeming timer instance
+		uint32_t max_period = 0xFFFFUL;				// Max period for 16b timers (most common)
+		uint64_t period;							// For 32b timers, period needs to be 64b large for calculations
+		uint32_t prescaler;
+
+		// TODO: init freq tests for 32b timers (init time may take some time)
+		if (	(pTim->Instance == TIM2)
+		#if defined(TIM5)
+			||	(pTim->Instance == TIM5)
+		#endif
+			)	{ max_period = 0xFFFFFFFFUL; }								// Max period for 32b timers
+
+		const uint32_t refCLK = RCC_TIMCLKFreq(pTim);
+		if (freq > (refCLK / TIM_MIN_GRANULARITY))	{ return HAL_ERROR; }	// To guarantee minimum step range
+
+		for (prescaler = 0UL ; prescaler <= max_prescaler ; prescaler++)
+		{
+			period = refCLK;
+			period /= (uint64_t) freq * (prescaler + 1UL);
+			period -= 1UL;
+			if (period <= max_period)				{ break; }				// If in range
+		}
+
+		if (prescaler == (max_prescaler + 1UL))		{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
+
+		pTim->Init.Period = period;
+		pTim->Init.Prescaler = prescaler;
+
+		st = HAL_TIM_Base_Init(pTim);
 	}
 
-	if (prescaler == max_prescaler + 1)			{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
-
-	pTim->Init.Period = period;
-	pTim->Init.Prescaler = prescaler;
-
-	return HAL_TIM_Base_Init(pTim);
+	return st;
 }
 
 
@@ -237,10 +251,10 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, co
 	#if defined(TIM5)
 		||	(pTim->Instance == TIM5)
 	#endif
-		)	{ pTim->Init.Period = 0xFFFFFFFF; }							// Set to max period for 32b timers
-	else	{ pTim->Init.Period = 0xFFFF; }								// Set to max period for 16b timers
+		)	{ pTim->Init.Period = 0xFFFFFFFFUL; }						// Set to max period for 32b timers
+	else	{ pTim->Init.Period = 0xFFFFUL; }							// Set to max period for 16b timers
 
-	pTim->Init.Prescaler = (RCC_TIMCLKFreq(pTim) / freq) - 1;			// Get prescaler value adjusted to desired frequency
+	pTim->Init.Prescaler = (RCC_TIMCLKFreq(pTim) / freq) - 1UL;			// Get prescaler value adjusted to desired frequency
 
 	return HAL_TIM_Base_Init(pTim);
 }

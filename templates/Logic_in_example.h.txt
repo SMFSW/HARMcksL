@@ -5,8 +5,8 @@
 ** \note Simple Logic_in.c / Logic_ex.c example to handle different variables inputs with callbacks
 **/
 /****************************************************************/
-#ifndef __LOGIC_IN_EXAMPLE_H
-	#define	__LOGIC_IN_EXAMPLE_H
+#ifndef LOGIC_IN_EXAMPLE_H__
+	#define	LOGIC_IN_EXAMPLE_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -26,6 +26,6 @@ void Logic_in_example_handler(void);
 	}
 #endif
 
-#endif /* __LOGIC_IN_EXAMPLE_H */
+#endif /* LOGIC_IN_EXAMPLE_H__ */
 /****************************************************************/
 

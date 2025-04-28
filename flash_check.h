@@ -4,8 +4,8 @@
 ** \brief Function to check flash CRC
 */
 /****************************************************************/
-#ifndef __FLASH_CHECK_H
-	#define __FLASH_CHECK_H
+#ifndef FLASH_CHECK_H__
+	#define FLASH_CHECK_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -29,5 +29,5 @@ FctERR flash_crc_check(void);
 	}
 #endif
 
-#endif /* __FLASH_CHECK_H */
+#endif /* FLASH_CHECK_H__ */
 /****************************************************************/

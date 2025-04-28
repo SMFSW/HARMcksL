@@ -11,46 +11,54 @@
 /****************************************************************/
 
 
-FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size)
+FctERR NONNULL__ crc_compute(uint32_t * const crc, const eCRCFeedSize feed_size, const uint32_t start_addr, const size_t size)
 {
-	div_t		len;
-	uint8_t *	dat8 = NULL;
-	uint16_t *	dat16 = NULL;
-	uint32_t *	dat32 = NULL;
+	FctERR				err = ERROR_OK;
+	div_t				len;
+	const uint8_t *		dat8 = NULL;
+	const uint16_t *	dat16 = NULL;
+	const uint32_t *	dat32 = NULL;
 
 	if (feed_size == CRC_Feed_DWORD)		{ dat32 = (uint32_t *) start_addr; }
 	else if (feed_size == CRC_Feed_WORD)	{ dat16 = (uint16_t *) start_addr; }
 	else if (feed_size == CRC_Feed_BYTE)	{ dat8 = (uint8_t *) start_addr; }
-	else									{ return ERROR_VALUE; }
+	else									{ err = ERROR_VALUE; }
 
 	len = div(size, feed_size);
-	if (len.rem)	{ return ERROR_COMMON; }
+	if (len.rem)	{ err = ERROR_COMMON; }
 
-	__HAL_RCC_CRC_CLK_ENABLE();	// Enable CRC
-
-	CRC->CR |= CRC_CR_RESET;
-
-	while (len.quot--)
+	if (err == ERROR_OK)
 	{
-		if (feed_size == CRC_Feed_DWORD)		{ CRC->DR = *dat32++; }
-		else if (feed_size == CRC_Feed_WORD)	{ CRC->DR = *dat16++; }
-		else									{ CRC->DR = *dat8++; }
+		__HAL_RCC_CRC_CLK_ENABLE();	// Enable CRC
+
+		CRC->CR |= CRC_CR_RESET;
+
+		while (len.quot--)
+		{
+			if (feed_size == CRC_Feed_DWORD)		{ CRC->DR = *dat32++; }
+			else if (feed_size == CRC_Feed_WORD)	{ CRC->DR = *dat16++; }
+			else									{ CRC->DR = *dat8++; }
+		}
+
+		*crc = CRC->DR;
+
+		__HAL_RCC_CRC_CLK_DISABLE();	// Disable CRC
 	}
 
-	*crc = CRC->DR;
-
-	__HAL_RCC_CRC_CLK_DISABLE();	// Disable CRC
-
-	return ERROR_OK;
+	return err;
 }
 
 
-FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const uint32_t size)
+FctERR crc_check(const uint32_t crc_ref, const eCRCFeedSize feed_size, const uint32_t start_addr, const size_t size)
 {
 	uint32_t	crc = 0;
-
 	FctERR		err = crc_compute(&crc, feed_size, start_addr, size);
-	if (err)	{ return err; }
 
-	return (crc_ref == crc) ? ERROR_OK : ERROR_CRC;
+	if (	(err == ERROR_OK)
+		&&	(crc_ref != crc))
+	{
+		err = ERROR_CRC;
+	}
+
+	return err;
 }

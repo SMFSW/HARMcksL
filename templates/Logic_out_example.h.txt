@@ -5,8 +5,8 @@
 ** \note Simple Logic_out.c / Logic_ex.c example to handle different variable bits as outputs
 **/
 /****************************************************************/
-#ifndef __LOGIC_OUT_EXAMPLE_H
-	#define	__LOGIC_OUT_EXAMPLE_H
+#ifndef LOGIC_OUT_EXAMPLE_H__
+	#define	LOGIC_OUT_EXAMPLE_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -31,6 +31,6 @@ void Logic_out_example_init(void);
 	}
 #endif
 
-#endif /* __LOGIC_OUT_EXAMPLE_H */
+#endif /* LOGIC_OUT_EXAMPLE_H__ */
 /****************************************************************/
 

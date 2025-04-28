@@ -12,7 +12,7 @@
 
 
 void print_stack_address(void) {
-	printf("stack addr = %p\r\n", get_pMSP()); }
+	UNUSED_RET printf("stack addr = %p\r\n", get_pMSP()); }
 
 
 void print_global_regs(void)
@@ -33,20 +33,20 @@ void print_global_regs(void)
 	//const uint32_t lr_reg = get_LR();
 	//const uint32_t psr_reg = get_PSR();
 
-	printf("r0  = 0x%08lx\r\n", r0_reg);
-	printf("r1  = 0x%08lx\r\n", r1_reg);
-	printf("r2  = 0x%08lx\r\n", r2_reg);
-	printf("r3  = 0x%08lx\r\n", r3_reg);
-	printf("r4  = 0x%08lx\r\n", r4_reg);
-	printf("r5  = 0x%08lx\r\n", r5_reg);
-	printf("r6  = 0x%08lx\r\n", r6_reg);
-	printf("r7  = 0x%08lx\r\n", r7_reg);
-	printf("r8  = 0x%08lx\r\n", r8_reg);
-	printf("r9  = 0x%08lx\r\n", r9_reg);
-	printf("r10  = 0x%08lx\r\n", r10_reg);
-	printf("r11  = 0x%08lx\r\n", r11_reg);
-	printf("r12 = 0x%08lx\r\n", r12_reg);
-	//printf("lr  = 0x%08lx\r\n", lr_reg);
-	//printf("psr  = 0x%08lx\r\n", psr_reg);
+	UNUSED_RET printf("r0  = %#08lx\r\n", r0_reg);
+	UNUSED_RET printf("r1  = %#08lx\r\n", r1_reg);
+	UNUSED_RET printf("r2  = %#08lx\r\n", r2_reg);
+	UNUSED_RET printf("r3  = %#08lx\r\n", r3_reg);
+	UNUSED_RET printf("r4  = %#08lx\r\n", r4_reg);
+	UNUSED_RET printf("r5  = %#08lx\r\n", r5_reg);
+	UNUSED_RET printf("r6  = %#08lx\r\n", r6_reg);
+	UNUSED_RET printf("r7  = %#08lx\r\n", r7_reg);
+	UNUSED_RET printf("r8  = %#08lx\r\n", r8_reg);
+	UNUSED_RET printf("r9  = %#08lx\r\n", r9_reg);
+	UNUSED_RET printf("r10 = %#08lx\r\n", r10_reg);
+	UNUSED_RET printf("r11 = %#08lx\r\n", r11_reg);
+	UNUSED_RET printf("r12 = %#08lx\r\n", r12_reg);
+	//UNUSED_RET printf("lr  = %#08lx\r\n", lr_reg);
+	//UNUSED_RET printf("psr = %#08lx\r\n", psr_reg);
 }
 

@@ -4,8 +4,8 @@
 ** \brief Logic input handling
 **/
 /****************************************************************/
-#ifndef __LOGIC_IN_H
-	#define __LOGIC_IN_H
+#ifndef LOGIC_IN_H__
+	#define LOGIC_IN_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -86,5 +86,5 @@ void NONNULL__ Logic_in_handler(Logic_in * const in);
 	}
 #endif
 
-#endif	/* __LOGIC_IN_H */
+#endif	/* LOGIC_IN_H__ */
 /****************************************************************/

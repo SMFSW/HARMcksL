@@ -5,7 +5,7 @@
 ** \warning Of course, these blocking delays are not designed to be used in an RTOS environment where they wouldn't work properly.
 ** \warning M0/M0+ cores doesn't have core debug trace peripheral, delay shall be generated using a dedicated TIM peripheral.
 ** \note With cores other than M0/M0+, core debug trace timer is used by default.
-** \note In case of M0/M0+ core or willing to use a TIM peripheral on purpose, DELAY_TIM_INST symbol has to be defined with proper TIM instance at project level.
+** \note In case of M0/M0+ core or willing to use a TIM peripheral on purpose, \c DELAY_TIM_INST symbol has to be defined with proper TIM instance at project level.
 **/
 /****************************************************************/
 #include "sarmfsw.h"

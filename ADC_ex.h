@@ -13,12 +13,12 @@
 ** 				- Continuous conversion is optional (if disabled, user has to start conversions manually when needed)
 ** 				- DMA continuous request when available
 ** 				- Interrupt generated at end of conversion
-** \note Define USE_ADC_EX symbol at project level to use ADC_ex functionalities
-** \note Configuration done calling ADC_cfg.h file
+** \note Define \c USE_ADC_EX symbol at project level to use ADC_ex functionalities
+** \note Configuration done including ADC_cfg.h file
 **/
 /****************************************************************/
-#ifndef __ADC_EX_H
-	#define	__ADC_EX_H
+#ifndef ADC_EX_H__
+	#define	ADC_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -60,7 +60,7 @@
 
 #define	DefRangeADC		(LSHIFT(1U, ADC_RESOLUTION) - 1)		//!< ADC digital range
 
-#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000))	//!< Step value (in mV) following given \b v
+#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000))	//!< Step value (in mV) following given \p mv
 
 
 /*!\enum eADCidx
@@ -133,7 +133,7 @@ FctERR ADC_Stop(void);
 	}
 #endif
 
-#endif	/* defined(HAL_ADC_MODULE_ENABLED) */
-#endif /* __ADC_EX_H */
+#endif /* defined(HAL_ADC_MODULE_ENABLED) */
+#endif /* ADC_EX_H__ */
 /****************************************************************/
 

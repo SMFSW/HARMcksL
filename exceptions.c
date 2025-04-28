@@ -23,48 +23,51 @@ static void NONNULL__ print_exception_stack(const uint32_t stack[])
 {
 	enum { r0, r1, r2, r3, r12, lr, pc, psr };
 
-	printf("stack addr = %p\r\n", stack);
-	printf("r0  = 0x%08lx\r\n", stack[r0]);
-	printf("r1  = 0x%08lx\r\n", stack[r1]);
-	printf("r2  = 0x%08lx\r\n", stack[r2]);
-	printf("r3  = 0x%08lx\r\n", stack[r3]);
-	printf("r12 = 0x%08lx\r\n", stack[r12]);
-	printf("lr  = 0x%08lx\r\n", stack[lr]);
-	printf("pc  = 0x%08lx\r\n", stack[pc]);
-	printf("psr = 0x%08lx\r\n", stack[psr]);
+	UNUSED_RET printf("stack addr = %p\r\n", stack);
+	UNUSED_RET printf("r0  = %#08lx\r\n", stack[r0]);
+	UNUSED_RET printf("r1  = %#08lx\r\n", stack[r1]);
+	UNUSED_RET printf("r2  = %#08lx\r\n", stack[r2]);
+	UNUSED_RET printf("r3  = %#08lx\r\n", stack[r3]);
+	UNUSED_RET printf("r12 = %#08lx\r\n", stack[r12]);
+	UNUSED_RET printf("lr  = %#08lx\r\n", stack[lr]);
+	UNUSED_RET printf("pc  = %#08lx\r\n", stack[pc]);
+	UNUSED_RET printf("psr = %#08lx\r\n", stack[psr]);
 }
 
 
 void NONNULL__ HardFault_Handler_callback(const uint32_t stack[])
 {
-	printf("Hard Fault handler\t");
+	UNUSED_RET printf("Hard Fault handler\t");
 
 	#if defined(__CORTEX_M)
 		#if (__CORTEX_M == 4U) || (__CORTEX_M == 7U)
-			printf("SCB->HFSR = 0x%08lx\r\n", SCB->HFSR);
+			UNUSED_RET printf("SCB->HFSR = %#08lx\r\n", SCB->HFSR);
 
-			if ((SCB->HFSR & (1 << 30)) != 0)
+			if ((SCB->HFSR & (1UL << 30U)) != 0U)
 			{
 				uint32_t CFSRValue = SCB->CFSR;
 
-				printf("Hard Fault\t");
-				printf("SCB->CFSR = 0x%08lx\r\n", CFSRValue);
-				if ((SCB->CFSR & 0xFFFF0000) != 0)
+				UNUSED_RET printf("Hard Fault\t");
+				UNUSED_RET printf("SCB->CFSR = %#08lx\r\n", CFSRValue);
+				if ((SCB->CFSR & 0xFFFF0000UL) != 0U)
 				{
-					printf("Usage fault: ");
-					CFSRValue >>= 16;	// right shift to lsb
-					if((CFSRValue & (1 << 9)) != 0) { printf("Zero div\r\n"); }
+					UNUSED_RET printf("Usage fault: ");
+					CFSRValue >>= 16U;	// right shift to lsb
+					if((CFSRValue & (1UL << 9U)) != 0U)
+					{
+						UNUSED_RET printf("Zero div\r\n");
+					}
 				}
 
-				if ((SCB->CFSR & 0xFF00) != 0)
+				if ((SCB->CFSR & 0xFF00UL) != 0U)
 				{
 					CFSRValue = ((CFSRValue & 0x0000FF00) >> 8); // mask and shift
-					printf("Bus fault: 0x%02lx\r\n", CFSRValue);
+					UNUSED_RET printf("Bus fault: %#02lx\r\n", CFSRValue);
 				}
 
-				if ((SCB->CFSR & 0xFF) != 0) {
-					CFSRValue &= 0x000000FF; // mask other faults
-					printf("Memory Management fault: 0x%02lx\r\n", CFSRValue);
+				if ((SCB->CFSR & 0xFFUL) != 0U) {
+					CFSRValue &= 0x000000FFUL; // mask other faults
+					UNUSED_RET printf("Memory Management fault: %#02lx\r\n", CFSRValue);
 				}
 			}
 		#endif
@@ -80,7 +83,7 @@ void NONNULL__ HardFault_Handler_callback(const uint32_t stack[])
 void NONNULL__ Error_Handler_callback(const uint32_t stack[])
 {
 	// TODO: maybe pass by another asm code to retrieve HAL error code if not in stack
-	printf("Error handler\r\n");
+	UNUSED_RET printf("Error handler\r\n");
 	print_exception_stack(stack);
 
 //	__BKPT(01);

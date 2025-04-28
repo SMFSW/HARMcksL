@@ -15,15 +15,19 @@
 
 HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t duty, const uint32_t scale)
 {
+	HAL_StatusTypeDef st = HAL_ERROR;
 	uint32_t tmp;
 
-	if (!scale)			{ return HAL_ERROR; }	// Avoid div by 0
+	if (scale != 0U)	// Avoid div by 0
+	{
+		if (duty >= scale)		{ tmp = pTim->Instance->ARR + 1U; }	// +1 To achieve real 100% duty cycle
+		else if (duty == 0U)	{ tmp = 0U; }
+		else					{ tmp = ((uint64_t) duty * pTim->Instance->ARR) / scale; }
 
-	if (duty >= scale)	{ tmp = pTim->Instance->ARR + 1; }	// +1 To achieve real 100% duty cycle
-	else if (duty == 0)	{ tmp = 0; }
-	else				{ tmp = ((uint64_t) duty * pTim->Instance->ARR) / scale; }
+		st = write_TIM_CCR(pTim, chan, tmp);
+	}
 
-	return write_TIM_CCR(pTim, chan, tmp);
+	return st;
 }
 
 
@@ -33,30 +37,31 @@ HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const 
 
 	if (st == HAL_OK)
 	{
-		unsigned int i, end;
+		uintCPU_t i;
+		uintCPU_t end;
 
 		if (chan == TIM_CHANNEL_ALL)
 		{
-			i = 0;
-			end = 6;	// 6 channels max on bigger MCUs
+			i = 0U;
+			end = 6UL;	// 6 channels max on bigger MCUs
 		}
 		else
 		{
-			i = chan >> 2;
-			end = i + 1;
+			i = chan >> 2UL;
+			end = i + 1UL;
 		}
 
 		for ( ; i < end ; i++)
 		{
-			const uint32_t channel = i << 2;
-			if ((st) || (IS_TIM_CCX_INSTANCE(pTim->Instance, channel) == 0))	// Channel does not exist on TIM
+			const uint32_t channel = i << 2UL;
+			if ((st) || (IS_TIM_CCX_INSTANCE(pTim->Instance, channel) == 0U))	// Channel does not exist on TIM
 			{
 				if (chan != TIM_CHANNEL_ALL)	{ st = HAL_ERROR; }				// set HAL_ERROR only for specified channel
 				break;
 			}
 
 			st = write_TIM_Preload(pTim, channel);
-			st |= write_TIM_CCR(pTim, channel, (start_polarity == On) ? pTim->Instance->ARR + 1 : 0);
+			st |= write_TIM_CCR(pTim, channel, (start_polarity == On) ? (pTim->Instance->ARR + 1UL) : 0UL);
 			st |= set_PWM_Output(pTim, channel, true);
 		}
 	}

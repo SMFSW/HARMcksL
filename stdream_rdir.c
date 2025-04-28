@@ -2,9 +2,9 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Stream redirection
-** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
-** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
-** \warning By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when
+** \note define \c ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
+** \note define \c UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
+** \warning By default when using syscalls, \c stdout stream is buffered, meaning that output will only be processed when
 **			'\\n' (new line) character is sent to buffer. To override this behavior, \ref stdout_no_buffer has to be called once
 **			in init routine to disable buffering, thus processing characters as they come.
 */
@@ -59,12 +59,15 @@ int __io_putchar(int ch)
 **/
 int _write(int file, char * ptr, int len)
 {
+	UNUSED(file);
+	UNUSED(ptr);
+
 	#if defined(ITM) && defined(ITM_REDIRECT)
 	ITM_port_send(ptr, len, 0);
 	#endif
 
 	#if defined(HAL_UART_MODULE_ENABLED) && defined(UART_REDIRECT)
-	if (UART_Term_Send(dbg_uart, ptr, len))	{ return -1; }
+	if (UART_Term_Send(dbg_uart, ptr, len) != ERROR_OK)	{ return -1; }
 	#endif
 
 //	for (int DataIdx = 0 ; DataIdx < len ; DataIdx++)
@@ -133,7 +136,7 @@ void NONNULL__ ITM_port_send(char * str, const size_t len, const int port)
 {
 	for (char * pStr = str ; pStr < &str[len] ; pStr++)
 	{
-		while (ITM->PORT[port].u32 == 0);	// Wait for port to be ready
+		while (ITM->PORT[port].u32 == 0UL);	// Wait for port to be ready
 		ITM->PORT[port].u8 = *pStr;
 	}
 }

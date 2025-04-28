@@ -2,13 +2,13 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Logic output handling
-** \note Define LOGIC_OUT_IT symbol at project level to use Logic_out from timer interrupts (for more timing precision if required)
-** \note When using Logic_out from interrupts, LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
-** \warning Logic_out & GPIO_out shares interrupt behavior, thus needs to be implemented the same way (it or loop) if both are used at the same time
+** \note Define \c LOGIC_OUT_IT symbol at project level to use \ref Logic_out from timer interrupts (for more timing precision if required)
+** \note When using \ref Logic_out from interrupts, \c LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
+** \warning \ref Logic_out & \ref GPIO_out shares interrupt behavior, thus needs to be implemented the same way (it or loop) if both are used at the same time
 **/
 /****************************************************************/
-#ifndef __LOGIC_OUT_H
-	#define __LOGIC_OUT_H
+#ifndef LOGIC_OUT_H__
+	#define LOGIC_OUT_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -20,7 +20,7 @@
 
 #if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
 #if !defined(LOGIC_OUT_IT_PER) && !defined(GPIO_OUT_IT_PER)
-#define LOGIC_OUT_IT_PER	1000	//!< LOGIC_OUT_IT_PER can be used to define TIM interrupt period in microseconds
+#define LOGIC_OUT_IT_PER	1000UL	//!< LOGIC_OUT_IT_PER can be used to define TIM interrupt period in microseconds
 //!\note Define LOGIC_OUT_IT_PER at project level to define custom TIM interrupt period (default set to 1000µs (most likely Systick))
 #elif defined(GPIO_OUT_IT_PER)
 #define LOGIC_OUT_IT_PER	GPIO_OUT_IT_PER
@@ -35,7 +35,7 @@
 ** \brief Activation state On, Off
 **/
 typedef enum eLogic_out_mode {
-	outStatic = 0,	//!< Static mode
+	outStatic = 0U,	//!< Static mode
 	outPulse,		//!< Pulse mode (mono-stable)
 	outBlink,		//!< Blink mode (bi-stable)
 } eLogic_out_mode;
@@ -54,11 +54,11 @@ typedef struct Logic_out {
 	uint32_t			timeInactive;													//!< Inactive time (used for Pulse and Blink)
 	uint32_t			hOut;															//!< Start time of the current phase
 	eGPIOState			action;															//!< Action to perform
-	bool				infinite	:1;													//!< Infinite blinking (only if count received is 0 when starting Blink action)
-	bool				start		:1;													//!< Action start step
-	bool				active		:1;													//!< Pulse/Blink active phase
-	bool				init		:1;													//!< Set to 1 when GPIO_out instance properly initialized
-	__IOM bool			idle		:1;													//!< Action state (idle / running)
+	uintCPU_t			infinite	:1;													//!< Infinite blinking (only if count received is 0 when starting Blink action)
+	uintCPU_t			start		:1;													//!< Action start step
+	uintCPU_t			active		:1;													//!< Pulse/Blink active phase
+	uintCPU_t			init		:1;													//!< Set to 1 when GPIO_out instance properly initialized
+	__IOM uintCPU_t		idle		:1;													//!< Action state (idle / running)
 	struct {
 	void				(*set)(const struct Logic_out * const, const GPIO_PinState);	//!< Setter function
 	void *				LOGx;															//!< Logic output address
@@ -76,7 +76,7 @@ typedef struct Logic_out {
 ** \return Pin state
 **/
 __INLINE eGPIOState NONNULL_INLINE__ get_Logic_out_State(const Logic_out * const out) {
-	return out->currentState; }
+	return (eGPIOState) out->currentState; }
 
 
 /*!\brief Get Logic_out current mode
@@ -100,7 +100,7 @@ __INLINE bool NONNULL_INLINE__ get_Logic_out_Idle(const Logic_out * const out) {
 ** \param[in] setter - Logic_out setter function pointer (may be NULL: default behavior for handling RAM variable at address \b addr)
 ** \param[in] addr - Variable address to write to (pointer to unsigned 32b, may be NULL if setter handles everything)
 ** \param[in] pos - Bit position in variable (may be unused if setter function is used)
-** \param[in] polarity - set to \ref GPIO_PIN_RESET if active state is low, \ref GPIO_PIN_SET if high
+** \param[in] polarity - set to \c GPIO_PIN_RESET if active state is low, \c GPIO_PIN_SET if high
 ** \return FctERR - Error code
 **/
 FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out, void (*setter)(const Logic_out * const, const GPIO_PinState),
@@ -185,5 +185,5 @@ void NONNULL__ Logic_out_handler(Logic_out * const out);
 	}
 #endif
 
-#endif	/* __LOGIC_OUT_H */
+#endif	/* LOGIC_OUT_H__ */
 /****************************************************************/

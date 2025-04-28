@@ -4,8 +4,8 @@
 ** \brief Time related utilities
 **/
 /****************************************************************/
-#ifndef __TIME_UTILS_H
-	#define __TIME_UTILS_H
+#ifndef TIME_UTILS_H__
+	#define TIME_UTILS_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -86,14 +86,15 @@ const char * Get_Month_str(const eMonths month);
 ** \param[in] day - Day of the given date (1 to 31)
 ** \return true if leap year / false otherwise
 **/
-eWeekdays Get_Weekday(uint16_t year, uint8_t month, uint8_t day);
+eWeekdays Get_Weekday(const uint16_t year, const uint8_t month, const uint8_t day);
 
 /*!\brief Determine if given year is leap
 ** \param[in] year - Year to test
 ** \return true if leap year / false otherwise
 **/
 __INLINE bool is_LeapYear(const uint32_t year) {
-	return (bool) (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)); }
+	return (bool)	(	(((year % 4U) == 0U) && ((year % 100U) != 0U))
+					 ||	((year % 400U) == 0U) ); }
 
 
 /*!\brief Convert time_t to DateTime
@@ -121,5 +122,5 @@ DateTime NONNULL__ diffDateTime(const DateTime * const time2, const DateTime * c
 	}
 #endif
 
-#endif	/* __TIME_UTILS_H */
+#endif	/* TIME_UTILS_H__ */
 /****************************************************************/

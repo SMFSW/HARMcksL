@@ -4,8 +4,8 @@
 ** \brief Debug tool and helpers
 **/
 /****************************************************************/
-#ifndef __EXCEPTIONS_H
-	#define __EXCEPTIONS_H
+#ifndef EXCEPTIONS_H__
+	#define EXCEPTIONS_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -19,12 +19,12 @@
 // Section: Interface Routines
 // *****************************************************************************
 #if defined(STM32G0)
-//! \note The exception_Handler should be called with corresponding exception name \b e as parameter
+//! \note The exception_Handler should be called with corresponding exception name \p e as parameter
 #define exception_Handler(e)					\
 	__ASM (	"mrs r0, MSP \r\n"					\
 			"bl " #e "_Handler_callback \r\n");	//!< Exception handler asm caller
 #else
-//! \note The exception_Handler should be called with corresponding exception name \b e as parameter
+//! \note The exception_Handler should be called with corresponding exception name \p e as parameter
 #define exception_Handler(e)					\
 	__ASM (	"tst lr, #4 \r\n"					\
 			"ite EQ \r\n"						\
@@ -69,5 +69,5 @@ eResetSource Get_Reset_Source(void);
 	}
 #endif
 
-#endif	/* __EXCEPTIONS_H */
+#endif	/* EXCEPTIONS_H__ */
 /****************************************************************/

@@ -4,8 +4,8 @@
 ** \brief Basic RTC handling
 **/
 /****************************************************************/
-#ifndef __RTC_EX_H
-	#define __RTC_EX_H
+#ifndef RTC_EX_H__
+	#define RTC_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -37,5 +37,5 @@ FctERR NONNULL__ RTC_GetTime(DateTime * const time_now);
 #endif
 
 #endif	/* defined(HAL_RTC_MODULE_ENABLED) */
-#endif	/* __RTC_EX_H */
+#endif	/* RTC_EX_H__ */
 /****************************************************************/

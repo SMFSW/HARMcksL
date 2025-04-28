@@ -2,12 +2,12 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief GPIO PWM emulation handling
-** \details PWM_GPIO configuration:
+** \details \ref PWM_GPIO configuration:
 ** TIM with enabled period callback interrupt shall be used (as time base for PWM emulation)
 **/
 /****************************************************************/
-#ifndef __PWM_GPIO_H
-	#define __PWM_GPIO_H
+#ifndef PWM_GPIO_H__
+	#define PWM_GPIO_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -83,7 +83,7 @@ __INLINE uint16_t NONNULL__ PWM_GPIO_getFreq(const PWM_GPIO * const pPWM) {
 ** \return PWM Duty cycle
 **/
 __INLINE uint16_t NONNULL__ PWM_GPIO_getDutyCycle(const PWM_GPIO * const pPWM) {
-	return ((pPWM->cfg.duty * 100) / pPWM->cfg.per); }
+	return ((pPWM->cfg.duty * 100U) / pPWM->cfg.per); }
 
 /*!\brief Handler for an emulated PWM channel
 ** \warning Shall be called directly from timer interrupt (HAL_TIM_PeriodElapsedCallback)
@@ -98,5 +98,5 @@ void NONNULL__ PWM_GPIO_handler(PWM_GPIO * const pPWM);
 #endif
 
 #endif	/* defined(HAL_TIM_MODULE_ENABLED) && defined(HAL_GPIO_MODULE_ENABLED) */
-#endif	/* __PWM_GPIO_H */
+#endif	/* PWM_GPIO_H__ */
 /****************************************************************/

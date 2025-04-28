@@ -2,7 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief PWM Input Capture handling
-** \details PWM_In configuration:
+** \details \ref PWM_IC input configuration:
 ** TIM with multiple channels with slave mode capability shall be used
 **
 ** Slave Mode: Reset Mode
@@ -24,19 +24,19 @@
 **
 ** NVIC configuration: Enable interrupt(s) if PWM_IC_NO_IT is not defined at project level
 **
-** \note Define NB_PWM_IC symbol with number of inputs at project level to use PWM_IC functionalities
-** \note Define PWM_IC_NO_IT symbol at project level to disable TIM interrupts driven capture
+** \note Define \c NB_PWM_IC symbol with number of inputs at project level to use \ref PWM_IC functionalities
+** \note Define \c PWM_IC_NO_IT symbol at project level to disable TIM interrupts driven capture
 ** \warning Input Capture limitation:
 ** 			- Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.
 ** 			- Continuous signal (pin held low or high) is detected automatically after timeout:
 ** 				- automatically when using interrupts driven PWM input capture
 ** 				- by calling \ref PWM_IC_get_Pin_State_Callback without interrupts
 ** 			- !!Please note there can be up to 1 second with startup timeout during which low to high continuous signal may be misinterpreted before retrieving values!!
-** 			- If PWM signal to capture can never become continuous, it may save some time of servicing interrupts to disable them (with PWM_IC_NO_IT symbol)
+** 			- If PWM signal to capture can never become continuous, it may save some time of servicing interrupts to disable them (with \c PWM_IC_NO_IT symbol)
 **/
 /****************************************************************/
-#ifndef __PWM_IC_H
-	#define __PWM_IC_H
+#ifndef PWM_IC_H__
+	#define PWM_IC_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -129,5 +129,5 @@ void PWM_IC_handler(void);
 #endif
 
 #endif	/* defined(HAL_TIM_MODULE_ENABLED) */
-#endif	/* __PWM_IC_H */
+#endif	/* PWM_IC_H__ */
 /****************************************************************/

@@ -2,15 +2,15 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Stream redirection
-** \note define ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
-** \note define UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
-** \warning By default when using syscalls, stdout stream is buffered, meaning that output will only be processed when
+** \note define \c ITM_REDIRECT in compiler defines for stings to be printed to ITM0 port
+** \note define \c UART_REDIRECT and DBG_SERIAL in compiler defines with an UART instance to send printf likes strings to UART
+** \warning By default when using syscalls, \c stdout stream is buffered, meaning that output will only be processed when
 **			'\\n' (new line) character is sent to buffer. To override this behavior, \ref stdout_no_buffer has to be called once
 **			in init routine to disable buffering, thus processing characters as they come.
 */
 /****************************************************************/
-#ifndef __STDREAM_RDIR_H
-	#define __STDREAM_RDIR_H
+#ifndef STDREAM_RDIR_H__
+	#define STDREAM_RDIR_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -23,13 +23,13 @@
 
 
 #ifndef STDREAM_RDIR_SND_SYSCALLS
-//!\note STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscalls implementation preferred, shadowing being deprecated)
-//!\note Define USE_IO_PUTCHAR at project level also for __io_putchar implementation instead of full _write implementation (from syscalls)
+//!\note \c STDREAM_RDIR_SND_SYSCALLS can be defined at project level to define redirection behavior (syscalls implementation preferred, shadowing being deprecated)
+//!\note Define \c USE_IO_PUTCHAR at project level also for \c __io_putchar implementation instead of full \c _write implementation (from syscalls)
 #define STDREAM_RDIR_SND_SYSCALLS	1
 #endif
 
 #ifndef STDREAM_RDIR_RCV_SYSCALLS
-//!\note STDREAM_RDIR_RCV_SYSCALLS can be defined at project level to define redirection behavior
+//!\note \c STDREAM_RDIR_RCV_SYSCALLS can be defined at project level to define redirection behavior
 #define STDREAM_RDIR_RCV_SYSCALLS	0
 #endif
 
@@ -40,22 +40,22 @@
 #if !STDREAM_RDIR_SND_SYSCALLS
 #include <stdarg.h>
 
-#define	printf		printf_redir	//!< Shadowing printf
-#define	vprintf		vprintf_redir	//!< Shadowing vprintf
+#define	printf		printf_redir	//!< Shadowing \c printf
+#define	vprintf		vprintf_redir	//!< Shadowing \c vprintf
 
 #ifndef SZ_DBG_OUT
-//!\note SZ_DBG_OUT can be defined at project level to define debug transmit buffer size (for ITM and/or if STDREAM_RDIR_SND_SYSCALLS is not used)
-#define	SZ_DBG_OUT	128				//!< DEBUG send buffer size
+//!\note \c SZ_DBG_OUT can be defined at project level to define debug transmit buffer size (for ITM and/or if \c STDREAM_RDIR_SND_SYSCALLS is not used)
+#define	SZ_DBG_OUT	128U			//!< DEBUG send buffer size
 #endif
 
 #else
 
 /*!\brief Change stdout buffer state to no buffering, allowing to send any char written to stream on the fly.
 ** \note If this inline is not called once, strings will be written to stream only when '\\n' (new line) is written to buffer.
-** \note Please keep in mind that disabling buffering will call _write once for every character vs once for every buffered line when buffering is enabled.
+** \note Please keep in mind that disabling buffering will call \c _write once for every character vs once for every buffered line when buffering is enabled.
 **/
 __INLINE void INLINE__ stdout_no_buffer(void) {
-	setvbuf(stdout, NULL, _IONBF, 0); }
+	UNUSED_RET setvbuf(stdout, NULL, _IONBF, 0U); }
 
 #endif
 
@@ -118,5 +118,5 @@ int	NONNULL__ vprintf_redir(char * str, va_list args);
 	}
 #endif
 
-#endif	/* __STDREAM_RDIR_H */
+#endif	/* STDREAM_RDIR_H__ */
 /****************************************************************/

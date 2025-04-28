@@ -4,8 +4,8 @@
 ** \brief (A little less pseudo) random numbers generation utilities
 **/
 /****************************************************************/
-#ifndef __RANDOM_UTILS_H
-	#define __RANDOM_UTILS_H
+#ifndef RANDOM_UTILS_H__
+	#define RANDOM_UTILS_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -28,5 +28,5 @@ uint32_t random_Get(const uint32_t start);
 	}
 #endif
 
-#endif	/* __RANDOM_UTILS_H */
+#endif /* RANDOM_UTILS_H__ */
 /****************************************************************/

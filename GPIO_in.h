@@ -4,8 +4,8 @@
 ** \brief GPIO input handling
 **/
 /****************************************************************/
-#ifndef __GPIO_IN_H
-	#define __GPIO_IN_H
+#ifndef GPIO_IN_H__
+	#define GPIO_IN_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -47,7 +47,7 @@ __INLINE eEdge NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
 ** \param[in,out] in - GPIO_in instance to initialize
 ** \param[in] GPIOx - port to read from
 ** \param[in] GPIO_Pin - pin to read from
-** \param[in] polarity - set to \ref GPIO_PIN_RESET if active state is GND, \ref GPIO_PIN_SET if Vdd
+** \param[in] polarity - set to \c GPIO_PIN_RESET if active state is GND, \c GPIO_PIN_SET if Vdd
 ** \param[in] filter - input filtering time
 ** \param[in] onSet - Pointer to callback ON function
 ** \param[in] onReset - Pointer to callback OFF function
@@ -71,5 +71,5 @@ __INLINE void NONNULL_INLINE__ GPIO_in_handler(GPIO_in * const in) {
 #endif
 
 #endif	/* defined(HAL_GPIO_MODULE_ENABLED) */
-#endif	/* __GPIO_IN_H */
+#endif	/* GPIO_IN_H__ */
 /****************************************************************/

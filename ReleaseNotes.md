@@ -22,7 +22,9 @@ SOFTWARE.
 
 ## v1.6
 
+* Partial MISRA C2012 compliance
 * Doxygen comments review and fixes
+* Fixing type extra checks & unused parameters warnings
 * UART_term: fix call to str_clr (now strclr)
 * Logic_in & GPIO_in: edge getters return type fix
 * PWM_IC: refactoring to catch continous signals (after some timeout) + enabling possibility to use without interrupts

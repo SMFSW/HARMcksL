@@ -5,8 +5,8 @@
 ** \note Simple PWM_GPIO.c example to handle Logic output acting as PWM (requiring a TIM instance with interrupts enabled)
 **/
 /****************************************************************/
-#ifndef __PWM_GPIO_EXAMPLE_H
-	#define	__PWM_GPIO_EXAMPLE_H
+#ifndef PWM_GPIO_EXAMPLE_H__
+	#define	PWM_GPIO_EXAMPLE_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -24,6 +24,6 @@ void PWM_GPIO_example_handler(void);
 	}
 #endif
 
-#endif /* __PWM_GPIO_EXAMPLE_H */
+#endif /* PWM_GPIO_EXAMPLE_H__ */
 /****************************************************************/
 

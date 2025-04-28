@@ -2,13 +2,13 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief UART terminal header
-** \note UART redirection is enabled when UART_REDIRECT symbol is defined at project level
-** \note define DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
+** \note UART redirection is enabled when \c UART_REDIRECT symbol is defined at project level
+** \note define \c DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
 ** \note It is recommended to have interrupts enabled for UART instance (and is required when reception is needed)
 */
 /****************************************************************/
-#ifndef __UART_TERM_H
-	#define __UART_TERM_H
+#ifndef UART_TERM_H__
+	#define UART_TERM_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -21,12 +21,12 @@
 /****************************************************************/
 
 #ifndef STDREAM__UART_TX_IT
-//!\note STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
+//!\note \c STDREAM__UART_TX_IT can be defined at project level to define if UART messages are sent in blocking/non blocking mode
 //!\warning Do not change this if intending to send messages inside interrupts!
 #define STDREAM__UART_TX_IT		0		//!< Set to send to uart not using interrupts
 #endif
 
-//! \note Default user breakout char set to '!' and '\\r' is built-in default breakout char
+//!\note Default user breakout char set to '!' and '\\r' is built-in default breakout char
 extern char breakout_char;				//!< breakout char (message complete)
 
 extern UART_HandleTypeDef * dbg_uart;	//!< UART debug terminal instance
@@ -80,7 +80,7 @@ FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart);
 ** \param[in] huart - UART handle
 ** \return FctERR - Error code
 **/
-FctERR NONNULL__ UART_Term_Flush_RxBuf(UART_HandleTypeDef * const huart);
+FctERR NONNULL__ UART_Term_Flush_RxBuf(const UART_HandleTypeDef * const huart);
 
 /*!\brief Sends string to UART
 ** \param[in] huart - UART handle
@@ -126,5 +126,5 @@ void UART_Term_TxCpltCallback(UART_HandleTypeDef * const huart);
 
 #endif	/* defined(HAL_UART_MODULE_ENABLED) */
 #endif	/* defined(UART_REDIRECT) */
-#endif	/* __UART_TERM_H */
+#endif	/* UART_TERM_H__ */
 /****************************************************************/

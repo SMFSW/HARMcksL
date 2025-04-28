@@ -5,8 +5,8 @@
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 **/
 /****************************************************************/
-#ifndef __PWM_H
-	#define __PWM_H
+#ifndef PWM_H__
+	#define PWM_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -84,5 +84,5 @@ __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_PWM_Duty_Perc(const TIM_HandleTy
 #endif
 
 #endif	/* defined(HAL_TIM_MODULE_ENABLED) */
-#endif	/* __PWM_H */
+#endif	/* PWM_H__ */
 /****************************************************************/

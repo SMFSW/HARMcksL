@@ -2,7 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief GPIO PWM emulation handling
-** \details PWM_GPIO configuration:
+** \details \ref PWM_GPIO configuration:
 ** TIM with enabled period callback interrupt shall be used (as time base for PWM emulation)
 **/
 /****************************************************************/
@@ -37,15 +37,15 @@ FctERR NONNULL__ PWM_GPIO_setFreq(PWM_GPIO * const pPWM, TIM_HandleTypeDef * con
 
 	if ((pTim->Instance->DIER & TIM_IT_UPDATE) && (pTim->Instance->CR1 & TIM_CR1_CEN))
 	{	// Timer already started (try to set period according to already configured timer module)
-		tim_freq = RCC_TIMCLKFreq(pTim) / ((pTim->Init.Period + 1) * (pTim->Init.Prescaler + 1));
+		tim_freq = RCC_TIMCLKFreq(pTim) / ((pTim->Init.Period + 1UL) * (pTim->Init.Prescaler + 1UL));
 		if ((tim_freq / granularity) < freq)	{ return ERROR_VALUE; }
 		granularity = tim_freq / freq;
 	}
 	else
 	{
 		tim_freq = freq * granularity;
-		HAL_StatusTypeDef st = init_TIM_Base(pTim, tim_freq);
-		if (st)	{ return HALERRtoFCTERR(st); }
+		const HAL_StatusTypeDef st = init_TIM_Base(pTim, tim_freq);
+		if (st != HAL_OK)	{ return HALERRtoFCTERR(st); }
 	}
 
 	diInterrupts();
@@ -63,8 +63,8 @@ FctERR NONNULL__ PWM_GPIO_setDuty(PWM_GPIO * const pPWM, const uint16_t val)
 	uint16_t duty;
 
 	if (val == (uint16_t) -1)	{ duty = pPWM->cfg.per; }
-	else if (val == 0)			{ duty = 0; }
-	else						{ duty = (uint16_t) max(0, ((((val + 1) * (pPWM->cfg.per)) / 65536) - 1)); }
+	else if (val == 0U)			{ duty = 0U; }
+	else						{ duty = (uint16_t) max(0U, ((((val + 1U) * (pPWM->cfg.per)) / 65536U) - 1U)); }
 
 	diInterrupts();
 	pPWM->cfg.duty = duty;
@@ -76,7 +76,7 @@ FctERR NONNULL__ PWM_GPIO_setDuty(PWM_GPIO * const pPWM, const uint16_t val)
 
 void NONNULL__ PWM_GPIO_handler(PWM_GPIO * const pPWM)
 {
-	if (pPWM->init && (pPWM->cfg.GPIOx))
+	if (pPWM->init && (pPWM->cfg.GPIOx != NULL))
 	{
 		if (!pPWM->cntr)					// period over
 		{
@@ -84,13 +84,22 @@ void NONNULL__ PWM_GPIO_handler(PWM_GPIO * const pPWM)
 			pPWM->duty = pPWM->cfg.duty;	// Load new duty cycle
 
 			// if duty has been reached (real 0-100% duty cycles)
-			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
-			else							HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);	// switch channel off
+			if (pPWM->cntr == pPWM->duty)
+			{
+				HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			}
+			else
+			{
+				HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_RESET : GPIO_PIN_SET);	// switch channel off
+			}
 		}
 		else
 		{
 			// if duty has been reached (duty cycle)
-			if (pPWM->cntr == pPWM->duty)	HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			if (pPWM->cntr == pPWM->duty)
+			{
+				HAL_GPIO_WritePin(pPWM->cfg.GPIOx, pPWM->cfg.GPIO_Pin, pPWM->cfg.polarity ? GPIO_PIN_SET : GPIO_PIN_RESET);	// switch channel on
+			}
 		}
 
 		pPWM->cntr--;	// decrease channel counter

@@ -4,8 +4,8 @@
 ** \brief Extensions for logic variables (R/W)
 **/
 /****************************************************************/
-#ifndef __LOGIC_EX_H
-	#define __LOGIC_EX_H
+#ifndef LOGIC_EX_H__
+	#define LOGIC_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -23,5 +23,5 @@
 	}
 #endif
 
-#endif	/* __LOGIC_EX_H */
+#endif	/* LOGIC_EX_H__ */
 /****************************************************************/

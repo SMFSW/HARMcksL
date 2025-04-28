@@ -4,11 +4,11 @@
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
 ** \warning Shall work for all STM32 F/G/H/L families only (yet)
-** \note TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
+** \note \c TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 **/
 /****************************************************************/
-#ifndef __TIM_EX_H
-	#define __TIM_EX_H
+#ifndef TIM_EX_H__
+	#define TIM_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -92,5 +92,5 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, co
 #endif
 
 #endif	/* defined(HAL_TIM_MODULE_ENABLED) */
-#endif	/* __TIM_EX_H */
+#endif	/* TIM_EX_H__ */
 /****************************************************************/

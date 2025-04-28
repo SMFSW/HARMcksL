@@ -4,18 +4,18 @@
 ** \brief Extensions for WDG peripherals
 ** \details This module is mostly meant for debug target purposes,
 **			giving the ability to call freeze/unfreeze watchdogs functions
-**			no matter the build target, watchdogs being unfrozen only when
+**			no matter the build target, watchdogs being un-frozen only when
 **			they were enabled in the first place.
 ** \warning Watchdogs cannot be frozen while code is running, freeze will on be relevant
 ** 			when execution is paused, thus no freezing possible for a time consuming operation.
-** 			Workaround is to save the watchdogs configurations, modify temporarily confiruation,
+** 			Workaround is to save the watchdogs configurations, modify temporarily configuration,
 ** 			then restore the configuration back, using \ref WDG_save_cfg & \ref WDG_restore_cfg.
-** \warning For this module to work properly, WDG_init_check have to be called once
+** \warning For this module to work properly, \ref WDG_init_check have to be called once
 **			at the end of your init routine prior to use freeze/unfreeze functions.
 **/
 /****************************************************************/
-#ifndef __WDG_EX_H
-	#define __WDG_EX_H
+#ifndef WDG_EX_H__
+	#define WDG_EX_H__
 
 #ifdef __cplusplus
 	extern "C" {
@@ -87,7 +87,7 @@ HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg,
 ** \return HAL Status
 **/
 __INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
-	return set_IWDG_Period_us(pIwdg, per * 1000); }
+	return set_IWDG_Period_us(pIwdg, per * 1000U); }
 
 /*!\brief Get IWDG period (in us)
 ** \param[in] pIwdg - Pointer to IWDG instance
@@ -100,7 +100,7 @@ uint32_t NONNULL__ get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg);
 ** \return Period (in ms)
 **/
 __INLINE uint32_t NONNULL__ get_IWDG_Period_ms(const IWDG_HandleTypeDef * const pIwdg) {
-	return (get_IWDG_Period_us(pIwdg) / 1000); }
+	return (get_IWDG_Period_us(pIwdg) / 1000U); }
 #endif
 
 
@@ -110,5 +110,5 @@ __INLINE uint32_t NONNULL__ get_IWDG_Period_ms(const IWDG_HandleTypeDef * const 
 #endif
 
 #endif	/* defined(HAL_IWDG_MODULE_ENABLED) || defined(HAL_WWDG_MODULE_ENABLED) */
-#endif	/* __WDG_EX_H */
+#endif	/* WDG_EX_H__ */
 /****************************************************************/

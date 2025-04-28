@@ -15,15 +15,15 @@
 #include "exceptions.h"
 /****************************************************************/
 
-static uint32_t random32;
-
 
 uint32_t random_Get(const uint32_t start)
 {
-	static bool			first_call = true;
-	const uint32_t *	pUID = (uint32_t *) UID_BASE;
-	const uint32_t		time = HALTicks();
-	uint32_t			UID[3];
+	static uint32_t			random32;
+	static bool				first_call = true;
+
+	const uint32_t * const	pUID = (uint32_t *) UID_BASE;
+	const uint32_t			time = HALTicks();
+	uint32_t				UID[3];
 
 	if (first_call)
 	{
@@ -31,14 +31,14 @@ uint32_t random_Get(const uint32_t start)
 		first_call = false;
 	}
 
-	memcpy(&UID, pUID, sizeof(UID));
+	UNUSED_RET memcpy(&UID, pUID, sizeof(UID));
 
 	/*** Some kind of tricky random algorithm using STM32 UID & HAL ticks ***/
 	// Enhancing randomness through time and calls
 	random32 += UID[0];
 	random32 ^= time;
-	random32 ^= UID[1] >> (time & 0x3);
-	random32 ^= UID[2] << (time & 0x1);
+	random32 ^= UID[1] >> (time & 0x3UL);
+	random32 ^= UID[2] << (time & 0x1UL);
 
 	// Enhancing randomness by changing seed & xor random result with previous one
 	srand(random32);

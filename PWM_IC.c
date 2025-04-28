@@ -2,7 +2,7 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief PWM Input Capture handling
-** \details PWM_In configuration:
+** \details \ref PWM_IC input configuration:
 ** TIM with multiple channels with slave mode capability shall be used
 **
 ** Slave Mode: Reset Mode
@@ -24,15 +24,15 @@
 **
 ** NVIC configuration: Enable interrupt(s) if PWM_IC_NO_IT is not defined at project level
 **
-** \note Define NB_PWM_IC symbol with number of inputs at project level to use PWM_IC functionalities
-** \note Define PWM_IC_NO_IT symbol at project level to disable TIM interrupts driven capture
+** \note Define \c NB_PWM_IC symbol with number of inputs at project level to use \ref PWM_IC functionalities
+** \note Define \c PWM_IC_NO_IT symbol at project level to disable TIM interrupts driven capture
 ** \warning Input Capture limitation:
 ** 			- Lower/Higher frequency/duty cycle measurable totally depends on TIM configuration and clocks used.
 ** 			- Continuous signal (pin held low or high) is detected automatically after timeout:
 ** 				- automatically when using interrupts driven PWM input capture
 ** 				- by calling \ref PWM_IC_get_Pin_State_Callback without interrupts
 ** 			- !!Please note there can be up to 1 second with startup timeout during which low to high continuous signal may be misinterpreted before retrieving values!!
-** 			- If PWM signal to capture can never become continuous, it may save some time of servicing interrupts to disable them (with PWM_IC_NO_IT symbol)
+** 			- If PWM signal to capture can never become continuous, it may save some time of servicing interrupts to disable them (with \c PWM_IC_NO_IT symbol)
 **/
 /****************************************************************/
 #include "sarmfsw.h"
@@ -124,7 +124,7 @@ FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const p
 	pPWM_IC->cfg.refCLK = RCC_TIMCLKFreq(pTim);	// Get TIM reference clock
 	pPWM_IC->cfg.Scale = Scale;
 
-	pPWM_IC->Timeout = 1000;
+	pPWM_IC->Timeout = 1000UL;
 	pPWM_IC->Last_Edge = PWM_IC_get_Edge_From_Pin(pPWM_IC);
 
 	// Start PWM pin input capture
@@ -154,16 +154,16 @@ static FctERR NONNULL__ PWM_IC_convert(PWM_IC * const pPWM_IC)
 		if (	/*(pPWM_IC->Direct_cnt)								// Avoid div by 0
 			&&*/(pPWM_IC->Direct_cnt >= pPWM_IC->Indirect_cnt))		// Valid values (PWM frequency is too low otherwise)
 		{
-			pPWM_IC->DutyCycle = ((pPWM_IC->Indirect_cnt * pPWM_IC->cfg.Scale) / pPWM_IC->Direct_cnt) + 1;	// Duty cycle computation
-			pPWM_IC->Frequency = pPWM_IC->cfg.refCLK / pPWM_IC->Direct_cnt;									// Frequency computation
+			pPWM_IC->DutyCycle = ((pPWM_IC->Indirect_cnt * pPWM_IC->cfg.Scale) / pPWM_IC->Direct_cnt) + 1UL;	// Duty cycle computation
+			pPWM_IC->Frequency = pPWM_IC->cfg.refCLK / pPWM_IC->Direct_cnt;										// Frequency computation
 
-			pPWM_IC->Timeout = max(1, (1000 * 100) / pPWM_IC->Frequency);	// Timeout set to a hundred times current period
+			pPWM_IC->Timeout = max(1UL, (1000UL * 100UL) / pPWM_IC->Frequency);	// Timeout set to a hundred times current period
 		}
 		else
 		{
 			// Unmeasurable PWM
-			pPWM_IC->Frequency = 0;
-			pPWM_IC->DutyCycle = 0;
+			pPWM_IC->Frequency = 0UL;
+			pPWM_IC->DutyCycle = 0UL;
 		}
 	}
 	else
@@ -172,8 +172,8 @@ static FctERR NONNULL__ PWM_IC_convert(PWM_IC * const pPWM_IC)
 		#if defined(PWM_IC_NO_IT)
 		pPWM_IC->Last_Edge = PWM_IC_get_Edge_From_Pin(pPWM_IC);
 		#endif
-		pPWM_IC->Frequency = 0;
-		pPWM_IC->DutyCycle = (pPWM_IC->Last_Edge == Rising) ? pPWM_IC->cfg.Scale : 0;
+		pPWM_IC->Frequency = 0UL;
+		pPWM_IC->DutyCycle = (pPWM_IC->Last_Edge == Rising) ? pPWM_IC->cfg.Scale : 0UL;
 	}
 
 	return ERROR_OK;
@@ -183,14 +183,14 @@ static FctERR NONNULL__ PWM_IC_convert(PWM_IC * const pPWM_IC)
 uint32_t NONNULL__ get_PWM_IC_Freq(PWM_IC * const pPWM_IC)
 {
 	FctERR err = PWM_IC_convert(pPWM_IC);
-	return err ? 0 : pPWM_IC->Frequency;
+	return err ? 0UL : pPWM_IC->Frequency;
 }
 
 
 uint32_t NONNULL__ get_PWM_IC_DutyCycle(PWM_IC * const pPWM_IC)
 {
 	FctERR err = PWM_IC_convert(pPWM_IC);
-	return err ? 0 : pPWM_IC->DutyCycle;
+	return err ? 0UL : pPWM_IC->DutyCycle;
 }
 
 
@@ -222,7 +222,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)
 {
 	for (PWM_IC * pIC = PWMin ; pIC < &PWMin[NB_PWM_IC] ; pIC++)
 	{
-		if ((pIC->cfg.htim) && (htim == pIC->cfg.htim))
+		if ((pIC->cfg.htim != NULL) && (htim == pIC->cfg.htim))
 		{
 			if (htim->Channel == pIC->cfg.ActiveChan)
 			{
