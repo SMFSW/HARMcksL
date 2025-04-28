@@ -1,11 +1,12 @@
 <map id="Logic_out_update" name="Logic_out_update">
-<area shape="rect" id="Node000001" title="Set GPIO port value." alt="" coords="356,31,479,57"/>
+<area shape="rect" id="Node000001" title="Set GPIO port value." alt="" coords="356,43,479,69"/>
 <area shape="rect" id="Node000002" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="182,5,308,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,35,308,31,309,25,342,30"/>
-<area shape="rect" id="Node000004" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance." alt="" coords="194,56,296,83"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="341,58,296,65,296,59,341,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,42,308,35,309,30,342,37"/>
+<area shape="rect" id="Node000004" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance." alt="" coords="194,80,296,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="342,75,297,85,295,80,341,70"/>
 <area shape="rect" id="Node000003" href="$_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54" title="Handles GPIO_out treatment." alt="" coords="5,5,134,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="167,21,134,21,134,16,167,16"/>
-<area shape="rect" id="Node000005" href="$_g_p_i_o__out_8c.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance." alt="" coords="18,56,121,83"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,72,121,72,121,67,179,67"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="275,68,265,61,245,59,227,61,217,65,215,71,220,78,215,81,210,71,213,62,225,56,245,53,267,56,277,63"/>
+<area shape="rect" id="Node000005" href="$_g_p_i_o__out_8c.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance." alt="" coords="18,80,121,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,96,121,96,121,91,179,91"/>
 </map>

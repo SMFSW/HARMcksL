@@ -1,5 +1,7 @@
 <map id="GPIO_in_init" name="GPIO_in_init">
-<area shape="rect" id="Node000001" title="Initialize GPIO_in instance." alt="" coords="5,5,101,32"/>
-<area shape="rect" id="Node000002" href="$_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance." alt="" coords="149,5,242,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,16,134,16,134,21,101,21"/>
+<area shape="rect" id="Node000001" title="Initialize GPIO_in instance." alt="" coords="5,29,101,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="28,30,24,21,27,11,37,5,53,3,71,5,80,12,77,17,69,10,53,8,39,10,31,14,29,20,33,28"/>
+<area shape="rect" id="Node000002" href="$_logic__in_8c.html#aa9361fd26f67632d6ad32a1bddc2544d" title="Initialize Logic_in instance." alt="" coords="149,29,242,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="101,40,134,40,134,45,101,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="170,30,166,21,169,11,179,5,195,3,213,5,222,12,219,17,211,10,195,8,181,10,173,14,171,20,175,28"/>
 </map>

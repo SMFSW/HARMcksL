@@ -1,5 +1,6 @@
 <map id="Logic_out_init" name="Logic_out_init">
-<area shape="rect" id="Node000001" title="Initialize Logic_out instance." alt="" coords="157,5,258,32"/>
-<area shape="rect" id="Node000002" href="$_g_p_i_o__out_8c.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance." alt="" coords="5,5,109,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,21,109,21,109,16,142,16"/>
+<area shape="rect" id="Node000001" title="Initialize Logic_out instance." alt="" coords="157,29,258,56"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="233,17,224,10,207,8,192,10,184,14,182,20,186,28,181,30,177,21,180,11,190,5,207,3,226,5,236,12"/>
+<area shape="rect" id="Node000002" href="$_g_p_i_o__out_8c.html#afaae8bf33bc5e66720c1aaffd26d2813" title="Initialize GPIO_out instance." alt="" coords="5,29,109,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,45,109,45,109,40,142,40"/>
 </map>

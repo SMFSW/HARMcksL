@@ -16,14 +16,15 @@
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="607,269,533,300,498,311,496,306,531,295,605,264"/>
 <area shape="rect" id="Node000012" href="$_logic__out_8h.html#a90b84c9a9ac61d618db022a34123ed0d" title="Reset Logic_out." alt="" coords="357,360,531,387"/>
 <area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="628,273,587,312,534,350,507,362,505,357,531,346,584,308,625,269"/>
-<area shape="rect" id="Node000013" href="$_logic__out_8h.html#a01d3ec472cc68f0113f7cb84144693ea" title="Set Logic_out." alt="" coords="392,411,496,437"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="637,275,597,338,568,372,534,401,498,417,495,412,531,396,564,368,592,335,633,272"/>
-<area shape="rect" id="Node000014" href="$_logic__out_8h.html#a361a23f3d56cefe64adade1a8f7a6312" title="Set Logic_out." alt="" coords="365,461,524,488"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="643,275,628,314,605,362,574,410,534,451,514,463,512,458,531,447,570,407,601,359,623,312,638,273"/>
+<area shape="rect" id="Node000013" href="$_logic__out_8h.html#a01d3ec472cc68f0113f7cb84144693ea" title="Set Logic_out." alt="" coords="392,435,496,461"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="635,274,593,335,565,369,534,401,506,421,478,436,476,432,503,416,531,397,561,366,589,332,631,271"/>
+<area shape="rect" id="Node000014" href="$_logic__out_8h.html#a361a23f3d56cefe64adade1a8f7a6312" title="Set Logic_out." alt="" coords="365,485,524,512"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="644,275,631,319,609,373,577,428,557,453,534,475,515,487,512,483,531,471,553,450,573,425,604,371,626,317,639,274"/>
 <area shape="rect" id="Node000008" href="$_g_p_i_o__out_8h.html#a5a6eace32719e38a32b76db8b9e67521" title="Stop GPIO_out pulse/blink if running, or abort set if delay not reached." alt="" coords="186,233,304,260"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="371,265,304,257,304,251,372,260"/>
 <area shape="rect" id="Node000009" href="$_logic__out_8c.html#abd37ab5e1b082fa5ca9cb2b42707d3b5" title="Handles Logic_out treatment." alt="" coords="182,284,308,311"/>
 <area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="372,284,309,292,308,287,372,278"/>
 <area shape="rect" id="Node000010" href="$_g_p_i_o__out_8h.html#a85ce0e4e3988d3a446f454ad3e213c54" title="Handles GPIO_out treatment." alt="" coords="5,284,134,311"/>
 <area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="167,300,134,300,134,295,167,295"/>
+<area shape="poly" id="edge13_Node000013_Node000013" title=" " alt="" coords="479,423,467,416,444,413,423,415,412,420,410,425,415,433,410,436,404,426,408,416,422,410,444,408,469,411,481,418"/>
 </map>

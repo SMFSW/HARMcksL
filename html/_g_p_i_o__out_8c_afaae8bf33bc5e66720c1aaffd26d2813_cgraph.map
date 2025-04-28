@@ -1,7 +1,8 @@
 <map id="GPIO_out_init" name="GPIO_out_init">
-<area shape="rect" id="Node000001" title="Initialize GPIO_out instance." alt="" coords="5,5,109,32"/>
-<area shape="rect" id="Node000002" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance." alt="" coords="157,5,258,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,16,142,16,142,21,109,21"/>
-<area shape="rect" id="Node000003" href="$_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c" title="Set GPIO port value." alt="" coords="306,5,429,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="259,16,291,16,291,21,259,21"/>
+<area shape="rect" id="Node000001" title="Initialize GPIO_out instance." alt="" coords="5,29,109,56"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#a2fc81911cd89c25b58ea306d9443e6e8" title="Initialize Logic_out instance." alt="" coords="157,29,258,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,40,142,40,142,45,109,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="181,30,177,21,180,11,190,5,207,3,226,5,236,12,233,17,224,10,207,8,192,10,184,14,182,20,186,28"/>
+<area shape="rect" id="Node000003" href="$_logic__out_8c.html#a4634e3949bf97ea9bdf83a91e07de35c" title="Set GPIO port value." alt="" coords="306,29,429,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="259,40,291,40,291,45,259,45"/>
 </map>

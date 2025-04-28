@@ -1,7 +1,7 @@
 <map id="flash_crc_check" name="flash_crc_check">
 <area shape="rect" id="Node000001" title="Flash CRC check." alt="" coords="5,5,122,32"/>
-<area shape="rect" id="Node000002" href="$_c_r_c__stm32_8c.html#a7bb5f2eca301c014960367e1eb852358" title="CRC check." alt="" coords="170,5,251,32"/>
+<area shape="rect" id="Node000002" href="$_c_r_c__stm32_8c.html#a5dad0aa875026821ef61de33553bce47" title="CRC check." alt="" coords="170,5,251,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,16,155,16,155,21,122,21"/>
-<area shape="rect" id="Node000003" href="$_c_r_c__stm32_8c.html#a21e941446a703e4e3716ea6e58eca20c" title="CRC computation." alt="" coords="299,5,395,32"/>
+<area shape="rect" id="Node000003" href="$_c_r_c__stm32_8c.html#a16bd4fa9c4ec14bb2fcdce43f1dc0504" title="CRC computation." alt="" coords="299,5,395,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,16,284,16,284,21,252,21"/>
 </map>

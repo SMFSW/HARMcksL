@@ -1,6 +1,6 @@
 <map id="crc_compute" name="crc_compute">
 <area shape="rect" id="Node000001" title="CRC computation." alt="" coords="299,5,395,32"/>
-<area shape="rect" id="Node000002" href="$_c_r_c__stm32_8c.html#a7bb5f2eca301c014960367e1eb852358" title="CRC check." alt="" coords="170,5,251,32"/>
+<area shape="rect" id="Node000002" href="$_c_r_c__stm32_8c.html#a5dad0aa875026821ef61de33553bce47" title="CRC check." alt="" coords="170,5,251,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="284,21,251,21,251,16,284,16"/>
 <area shape="rect" id="Node000003" href="$flash__check_8c.html#aaf11be85677bd5d169e06171fe723188" title="Flash CRC check." alt="" coords="5,5,122,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="155,21,122,21,122,16,155,16"/>

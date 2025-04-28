@@ -1,6 +1,6 @@
 <map id="is_LeapYear" name="is_LeapYear">
 <area shape="rect" id="Node000001" title="Determine if given year is leap." alt="" coords="309,5,401,32"/>
-<area shape="rect" id="Node000002" href="$time__utils_8c.html#a224e8ef533edb58211b87fdbb94bedd7" title="Determine weekday for a given date." alt="" coords="158,5,261,32"/>
+<area shape="rect" id="Node000002" href="$time__utils_8c.html#a407bfd1440ec0967ef8542b3fc59a665" title="Determine weekday for a given date." alt="" coords="158,5,261,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,21,262,21,262,16,294,16"/>
 <area shape="rect" id="Node000003" href="$_r_t_c__ex_8c.html#a74c4760b34e3c4d256e085c6e5b5cf1b" title="Sends new time to RTC peripheral." alt="" coords="5,5,110,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="143,21,110,21,110,16,143,16"/>

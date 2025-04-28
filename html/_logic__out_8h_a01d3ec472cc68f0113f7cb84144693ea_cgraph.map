@@ -1,5 +1,6 @@
 <map id="Logic_out_Set" name="Logic_out_Set">
-<area shape="rect" id="Node000001" title="Set Logic_out." alt="" coords="5,5,110,32"/>
-<area shape="rect" id="Node000002" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="158,5,296,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,16,143,16,143,21,110,21"/>
+<area shape="rect" id="Node000001" title="Set Logic_out." alt="" coords="5,29,110,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="28,30,23,21,27,11,38,5,58,3,79,6,90,13,87,17,77,11,57,8,40,10,31,15,28,20,33,28"/>
+<area shape="rect" id="Node000002" href="$_logic__out_8c.html#afe428e7a33045f1cb12aa3d183547ed6" title="Set Logic_out state." alt="" coords="158,29,296,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="110,40,143,40,143,45,110,45"/>
 </map>

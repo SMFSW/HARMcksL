@@ -3,7 +3,7 @@ var searchData=
   ['a_0',['HARMcksL &lt;a href=&quot;https://travis-ci.com/SMFSW/HARMcksL&quot; &gt;&lt;img src=&quot;https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
   ['a_20href_20https_3a_20travis_20ci_20com_20smfsw_20harmcksl_20img_20src_20https_3a_20travis_20ci_20com_20smfsw_20harmcksl_20svg_20branch_20master_20alt_20build_20status_20a_1',['HARMcksL &lt;a href=&quot;https://travis-ci.com/SMFSW/HARMcksL&quot; &gt;&lt;img src=&quot;https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;',['../index.html',1,'']]],
   ['action_2',['action',['../struct_logic__out.html#ab874f6352cc0baeae2b58b7b81cdcd09',1,'Logic_out']]],
-  ['active_3',['active',['../struct_logic__out.html#a2a8c8275daf138322de25ce24a8f4f12',1,'Logic_out']]],
+  ['active_3',['active',['../struct_logic__out.html#a9455721458ab1994fe7942fec33d993c',1,'Logic_out']]],
   ['activechan_4',['ActiveChan',['../struct_p_w_m___i_c.html#a4ed58f0c65e69edb7295d1f1c2a23044',1,'PWM_IC']]],
   ['adc_5',['adc',['../struct_a_d_c___cfg.html#a43b797173cd44f569cd0a97ce265b1fa',1,'ADC_Cfg']]],
   ['adc_5fcfg_6',['ADC_Cfg',['../struct_a_d_c___cfg.html',1,'ADC_Cfg'],['../_a_d_c__ex_8h.html#a2323b35f7e21cad5a70e7ad7d207b15a',1,'ADC_Cfg:&#160;ADC_ex.h']]],

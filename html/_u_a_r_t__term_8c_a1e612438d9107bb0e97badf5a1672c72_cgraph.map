@@ -1,6 +1,6 @@
 <map id="UART_Term_Init" name="UART_Term_Init">
 <area shape="rect" id="Node000001" title="Initialize UART terminal." alt="" coords="5,31,124,57"/>
-<area shape="rect" id="Node000002" href="$_u_a_r_t__term_8c.html#ab6e78a2d96a561997f60c956caea90d0" title="Clear buffer in used for SERIAL DEBUG." alt="" coords="174,5,351,32"/>
+<area shape="rect" id="Node000002" href="$_u_a_r_t__term_8c.html#a1cec94016b423203366835bf2aab6c71" title="Clear buffer in used for SERIAL DEBUG." alt="" coords="174,5,351,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,34,159,29,160,35,124,39"/>
 <area shape="rect" id="Node000003" href="$_u_a_r_t__term_8c.html#a6a6564cc5a195ac544159ce70c8a9c7b" title="Start UART SERIAL DEBUG Rx interruptions." alt="" coords="172,56,353,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="124,49,157,53,156,58,124,54"/>
