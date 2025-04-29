@@ -1,4 +1,4 @@
-# HARMcksL [![Build Status](https://travis-ci.com/SMFSW/HARMcksL.svg?branch=master)](https://travis-ci.com/SMFSW/HARMcksL)
+# HARMcksL
 
 ARM HAL toolbox (STM32 HAL based)
 
