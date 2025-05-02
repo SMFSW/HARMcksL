@@ -1,5 +1,12 @@
 # HARMcksL
 
+[![CodeFactor](https://www.codefactor.io/repository/github/smfsw/harmcksl/badge)](https://www.codefactor.io/repository/github/smfsw/harmcksl)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/STM32_platform.json)
+
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/SMFSW_rws.json)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/SMFSW_fwwm.json)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/HARMcksL_custom_repo_badge.json)
+
 ARM HAL toolbox (STM32 HAL based)
 
 HARMcksL stands for:
