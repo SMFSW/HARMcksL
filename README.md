@@ -1,7 +1,14 @@
 # HARMcksL
 
+[![author](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/auth_SMFSW.json)](https://github.com/SMFSW)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/HARMcksL_status_badge.json)
+[![license](https://img.shields.io/badge/License-MIT-darkred.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/smfsw/harmcksl/badge)](https://www.codefactor.io/repository/github/smfsw/harmcksl)
-![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/STM32_platform.json)
+
+![platform](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/platform_STM32.json)
+
+[![doxy](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/tool_DOXY.json)](https://smfsw.github.io/HARMcksL)
+[![re_note](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/tool_RN.json)](ReleaseNotes.md)
 
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/SMFSW_rws.json)
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SMFSW/a9a2b2a02fda1b33461d53ddfe69d649/raw/SMFSW_fwwm.json)
@@ -17,6 +24,13 @@ HARMcksL stands for:
 
 ... coming to you bundled in one library.
 Use it at your own risk!
+
+## Requires
+
+The toolbox uses sarmfsw headers library
+
+- sarmfsw
+  - [sarmfsw](https://github.com/SMFSW/sarmfsw)
 
 ## Modules
 
@@ -51,19 +65,3 @@ Use it at your own risk!
 - WDG_ex: Extensions for WDG peripherals
 - workload: Workload estimation utilities
 
-## Requires
-
-The toolbox uses sarmfsw headers library
-
-- sarmfsw
-  - [sarmfsw](https://github.com/SMFSW/sarmfsw)
-
-## Documentation
-
-Doxygen doc can be generated using "Doxyfile"
-
-See [generated documentation](https://smfsw.github.io/HARMcksL/)
-
-## Release Notes
-
-See [release notes](ReleaseNotes.md)
