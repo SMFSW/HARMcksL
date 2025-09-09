@@ -2,16 +2,9 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Extensions for WDG peripherals
-** \details This module is mostly meant for debug target purposes,
-**			giving the ability to call freeze/unfreeze watchdogs functions
-**			no matter the build target, watchdogs being un-frozen only when
-**			they were enabled in the first place.
-** \warning Watchdogs cannot be frozen while code is running, freeze will on be relevant
-** 			when execution is paused, thus no freezing possible for a time consuming operation.
-** 			Workaround is to save the watchdogs configurations, modify temporarily configuration,
-** 			then restore the configuration back, using \ref WDG_save_cfg & \ref WDG_restore_cfg.
-** \warning For this module to work properly, \ref WDG_init_check have to be called once
-**			at the end of your init routine prior to use freeze/unfreeze functions.
+** \note For proper sync to use state related functionalities (get and update), you shall disable
+**		 call to \ref MX_IWDG_Init and/or \ref MX_WWDG_Init in HAL generated from ioc file,
+**		 \ref WDG_ex_Init have to be called instead at the end of your init routine.
 **/
 /****************************************************************/
 #ifndef WDG_EX_H__
@@ -33,43 +26,35 @@
 /*!\brief Get IWDG status
 ** \return IWDG enabled state
 **/
-bool WDG_get_state_IWDG(void);
+bool WDG_ex_get_IWDG_state(void);
 
 /*!\brief Get IWDG status
 ** \return WWDG enabled state
 **/
-bool WDG_get_state_WWDG(void);
-
-
-/*!\brief Check IWDG & WWDG status
-** \warning This function have to be called once at the end of your init routine prior to use \ref WDG_freeze & \ref WDG_unfreeze functions.
-**/
-void WDG_init_check(void);
+bool WDG_ex_get_WWDG_state(void);
 
 
 /*!\brief Refresh IWDG & WWDG
 **/
-void WDG_refresh(void);
+void WDG_ex_refresh_all(void);
 
-/*!\brief Freeze IWDG & WWDG
-** \note Watchdogs will be frozen only if enabled by init (checked by \ref WDG_init_check).
+/*!\brief Refresh IWDG
 **/
-void WDG_freeze(void);
+void WDG_ex_refresh_IWDG(void);
 
-/*!\brief Unfreeze IWDG & WWDG
-** \note Watchdogs will be unfrozen only if enabled by init (checked by \ref WDG_init_check).
+/*!\brief Refresh WWDG
 **/
-void WDG_unfreeze(void);
+void WDG_ex_refresh_WWDG(void);
 
 
 /*!\brief Save IWDG & WWDG configuration
 **/
-void WDG_save_cfg(void);
+void WDG_ex_save_cfg(void);
 
 /*!\brief Restore saved IWDG & WWDG configuration
 ** \return HAL Status
 **/
-HAL_StatusTypeDef WDG_restore_cfg(void);
+HAL_StatusTypeDef WDG_ex_restore_cfg(void);
 
 
 #if defined(HAL_IWDG_MODULE_ENABLED)
@@ -79,29 +64,34 @@ HAL_StatusTypeDef WDG_restore_cfg(void);
 ** \param[in] per - Period (in us)
 ** \return HAL Status
 **/
-HAL_StatusTypeDef NONNULL__ set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per);
+HAL_StatusTypeDef NONNULL__ WDG_ex_set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per);
 
 /*!\brief Set IWDG period (in ms)
 ** \param[in,out] pIwdg - Pointer to IWDG instance
 ** \param[in] per - Period (in ms)
 ** \return HAL Status
 **/
-__INLINE HAL_StatusTypeDef NONNULL_INLINE__ set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
-	return set_IWDG_Period_us(pIwdg, per * 1000U); }
+__INLINE HAL_StatusTypeDef NONNULL_INLINE__ WDG_ex_set_IWDG_Period_ms(IWDG_HandleTypeDef * const pIwdg, const uint32_t per) {
+	return WDG_ex_set_IWDG_Period_us(pIwdg, per * 1000U); }
 
 /*!\brief Get IWDG period (in us)
 ** \param[in] pIwdg - Pointer to IWDG instance
 ** \return Period (in us)
 **/
-uint32_t NONNULL__ get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg);
+uint32_t NONNULL__ WDG_ex_get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg);
 
 /*!\brief Get IWDG period (in ms)
 ** \param[in] pIwdg - Pointer to IWDG instance
 ** \return Period (in ms)
 **/
-__INLINE uint32_t NONNULL__ get_IWDG_Period_ms(const IWDG_HandleTypeDef * const pIwdg) {
-	return (get_IWDG_Period_us(pIwdg) / 1000U); }
+__INLINE uint32_t NONNULL__ WDG_ex_get_IWDG_Period_ms(const IWDG_HandleTypeDef * const pIwdg) {
+	return (WDG_ex_get_IWDG_Period_us(pIwdg) / 1000U); }
 #endif
+
+/*!\brief Initialize WDG_ex module and start watchdog(s)
+** \return HAL Status
+**/
+HAL_StatusTypeDef NONNULL__ WDG_ex_Init(void);
 
 
 /****************************************************************/

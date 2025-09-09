@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.6
 
+* WDG_ex: complete overhaul
 * Partial MISRA C2012 compliance
 * Doxygen comments review and fixes
 * Fixing type extra checks & unused parameters warnings
