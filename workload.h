@@ -35,12 +35,12 @@ extern volatile uint32_t	it_ticks_accumulator;
 extern volatile uint32_t	it_ticks_start;
 extern volatile bool		it_counts_ongoing;
 
-#define WORKLOAD_IT_IN()	bool already_counting = it_counts_ongoing ? true : false;			\
-							it_counts_ongoing = true;											\
+#define WORKLOAD_IT_IN()	bool already_counting = it_counts_ongoing ? true : false;	\
+							it_counts_ongoing = true;									\
 							if (!already_counting)	{ it_ticks_start = GET_COUNT(); }
 
-#define WORKLOAD_IT_OUT()	if (!already_counting) {											\
-								it_ticks_accumulator += OVF_DIFF(GET_COUNT(), it_ticks_start);	\
+#define WORKLOAD_IT_OUT()	if (!already_counting) {									\
+								it_ticks_accumulator += (GET_COUNT() - it_ticks_start);	\
 								it_counts_ongoing = false; }
 
 #else

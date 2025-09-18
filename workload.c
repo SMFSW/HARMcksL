@@ -111,7 +111,7 @@ void Workload_handler(void)
 		enInterrupts();
 
 		// Compute real time spent in loops (in case any loop lasts too long for proper computations with time window value)
-		const uint32_t real_time_spent = OVF_DIFF(HALTicks(), hStart);
+		const uint32_t real_time_spent = HALTicks() - hStart;	// Automatic underflow handling (unsigned of at least CPU bits)
 
 		// Time spent in interrupt (in us)
 		const uint32_t time_it = acc / ticks_us;

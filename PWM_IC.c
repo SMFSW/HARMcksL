@@ -81,7 +81,7 @@ __STATIC_INLINE eEdge NONNULL_INLINE__ PWM_IC_get_Edge_From_Pin(const PWM_IC * c
 ** \return Last PWM_IC Update (in ms)
 **/
 __STATIC_INLINE uint32_t NONNULL_INLINE__ get_PWM_IC_LastUpdate(const PWM_IC * const pPWM_IC) {
-	return OVF_DIFF(HALTicks(), pPWM_IC->CallbackTick); }
+	return HALTicks() - pPWM_IC->CallbackTick; }	// Automatic underflow handling (unsigned of at least CPU bits)
 
 
 FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const pTim, const uint32_t Direct_Channel, const uint32_t Indirect_Channel, const uint32_t Scale)
