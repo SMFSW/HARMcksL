@@ -31,7 +31,7 @@ HAL_StatusTypeDef NONNULL__ set_PWM_Duty_Scaled(const TIM_HandleTypeDef * const 
 }
 
 
-HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity)
+HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t freq, const eState start_polarity)
 {
 	HAL_StatusTypeDef st = set_TIM_Freq(pTim, freq);
 

@@ -22,6 +22,8 @@ SOFTWARE.
 
 ## v1.6
 
+* PWM: Frequency >65KHz allowed at init (16b -> 32b)
+* handlers_sequencer: Module added
 * OVF_DIFF use removal
 * WDG_ex: complete overhaul
 * Partial MISRA C2012 compliance
@@ -29,7 +31,7 @@ SOFTWARE.
 * Fixing type extra checks & unused parameters warnings
 * UART_term: fix call to str_clr (now strclr)
 * Logic_in & GPIO_in: edge getters return type fix
-* PWM_IC: refactoring to catch continous signals (after some timeout) + enabling possibility to use without interrupts
+* PWM_IC: refactoring to catch continuous signals (after some timeout) + enabling possibility to use without interrupts
 * UART_term: handling reception of backspace char
 * RTC_ex: Setting date automatically computes corresponding weekday
 * RTC_ex: Sets weekday according to STM32 RTC definitions

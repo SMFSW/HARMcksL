@@ -28,7 +28,7 @@
 ** \param[in] start_polarity - Set PWM output to 100% at init if set to On (0% otherwise)
 ** \return HAL Status
 **/
-HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint16_t freq, const eState start_polarity);
+HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t freq, const eState start_polarity);
 
 
 /*!\brief Set PWM channel output on/off

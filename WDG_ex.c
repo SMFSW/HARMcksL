@@ -3,7 +3,7 @@
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Extensions for WDG peripherals
 ** \note For proper sync to use state related functionalities (get and update), you shall disable
-**		 call to \ref MX_IWDG_Init and/or \ref MX_WWDG_Init in HAL generated from ioc file,
+**		 call to \p MX_IWDG_Init and/or \p MX_WWDG_Init in HAL generated from ioc file,
 **		 \ref WDG_ex_Init have to be called instead at the end of your init routine.
 **/
 /****************************************************************/
