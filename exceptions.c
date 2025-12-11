@@ -95,18 +95,21 @@ eResetSource Get_Reset_Source(void)
 {
 	eResetSource rst = RST_UNKNOWN;
 
+	if (__HAL_RCC_GET_FLAG(RCC_FLAG_PINRST))					{ rst = RST_PIN; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST))				{ rst = RST_SW; }
+
 	#if defined(STM32L4)
-		if (__HAL_RCC_GET_FLAG(RCC_FLAG_FWRST))					{ rst = RST_FW; }
-	#elif defined(STM32G0)
-		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PWRRST))				{ rst = RST_POR; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_FWRST))				{ rst = RST_FW; }
+	#elif defined(STM32C0) || defined(STM32G0)
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PWRRST))				{ rst = RST_POR; }
 	#else
-		if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
 	#endif
-	#if defined(STM32H7) || defined(STM32H7)
+
+	#if defined(STM32H7) || defined(STM32H7) || defined(STM32U5)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST))				{ rst = RST_BOR; }
 	#endif
-	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PINRST))				{ rst = RST_PIN; }
-	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST))				{ rst = RST_SW; }
+
 	#if defined(STM32H7)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDG1RST))				{ rst = RST_IWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDG1RST))				{ rst = RST_WWDG; }
@@ -117,14 +120,16 @@ eResetSource Get_Reset_Source(void)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST))				{ rst = RST_WWDG; }
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))				{ rst = RST_LPWR; }
 	#endif
-	#if defined(STM32F3) || defined(STM32L4)
-		else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))			{ rst = RST_OBL; }
-		#if defined(STM32F301x8) ||													\
-			defined(STM32F302x8) || defined(STM32F302xC) || defined(STM32F302xE) ||	\
-			defined(STM32F303x8) || defined(STM32F303xC) || defined(STM32F303xE) ||	\
-			defined(STM32F334x8) ||	defined(STM32F358xx) || defined(STM32F373xC)
-			else if (__HAL_RCC_GET_FLAG(RCC_FLAG_V18PWRRST))	{ rst = RST_V18PWR; }
-		#endif
+
+	#if defined(STM32C0) || defined(STM32F3) || defined(STM32L4) || defined(STM32U5)
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))				{ rst = RST_OBL; }
+	#endif
+
+	#if defined(STM32F301x8) ||													\
+		defined(STM32F302x8) || defined(STM32F302xC) || defined(STM32F302xE) ||	\
+		defined(STM32F303x8) || defined(STM32F303xC) || defined(STM32F303xE) ||	\
+		defined(STM32F334x8) ||	defined(STM32F358xx) || defined(STM32F373xC)
+	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_V18PWRRST))			{ rst = RST_V18PWR; }
 	#endif
 
 	__HAL_RCC_CLEAR_RESET_FLAGS();	// Clear reset flags

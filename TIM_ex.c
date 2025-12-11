@@ -3,7 +3,7 @@
 ** \copyright MIT (c) 2017-2025, SMFSW
 ** \brief Extensions for TIM peripherals
 ** \warning Init functions assume that TIM peripherals instance were already configured by HAL
-** \warning Shall work for all STM32 F/G/H/L families only (yet)
+** \warning Shall work for all STM32 C/F/G/H/L/U families only (yet)
 ** \note \c TIM_MIN_GRANULARITY can defined at project level to tweak to needed minimum granularity
 **/
 /****************************************************************/
@@ -24,7 +24,7 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 {
 	uint32_t refCLK;
 
-	#if defined(STM32G0)
+	#if defined(STM32C0) || defined(STM32G0) || defined(STM32U0)
 		refCLK = HAL_RCC_GetPCLK1Freq();
 		if ((RCC->CFGR & RCC_CFGR_PPRE) != 0U)	{ refCLK *= 2UL; }
 	#elif defined(STM32F0)
@@ -101,6 +101,8 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 
 				#if defined(STM32H7)
 				if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE2) != 0U)
+				#elif defined(STM32U3) || defined(STM32U5)
+				if ((RCC->CFGR2 & RCC_CFGR2_PPRE2) != 0U)
 				#else
 				if ((RCC->CFGR & RCC_CFGR_PPRE2) != 0U)
 				#endif
@@ -116,6 +118,8 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 
 			#if defined(STM32H7)
 			if ((RCC->D2CFGR & RCC_D2CFGR_D2PPRE1) != 0U)
+			#elif defined(STM32U3) || defined(STM32U5)
+			if ((RCC->CFGR2 & RCC_CFGR2_PPRE1) != 0U)
 			#else
 			if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0U)
 			#endif

@@ -22,6 +22,8 @@ SOFTWARE.
 
 ## v1.6
 
+* STM32 U/C families: TIM_ex RCC_TIMCLKFreq update
+* STM32 U/C families: Get_Reset_Source update
 * PWM: Frequency >65KHz allowed at init (16b -> 32b)
 * handlers_sequencer: Module added
 * OVF_DIFF use removal
