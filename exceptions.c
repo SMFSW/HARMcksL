@@ -102,11 +102,14 @@ eResetSource Get_Reset_Source(void)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_FWRST))				{ rst = RST_FW; }
 	#elif defined(STM32C0) || defined(STM32G0)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PWRRST))				{ rst = RST_POR; }
+	#elif defined(STM32L5) || defined(STM32U0) || defined(STM32U3) || defined(STM32U5)
+	// No such flag on STM32Ux families
 	#else
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_PORRST))				{ rst = RST_POR; }
 	#endif
 
-	#if defined(STM32H7) || defined(STM32H7) || defined(STM32U5)
+	#if defined(STM32L0) ||	defined(STM32L1) ||	defined(STM32L4) ||	defined(STM32L5) ||	\
+		defined(STM32H7) || defined(STM32U3) || defined(STM32U5)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_BORRST))				{ rst = RST_BOR; }
 	#endif
 
@@ -121,7 +124,9 @@ eResetSource Get_Reset_Source(void)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))				{ rst = RST_LPWR; }
 	#endif
 
-	#if defined(STM32C0) || defined(STM32F3) || defined(STM32L4) || defined(STM32U5)
+	#if defined(STM32C0) || defined(STM32F3) || defined(STM32G0) ||						\
+		defined(STM32L0) ||	defined(STM32L1) ||	defined(STM32L4) ||	defined(STM32L5) ||	\
+		defined(STM32U0) || defined(STM32U3) || defined(STM32U5)
 	else if (__HAL_RCC_GET_FLAG(RCC_FLAG_OBLRST))				{ rst = RST_OBL; }
 	#endif
 
