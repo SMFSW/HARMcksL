@@ -22,6 +22,8 @@ SOFTWARE.
 
 ## v1.6
 
+* flash_check: flash_crc_check replaced by flash_full_crc_check
+* flash_check: flash_crc_check checks CRC for returned values by Get_app_start_address & Get_app_size (weak functions)
 * STM32 U/C families: TIM_ex RCC_TIMCLKFreq update
 * STM32 U/C families: Get_Reset_Source update
 * PWM: Frequency >65KHz allowed at init (16b -> 32b)
