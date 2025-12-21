@@ -21,7 +21,7 @@ void NONNULL__ write_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, c
 
 	#if defined(VERBOSE)
 		char port[10] = "";
-		UNUSED_RET str_GPIO_name(port, GPIOx, GPIO_Pin);
+		str_GPIO_name(port, GPIOx, GPIO_Pin);
 		UNUSED_RET printf("Written %s to %u (%lums)\r\n", port, HAL_GPIO_ReadPin(GPIOx, GPIO_Pin), HALTicks());
 	#endif
 }
@@ -33,7 +33,7 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 
 	#if defined(VERBOSE)
 		char port[10] = "";
-		UNUSED_RET str_GPIO_name(port, GPIOx, GPIO_Pin);
+		str_GPIO_name(port, GPIOx, GPIO_Pin);
 		UNUSED_RET printf("Read %s is %u (%lums)\r\n", port, pin, HALTicks());
 	#endif
 
@@ -41,9 +41,8 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 }
 
 
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
+void NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin)
 {
-	FctERR			err = ERROR_VALUE;
 	const uintCPU_t	max_pins = 16U;	// Maximum pins on a port
 	const char		prt[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '?' };
 	char			port;
@@ -79,7 +78,6 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 		if ((1U << pin) == GPIO_Pin)
 		{
 			UNUSED_RET sprintf(name, "GPIO%c%u", port, pin);
-			err = ERROR_OK;
 			goto ret;
 		}
 	}
@@ -88,7 +86,7 @@ FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, co
 	UNUSED_RET sprintf(name, "GPIO%c%c", port, 'x');
 
 	ret:
-	return err;
+	return;
 }
 
 

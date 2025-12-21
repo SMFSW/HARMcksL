@@ -13,7 +13,6 @@
 
 #include "sarmfsw.h"
 /****************************************************************/
-// TODO: see about volatile qualifier
 
 
 // *****************************************************************************
@@ -24,9 +23,13 @@
 **/
 __INLINE uint32_t INLINE__ get_MSP(void)
 {
-	uint32_t msp;
+	uint32_t msp = 0;
+
+#ifndef __cppcheck__
 	__ASM volatile ("mrs %0, MSP \r\n" : "=r" (msp));
-	return(msp);
+#endif
+
+	return msp;
 }
 
 
@@ -35,12 +38,16 @@ __INLINE uint32_t INLINE__ get_MSP(void)
 **/
 __INLINE uint32_t INLINE__ get_SP(void)
 {
-	uint32_t sp;
+	uint32_t sp = 0;
+
+#ifndef __cppcheck__
 	__ASM volatile ("tst lr, #4 \r\n"	\
 					"ite EQ \r\n");
 	__ASM volatile ("mrseq %0, MSP \r\n" : "=r" (sp));
 	__ASM volatile ("mrsne %0, PSP \r\n" : "=r" (sp));
-	return(sp);
+#endif
+
+	return sp;
 }
 
 
@@ -160,9 +167,14 @@ __INLINE uint32_t INLINE__ get_LR(void) {
 ** \return Current program status register value
 **/
 __INLINE uint32_t INLINE__ get_PSR(void) {
-	uint32_t psr;
+	uint32_t psr = 0;
+
+#ifndef __cppcheck__
 	__ASM volatile ("mrs %0, XPSR" : "=r" (psr));
-	return(psr); }
+#endif
+
+	return psr;
+}
 
 
 /*!\brief Prints main stack address

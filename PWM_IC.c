@@ -218,7 +218,7 @@ void PWM_IC_handler(void)
 ** \strong Strong implementation of HAL_TIM_IC_CaptureCallback in the project
 ** \param[in] htim - TIM IC handle
 **/
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim)	// cppcheck-suppress constParameterPointer ; can't redefine HAL prototypes
 {
 	for (PWM_IC * pIC = PWMin ; pIC < &PWMin[NB_PWM_IC] ; pIC++)
 	{

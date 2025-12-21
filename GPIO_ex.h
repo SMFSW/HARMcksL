@@ -42,9 +42,8 @@ GPIO_PinState NONNULL__ read_GPIO(GPIO_TypeDef * const GPIOx, const uint16_t GPI
 ** \param[in,out] name - pointer to string for name
 ** \param[in] GPIOx - port
 ** \param[in] GPIO_Pin - pin
-** \return Error code
 **/
-FctERR NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin);
+void NONNULL__ str_GPIO_name(char * name, const GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin);
 
 
 /****************************************************************/

@@ -61,7 +61,7 @@ FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart)
 }
 
 
-FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart)
+FctERR NONNULL__ UART_Term_Wait_Ready(const UART_HandleTypeDef * const huart)
 {
 	#if STDREAM__UART_TX_IT
 		if (huart->gState == HAL_UART_STATE_RESET)	{ return ERROR_NOTAVAIL; }

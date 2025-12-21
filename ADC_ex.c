@@ -285,7 +285,7 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 	#if defined(ADC_COMPENSATION)
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
-		if (!vrefint_dat)	{ goto ret; }												// Preventing HW faults when MCU starts with slow configured ADC acquisition
+		if (vrefint_dat == 0U)	{ goto ret; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
 		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
 	#else
@@ -349,7 +349,9 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 		}
 	}
 
+	#if defined(ADC_COMPENSATION)
 	ret:
+	#endif
 	return val;
 }
 

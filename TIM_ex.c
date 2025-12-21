@@ -71,7 +71,7 @@ uint32_t NONNULL__ RCC_TIMCLKFreq(const TIM_HandleTypeDef * const pTim)
 			case TIM22_BASE:		//!< L0 family (TIM on APB2)
 			#endif
 			{
-				notAPB1 = true;
+				notAPB1 = true;		// cppcheck-suppress unreachableCode ; successive #if defined() leads to a case where none are defined for cppcheck
 			}
 			break;
 		}

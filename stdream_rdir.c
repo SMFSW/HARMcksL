@@ -132,9 +132,9 @@ int __io_getchar(void)
 /*** ITM TRANSMIT ***/
 /********************/
 #if defined(ITM)
-void NONNULL__ ITM_port_send(char * str, const size_t len, const int port)
+void NONNULL__ ITM_port_send(const char * str, const size_t len, const int port)
 {
-	for (char * pStr = str ; pStr < &str[len] ; pStr++)
+	for (const char * pStr = str ; pStr < &str[len] ; pStr++)
 	{
 		while (ITM->PORT[port].u32 == 0UL);	// Wait for port to be ready
 		ITM->PORT[port].u8 = *pStr;
@@ -150,15 +150,15 @@ void NONNULL__ ITM_port_send(char * str, const size_t len, const int port)
 ** \param[in] str - pointer to string to send
 ** \param[in] len - length of string
 **/
-static void NONNULL__ ITM_send(char * str, const size_t len)
+static void NONNULL__ ITM_send(const char * str, const size_t len)
 {
-	for (char * pStr = str ; pStr < &str[len] ; pStr++)
+	for (const char * pStr = str ; pStr < &str[len] ; pStr++)
 	{
 		ITM_SendChar(*pStr);
 	}
 }
 
-int NONNULL__ printf_ITM(char * str, ...)
+int NONNULL__ printf_ITM(const char * str, ...)
 {
 	va_list args;
 
@@ -171,7 +171,7 @@ int NONNULL__ printf_ITM(char * str, ...)
 	return 0;
 }
 
-int NONNULL__ vprintf_ITM(char * str, va_list args)
+int NONNULL__ vprintf_ITM(const char * str, va_list args)
 {
 	vsprintf(dbg_msg_out, str, args);
 	ITM_send(dbg_msg_out, strlen(dbg_msg_out));
@@ -187,7 +187,7 @@ int NONNULL__ vprintf_ITM(char * str, va_list args)
 /***************************/
 /*** GENERAL REDIRECTION ***/
 /***************************/
-int NONNULL__ printf_redir(char * str, ...)
+int NONNULL__ printf_redir(const char * str, ...)
 {
 	va_list args;
 
@@ -218,7 +218,7 @@ int NONNULL__ printf_redir(char * str, ...)
 }
 
 
-int NONNULL__ vprintf_redir(char * str, va_list args)
+int NONNULL__ vprintf_redir(const char * str, va_list args)
 {
 	#if defined(UART_REDIRECT)
 	if (UART_Term_Wait_Ready(dbg_uart) != ERROR_OK)	{ return -1; }

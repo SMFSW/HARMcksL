@@ -69,7 +69,7 @@ __INLINE void INLINE__ stdout_no_buffer(void) {
 ** \param[in] len - length of message to send
 ** \param[in] port - ITM port number
 **/
-void NONNULL__ ITM_port_send(char * str, const size_t len, const int port);
+void NONNULL__ ITM_port_send(const char * str, const size_t len, const int port);
 
 #if !STDREAM_RDIR_SND_SYSCALLS
 // printf_ITM & vprintf_ITM will be redirected to ITM port 0 (ITM_SendChar used)
@@ -79,7 +79,7 @@ void NONNULL__ ITM_port_send(char * str, const size_t len, const int port);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int NONNULL__ printf_ITM(char * str, ...);
+int NONNULL__ printf_ITM(const char * str, ...);
 
 /*!\brief printf like redirected to ITM port 0
 ** \param[in] str - pointer to string to send
@@ -87,7 +87,7 @@ int NONNULL__ printf_ITM(char * str, ...);
 ** \return Function status
 ** \retval 0 - OK
 **/
-int NONNULL__ vprintf_ITM(char * str, va_list args);
+int NONNULL__ vprintf_ITM(const char * str, va_list args);
 #endif
 #endif
 
@@ -100,7 +100,7 @@ int NONNULL__ vprintf_ITM(char * str, va_list args);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	NONNULL__ printf_redir(char * str, ...);
+int	NONNULL__ printf_redir(const char * str, ...);
 
 /*!\brief printf like redirected to DBG_SERIAL UART and/or ITM port 0
 ** \param[in] str - pointer to string to send
@@ -109,7 +109,7 @@ int	NONNULL__ printf_redir(char * str, ...);
 ** \retval -1 - Problem occured
 ** \retval 0 - OK
 **/
-int	NONNULL__ vprintf_redir(char * str, va_list args);
+int	NONNULL__ vprintf_redir(const char * str, va_list args);
 #endif
 
 

@@ -74,7 +74,7 @@ FctERR NONNULL__ UART_Term_Launch_It_Rx(UART_HandleTypeDef * const huart);
 ** \param[in] huart - UART handle
 ** \return FctERR - Error code
 **/
-FctERR NONNULL__ UART_Term_Wait_Ready(UART_HandleTypeDef * const huart);
+FctERR NONNULL__ UART_Term_Wait_Ready(const UART_HandleTypeDef * const huart);
 
 /*!\brief Clear buffer in used for SERIAL DEBUG
 ** \param[in] huart - UART handle

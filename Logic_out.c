@@ -142,10 +142,10 @@ void NONNULL__ Logic_out_handler(Logic_out * const out)
 		out->hOut++;	// Increment timer count
 
 		if (	(!out->delay)
-			||	(out->delay && (out->hOut > out->delay)))
+			||	(out->hOut > out->delay))
 		#else
 		if (	(!out->delay)
-			||	(out->delay && (TPSSUP_MS(out->hOut, out->delay))))
+			||	(TPSSUP_MS(out->hOut, out->delay)))
 		#endif
 		{
 			out->delay = 0U;
