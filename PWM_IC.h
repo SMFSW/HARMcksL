@@ -1,6 +1,6 @@
 /*!\file PWM_IC.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief PWM Input Capture handling
 ** \details \ref PWM_IC input configuration:
 ** TIM with multiple channels with slave mode capability shall be used
@@ -57,7 +57,7 @@
 /*!\struct PWM_IC
 ** \brief PWM input capture structure
 **/
-typedef struct PWM_IC {
+typedef struct {
 	uint32_t				Frequency;		//!< Frequency Value
 	uint32_t				DutyCycle;		//!< Duty Cycle Value
 	uint32_t				Timeout;		//!< No sample timeout

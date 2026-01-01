@@ -1,6 +1,6 @@
 /*!\file WDG_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Extensions for WDG peripherals
 ** \note For proper sync to use state related functionalities (get and update), you shall disable
 **		 call to \p MX_IWDG_Init and/or \p MX_WWDG_Init in HAL generated from ioc file,

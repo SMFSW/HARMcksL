@@ -1,6 +1,6 @@
 /*!\file ADC_cfg.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief ADC configuration
 ** \note Simple adc_ex.c example to handle Vref, temperature & Vbat + 1 channel conversion with declared callback (on STM32F3)
 **/
@@ -50,10 +50,10 @@
 #define ADC_REFRESH_PERIOD	20U				//!< ADC conversions results refreshing period
 
 
-/*!\enum eAnalogInputName
+/*!\enum eAnalogInput
 ** \brief Analogic inputs indexes
 **/
-typedef enum eAnalogInput {
+typedef enum {
 	#if defined(ADC_USE_VREF)
 	Adc_Vref,		//!< Adc VRef (converted value in V)
 	#endif

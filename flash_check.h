@@ -1,6 +1,6 @@
 /*!\file flash_check.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Function to check flash CRC
 */
 /****************************************************************/
@@ -41,7 +41,7 @@ FctERR flash_crc_check(void);
 
 /*!\brief Flash CRC check (complete FLASH area)
 ** \note Assuming flash crc to check against is located in the last 4bytes of flash
-** \note Ideal when application takes the whole FLASH area, otherwise use \ref flash_app_crc_check instead
+** \note Ideal when application takes the whole FLASH area, otherwise use \ref flash_crc_check instead
 **
 ** \retval ERROR_OK - Flash CRC consistent
 ** \retval ERROR_CRC - Flash CRC inconsistent

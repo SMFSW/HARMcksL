@@ -1,6 +1,6 @@
 /*!\file ADC_ex.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -231,7 +231,7 @@
 #endif
 
 
-typedef struct AnalogTab {
+typedef struct {
 	uint16_t	Array[ADC_SAMP_BUF_SIZE];	//!< Samples
 } AnalogTab;
 

@@ -1,6 +1,6 @@
 /*!\file handlers_sequencer.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Simple task sequencer handling
 **/
 /****************************************************************/
@@ -18,10 +18,10 @@
 // *****************************************************************************
 // Section: Types
 // *****************************************************************************
-/*!\enum _eSeqCallback
+/*!\enum eSeqCallback
 ** \brief Callback id
 **/
-typedef enum _eSeqCallback {
+typedef enum {
 	cback_preSeq = 0,
 	cback_postSeq,
 	cback_preHandle,
@@ -36,7 +36,7 @@ typedef void (*pfHandler_t)(void);						//!< Basic handler function pointer type
 typedef void (*pfSeq_cback_t)(StruSequencer const *);
 
 
-typedef struct _StruSequencer_cfg {
+typedef struct {
 	const pfHandler_t *	aHandlers;
 	uintCPU_t			nb_handlers;
 	pfSeq_cback_t		pf_callback[cback_max];

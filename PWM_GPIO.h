@@ -1,6 +1,6 @@
 /*!\file PWM_GPIO.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief GPIO PWM emulation handling
 ** \details \ref PWM_GPIO configuration:
 ** TIM with enabled period callback interrupt shall be used (as time base for PWM emulation)
@@ -25,7 +25,7 @@
 /*!\struct PWM_GPIO
 ** \brief Software PWM on GPIO struct
 **/
-typedef __IO struct PWM_GPIO {
+typedef __IO struct {
 	uint16_t				cntr;		//!< Counter
 	uint16_t				duty;		//!< Current Duty cycle
 	bool					init;		//!< PWM initialized (ready for use)

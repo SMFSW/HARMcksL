@@ -1,6 +1,6 @@
 /*!\file UART_term.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief UART terminal header
 ** \note UART redirection is enabled when \c UART_REDIRECT symbol is defined at project level
 ** \note define \c DBG_SERIAL at project level with an UART instance to send printf likes strings to UART
@@ -35,7 +35,7 @@ extern UART_HandleTypeDef * dbg_uart;	//!< UART debug terminal instance
 /*!\struct sUARTbuffer
 ** \brief Buffer structure for UART message reception
 **/
-typedef struct sUARTbuffer {
+typedef struct {
 	size_t	max_len;			//!< Length of allocated buffer
 	size_t	len;				//!< Length of datas
 	char	data[/*flexible*/];	//!< Flexible data array member

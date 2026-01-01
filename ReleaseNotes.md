@@ -2,7 +2,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2025 SMFSW (Sebastien Bizien)
+Copyright (c) 2017-2026 SMFSW (Sebastien Bizien)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.6
 
+* Unused tags removal (enum/struct/union)
 * flash_check: flash_crc_check replaced by flash_full_crc_check
 * flash_check: flash_crc_check checks CRC for returned values by Get_app_start_address & Get_app_size (weak functions)
 * STM32 U/C families: TIM_ex RCC_TIMCLKFreq update

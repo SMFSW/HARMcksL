@@ -1,6 +1,6 @@
 /*!\file ADC_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Simple extension for ADCs
 ** \details ADC_ex is meant to automate ADC conversions using DMA.
 ** 			- DMA must be configured for ADC peripherals:
@@ -66,7 +66,7 @@
 /*!\enum eADCidx
 ** \brief ADC peripheral instance indexes
 **/
-typedef enum eADCidx {
+typedef enum {
 	#if defined(ADC1)
 	ADC_1 = 0,	//!< ADC1 index
 	#endif
@@ -80,7 +80,7 @@ typedef enum eADCidx {
 } eADCidx;
 
 
-//typedef enum eAnalogInput {
+//typedef enum {
 //	#if defined(ADC_USE_VREF)
 //	Adc_Vref,		//!< Adc VRef (converted value in V)
 //	#endif
@@ -97,7 +97,7 @@ typedef enum eADCidx {
 /*!\struct ADC_Cfg
 ** \brief ADC channel declaration config structure
 **/
-typedef struct ADC_Cfg {
+typedef struct {
 	const eADCidx	adc;							//!< ADC instance index
 	const uint8_t	chan;							//!< Channel index
 	float			(* const conv) (const float);	//!< Pointer to conversion function

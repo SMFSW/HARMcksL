@@ -1,6 +1,6 @@
 /*!\file PWM_IC.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief PWM Input Capture handling
 ** \details \ref PWM_IC input configuration:
 ** TIM with multiple channels with slave mode capability shall be used

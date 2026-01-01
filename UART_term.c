@@ -1,6 +1,6 @@
 /*!\file UART_term.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief UART terminal
 ** \note UART redirection is enabled when \c UART_REDIRECT symbol is defined at project level
 ** \note define \c DBG_SERIAL at project level with an UART instance to send printf likes strings to UART

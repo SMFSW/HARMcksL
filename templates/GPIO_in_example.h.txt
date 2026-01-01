@@ -1,6 +1,6 @@
 /*!\file GPIO_in_example.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief GPIO_in example
 ** \note Simple GPIO_in.c / GPIO_ex.c example to handle different GPIO inputs with callbacks
 **/

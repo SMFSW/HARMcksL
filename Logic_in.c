@@ -1,6 +1,6 @@
 /*!\file Logic_in.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Logic input handling
 **/
 /****************************************************************/

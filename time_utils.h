@@ -1,6 +1,6 @@
 /*!\file time_utils.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Time related utilities
 **/
 /****************************************************************/
@@ -19,7 +19,7 @@
 /*!\enum eMonths
 ** \brief Months enumeration
 **/
-typedef enum eMonths {
+typedef enum {
 	January = 1U,	//!< January
 	February,		//!< February
 	March,			//!< March
@@ -38,7 +38,7 @@ typedef enum eMonths {
 /*!\enum eWeekdays
 ** \brief Weekdays enumeration
 **/
-typedef enum eWeekdays {
+typedef enum {
 	Sunday = 0U,	//!< Sunday
 	Monday,			//!< Monday
 	Tuesday,		//!< Tuesday
@@ -53,7 +53,7 @@ typedef enum eWeekdays {
 /*!\struct DateTime
 ** \brief Basic Date & Time struct
 **/
-typedef struct DateTime {
+typedef struct {
 	uint16_t	Year;		//!< Year
 	eMonths		Month;		//!< Month
 	eWeekdays	Day;		//!< Day

@@ -1,6 +1,6 @@
 /*!\file Logic_out.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Logic output handling
 ** \note Define \c LOGIC_OUT_IT symbol at project level to use \ref Logic_out from timer interrupts (for more timing precision if required)
 ** \note When using \ref Logic_out from interrupts, \c LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)
@@ -34,7 +34,7 @@
 /*!\enum eLogic_out_mode
 ** \brief Activation state On, Off
 **/
-typedef enum eLogic_out_mode {
+typedef enum {
 	outStatic = 0U,	//!< Static mode
 	outPulse,		//!< Pulse mode (mono-stable)
 	outBlink,		//!< Blink mode (bi-stable)
@@ -44,7 +44,7 @@ typedef enum eLogic_out_mode {
 /*!\struct Logic_out
 ** \brief Logic output structure
 **/
-typedef struct Logic_out {
+typedef struct logic_out {
 	__IOM GPIO_PinState	currentState;													//!< Current Logic output state (Reset/Set)
 	GPIO_PinState		memState;														//!< Memorized Logic output state (Reset/Set), used after Pulse or Blink stop
 	eLogic_out_mode		mode;															//!< Current Logic output mode
@@ -60,7 +60,7 @@ typedef struct Logic_out {
 	uintCPU_t			init		:1;													//!< Set to 1 when GPIO_out instance properly initialized
 	__IOM uintCPU_t		idle		:1;													//!< Action state (idle / running)
 	struct {
-	void				(*set)(const struct Logic_out * const, const GPIO_PinState);	//!< Setter function
+	void				(*set)(const struct logic_out * const, const GPIO_PinState);	//!< Setter function
 	void *				LOGx;															//!< Logic output address
 	uint16_t			LOG_Pos;														//!< Logic output bit position
 	GPIO_PinState		polarity;														//!< Logic output polarity

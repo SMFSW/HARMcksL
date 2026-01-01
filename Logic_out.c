@@ -1,6 +1,6 @@
 /*!\file Logic_out.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Logic output handling
 ** \note Define \c LOGIC_OUT_IT symbol at project level to use \ref Logic_out from timer interrupts (for more timing precision if required)
 ** \note When using \ref Logic_out from interrupts, \c LOGIC_OUT_IT_PER period is defined by default with a period of 1000µs (can be customly defined)

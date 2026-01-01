@@ -1,6 +1,6 @@
 /*!\file CRC_stm32.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Function dealing with STM32 CRC peripheral
 */
 /****************************************************************/
@@ -18,7 +18,7 @@
 /*!\enum eCRCFeedSize
 ** \brief CRC feed size
 **/
-typedef enum eCRCFeedSize {
+typedef enum {
 	CRC_Feed_BYTE = 1,		//!< CRC Feed is 8b size
 	CRC_Feed_WORD = 2,		//!< CRC Feed is 16b size
 	CRC_Feed_DWORD = 4,		//!< CRC Feed is 32b size

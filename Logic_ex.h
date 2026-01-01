@@ -1,6 +1,6 @@
 /*!\file Logic_ex.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Extensions for logic variables (R/W)
 **/
 /****************************************************************/

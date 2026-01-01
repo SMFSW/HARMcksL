@@ -1,6 +1,6 @@
 /*!\file tick_utils.c
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Core ticks related utilities
 ** \warning Of course, these blocking delays are not designed to be used in an RTOS environment where they wouldn't work properly.
 ** \warning M0/M0+ cores doesn't have core debug trace peripheral, delay shall be generated using a dedicated TIM peripheral.

@@ -1,6 +1,6 @@
 /*!\file Logic_in.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Logic input handling
 **/
 /****************************************************************/
@@ -21,16 +21,16 @@
 /*!\struct Logic_in
 ** \brief Logic input structure
 **/
-typedef struct Logic_in {
+typedef struct logic_in {
 	bool			in;											//!< Input value
 	eEdge			edge;										//!< Input edge
 	/*pvt*/
 	bool			mem;										//!< Memo value
 	uint32_t		hIn;										//!< Filter time
 	struct {
-	void			(*onSet)(const struct Logic_in * const);	//!< Push callback ON function pointer
-	void			(*onReset)(const struct Logic_in * const);	//!< Push callback OFF function pointer
-	GPIO_PinState	(*get)(const struct Logic_in * const);		//!< Getter function
+	void			(*onSet)(const struct logic_in * const);	//!< Push callback ON function pointer
+	void			(*onReset)(const struct logic_in * const);	//!< Push callback OFF function pointer
+	GPIO_PinState	(*get)(const struct logic_in * const);		//!< Getter function
 	void *			LOGx;
 	uint16_t		LOG_Pos;									//!< Monitored bit position in variable
 	uint16_t		filt;										//!< Filter time (ms)

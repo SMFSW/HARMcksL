@@ -1,6 +1,6 @@
 /*!\file workload.h
 ** \author SMFSW
-** \copyright MIT (c) 2017-2025, SMFSW
+** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Workload estimation utilities
 ** \note Define \c IT_WORKLOAD symbol at project level to use workload estimation module functionalities
 ** \note Loop period values will only be relevant in case of sequential code (you will get task period for RTOS based code)
@@ -54,7 +54,7 @@ extern volatile bool		it_counts_ongoing;
 /*!\enum eWorkload_val
 ** \brief Workload type value enum
 **/
-typedef enum eWorkload_val {
+typedef enum {
 	Workload_average = 0,	//!< Average value
 	Workload_worst,			//!< Worst value
 	Workload_best			//!< Best value
