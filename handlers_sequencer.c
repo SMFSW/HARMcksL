@@ -9,11 +9,11 @@
 /****************************************************************/
 
 
-FctERR NONNULL__ sequencer_init(StruSequencer * const pSeq, const pfHandler_t * const aHandlers, const uintCPU_t nb_handlers, const bool start)
+FctERR NONNULL__ sequencer_init(Sequencer * const pSeq, const pfHandler_t * const aHandlers, const uintCPU_t nb_handlers, const bool start)
 {
 	if (nb_handlers > 32)	{ return ERROR_VALUE; }
 
-	memset(pSeq, 0, sizeof(StruSequencer));
+	memset(pSeq, 0, sizeof(Sequencer));
 
 	pSeq->cfg.aHandlers = aHandlers;
 	pSeq->cfg.nb_handlers = nb_handlers;
@@ -25,12 +25,12 @@ FctERR NONNULL__ sequencer_init(StruSequencer * const pSeq, const pfHandler_t * 
 	return ERROR_OK;
 }
 
-FctERR NONNULL__ sequencer_init_all(StruSequencer * const pSeq, const StruSequencer_cfg * const pCfg, const bool start)
+FctERR NONNULL__ sequencer_init_all(Sequencer * const pSeq, const Sequencer_cfg * const pCfg, const bool start)
 {
 	if (pCfg->nb_handlers > 32)		{ return ERROR_VALUE; }
 	if (pCfg->aHandlers == NULL)	{ return ERROR_VALUE; }
 
-	memcpy(&pSeq->cfg, pCfg, sizeof(StruSequencer_cfg));
+	memcpy(&pSeq->cfg, pCfg, sizeof(Sequencer_cfg));
 
 	pSeq->current_handler = 0U;
 	pSeq->sequencer_en = start;
@@ -39,15 +39,15 @@ FctERR NONNULL__ sequencer_init_all(StruSequencer * const pSeq, const StruSequen
 }
 
 
-FctERR NONNULL__ sequencer_deinit(StruSequencer * const pSeq)
+FctERR NONNULL__ sequencer_deinit(Sequencer * const pSeq)
 {
-	memset(pSeq, 0, sizeof(StruSequencer));
+	memset(pSeq, 0, sizeof(Sequencer));
 
 	return ERROR_OK;
 }
 
 
-FctERR NONNULL__ sequencer_register_callback(StruSequencer * const pSeq, const eSeqCallback callback, const pfSeq_cback_t pCallback)
+FctERR NONNULL__ sequencer_register_callback(Sequencer * const pSeq, const eSeqCallback callback, const pfSeq_cback_t pCallback)
 {
 	if (callback >= cback_max)	{ return ERROR_VALUE; }
 
@@ -56,7 +56,7 @@ FctERR NONNULL__ sequencer_register_callback(StruSequencer * const pSeq, const e
 	return ERROR_OK;
 }
 
-FctERR NONNULL__ sequencer_unregister_callback(StruSequencer * const pSeq, const eSeqCallback callback)
+FctERR NONNULL__ sequencer_unregister_callback(Sequencer * const pSeq, const eSeqCallback callback)
 {
 	if (callback >= cback_max)	{ return ERROR_VALUE; }
 
@@ -66,7 +66,7 @@ FctERR NONNULL__ sequencer_unregister_callback(StruSequencer * const pSeq, const
 }
 
 
-void NONNULL__ sequencer_handler(StruSequencer * const pSeq)
+void NONNULL__ sequencer_handler(Sequencer * const pSeq)
 {
 	if (pSeq->sequencer_en)
 	{
