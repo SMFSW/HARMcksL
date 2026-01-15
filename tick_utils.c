@@ -14,7 +14,7 @@
 /****************************************************************/
 
 
-static float ticks_per_us;	//!< Counter ticks for a microsecond
+static float ticks_per_us = 0.0f;	//!< Counter ticks for a microsecond
 
 float get_TicksPerMicrosecond(void) {
 	return ticks_per_us; }
@@ -28,7 +28,7 @@ FctERR init_Delay_Generator(void)
 
 	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;	// CoreDebug trace seems enabled only in debug sessions, enable
 	#if (__CORTEX_M == 7U)
-	DWT->LAR = 0xC5ACCE55;							// Cortex M7, need to enable access to DWT
+	DWT->LAR = 0xC5ACCE55UL;						// Cortex M7, need to enable access to DWT
 	#endif
 	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
@@ -48,7 +48,7 @@ void Delay_ms(const uint32_t ms)
 {
 	DWT->CYCCNT = 0;
 
-	const uint32_t delay = ms * ticks_per_us * 1000;
+	const uint32_t delay = ms * ticks_per_us * 1000UL;
 	while (DWT->CYCCNT < delay);
 }
 
@@ -59,7 +59,7 @@ FctERR init_Delay_Generator(void)
 {
 	HAL_StatusTypeDef err;
 
-	err = set_TIM_Tick_Freq(DELAY_TIM_INST, 1000000);
+	err = set_TIM_Tick_Freq(DELAY_TIM_INST, 1000000UL);
 	if (err)	{ goto ret; }
 	err = HAL_TIM_Base_Start(DELAY_TIM_INST);
 
@@ -78,10 +78,10 @@ void Delay_us(const uint32_t us)
 
 void Delay_ms(const uint32_t ms)
 {
-	for (unsigned int i = 0 ; i < ms ; i++)
+	for (uintCPU_t i = 0 ; i < ms ; i++)
 	{
 		__HAL_TIM_SET_COUNTER(DELAY_TIM_INST, 0);				// set the counter value to 0
-		while (__HAL_TIM_GET_COUNTER(DELAY_TIM_INST) < 1000);	// wait for the counter to reach the us input in the parameter
+		while (__HAL_TIM_GET_COUNTER(DELAY_TIM_INST) < 1000UL);	// wait for the counter to reach the us input in the parameter
 	}
 }
 

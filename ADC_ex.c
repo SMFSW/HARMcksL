@@ -173,12 +173,12 @@
 
 #if !defined(Def_VBatFactor)
 	#if		defined(STM32F4) || defined(STM32F7) || defined(STM32H5) || defined(STM32H7) || defined(STM32U5)
-		#define Def_VBatFactor	(4.0f)			//!< 4x factor (\warning *2.0f for STM32F40xx and STM32F41xx devices)
+		#define Def_VBatFactor		(4.0f)		//!< 4x factor (\warning *2.0f for STM32F40xx and STM32F41xx devices)
 	#elif	defined(STM32G0) || defined(STM32G4) || defined(STM32L4) || defined(STM32L5) || \
 			defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
-		#define Def_VBatFactor	(3.0f)			//!< 3x factor
+		#define Def_VBatFactor		(3.0f)		//!< 3x factor
 	#else
-		#define Def_VBatFactor	(2.0f)			//!< 2x factor
+		#define Def_VBatFactor		(2.0f)		//!< 2x factor
 	#endif
 #endif
 
@@ -213,12 +213,12 @@
 
 
 #ifndef ADC_NB
-#define	ADC_NB				1			//!< Number of ADC peripherals used
+#define	ADC_NB				1UL			//!< Number of ADC peripherals used
 #warning "You should define number of ADC peripheral used with ADC_NB macro. Assuming 1 ADC peripheral in use."
 #endif
 
 #ifndef ADC_NB_CHAN
-#define	ADC_NB_CHAN			2			//!< Number of ADC channels used (per peripheral)
+#define	ADC_NB_CHAN			2UL			//!< Number of ADC channels used (per peripheral)
 #warning "You should define number of ADC channels per peripheral used with ADC_NB_CHAN macro. Assuming 2 ADC channels per peripheral in use."
 #endif
 
@@ -226,7 +226,7 @@
 
 
 #ifndef ADC_SAMP_BUF_SIZE
-#define ADC_SAMP_BUF_SIZE	4			//!< Size of the input buffer per analog input
+#define ADC_SAMP_BUF_SIZE	4UL			//!< Size of the input buffer per analog input
 //! \note ADC_SAMP_BUFF_SIZE can be defined in adc_cfg.h, globals.h or at project level if higher amount of samples required
 #endif
 
@@ -258,34 +258,44 @@ static __IO AnalogTab	ADCbuffer[TOTAL_ADC_CHANS];		//!< ADC buffer
 **/
 static FctERR NONNULL__ ADC_GetChan(uint8_t * const adc, uint8_t * const chan, const eAnalogInput input)
 {
-	if (input >= Adc_MAX)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	*adc = ADCConfig[input].adc;
-	*chan = ADCConfig[input].chan;
+	if (input >= Adc_MAX)	{ err = ERROR_VALUE; }
+	else
+	{
+		*adc = ADCConfig[input].adc;
+		*chan = ADCConfig[input].chan;
+	}
 
-	return ERROR_OK;
+	return err;
 }
 
 
 uint16_t ADC_GetRawVal(const eAnalogInput input)
 {
+	uint16_t raw = 0;
 	uint8_t adc_num;
 	uint8_t chan;
 
-	if (ADC_GetChan(&adc_num, &chan, input) != ERROR_OK)	{ return 0; }
+	if (ADC_GetChan(&adc_num, &chan, input) == ERROR_OK)
+	{
+		const uintCPU_t idx = adc_num + (chan * ADC_NB);
+		raw = RestrictedAverage_WORD(ADCbuffer[idx].Array, SZ_OBJ(ADCbuffer[idx].Array, uint16_t));
+	}
 
-	const uint8_t idx = adc_num + (chan * ADC_NB);
-	return RestrictedAverage_WORD(ADCbuffer[idx].Array, SZ_OBJ(ADCbuffer[idx].Array, uint16_t));
+	return raw;
 }
 
 
 float ADC_GetConvertedVal(const eAnalogInput input)
 {
-	float				val = 0.0f;
+	float val = 0.0f;
+
 	#if defined(ADC_COMPENSATION)
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
-		if (vrefint_dat == 0U)	{ goto ret; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
+		if (vrefint_dat == 0)	{ goto ret; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
+
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
 		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
 	#else
@@ -295,23 +305,29 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 
 	if (input < Adc_MAX)
 	{
-		if (ADCConfig[input].conv != NULL)		{ val = ADCConfig[input].conv(in_v); }
+		if (ADCConfig[input].conv != NULL)
+		{
+			val = ADCConfig[input].conv(in_v);
+		}
 		else
 		{
 			switch (input)
 			{
 				#if defined(ADC_USE_VREF)
 				case Adc_Vref:
+				{
 					#if defined(ADC_COMPENSATION)
 						val = vrefint_dat * Def_ADCStep(Def_VAlim);		// Always using full scale power supply voltage
 					#else
 						val = in_v;
 					#endif
-					break;
+				}
+				break;
 				#endif
 
 				#if defined(ADC_USE_TEMP)
 				case Adc_Temp:
+				{
 					#ifdef TEMP_CALC_VTEMP
 						// With raw converted value to mV
 						#if defined(STM32F0) || defined(STM32G0) || defined(STM32G4) || defined(STM32H5) || defined(STM32H7) || \
@@ -333,18 +349,23 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 							val = ((float) (80 * (in_raw - STM32_TS_CAL1)) / (float) (STM32_TS_CAL2 - STM32_TS_CAL1)) + 30.0f;
 						#endif
 					#endif
-					break;
+				}
+				break;
 				#endif
 
 				#if defined(ADC_USE_VBAT)
 				case Adc_Vbat:
+				{
 					val = in_v * Def_VBatFactor;
-					break;
+				}
+				break;
 				#endif
 
 				default:
+				{
 					val = in_v;
-					break;
+				}
+				break;
 			}
 		}
 	}
@@ -386,7 +407,7 @@ FctERR ADC_Start(void)
 		#endif
 
 		err |= HALERRtoFCTERR(HAL_ADC_Start(&hadc2));
-		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) ADCbuffer_DMA, TOTAL_ADC_CHANS / 2));
+		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) ADCbuffer_DMA, TOTAL_ADC_CHANS / 2U));
 	#elif (ADC_NB == 3)
 		#if defined(ADC_CALIBRATION)
 			if (!calib_done)

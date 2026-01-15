@@ -42,8 +42,11 @@ FctERR NONNULL__ Logic_out_update(Logic_out * const out)
 }
 
 
-FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out, void (*setter)(const Logic_out * const, const GPIO_PinState),
-									uint32_t * const addr, const uint16_t pos, const GPIO_PinState polarity)
+FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out,
+									void (*setter)(const Logic_out * const, const GPIO_PinState),
+									uint32_t * const addr,
+									const uint16_t pos,
+									const GPIO_PinState polarity)
 {
 	/* Check the parameters */
 	//assert_param(pos < 32);	// Would raise an assert error in case of GPIO pin
@@ -86,52 +89,75 @@ FctERR NONNULL__ Logic_out_Abort(Logic_out * const out)
 ** \param[in] count - blink count (0 for infinite) for blink mode only
 ** \return Error code
 **/
-static FctERR NONNULL__ Logic_out_Start(Logic_out * const out, const eLogic_out_mode mode, const eGPIOState action,
-										uint32_t delay, uint32_t active, uint32_t inactive, const uint32_t count)
+static FctERR NONNULL__ Logic_out_Start(Logic_out * const out,
+										const eLogic_out_mode mode,
+										const eGPIOState action,
+										uint32_t delay,
+										uint32_t active,
+										uint32_t inactive,
+										const uint32_t count)
 {
-	if (!out->init)			{ return ERROR_INSTANCE; }
-	if (action > Toggle)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-	delay = (delay * LOGIC_OUT_IT_PER) / 1000UL;
-	active = (active * LOGIC_OUT_IT_PER) / 1000UL;
-	inactive = (inactive * LOGIC_OUT_IT_PER) / 1000UL;
+	if (!out->init)			{ err = ERROR_INSTANCE; }
+	if (action > Toggle)	{ err = ERROR_VALUE; }
 
-	out->hOut = 0U;
+	if (err == ERROR_OK)
+	{
+		#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
+		delay = (delay * LOGIC_OUT_IT_PER) / 1000UL;
+		active = (active * LOGIC_OUT_IT_PER) / 1000UL;
+		inactive = (inactive * LOGIC_OUT_IT_PER) / 1000UL;
 
-	diInterrupts();
-	#else
-	out->hOut = HALTicks();
-	#endif
+		out->hOut = 0U;
 
-	out->mode = mode;
-	out->action = action;
-	out->delay = delay;
-	out->timeActive = active;
-	out->timeInactive = inactive;
-	out->infinite = count ? false : true;
-	out->cnt = count;
+		diInterrupts();
+		#else
+		out->hOut = HALTicks();
+		#endif
 
-	out->start = true;
-	out->active = true;
-	out->idle = false;
+		out->mode = mode;
+		out->action = action;
+		out->delay = delay;
+		out->timeActive = active;
+		out->timeInactive = inactive;
+		out->infinite = count ? false : true;
+		out->cnt = count;
 
-	#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
-	enInterrupts();
-	#endif
+		out->start = true;
+		out->active = true;
+		out->idle = false;
 
-	return ERROR_OK;
+		#if defined(LOGIC_OUT_IT) || defined(GPIO_OUT_IT)
+		enInterrupts();
+		#endif
+	}
+
+	return err;
 }
 
-FctERR NONNULL__ Logic_out_SetStatic(Logic_out * const out, const eGPIOState action, const uint32_t delay) {
-	return Logic_out_Start(out, outStatic, action, delay, 0, 0, 0); }
 
-FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active) {
-	return Logic_out_Start(out, outPulse, action, delay, active, 0, 0); }
+FctERR NONNULL__ Logic_out_SetStatic(Logic_out * const out, const eGPIOState action, const uint32_t delay)
+{
+	return Logic_out_Start(out, outStatic, action, delay, 0, 0, 0);
+}
 
-FctERR NONNULL__ Logic_out_StartBlink(	Logic_out * const out, const eGPIOState action,
-										const uint32_t delay, const uint32_t active, const uint32_t inactive, const uint32_t count) {
-	return Logic_out_Start(out, outBlink, action, delay, active, inactive, count); }
+
+FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active)
+{
+	return Logic_out_Start(out, outPulse, action, delay, active, 0, 0);
+}
+
+
+FctERR NONNULL__ Logic_out_StartBlink(	Logic_out * const out,
+										const eGPIOState action,
+										const uint32_t delay,
+										const uint32_t active,
+										const uint32_t inactive,
+										const uint32_t count)
+{
+	return Logic_out_Start(out, outBlink, action, delay, active, inactive, count);
+}
 
 
 void NONNULL__ Logic_out_handler(Logic_out * const out)

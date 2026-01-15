@@ -19,7 +19,7 @@
 #include "tick_utils.h"
 #include "workload.h"
 
-#ifdef IT_WORKLOAD
+#if defined(IT_WORKLOAD)
 /****************************************************************/
 
 
@@ -147,5 +147,6 @@ void Workload_show_results(void)
 }
 
 
-#endif
-
+/****************************************************************/
+#endif	/* defined(IT_WORKLOAD) */
+/****************************************************************/

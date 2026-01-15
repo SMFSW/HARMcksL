@@ -112,6 +112,7 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset(GPIO_out * const out) {
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset_Delayed(GPIO_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Reset, delay); }
 
+
 /*!\brief Start GPIO_out Pulse
 ** \param[in,out] out - GPIO_out instance
 ** \param[in] action - action to perform on output port pin for active state (Reset/Set/Toggle)
@@ -122,6 +123,7 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_Reset_Delayed(GPIO_out * const out, co
 __INLINE FctERR NONNULL_INLINE__ GPIO_out_StartPulse(GPIO_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active) {
 	return Logic_out_StartPulse(out, action, delay, active); }
 
+
 /*!\brief Start GPIO_out Blink
 ** \param[in,out] out - GPIO_out instance
 ** \param[in] action - action to perform on output port pin for active state (Reset/Set/Toggle)
@@ -131,9 +133,15 @@ __INLINE FctERR NONNULL_INLINE__ GPIO_out_StartPulse(GPIO_out * const out, const
 ** \param[in] count - blink count (0 for infinite)
 ** \return FctERR - Error code
 **/
-__INLINE FctERR NONNULL_INLINE__ GPIO_out_StartBlink(	GPIO_out * const out, const eGPIOState action, const uint32_t delay,
-														const uint32_t active, const uint32_t inactive, const uint32_t count) {
-	return Logic_out_StartBlink(out, action, delay, active, inactive, count); }
+__INLINE FctERR NONNULL_INLINE__ GPIO_out_StartBlink(	GPIO_out * const out,
+														const eGPIOState action,
+														const uint32_t delay,
+														const uint32_t active,
+														const uint32_t inactive,
+														const uint32_t count)
+{
+	return Logic_out_StartBlink(out, action, delay, active, inactive, count);
+}
 
 
 /*!\brief Handles GPIO_out treatment

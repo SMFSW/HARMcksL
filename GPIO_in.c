@@ -22,11 +22,22 @@ __STATIC_INLINE GPIO_PinState NONNULL_INLINE__ GPIO_getter(GPIO_in * const in)
 
 
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
-									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter,
-									void (*onSet)(const GPIO_in * const), void (*onReset)(const GPIO_in * const), const bool repeat)
+									GPIO_TypeDef * const GPIOx,
+									const uint16_t GPIO_Pin,
+									const GPIO_PinState polarity,
+									const uint16_t filter,
+									void (*onSet)(const GPIO_in * const),
+									void (*onReset)(const GPIO_in * const),
+									const bool repeat)
 {
-	Logic_in_init(	in, (GPIO_PinState (*)(const Logic_in * const)) GPIO_getter, (uint32_t *) GPIOx, GPIO_Pin, polarity, filter,
-					(void (*)(const Logic_in * const)) onSet, (void (*)(const Logic_in * const)) onReset, repeat);
+	Logic_in_init(	in,
+					(GPIO_PinState (*)(const Logic_in * const)) GPIO_getter,
+					(uint32_t *) GPIOx, GPIO_Pin,
+					polarity,
+					filter,
+					(void (*)(const Logic_in * const)) onSet,
+					(void (*)(const Logic_in * const)) onReset,
+					repeat);
 }
 
 

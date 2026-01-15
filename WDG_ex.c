@@ -106,7 +106,7 @@ HAL_StatusTypeDef WDG_ex_restore_cfg(void)
 	#endif
 
 	#if defined(HAL_WWDG_MODULE_ENABLED)
-	memcpy(&hwwdg.Init, &WWDG_cfg, sizeof(WWDG_InitTypeDef));
+	UNUSED_RET memcpy(&hwwdg.Init, &WWDG_cfg, sizeof(WWDG_InitTypeDef));
 	status |= HAL_WWDG_Init(&hwwdg);
 	#endif
 
@@ -117,24 +117,36 @@ HAL_StatusTypeDef WDG_ex_restore_cfg(void)
 #if defined(HAL_IWDG_MODULE_ENABLED)
 HAL_StatusTypeDef NONNULL__ WDG_ex_set_IWDG_Period_us(IWDG_HandleTypeDef * const pIwdg, const uint32_t per)
 {
-	const uint32_t max_prescaler = 256U;		// STM32 IWDG STM32 architecture maximum prescaler
-	const uint32_t max_reload = 4095U;			// STM32 IWDG STM32 architecture maximum reload value
-	uint32_t reload;
-	uint32_t prescaler;
+	const uint32_t max_prescaler = 256U;	// STM32 IWDG STM32 architecture maximum prescaler
+	const uint32_t max_reload = 4095U;		// STM32 IWDG STM32 architecture maximum reload value
 
-	for (prescaler = prescaler_mult ; prescaler <= max_prescaler ; prescaler <<= 1U)
+	uint32_t reload;
+	uint32_t prescaler = prescaler_mult;
+
+	HAL_StatusTypeDef status;
+
+	while (prescaler <= max_prescaler)
 	{
-		reload = (refCLK * per) / (1000U * prescaler);		// Computation using KHz instead of Hz to stay in 32b range
-		if (reload <= max_reload)	{ break; }				// If in range
+		reload = (refCLK * per) / (1000U * prescaler);	// Computation using KHz instead of Hz to stay in 32b range
+		if (reload <= max_reload)	{ break; }			// If in range
+
+		prescaler <<= 1U;
 	}
 
-	if (reload == 0U)				{ return HAL_ERROR; }	// Period is too short
-	if (prescaler > max_prescaler)	{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
+	if (	(reload == 0U)					// Period is too short
+		||	(prescaler > max_prescaler))	// If nothing has been found (after last iteration)
+	{
+		status = HAL_ERROR;
+	}
+	else
+	{
+		pIwdg->Init.Reload = reload;
+		pIwdg->Init.Prescaler = (prescaler / prescaler_mult) - 1U;	// Convert to register value (0-7)
 
-	pIwdg->Init.Reload = reload;
-	pIwdg->Init.Prescaler = (prescaler / prescaler_mult) - 1U;	// Convert to register value (0-7)
+		status = HAL_IWDG_Init(pIwdg);
+	}
 
-	return HAL_IWDG_Init(pIwdg);
+	return status;
 }
 
 uint32_t NONNULL__ WDG_ex_get_IWDG_Period_us(const IWDG_HandleTypeDef * const pIwdg)

@@ -11,37 +11,45 @@
 
 FctERR NONNULL__ sequencer_init(Sequencer * const pSeq, const pfHandler_t * const aHandlers, const uintCPU_t nb_handlers, const bool start)
 {
-	if (nb_handlers > 32)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	memset(pSeq, 0, sizeof(Sequencer));
+	if (nb_handlers > 32)	{ err = ERROR_VALUE; }
+	else
+	{
+		UNUSED_RET memset(pSeq, 0, sizeof(Sequencer));
 
-	pSeq->cfg.aHandlers = aHandlers;
-	pSeq->cfg.nb_handlers = nb_handlers;
+		pSeq->cfg.aHandlers = aHandlers;
+		pSeq->cfg.nb_handlers = nb_handlers;
 
-	pSeq->cfg.handler_en = (uint32_t) -1;
+		pSeq->cfg.handler_en = (uint32_t) -1;
 
-	pSeq->sequencer_en = start;
+		pSeq->sequencer_en = start;
+	}
 
-	return ERROR_OK;
+	return err;
 }
 
 FctERR NONNULL__ sequencer_init_all(Sequencer * const pSeq, const Sequencer_cfg * const pCfg, const bool start)
 {
-	if (pCfg->nb_handlers > 32)		{ return ERROR_VALUE; }
-	if (pCfg->aHandlers == NULL)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	memcpy(&pSeq->cfg, pCfg, sizeof(Sequencer_cfg));
+	if (	(pCfg->nb_handlers > 32)
+		||	(pCfg->aHandlers == NULL))	{ err = ERROR_VALUE; }
+	else
+	{
+		UNUSED_RET memcpy(&pSeq->cfg, pCfg, sizeof(Sequencer_cfg));
 
-	pSeq->current_handler = 0U;
-	pSeq->sequencer_en = start;
+		pSeq->current_handler = 0U;
+		pSeq->sequencer_en = start;
+	}
 
-	return ERROR_OK;
+	return err;
 }
 
 
 FctERR NONNULL__ sequencer_deinit(Sequencer * const pSeq)
 {
-	memset(pSeq, 0, sizeof(Sequencer));
+	UNUSED_RET memset(pSeq, 0, sizeof(Sequencer));
 
 	return ERROR_OK;
 }
@@ -49,20 +57,22 @@ FctERR NONNULL__ sequencer_deinit(Sequencer * const pSeq)
 
 FctERR NONNULL__ sequencer_register_callback(Sequencer * const pSeq, const eSeqCallback callback, const pfSeq_cback_t pCallback)
 {
-	if (callback >= cback_max)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	pSeq->cfg.pf_callback[callback] = pCallback;
+	if (callback >= cback_max)	{ err = ERROR_VALUE; }
+	else						{ pSeq->cfg.pf_callback[callback] = pCallback; }
 
-	return ERROR_OK;
+	return err;
 }
 
 FctERR NONNULL__ sequencer_unregister_callback(Sequencer * const pSeq, const eSeqCallback callback)
 {
-	if (callback >= cback_max)	{ return ERROR_VALUE; }
+	FctERR err = ERROR_OK;
 
-	pSeq->cfg.pf_callback[callback] = NULL;
+	if (callback >= cback_max)	{ err = ERROR_VALUE; }
+	else						{ pSeq->cfg.pf_callback[callback] = NULL; }
 
-	return ERROR_OK;
+	return err;
 }
 
 

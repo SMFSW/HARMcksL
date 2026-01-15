@@ -137,7 +137,7 @@ HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, co
 {
 	HAL_StatusTypeDef st = HAL_OK;
 
-	switch (chan)	/* Set the Preload enable bit for channel */
+	switch (chan)	/* Set the pre-load enable bit for channel */
 	{
 		default:
 			st = HAL_ERROR;
@@ -178,7 +178,8 @@ HAL_StatusTypeDef NONNULL__ write_TIM_Preload(TIM_HandleTypeDef * const pTim, co
 
 HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, const uint32_t chan, const uint32_t CCR_val)
 {
-	__IO uint32_t * pCCR;
+	HAL_StatusTypeDef st = HAL_OK;
+	__IO uint32_t * pCCR = NULL;
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 	assert_param(IS_TIM_CCX_INSTANCE(pTim->Instance, chan));
@@ -187,22 +188,26 @@ HAL_StatusTypeDef NONNULL__ write_TIM_CCR(const TIM_HandleTypeDef * const pTim, 
 	#if defined(TIM_CHANNEL_6)
 		else if (chan <= TIM_CHANNEL_6)	{ pCCR = &pTim->Instance->CCR5 + (chan / 4UL) - 4UL; }
 	#endif
-	else 								{ return HAL_ERROR; }
+	else 								{ st = HAL_ERROR; }
 
-	*pCCR = CCR_val;
+	if (pCCR != NULL)					{ *pCCR = CCR_val; }
 
-	return HAL_OK;
+	return st;
 }
 
 
 HAL_StatusTypeDef NONNULL__ init_TIM_Base(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	HAL_StatusTypeDef err;
+	HAL_StatusTypeDef st;
 
-	err = set_TIM_Interrupts(pTim, Off);	// Stop interrupts if they were already started
-	err |= set_TIM_Freq(pTim, freq);		// Configure TIM frequency
-	if (err)	{ return err; }
-	return set_TIM_Interrupts(pTim, On);	// Start interrupts
+	st = set_TIM_Interrupts(pTim, Off);		// Stop interrupts if they were already started
+	st |= set_TIM_Freq(pTim, freq);			// Configure TIM frequency
+	if (st == HAL_OK)
+	{
+		st = set_TIM_Interrupts(pTim, On);	// Start interrupts
+	}
+
+	return st;
 }
 
 
@@ -212,7 +217,7 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 	if (freq != 0UL)	// Avoid div by 0
 	{
-		const uint32_t max_prescaler = 0xFFFFU;		// Prescaler is 16b no redeeming timer instance
+		const uint32_t max_prescaler = 0xFFFFUL;	// Prescaler is 16b no redeeming timer instance
 		uint32_t max_period = 0xFFFFUL;				// Max period for 16b timers (most common)
 		uint64_t period;							// For 32b timers, period needs to be 64b large for calculations
 		uint32_t prescaler;
@@ -222,25 +227,36 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 		#if defined(TIM5)
 			||	(pTim->Instance == TIM5)
 		#endif
-			)	{ max_period = 0xFFFFFFFFUL; }								// Max period for 32b timers
+			)	{ max_period = 0xFFFFFFFFUL; }			// Max period for 32b timers
 
 		const uint32_t refCLK = RCC_TIMCLKFreq(pTim);
-		if (freq > (refCLK / TIM_MIN_GRANULARITY))	{ return HAL_ERROR; }	// To guarantee minimum step range
 
-		for (prescaler = 0UL ; prescaler <= max_prescaler ; prescaler++)
+		if (freq > (refCLK / TIM_MIN_GRANULARITY))		// To guarantee minimum step range
 		{
-			period = refCLK;
-			period /= (uint64_t) freq * (prescaler + 1UL);
-			period -= 1UL;
-			if (period <= max_period)				{ break; }				// If in range
+			st = HAL_ERROR;
 		}
+		else
+		{
+			for (prescaler = 0UL ; prescaler <= max_prescaler ; prescaler++)
+			{
+				period = refCLK;
+				period /= (uint64_t) freq * (prescaler + 1UL);
+				period -= 1UL;
+				if (period <= max_period)	{ break; }	// If in range
+			}
 
-		if (prescaler == (max_prescaler + 1UL))		{ return HAL_ERROR; }	// If nothing has been found (after last iteration)
+			if (prescaler == (max_prescaler + 1UL))		// If nothing has been found (after last iteration)
+			{
+				st = HAL_ERROR;
+			}
+			else
+			{
+				pTim->Init.Period = period;
+				pTim->Init.Prescaler = prescaler;
 
-		pTim->Init.Period = period;
-		pTim->Init.Prescaler = prescaler;
-
-		st = HAL_TIM_Base_Init(pTim);
+				st = HAL_TIM_Base_Init(pTim);
+			}
+		}
 	}
 
 	return st;
@@ -249,18 +265,24 @@ HAL_StatusTypeDef NONNULL__ set_TIM_Freq(TIM_HandleTypeDef * const pTim, const u
 
 HAL_StatusTypeDef NONNULL__ set_TIM_Tick_Freq(TIM_HandleTypeDef * const pTim, const uint32_t freq)
 {
-	if (!freq)	{ return HAL_ERROR; }		// Avoid div by 0
+	HAL_StatusTypeDef st;
 
-	if (	(pTim->Instance == TIM2)
-	#if defined(TIM5)
-		||	(pTim->Instance == TIM5)
-	#endif
-		)	{ pTim->Init.Period = 0xFFFFFFFFUL; }						// Set to max period for 32b timers
-	else	{ pTim->Init.Period = 0xFFFFUL; }							// Set to max period for 16b timers
+	if (freq == 0)	{ st = HAL_ERROR; }		// Avoid div by 0
+	else
+	{
+		if (	(pTim->Instance == TIM2)
+		#if defined(TIM5)
+			||	(pTim->Instance == TIM5)
+		#endif
+			)	{ pTim->Init.Period = 0xFFFFFFFFUL; }						// Set to max period for 32b timers
+		else	{ pTim->Init.Period = 0xFFFFUL; }							// Set to max period for 16b timers
 
-	pTim->Init.Prescaler = (RCC_TIMCLKFreq(pTim) / freq) - 1UL;			// Get prescaler value adjusted to desired frequency
+		pTim->Init.Prescaler = (RCC_TIMCLKFreq(pTim) / freq) - 1UL;			// Get prescaler value adjusted to desired frequency
 
-	return HAL_TIM_Base_Init(pTim);
+		st = HAL_TIM_Base_Init(pTim);
+	}
+
+	return st;
 }
 
 

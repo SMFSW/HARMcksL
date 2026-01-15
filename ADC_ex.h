@@ -55,12 +55,12 @@
 
 
 #if !defined(ADC_RESOLUTION)
-#define ADC_RESOLUTION	12			//!< ADC resolution in bits (defaults to 12 if not set)
+#define ADC_RESOLUTION	12U			//!< ADC resolution in bits (defaults to 12 if not set)
 #endif
 
-#define	DefRangeADC		(LSHIFT(1U, ADC_RESOLUTION) - 1)		//!< ADC digital range
+#define	DefRangeADC		(LSHIFT(1U, ADC_RESOLUTION) - 1U)		//!< ADC digital range
 
-#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000))	//!< Step value (in mV) following given \p mv
+#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000U))	//!< Step value (in mV) following given \p mv
 
 
 /*!\enum eADCidx
@@ -68,7 +68,7 @@
 **/
 typedef enum {
 	#if defined(ADC1)
-	ADC_1 = 0,	//!< ADC1 index
+	ADC_1 = 0U,	//!< ADC1 index
 	#endif
 	#if defined(ADC2)
 	ADC_2,		//!< ADC2 index

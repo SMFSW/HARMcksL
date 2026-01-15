@@ -103,8 +103,11 @@ __INLINE bool NONNULL_INLINE__ get_Logic_out_Idle(const Logic_out * const out) {
 ** \param[in] polarity - set to \c GPIO_PIN_RESET if active state is low, \c GPIO_PIN_SET if high
 ** \return FctERR - Error code
 **/
-FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out, void (*setter)(const Logic_out * const, const GPIO_PinState),
-									uint32_t * const addr, const uint16_t pos, const GPIO_PinState polarity);
+FctERR NONNULLX__(1) Logic_out_init(Logic_out * const out,
+									void (*setter)(const Logic_out * const, const GPIO_PinState),
+									uint32_t * const addr,
+									const uint16_t pos,
+									const GPIO_PinState polarity);
 
 
 /*!\brief Stop Logic_out pulse/blink if running, or abort set if delay not reached
@@ -152,6 +155,7 @@ __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset(Logic_out * const out) {
 __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset_Delayed(Logic_out * const out, const uint32_t delay) {
 	return Logic_out_SetStatic(out, Reset, delay); }
 
+
 /*!\brief Start Logic_out Pulse
 ** \param[in,out] out - Logic_out instance
 ** \param[in] action - action to perform on output port pin for active state (Reset/Set/Toggle)
@@ -160,6 +164,7 @@ __INLINE FctERR NONNULL_INLINE__ Logic_out_Reset_Delayed(Logic_out * const out, 
 ** \return FctERR - Error code
 **/
 FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState action, const uint32_t delay, const uint32_t active);
+
 
 /*!\brief Start Logic_out Blink
 ** \param[in,out] out - Logic_out instance
@@ -170,8 +175,12 @@ FctERR NONNULL__ Logic_out_StartPulse(Logic_out * const out, const eGPIOState ac
 ** \param[in] count - blink count (0 for infinite)
 ** \return FctERR - Error code
 **/
-FctERR NONNULL__ Logic_out_StartBlink(	Logic_out * const out, const eGPIOState action, const uint32_t delay,
-										const uint32_t active, const uint32_t inactive, const uint32_t count);
+FctERR NONNULL__ Logic_out_StartBlink(	Logic_out * const out,
+										const eGPIOState action,
+										const uint32_t delay,
+										const uint32_t active,
+										const uint32_t inactive,
+										const uint32_t count);
 
 
 /*!\brief Handles Logic_out treatment

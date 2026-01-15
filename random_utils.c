@@ -41,8 +41,9 @@ uint32_t random_Get(const uint32_t start)
 	random32 ^= UID[2] << (time & 0x1UL);
 
 	// Enhancing randomness by changing seed & xor random result with previous one
+	// Deepsource would raise limited randomness generation, keeping it quiet with 'skipcq'
 	srand(random32);
-	random32 ^= rand();
+	random32 ^= rand();		// skipcq: CXX-W2016
 
 	return random32;
 }

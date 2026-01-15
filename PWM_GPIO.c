@@ -23,6 +23,7 @@ FctERR NONNULL__ PWM_GPIO_setPin(PWM_GPIO * const pPWM, GPIO_TypeDef * const GPI
 	pPWM->cfg.GPIO_Pin = GPIO_Pin;
 	pPWM->cfg.polarity = polarity;
 	enInterrupts();
+
 	return ERROR_OK;
 }
 

@@ -54,8 +54,13 @@ __INLINE eEdge NONNULL_INLINE__ get_GPIO_in_edge(const GPIO_in * const in) {
 ** \param[in] repeat - To repeat callback ON as long as input is set
 **/
 void NONNULLX__(1, 2) GPIO_in_init(	GPIO_in * const in,
-									GPIO_TypeDef * const GPIOx, const uint16_t GPIO_Pin, const GPIO_PinState polarity, const uint16_t filter,
-									void (*onSet)(const GPIO_in * const), void (*onReset)(const GPIO_in * const), const bool repeat);
+									GPIO_TypeDef * const GPIOx,
+									const uint16_t GPIO_Pin,
+									const GPIO_PinState polarity,
+									const uint16_t filter,
+									void (*onSet)(const GPIO_in * const),
+									void (*onReset)(const GPIO_in * const),
+									const bool repeat);
 
 
 /*!\brief Handles GPIO_in read and treatment

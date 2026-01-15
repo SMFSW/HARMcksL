@@ -70,9 +70,15 @@ __INLINE eEdge NONNULL_INLINE__ get_Logic_in_edge(const Logic_in * const in) {
 ** \param[in] onReset - Pointer to callback OFF function
 ** \param[in] repeat - To repeat callback ON as long as input is set
 **/
-void NONNULLX__(1) Logic_in_init(	Logic_in * const in, GPIO_PinState (*getter)(const Logic_in * const),
-									uint32_t * const addr, const uint32_t pos, const GPIO_PinState polarity, const uint16_t filter,
-									void (*onSet)(const Logic_in * const), void (*onReset)(const Logic_in * const), const bool repeat);
+void NONNULLX__(1) Logic_in_init(	Logic_in * const in,
+									GPIO_PinState (*getter)(const Logic_in * const),
+									uint32_t * const addr,
+									const uint32_t pos,
+									const GPIO_PinState polarity,
+									const uint16_t filter,
+									void (*onSet)(const Logic_in * const),
+									void (*onReset)(const Logic_in * const),
+									const bool repeat);
 
 
 /*!\brief Handles Logic_in read and treatment

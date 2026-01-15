@@ -52,9 +52,9 @@ HAL_StatusTypeDef NONNULL__ init_PWM_Chan(TIM_HandleTypeDef * const pTim, const 
 			end = i + 1UL;
 		}
 
-		for ( ; i < end ; i++)
+		while (i < end)
 		{
-			const uint32_t channel = i << 2UL;
+			const uint32_t channel = (i++) << 2UL;
 			if ((st) || (IS_TIM_CCX_INSTANCE(pTim->Instance, channel) == 0U))	// Channel does not exist on TIM
 			{
 				if (chan != TIM_CHANNEL_ALL)	{ st = HAL_ERROR; }				// set HAL_ERROR only for specified channel

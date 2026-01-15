@@ -90,7 +90,7 @@ FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const p
 
 	assert_param(IS_TIM_INSTANCE(pTim->Instance));
 
-	memset(pPWM_IC, 0, sizeof(PWM_IC));
+	UNUSED_RET memset(pPWM_IC, 0, sizeof(PWM_IC));
 
 	#if !defined(PWM_IC_NO_IT)
 	switch (Direct_Channel)
@@ -129,8 +129,10 @@ FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const p
 
 	// Start PWM pin input capture
 	err = HALERRtoFCTERR(HAL_TIM_IC_Starter(pTim, Indirect_Channel));
-	if (err) { return err; }
-	err = HALERRtoFCTERR(HAL_TIM_IC_Starter(pTim, Direct_Channel));
+	if (err == ERROR_OK)
+	{
+		err = HALERRtoFCTERR(HAL_TIM_IC_Starter(pTim, Direct_Channel));
+	}
 
 	return err;
 }
@@ -142,41 +144,45 @@ FctERR NONNULL__ init_PWM_IC(PWM_IC * const pPWM_IC, TIM_HandleTypeDef * const p
 **/
 static FctERR NONNULL__ PWM_IC_convert(PWM_IC * const pPWM_IC)
 {
-	if ((pPWM_IC - PWMin) >= NB_PWM_IC)		{ return ERROR_INSTANCE; }
+	FctERR err = ERROR_OK;
 
-	const bool timeout = binEval(get_PWM_IC_LastUpdate(pPWM_IC) >= pPWM_IC->Timeout);
-	if (timeout)	{ pPWM_IC->New_Sample = false; }	// Timeout reached, treat as logic signal (last samples are irrelevant)
-
-	if (pPWM_IC->New_Sample)
+	if ((pPWM_IC - PWMin) >= NB_PWM_IC)		{ err = ERROR_INSTANCE; }
+	else
 	{
-		pPWM_IC->New_Sample = false;
+		const bool timeout = binEval(get_PWM_IC_LastUpdate(pPWM_IC) >= pPWM_IC->Timeout);
+		if (timeout)	{ pPWM_IC->New_Sample = false; }	// Timeout reached, treat as logic signal (last samples are irrelevant)
 
-		if (	/*(pPWM_IC->Direct_cnt)								// Avoid div by 0
-			&&*/(pPWM_IC->Direct_cnt >= pPWM_IC->Indirect_cnt))		// Valid values (PWM frequency is too low otherwise)
+		if (pPWM_IC->New_Sample)
 		{
-			pPWM_IC->DutyCycle = ((pPWM_IC->Indirect_cnt * pPWM_IC->cfg.Scale) / pPWM_IC->Direct_cnt) + 1UL;	// Duty cycle computation
-			pPWM_IC->Frequency = pPWM_IC->cfg.refCLK / pPWM_IC->Direct_cnt;										// Frequency computation
+			pPWM_IC->New_Sample = false;
 
-			pPWM_IC->Timeout = max(1UL, (1000UL * 100UL) / pPWM_IC->Frequency);	// Timeout set to a hundred times current period
+			if (	/*(pPWM_IC->Direct_cnt)								// Avoid div by 0
+				&&*/(pPWM_IC->Direct_cnt >= pPWM_IC->Indirect_cnt))		// Valid values (PWM frequency is too low otherwise)
+			{
+				pPWM_IC->DutyCycle = ((pPWM_IC->Indirect_cnt * pPWM_IC->cfg.Scale) / pPWM_IC->Direct_cnt) + 1UL;	// Duty cycle computation
+				pPWM_IC->Frequency = pPWM_IC->cfg.refCLK / pPWM_IC->Direct_cnt;										// Frequency computation
+
+				pPWM_IC->Timeout = max(1UL, (1000UL * 100UL) / pPWM_IC->Frequency);	// Timeout set to a hundred times current period
+			}
+			else
+			{
+				// Unmeasurable PWM
+				pPWM_IC->Frequency = 0UL;
+				pPWM_IC->DutyCycle = 0UL;
+			}
 		}
 		else
 		{
-			// Unmeasurable PWM
+			// Handle as logic signal (when possible)
+			#if defined(PWM_IC_NO_IT)
+			pPWM_IC->Last_Edge = PWM_IC_get_Edge_From_Pin(pPWM_IC);
+			#endif
 			pPWM_IC->Frequency = 0UL;
-			pPWM_IC->DutyCycle = 0UL;
+			pPWM_IC->DutyCycle = (pPWM_IC->Last_Edge == Rising) ? pPWM_IC->cfg.Scale : 0UL;
 		}
 	}
-	else
-	{
-		// Handle as logic signal (when possible)
-		#if defined(PWM_IC_NO_IT)
-		pPWM_IC->Last_Edge = PWM_IC_get_Edge_From_Pin(pPWM_IC);
-		#endif
-		pPWM_IC->Frequency = 0UL;
-		pPWM_IC->DutyCycle = (pPWM_IC->Last_Edge == Rising) ? pPWM_IC->cfg.Scale : 0UL;
-	}
 
-	return ERROR_OK;
+	return err;
 }
 
 

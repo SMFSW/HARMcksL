@@ -87,11 +87,13 @@ FctERR CDC_Control_Set_Line_State(const uint8_t * const pbuf) {
 
 
 void CDC_Control_Set_Line_Coding(const uint8_t * const pbuf) {
-	UNUSED_RET memcpy((uint8_t *) &vcp_lineCoding, pbuf, sizeof(USBD_CDC_LineCodingTypeDef)); }
+	const size_t size = sizeof(USBD_CDC_LineCodingTypeDef);
+	UNUSED_RET memcpy(&vcp_lineCoding, pbuf, size); }
 
 
 void CDC_Control_Get_Line_Coding(uint8_t * const pbuf) {
-	UNUSED_RET memcpy(pbuf, (uint8_t *) &vcp_lineCoding, sizeof(USBD_CDC_LineCodingTypeDef)); }
+	const size_t size = sizeof(USBD_CDC_LineCodingTypeDef);
+	UNUSED_RET memcpy(pbuf, &vcp_lineCoding, size); }
 
 
 bool get_CDC_Line_State(void) {
