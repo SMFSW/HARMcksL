@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.6
 
+* ADC_ex: Manual discontinued sampling and automatic conversion of raw values functionalities enabling/disabling
 * Unused tags removal (enum/struct/union)
 * flash_check: flash_crc_check replaced by flash_full_crc_check
 * flash_check: flash_crc_check checks CRC for returned values by Get_app_start_address & Get_app_size (weak functions)

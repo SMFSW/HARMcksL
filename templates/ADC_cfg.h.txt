@@ -14,40 +14,34 @@
 /****************************************************************/
 
 
-#ifdef ADC_NB
-#undef ADC_NB								//!< Undefine previous declaration of ADC_NB (for backward compatibility with symbol defined in globals.h)
-#endif
-#ifdef ADC_NB_CHAN
-#undef ADC_NB_CHAN							//!< Undefine previous declaration of ADC_NB_CHAN (for backward compatibility with symbol defined in globals.h)
-#endif
+//#define ADC_CONTINUOUS_SAMPLING				//!< If defined, continuous sampling will be performed by the peripheral
+#define ADC_AUTO_RAW_VAL_CONV					//!< If defined, raw values will automatically be converted, getting result faster when needed
 
+//#define TEMP_CALC_VTEMP						//!< If defined, use Def_VTemp for temperature calculations, otherwise use calibration values
+#define ADC_COMPENSATION						//!< If defined, use of Vref and Vref calibration value to improve values accuracy
+#define ADC_CALIBRATION							//!< If defined, init will launch ADC peripherals calibration
 
-//#define TEMP_CALC_VTEMP					//!< If defined, use Def_VTemp for temperature calculations, otherwise use calibration values
-#define ADC_COMPENSATION					//!< If defined, use of Vref and Vref calibration value to improve values accuracy
-#define ADC_CALIBRATION						//!< If defined, init will launch ADC peripherals calibration
+#define ADC_USE_VREF							//!< ADC has Vref channel enabled (mandatory when using ADC_COMPENSATION)
+#define ADC_USE_TEMP							//!< ADC has Temperature channel enabled
+#define ADC_USE_VBAT							//!< ADC has Vbat channel enabled
 
-#define ADC_USE_VREF						//!< ADC has Vref channel enabled (mandatory when using ADC_COMPENSATION)
-#define ADC_USE_TEMP						//!< ADC has Temperature channel enabled
-#define ADC_USE_VBAT						//!< ADC has Vbat channel enabled
+//#define ADC_REFRESH_PERIOD	20U				//!< ADC conversions results refreshing period (default value)
 
+#define	ADC_NB					2U				//!< Number of ADC peripherals used
+#define	ADC_NB_CHAN				3U				//!< Number of ADC channels used (per peripheral)
 
-#define	ADC_NB				2U				//!< Number of ADC peripherals used
-#define	ADC_NB_CHAN			3U				//!< Number of ADC channels used (per peripheral)
+//#define ADC_RESOLUTION		12U				//!< ADC resolution (number of output bits)
 
-//#define ADC_RESOLUTION	12U				//!< ADC resolution (number of output bits)
+//#define Def_VAlim				(1700U)			//!< Def_VAlim needs to be defined (in mV) if special power supply voltage used (defaults to VDD_VALUE if not set)
 
-//#define Def_VAlim			(1700U)			//!< Def_VAlim needs to be defined (in mV) if special power supply voltage used (defaults to VDD_VALUE if not set)
+//#define Def_VCal				(3000U)			//!< Def_VCal may need to be defined (in mV) with VDD used at calibration values (check in datasheet family default value is valid)
+//#define Def_VBatFactor		(2.0f)			//!< Def_VBatFactor may need to be defined (check in datasheet if family default value is valid)
+#define Def_VTemp				(1430.0f)		//!< Temperature offset V25/V30... (in mV)
+#define Def_AvgSlope			(4.3f)			//!< Average Slope (in mV)
 
-//#define Def_VCal			(3000U)			//!< Def_VCal may need to be defined (in mV) with VDD used at calibration values (check in datasheet family default value is valid)
-//#define Def_VBatFactor	(2.0f)			//!< Def_VBatFactor may need to be defined (check in datasheet if family default value is valid)
-#define Def_VTemp			(1430.0f)		//!< Temperature offset V25/V30... (in mV)
-#define Def_AvgSlope		(4.3f)			//!< Average Slope (in mV)
-
-#define VREF_CAL_ADDR		(0x1FFFF7BAUL)	//!< VRef ADC calibration address
-#define TS_CAL1_ADDR		(0x1FFFF7B8UL)	//!< Temp sensor ADC raw data TS1 calibration address
-#define TS_CAL2_ADDR		(0x1FFFF7C2UL)	//!< Temp sensor ADC raw data TS2 calibration address
-
-#define ADC_REFRESH_PERIOD	20U				//!< ADC conversions results refreshing period
+#define VREF_CAL_ADDR			(0x1FFFF7BAUL)	//!< VRef ADC calibration address
+#define TS_CAL1_ADDR			(0x1FFFF7B8UL)	//!< Temp sensor ADC raw data TS1 calibration address
+#define TS_CAL2_ADDR			(0x1FFFF7C2UL)	//!< Temp sensor ADC raw data TS2 calibration address
 
 
 /*!\enum eAnalogInput
@@ -66,15 +60,6 @@ typedef enum {
 	Adc_ChannelWithCallback,
 	Adc_MAX			//!< Adc MAX
 } eAnalogInput;
-
-
-extern float ADCconv[Adc_MAX];		//!< ADC converted values array
-
-
-/*!\brief ADC periodic handler (basic conversion of measures at once)
-** \weak ADC handler may be user implemented to suit custom needs
-**/
-void ADC_handler(void);
 
 
 /****************************************************************/

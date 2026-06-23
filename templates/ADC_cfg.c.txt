@@ -23,25 +23,6 @@ const ADC_Cfg ADCConfig[Adc_MAX] = {
 };	//!< ADC inputs configuration array
 
 
-float ADCconv[Adc_MAX];		//!< ADC converted values array
-
-
-__WEAK void ADC_handler(void)
-{
-	static uint32_t hUpdADC = 0;
-
-	if (TPSSUP_MS(hUpdADC, ADC_REFRESH_PERIOD))
-	{
-		for (eAnalogInput in = Adc_Vref ; in < Adc_MAX ; in++)
-		{
-			ADCconv[in] = ADC_GetConvertedVal(in);
-		}
-
-		hUpdADC = HAL_GetTick();
-	}
-}
-
-
 /*!\brief Convert Channel raw value to final value
 ** \param[in] val - Raw ADC value (in Volts)
 ** \return Converted value (in mV)

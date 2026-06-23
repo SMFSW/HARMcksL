@@ -8,11 +8,11 @@
 ** 				- Circular Mode
 ** 				- Increment Memory
 ** 				- Data width Word for both peripheral and memory
-** 			- ADC configuration:
+** 			- ADC configuration (no need to active ADC global interrupt, DMA will handle conversion complete callback):
 ** 				- Scan conversion mode across channels enabled
-** 				- Continuous conversion is optional (if disabled, user has to start conversions manually when needed)
-** 				- DMA continuous request when available
-** 				- Interrupt generated at end of conversion
+** 				- Continuous conversion is optional (as DMA continuous request handles the behavior)
+** 				- DMA continuous request when available (if disabled, user has to start conversions manually when needed)
+** 				- Interrupt generated at end of sequence of conversion
 ** \note Define \c USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done including ADC_cfg.h file
 **/
@@ -99,7 +99,7 @@ typedef enum {
 **/
 typedef struct {
 	const eADCidx	adc;							//!< ADC instance index
-	const uint8_t	chan;							//!< Channel index
+	const uintCPU_t	chan;							//!< Channel index
 	float			(* const conv) (const float);	//!< Pointer to conversion function
 } ADC_Cfg;
 
@@ -117,15 +117,26 @@ uint16_t ADC_GetRawVal(const eAnalogInput input);
 float ADC_GetConvertedVal(const eAnalogInput input);
 
 
-/*!\brief Start ADC conversions
+/*!\brief Start ADC acquisitions
 ** \return FctERR - Error code
 **/
 FctERR ADC_Start(void);
 
-/*!\brief Stop ADC conversions
+/*!\brief Stop ADC acquisitions
 ** \return FctERR - Error code
 **/
 FctERR ADC_Stop(void);
+
+/*!\brief ADC_ex handler
+** \note If ADC_CONTINUOUS_SAMPLING is defined and ADC_AUTO_RAW_VAL_CONV is not defined, ADC_handler is useless
+**/
+void ADC_handler(void);
+
+
+/*!\brief Set ADC Sampling or Conversion period
+** \param[in] period - Sampling or Conversion period (in ms)
+**/
+void ADC_SetPeriod(const uint32_t period);
 
 
 /****************************************************************/

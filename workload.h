@@ -31,11 +31,11 @@
 #define GET_COUNT()			__HAL_TIM_GET_COUNTER(WORKLOAD_TIM_INST)
 #endif
 
-extern volatile uint32_t	it_ticks_accumulator;
-extern volatile uint32_t	it_ticks_start;
-extern volatile bool		it_counts_ongoing;
+extern __IO uint32_t		it_ticks_accumulator;
+extern __IO uint32_t		it_ticks_start;
+extern __IO bool			it_counts_ongoing;
 
-#define WORKLOAD_IT_IN()	bool already_counting = it_counts_ongoing ? true : false;	\
+#define WORKLOAD_IT_IN()	bool already_counting = it_counts_ongoing;					\
 							it_counts_ongoing = true;									\
 							if (!already_counting)	{ it_ticks_start = GET_COUNT(); }
 
@@ -57,8 +57,32 @@ extern volatile bool		it_counts_ongoing;
 typedef enum {
 	Workload_average = 0,	//!< Average value
 	Workload_worst,			//!< Worst value
-	Workload_best			//!< Best value
+	Workload_best,			//!< Best value
+	Workload_res_max,		//!< Max values for workload
 } eWorkload_val;
+
+
+/*!\struct workload_res_t
+** \brief Workload results structure
+**/
+typedef struct {
+	union {
+		uint32_t		load_perc[Workload_res_max];	//!< Interrupts workload (hundreds of %: 2 decimals included as integer)
+		struct {
+			uint32_t	avg_load;						//!< Average load
+			uint32_t	wst_load;						//!< Worst load
+			uint32_t	bst_load;						//!< Best load
+		};
+	} load;
+	union {
+		uint32_t		loop_us[Workload_res_max];		//!< Loop period (in µs)
+		struct {
+			uint32_t	avg_loop;						//!< Average loop period
+			uint32_t	wst_loop;						//!< Worst loop period
+			uint32_t	bst_loop;						//!< Best loop period
+		};
+	} loop;
+} workload_res_t;
 
 
 /*!\brief Get interrupts load percentage
@@ -76,11 +100,19 @@ float get_Workload_load_perc(const eWorkload_val type);
 uint32_t get_Workload_loop_period(const eWorkload_val type);
 
 
+/*!\brief Get full workload results
+** \note Loop period values will only be relevant in case of sequential code (you will get task period for RTOS based code)
+** \param[in,out] pResults - Pointer to results structure
+**/
+void get_Workload_results(workload_res_t * const pResults);
+
+
 /*!\brief Init Workload functionalities
 ** \weak Function declared as weak, can be customly implemented in project if special timer is required
 ** \return FctERR - Error code
 **/
 FctERR Workload_init(void);
+
 
 /*!\brief Set number of timer ticks in a µs
 ** \weak Function declared as weak, can be customly implemented in project if special timer is required
@@ -95,16 +127,16 @@ void set_Workload_ticks_us(const float ticks);
 **/
 void set_Workload_window(const uint32_t per);
 
+/*!\brief Get workload estimation time window (in ms)
+** \return Time window in ms
+**/
+uint32_t get_Workload_window(void);
+
 
 /*!\brief Workload handler
 ** \note This function shall be called in main loop or periodic task
 **/
 void Workload_handler(void);
-
-
-/*!\brief Print workload results
-**/
-void Workload_show_results(void);
 
 
 /****************************************************************/

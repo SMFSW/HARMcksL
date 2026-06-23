@@ -12,7 +12,7 @@
 ** 				- Scan conversion mode across channels enabled
 ** 				- Continuous conversion is optional (as DMA continuous request handles the behavior)
 ** 				- DMA continuous request when available (if disabled, user has to start conversions manually when needed)
-** 				- Interrupt generated at end of single conversion (to catch every sampled values)
+** 				- Interrupt generated at end of sequence of conversion
 ** \note Define \c USE_ADC_EX symbol at project level to use ADC_ex functionalities
 ** \note Configuration done including ADC_cfg.h file
 **/
@@ -211,7 +211,6 @@
 #endif
 #endif
 
-
 #ifndef ADC_NB
 #define	ADC_NB				1UL			//!< Number of ADC peripherals used
 #warning "You should define number of ADC peripheral used with ADC_NB macro. Assuming 1 ADC peripheral in use."
@@ -231,9 +230,9 @@
 #endif
 
 
-typedef struct {
-	uint16_t	Array[ADC_SAMP_BUF_SIZE];	//!< Samples
-} AnalogTab;
+#ifndef ADC_REFRESH_PERIOD
+#define ADC_REFRESH_PERIOD	20UL		//!< ADC conversions results refreshing period (default value)
+#endif
 
 
 #if (ADC_NB == 2)
@@ -242,69 +241,88 @@ typedef struct {
 	typedef uint32_t	DMA_sz_t;	//!< Size of DMA buffer cells (1 cell per ADC value)
 #endif
 
+static __IO DMA_sz_t	bufferDMA[TOTAL_ADC_CHANS];	//!< DMA buffer
 
-extern const ADC_Cfg	ADCConfig[Adc_MAX];
 
-static __IO uint32_t	ADCChan = 0;
-static __IO uint32_t	ADCMeasureIdx = 0;
-static __IO DMA_sz_t	ADCbuffer_DMA[TOTAL_ADC_CHANS];	//!< DMA ADC buffer
-static __IO AnalogTab	ADCbuffer[TOTAL_ADC_CHANS];		//!< ADC buffer
+/*!\struct ADCex_t
+** \brief ADCex structure
+**/
+typedef struct {
+	__IO uintCPU_t				idxMeasure;										//!< Current measure index (for array filling)
+	__IO uint16_t				bufferADC[TOTAL_ADC_CHANS][ADC_SAMP_BUF_SIZE];	//!< ADC buffer
+#if !defined(ADC_CONTINUOUS_SAMPLING) || defined(ADC_AUTO_RAW_VAL_CONV)
+	uint32_t					hUpdate;										//!< Last ADC sampling or conversion time
+#endif
+#if defined(ADC_AUTO_RAW_VAL_CONV)
+	float						bufferConv[Adc_MAX];							//!< ADC converted values array
+	bool						conv;											//!< Conversion to perform flag
+#endif
+	struct {
+		uint32_t				period;											//!< Sampling or Conversion period
+		const ADC_Cfg * const	aADCCfg;										//!< Pointer to ADCConfig array
+	} cfg;
+} ADCex_t;
+
+
+extern const ADC_Cfg	ADCConfig[Adc_MAX];		//!< ADCConfig external declaration
+
+ADCex_t ADC_ex = {	0, {{ 0 }},
+					#if !defined(ADC_CONTINUOUS_SAMPLING) || defined(ADC_AUTO_RAW_VAL_CONV)
+					0,
+					#endif
+					#if defined(ADC_AUTO_RAW_VAL_CONV)
+					{ 0 }, false,
+					#endif
+					{ ADC_REFRESH_PERIOD, ADCConfig } };
 
 
 /**!\brief Get ADC num and channel corresponding to input
 **	\param[in,out] adc - Pointer to ADC instance result
 **	\param[in,out] chan - Pointer to channel result
+**	\param[in] input - Input index
 **	\return Error code
 **/
-static FctERR NONNULL__ ADC_GetChan(uint8_t * const adc, uint8_t * const chan, const eAnalogInput input)
+static FctERR NONNULL__ ADC_GetChan(uintCPU_t * const adc, uintCPU_t * const chan, const eAnalogInput input)
 {
 	FctERR err = ERROR_OK;
 
 	if (input >= Adc_MAX)	{ err = ERROR_VALUE; }
 	else
 	{
-		*adc = ADCConfig[input].adc;
-		*chan = ADCConfig[input].chan;
+		*adc = ADC_ex.cfg.aADCCfg[input].adc;
+		*chan = ADC_ex.cfg.aADCCfg[input].chan;
 	}
 
 	return err;
 }
 
 
-uint16_t ADC_GetRawVal(const eAnalogInput input)
-{
-	uint16_t raw = 0;
-	uint8_t adc_num;
-	uint8_t chan;
-
-	if (ADC_GetChan(&adc_num, &chan, input) == ERROR_OK)
-	{
-		const uintCPU_t idx = adc_num + (chan * ADC_NB);
-		raw = RestrictedAverage_WORD(ADCbuffer[idx].Array, SZ_OBJ(ADCbuffer[idx].Array, uint16_t));
-	}
-
-	return raw;
-}
-
-
-float ADC_GetConvertedVal(const eAnalogInput input)
+/*!\brief Convert ADC channel raw value
+** \param[in] input - Input index
+** \return Channel converted value
+**/
+static float ADC_ConvertRAW(const eAnalogInput input)
 {
 	float val = 0.0f;
 
-	#if defined(ADC_COMPENSATION)
+	if (input < Adc_MAX)
+	{
+		#if defined(ADC_COMPENSATION)
+
 		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
 		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
 		if (vrefint_dat == 0)	{ goto ret; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
 
 		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
 		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
-	#else
+
+		#else
+
 		const int16_t	in_raw = ADC_GetRawVal(input);									// read input value
 		const float		in_v = in_raw * Def_ADCStep(Def_VAlim);							// Convert input value in Volts (in regard of power supply voltage)
-	#endif
 
-	if (input < Adc_MAX)
-	{
+		#endif
+
 		if (ADCConfig[input].conv != NULL)
 		{
 			val = ADCConfig[input].conv(in_v);
@@ -377,6 +395,31 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 }
 
 
+uint16_t ADC_GetRawVal(const eAnalogInput input)
+{
+	uint16_t raw = 0;
+	uintCPU_t adc_num;
+	uintCPU_t chan;
+
+	if (ADC_GetChan(&adc_num, &chan, input) == ERROR_OK)
+	{
+		const uintCPU_t idx = adc_num + (chan * ADC_NB);
+		raw = RestrictedAverage_WORD(ADC_ex.bufferADC[idx], SZ_OBJ(ADC_ex.bufferADC[idx], uint16_t));
+	}
+
+	return raw;
+}
+
+float ADC_GetConvertedVal(const eAnalogInput input)
+{
+	#if defined(ADC_AUTO_RAW_VAL_CONV)
+	return ADC_ex.bufferConv[input];
+	#else
+	return ADC_ConvertRAW(input);
+	#endif
+}
+
+
 FctERR ADC_Start(void)
 {
 	FctERR err = ERROR_OK;
@@ -395,7 +438,7 @@ FctERR ADC_Start(void)
 			}
 		#endif
 
-		err |= HALERRtoFCTERR(HAL_ADC_Start_DMA(&hadc1, (uint32_t *) ADCbuffer_DMA, TOTAL_ADC_CHANS));
+		err |= HALERRtoFCTERR(HAL_ADC_Start_DMA(&hadc1, (uint32_t *) bufferDMA, TOTAL_ADC_CHANS));
 	#elif (ADC_NB == 2)
 		#if defined(ADC_CALIBRATION)
 			if (!calib_done)
@@ -407,7 +450,7 @@ FctERR ADC_Start(void)
 		#endif
 
 		err |= HALERRtoFCTERR(HAL_ADC_Start(&hadc2));
-		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) ADCbuffer_DMA, TOTAL_ADC_CHANS / 2U));
+		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) bufferDMA, TOTAL_ADC_CHANS / 2U));
 	#elif (ADC_NB == 3)
 		#if defined(ADC_CALIBRATION)
 			if (!calib_done)
@@ -421,7 +464,7 @@ FctERR ADC_Start(void)
 
 		err |= HALERRtoFCTERR(HAL_ADC_Start(&hadc3));
 		err |= HALERRtoFCTERR(HAL_ADC_Start(&hadc2));
-		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) ADCbuffer_DMA, TOTAL_ADC_CHANS));
+		err |= HALERRtoFCTERR(HAL_ADCEx_MultiModeStart_DMA(&hadc1, (uint32_t *) bufferDMA, TOTAL_ADC_CHANS));
 	#endif
 
 		return err;
@@ -445,6 +488,41 @@ FctERR ADC_Stop(void)
 }
 
 
+void ADC_handler(void)
+{
+	#if !defined(ADC_CONTINUOUS_SAMPLING) || defined(ADC_AUTO_RAW_VAL_CONV)
+	if (TPSSUP_MS(ADC_ex.hUpdate, ADC_ex.cfg.period))
+	{
+		ADC_ex.hUpdate = HAL_GetTick();
+
+		#if !defined(ADC_CONTINUOUS_SAMPLING)
+		ADC_Start();
+		#elif defined(ADC_AUTO_RAW_VAL_CONV)
+		ADC_ex.conv = true;
+		#endif
+	}
+
+	#if defined(ADC_AUTO_RAW_VAL_CONV)
+	if (ADC_ex.conv)
+	{
+		ADC_ex.conv = false;
+
+		for (eAnalogInput in = Adc_Vref ; in < Adc_MAX ; in++)
+		{
+			ADC_ex.bufferConv[in] = ADC_ConvertRAW(in);
+		}
+	}
+	#endif
+	#endif
+}
+
+
+void ADC_SetPeriod(const uint32_t period)
+{
+	 ADC_ex.cfg.period = period;
+}
+
+
 /**!\brief Conversion complete callback in non blocking mode
 **	\strong Strong implementation of HAL_ADC_ConvCpltCallback in the library (will get precedence over HAL function)
 **	\warning If DMA used, same number of channels to convert have to be declared between ADCs for proper handling
@@ -454,15 +532,21 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc)
 {
 	UNUSED(hadc);
 
+#if !defined(ADC_CONTINUOUS_SAMPLING)
+	ADC_Stop();
+
+	#if defined(ADC_AUTO_RAW_VAL_CONV)
+	ADC_ex.conv = true;
+	#endif
+#endif
+
 	// Store value in buffers
-	ADCbuffer[ADCChan].Array[ADCMeasureIdx] = (uint16_t) ADCbuffer_DMA[ADCChan];
-
-	if (++ADCChan >= TOTAL_ADC_CHANS)
+	for (uintCPU_t chan = 0 ; chan < TOTAL_ADC_CHANS ; chan++)
 	{
-		ADCChan = 0;
-
-		if (++ADCMeasureIdx >= ADC_SAMP_BUF_SIZE)	{ ADCMeasureIdx = 0; }
+		ADC_ex.bufferADC[chan][ADC_ex.idxMeasure] = (uint16_t) bufferDMA[chan];
 	}
+
+	if (++ADC_ex.idxMeasure >= ADC_SAMP_BUF_SIZE)	{ ADC_ex.idxMeasure = 0; }
 }
 
 
