@@ -260,20 +260,41 @@ typedef struct {
 	struct {
 		uint32_t				period;											//!< Sampling or Conversion period
 		const ADC_Cfg * const	aADCCfg;										//!< Pointer to ADCConfig array
+		#if defined(ADC_USE_VREF)
+		ADCChanChk_Cfg			chan_chk;										//!< Vref check configuration structure
+		#endif
 	} cfg;
 } ADCex_t;
 
 
 extern const ADC_Cfg	ADCConfig[Adc_MAX];		//!< ADCConfig external declaration
 
-ADCex_t ADC_ex = {	0, {{ 0 }},
+
+static const ADCChanChk_Cfg ChanCheck_defaults = {	//!< ADCChanCheck default configuration
+	1.5f,	// Vref delta around expected value (in range)
+	0.25f,	// Max delta between consecutive (stable)
+	5U,		// Consecutive Vref good samples
+	10U,	// Vref sampling period
+	2000U,	// Wait Vref timeout
+	0		// Vref expected value (computed at runtime)
+};
+
+ADCex_t ADC_ex = {	0,
+					{{ 0 }},
 					#if !defined(ADC_CONTINUOUS_SAMPLING) || defined(ADC_AUTO_RAW_VAL_CONV)
 					0,
 					#endif
 					#if defined(ADC_AUTO_RAW_VAL_CONV)
-					{ 0 }, false,
+					{ 0 },
+					false,
 					#endif
-					{ ADC_REFRESH_PERIOD, ADCConfig } };
+					{
+						ADC_REFRESH_PERIOD,
+						ADCConfig,
+						#if defined(ADC_USE_VREF)
+						{ 0.0f, 0.0f, 0, 0, 0, 0 }
+						#endif
+					} };
 
 
 /**!\brief Get ADC num and channel corresponding to input
@@ -309,40 +330,28 @@ static float ADC_ConvertRAW(const eAnalogInput input)
 	{
 		#if defined(ADC_COMPENSATION)
 
-		const uint16_t	vrefint_cal = STM32_VREF_CAL;									// read Vref calibration from flash
-		const uint16_t	vrefint_dat = ADC_GetRawVal(Adc_Vref);							// read Vref data
-		if (vrefint_dat == 0)	{ goto ret; }											// Preventing HW faults when MCU starts with slow configured ADC acquisition
+		const uint16_t	vref_cal = STM32_VREF_CAL;								// read Vref calibration from flash
+		const uint16_t	vref_raw = ADC_GetRawVal(Adc_Vref);						// read Vref data
+		if (vref_raw == 0)	{ goto ret; }										// Preventing HW faults when MCU starts with slow configured ADC acquisition
 
-		const int16_t	in_raw = (ADC_GetRawVal(input) * vrefint_cal) / vrefint_dat;	// read input value and apply compensation
-		const float		in_v = in_raw * Def_ADCStep(Def_VCal);							// Convert input value in Volts (in regard of calibration voltage)
+		const int16_t	in_raw = (ADC_GetRawVal(input) * vref_cal) / vref_raw;	// read input value and apply compensation
+		const float		in_mv = in_raw * DefStepADC(Def_VCal);					// Convert input value in Volts (in regard of calibration voltage)
 
 		#else
 
-		const int16_t	in_raw = ADC_GetRawVal(input);									// read input value
-		const float		in_v = in_raw * Def_ADCStep(Def_VAlim);							// Convert input value in Volts (in regard of power supply voltage)
+		const int16_t	in_raw = ADC_GetRawVal(input);							// read input value
+		const float		in_mv = in_raw * DefStepADC(Def_VAlim);					// Convert input value in Volts (in regard of power supply voltage)
 
 		#endif
 
 		if (ADCConfig[input].conv != NULL)
 		{
-			val = ADCConfig[input].conv(in_v);
+			val = ADCConfig[input].conv(in_mv);
 		}
 		else
 		{
 			switch (input)
 			{
-				#if defined(ADC_USE_VREF)
-				case Adc_Vref:
-				{
-					#if defined(ADC_COMPENSATION)
-						val = vrefint_dat * Def_ADCStep(Def_VAlim);		// Always using full scale power supply voltage
-					#else
-						val = in_v;
-					#endif
-				}
-				break;
-				#endif
-
 				#if defined(ADC_USE_TEMP)
 				case Adc_Temp:
 				{
@@ -350,11 +359,11 @@ static float ADC_ConvertRAW(const eAnalogInput input)
 						// With raw converted value to mV
 						#if defined(STM32F0) || defined(STM32G0) || defined(STM32G4) || defined(STM32H5) || defined(STM32H7) || \
 							defined(STM32L4) || defined(STM32L5) || defined(STM32U5) || defined(STM32WB) || defined(STM32WBA) || defined(STM32WL)
-							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + 30.0f;
+							val = ((Def_VTemp - (in_mv * 1000.0f)) / Def_AvgSlope) + 30.0f;
 						#elif defined(STM32F1) || defined(STM32F3)
-							val = ((Def_VTemp - (in_v * 1000.0f)) / Def_AvgSlope) + 25.0f;
+							val = ((Def_VTemp - (in_mv * 1000.0f)) / Def_AvgSlope) + 25.0f;
 						#elif defined(STM32F2) || defined(STM32F4) || defined(STM32F7)
-							val = (((in_v * 1000.0f) - Def_VTemp) / Def_AvgSlope) + 25.0f;
+							val = (((in_mv * 1000.0f) - Def_VTemp) / Def_AvgSlope) + 25.0f;
 						#endif
 					#else
 						// Temp = (TC2 - TC1) / (ValC2 - ValC1) * (ValTS - ValC1) + TC1
@@ -374,14 +383,14 @@ static float ADC_ConvertRAW(const eAnalogInput input)
 				#if defined(ADC_USE_VBAT)
 				case Adc_Vbat:
 				{
-					val = in_v * Def_VBatFactor;
+					val = in_mv * Def_VBatFactor;
 				}
 				break;
 				#endif
 
 				default:
 				{
-					val = in_v;
+					val = in_mv;
 				}
 				break;
 			}
@@ -419,6 +428,11 @@ float ADC_GetConvertedVal(const eAnalogInput input)
 	#endif
 }
 
+
+void ADC_SetPeriod(const uint32_t period)
+{
+	 ADC_ex.cfg.period = period;
+}
 
 FctERR ADC_Start(void)
 {
@@ -487,7 +501,6 @@ FctERR ADC_Stop(void)
 	return err;
 }
 
-
 void ADC_handler(void)
 {
 	#if !defined(ADC_CONTINUOUS_SAMPLING) || defined(ADC_AUTO_RAW_VAL_CONV)
@@ -517,10 +530,95 @@ void ADC_handler(void)
 }
 
 
-void ADC_SetPeriod(const uint32_t period)
+/**!\brief Check ADC channel raw value for range and stability around given value
+**	\warning Blocking function
+**	\note May be used to wait for a specific ADC channel be properly set after a power on reset
+**	\param[in] channel - ADC channel to check
+**	\param[in] target - Target raw value
+**	\return ADC channel check validity
+**/
+__STATIC bool _ADC_chan_check(const eAnalogInput channel, const uint16_t target)
 {
-	 ADC_ex.cfg.period = period;
+	uintCPU_t	ok_cnt = 0;
+	uintCPU_t	elapsed_ms = 0;
+	uint16_t	mem_vref_raw = 0;
+	bool		have_prev = false;
+	bool		ret = false;
+
+	ADC_ex.cfg.chan_chk.target = target;
+
+	#if !defined(ADC_CONTINUOUS_SAMPLING)
+	UNUSED_RET ADC_Start();
+	#endif
+
+	while (elapsed_ms < ADC_ex.cfg.chan_chk.timeout)
+	{
+		const uint16_t vref_raw = (uint16_t) bufferDMA[channel];
+
+		// In-window: close to expected settled count. While VDDA ramps low, v reads HIGHER than target
+		const bool in_range = inTolerance(vref_raw, ADC_ex.cfg.chan_chk.target, ADC_ex.cfg.chan_chk.range_tolerance);
+
+		// Stable: small delta vs. previous valid sample
+		const bool stable = in_range && have_prev && inTolerance(vref_raw, mem_vref_raw, ADC_ex.cfg.chan_chk.stability_tolerance);
+
+		if (in_range && stable)
+		{
+			if (++ok_cnt >= ADC_ex.cfg.chan_chk.stable_count)
+			{
+				ret = true;
+				goto ret;
+			}
+		}
+		else
+		{
+			ok_cnt = in_range ? 1U : 0U;
+		}
+
+		mem_vref_raw = vref_raw;
+		have_prev = in_range;
+
+		const uintCPU_t delay = 5U;
+		for (uintCPU_t i = 0 ; i < ADC_ex.cfg.chan_chk.sampling_period / delay ; i++)
+		{
+			HAL_Delay(delay);
+			elapsed_ms += delay;
+
+			#if defined(HAL_IWDG_MODULE_ENABLED)
+			UNUSED_RET HAL_IWDG_Refresh(&hiwdg);
+			#endif
+		}
+	}
+
+	ret:
+	ADC_ex.cfg.chan_chk.target = 0;	// Clear expected target (used to keep ADC sampling on during test when continuous sampling is disabled)
+	return ret;
 }
+
+bool ADC_chan_check(const eAnalogInput channel, const uint16_t target)
+{
+	memcpy(&ADC_ex.cfg.chan_chk, &ChanCheck_defaults, sizeof(ADCChanChk_Cfg));
+	return _ADC_chan_check(channel, target);
+}
+
+bool ADC_chan_check_custom(const eAnalogInput channel, const uint16_t target, const ADCChanChk_Cfg * const pCfg)
+{
+	memcpy(&ADC_ex.cfg.chan_chk, pCfg, sizeof(ADCChanChk_Cfg));
+	return _ADC_chan_check(channel, target);
+}
+
+#if defined(ADC_USE_VREF)
+bool ADC_VREF_check(void)
+{
+	memcpy(&ADC_ex.cfg.chan_chk, &ChanCheck_defaults, sizeof(ADCChanChk_Cfg));
+	return _ADC_chan_check(Adc_Vref, DefExpectedVREF(Def_VAlim));
+}
+
+bool ADC_VREF_check_custom(const ADCChanChk_Cfg * const pCfg)
+{
+	memcpy(&ADC_ex.cfg.chan_chk, pCfg, sizeof(ADCChanChk_Cfg));
+	return _ADC_chan_check(Adc_Vref, DefExpectedVREF(Def_VAlim));
+}
+#endif
 
 
 /**!\brief Conversion complete callback in non blocking mode
@@ -533,11 +631,16 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc)
 	UNUSED(hadc);
 
 #if !defined(ADC_CONTINUOUS_SAMPLING)
-	ADC_Stop();
-
-	#if defined(ADC_AUTO_RAW_VAL_CONV)
-	ADC_ex.conv = true;
+	#if defined(ADC_USE_VREF)
+	if (ADC_ex.cfg.chan_chk.target == 0)	// Vref target set only while vref check is ongoing
 	#endif
+	{
+		ADC_Stop();
+
+		#if defined(ADC_AUTO_RAW_VAL_CONV)
+		ADC_ex.conv = true;
+		#endif
+	}
 #endif
 
 	// Store value in buffers

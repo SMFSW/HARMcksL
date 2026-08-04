@@ -58,9 +58,11 @@
 #define ADC_RESOLUTION	12U			//!< ADC resolution in bits (defaults to 12 if not set)
 #endif
 
-#define	DefRangeADC		(LSHIFT(1U, ADC_RESOLUTION) - 1U)		//!< ADC digital range
+#define	DefRangeADC			(LSHIFT(1U, ADC_RESOLUTION) - 1U)					//!< ADC digital range
 
-#define Def_ADCStep(mv)	((mv) / (float) (DefRangeADC * 1000U))	//!< Step value (in mV) following given \p mv
+#define DefStepADC(mv)		((mv) / (float) (DefRangeADC * 1000U))				//!< Step value (in mV) following given \p mv
+
+#define DefExpectedVREF(mv)	((uint16_t) ((STM32_VREF_CAL * Def_VCal) / (mv)))	//!< Expected Vref value for nominal voltage \p mv
 
 
 /*!\enum eADCidx
@@ -104,6 +106,19 @@ typedef struct {
 } ADC_Cfg;
 
 
+/*!\struct ADCChanChk_Cfg
+** \brief ADC channel check configuration structure
+**/
+typedef struct {
+	float		range_tolerance;		//!< Vref delta around expected value (in range)
+	float		stability_tolerance;	//!< Max delta between consecutive (stable)
+	uintCPU_t	stable_count;			//!< Consecutive Vref good samples
+	uintCPU_t	sampling_period;		//!< Vref sampling period
+	uintCPU_t	timeout;				//!< Wait Vref timeout
+	uint16_t	target;					//!< Vref expected value (computed at runtime)
+} ADCChanChk_Cfg;
+
+
 /*!\brief Get ADC channel raw value
 ** \param[in] input - Input index
 ** \return Channel raw value
@@ -116,6 +131,11 @@ uint16_t ADC_GetRawVal(const eAnalogInput input);
 **/
 float ADC_GetConvertedVal(const eAnalogInput input);
 
+
+/*!\brief Set ADC Sampling or Conversion period
+** \param[in] period - Sampling or Conversion period (in ms)
+**/
+void ADC_SetPeriod(const uint32_t period);
 
 /*!\brief Start ADC acquisitions
 ** \return FctERR - Error code
@@ -133,10 +153,40 @@ FctERR ADC_Stop(void);
 void ADC_handler(void);
 
 
-/*!\brief Set ADC Sampling or Conversion period
-** \param[in] period - Sampling or Conversion period (in ms)
+/**!\brief Check ADC channel raw value for range and stability around given value
+**	\warning Blocking function
+**	\note May be used to wait for a specific ADC channel be properly set after a power on reset
+**	\param[in] channel - ADC channel to check
+**	\param[in] target - Target raw value
+**	\return ADC channel check validity
 **/
-void ADC_SetPeriod(const uint32_t period);
+bool ADC_chan_check(const eAnalogInput channel, const uint16_t target);
+
+/**!\brief Check ADC channel raw value for range and stability around given value (custom check parameters)
+**	\warning Blocking function
+**	\note May be used to wait for a specific ADC channel be properly set after a power on reset
+**	\param[in] channel - ADC channel to check
+**	\param[in] target - Target raw value
+**	\param[in] pCfg - Pointer to custom configuration structure
+**	\return ADC channel check validity
+**/
+bool ADC_chan_check_custom(const eAnalogInput channel, const uint16_t target, const ADCChanChk_Cfg * const pCfg);
+
+
+/**!\brief Check VREFINT near its expected value
+**	\warning Blocking function
+**	\note May be used to wait for Vref be properly set after a power on reset
+**	\return VREFINT check validity
+**/
+bool ADC_VREF_check(void);
+
+/**!\brief Check VREFINT near its expected value (custom check parameters)
+**	\warning Blocking function
+**	\note May be used to wait for vref be properly set after a power on reset
+**	\param[in] pCfg - Pointer to custom configuration structure
+**	\return VREFINT check validity
+**/
+bool ADC_VREF_check_custom(const ADCChanChk_Cfg * const pCfg);
 
 
 /****************************************************************/
