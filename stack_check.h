@@ -23,7 +23,7 @@
 typedef struct {
 	uintptr_t	heap_start;				//!< heap start address
 	uintptr_t	heap_break;				//!< heap break address
-	uintptr_t	stack_addr;				//!< max static stack cost address
+	uintptr_t	stack_break;			//!< max static stack cost address
 	size_t		data_size;				//!< Static data size
 	size_t		heap_size;				//!< Currently used heap size
 	size_t		stack_size;				//!< Currently used stack size
@@ -43,7 +43,7 @@ typedef struct {
 ** \retval ERROR_OK if stack is OK
 ** \retval ERROR_MEMORY if stack overflow detected
 **/
-FctERR stack_check(memory_res_t * const pMem);
+FctERR NONNULL__ stack_check(memory_res_t * const pMem);
 
 
 /****************************************************************/

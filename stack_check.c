@@ -18,55 +18,48 @@
 /**!\warning \c static qualifier of \p __sbrk_heap_end may need to be commented in sysmem.c **/
 extern uint8_t *			__sbrk_heap_end;	//!< heap break address (sysmem.c)
 
-extern const uint32_t		_sdata;				//!< linker defined reference
-extern const uint32_t		_sheap;				//!< heap start address (linker defined reference)
-extern const uint32_t		_estack;			//!< linker defined reference
+extern const uintptr_t		_sdata;				//!< data section start address (linker defined reference)
+extern const uintptr_t		_sheap;				//!< heap start address (linker defined reference)
+extern const uintptr_t		_estack;			//!< stack end address (linker defined reference)
 extern const size_t			_Min_Heap_Size;		//!< minimum heap size (linker defined reference)
 extern const size_t			_Min_Stack_Size;	//!< minimum stack size (linker defined reference)
-extern const uint32_t		_Stack_Fill_Value;	//!< linker defined reference
-
-#define MIN_HEAP_SIZE		((const size_t) &_Min_Heap_Size)		//!<  (given to linker for static analysis)
-#define MIN_STACK_SIZE		((const size_t) &_Min_Stack_Size)		//!<  (given to linker for static analysis)
-
-#define FREE_STACK_VALUE	((const uint32_t) &_Stack_Fill_Value)	//!< stack pattern fill value
+extern const uint32_t		_Stack_Fill_Value;	//!< stack pattern fill value (linker defined reference)
 
 
-FctERR stack_check(memory_res_t * const pMem)
+#define PTR(x)		((const uint32_t *) (x))	//!< Cast \c uintptr_t integer to pointer of 32b
+
+
+FctERR NONNULL__ stack_check(memory_res_t * const pMem)
 {
 	const uintptr_t data = (uintptr_t) &_sdata;
+	const uintptr_t stack_end = (uintptr_t) &_estack;
 
-	const uint32_t * const pHeap = &_sheap;
-	const uint32_t * pHeapHigh = (const uint32_t *) __sbrk_heap_end;
-	const uint32_t * const pStackHigh = &_estack;
+	pMem->heap_start = (uintptr_t) &_sheap;
+	pMem->heap_break = (__sbrk_heap_end != NULL) ? (uintptr_t) __sbrk_heap_end : pMem->heap_start;
 
-	const uint32_t * pStack;
-
-	pHeapHigh = (pHeapHigh != NULL) ? pHeapHigh : pHeap;
-	pStack = pHeapHigh;
-
+	const uint32_t * pStack = PTR(pMem->heap_break);
 	do
 	{
-		if (*pStack != FREE_STACK_VALUE)	{ break; }
+		if (*pStack != (uint32_t) &_Stack_Fill_Value)	{ break; }
 	}
-	while (pStack++ < pStackHigh);
+	while (pStack++ < PTR(stack_end));
 
-	pMem->heap_start = (uintptr_t) pHeap;
-	pMem->heap_break = (uintptr_t) pHeapHigh;
-	pMem->stack_addr = (uintptr_t) pStack;
+	pMem->stack_break = (uintptr_t) pStack;
 
 	pMem->data_size = pMem->heap_start - data;
 	pMem->heap_size = pMem->heap_break - pMem->heap_start;
-	pMem->stack_size = (uintptr_t) pStackHigh - pMem->stack_addr;
-	pMem->free_size = (pMem->stack_addr < pMem->heap_break) ? 0 : pMem->stack_addr - pMem->heap_break;
+	pMem->stack_size = stack_end - pMem->stack_break;
 
-	pMem->stack_ovfw = binEval(pStack <= pHeapHigh);
+	pMem->stack_ovfw = binEval(pMem->stack_break < pMem->heap_break);
+	pMem->free_size = pMem->stack_ovfw ? 0 : pMem->stack_break - pMem->heap_break;
 
-	pMem->lnk_rsvd_heap_ovfw = binEval(pMem->heap_size > MIN_HEAP_SIZE);
-	pMem->lnk_rsvd_stack_ovfw = binEval(pMem->stack_size > MIN_STACK_SIZE);
+	pMem->lnk_rsvd_heap_ovfw = binEval(pMem->heap_size > (size_t) &_Min_Heap_Size);
+	pMem->lnk_rsvd_stack_ovfw = binEval(pMem->stack_size > (size_t) &_Min_Stack_Size);
 
 
 	return pMem->stack_ovfw ? ERROR_MEMORY : ERROR_OK;
 }
+
 
 /********************************/
 #endif	/* defined(STACK_CHECK) */
