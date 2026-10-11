@@ -55,6 +55,7 @@ The toolbox uses sarmfsw headers library
 - PWM: Straightforward PWM handling
 - random_utils: (A little less pseudo) random numbers generation utilities
 - RTC_ex: Basic RTC handling
+- stack_check: Memory utilities (heap stack stats and collision detection)
 - stack_utils: Stack utilities
 - stdream_rdir: Stream redirection (workaround without using syscalls redirections for console, somehow deprecated)
 - tick_utils: Core ticks related utilities
@@ -64,4 +65,3 @@ The toolbox uses sarmfsw headers library
 - USB_CDC_IF_ex: Extensions for USB VCP
 - WDG_ex: Extensions for WDG peripherals
 - workload: Workload estimation utilities
-

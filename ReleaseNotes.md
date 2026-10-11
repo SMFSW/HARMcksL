@@ -22,6 +22,7 @@ SOFTWARE.
 
 ## v1.6
 
+* stack_check: stack_check module added
 * ADC_ex: ADC signal checker implementation
 * ADC_ex: Manual discontinued sampling and automatic conversion of raw values functionalities enabling/disabling
 * Unused tags removal (enum/struct/union)
