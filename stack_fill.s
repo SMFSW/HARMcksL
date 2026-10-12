@@ -2,9 +2,12 @@
 ** \author SMFSW
 ** \copyright MIT (c) 2017-2026, SMFSW
 ** \brief Memory check utilities: stack filler
-** \note MemStackFill has to be called by startup routine, e.g. code below (after memory init steps, AND prior to any memory used on heap or stack)
 ** \note _Stack_Fill_Value has to be defined in linker script with 32b value to fill stack with (eg: _Stack_Fill_Value = 0xB00BFACE;)
-** \code
+** \note MemStackFill has to be called by startup routine (after memory init steps, AND prior to any memory used on heap or stack),
+**		You may want to call stack fill routine:\n
+**		1) for every build target, add: \code bl MemStackFill \endcode
+**		2) only for specific targets:
+** \code PREFERED METHOD
 	  // Declare weak external symbol. If the linker finds a real definition elsewhere, it's used;
 	  // if not, the symbol resolves to 0 (NULL) instead of causing a link error.
 	  .weak MemStackFill
@@ -24,6 +27,22 @@
 	// - When you *reference* it, you must say which direction to search:
 	//  - `1f` = search **f**orward from here for the next `1:` label.
 	//  - `1b` = search **b**ackward from here for the nearest previous `1:` label.
+	\endcode
+** \code CORES WITHOUT CBZ INSTRUCTION SUPPORT
+...
+//Call memory stack filler (following build target)
+  bl MemStackFill
+...
+
+// Create weak MemStackFill routine (in startup file)
+  .section  .text.MemStackFill
+  .weak  MemStackFill
+  .type  MemStackFill, %function
+// Fill the user heap & stack.
+MemStackFill:
+  bx lr
+
+  .size  MemStackFill, .-MemStackFill
 	\endcode
 **/
 
